@@ -19,13 +19,13 @@ public class Reminder {
         var dictionnary = List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Scanner scanner = new Scanner(inputStream);
         for (var word : dictionnary) {
-            outputStream.writeWithLineBreak(word.portugues);
+            outputStream.writeWithLineBreak(word.portugues());
             String s = scanner.nextLine();
             if (s.equals("quit")) {
                 outputStream.writeWithLineBreak("Bye");
                 return;
             }
-            if (word.french.equals(s)) {
+            if (word.isFrench(s)) {
                 outputStream.writeWithLineBreak("OK");
             } else {
                 outputStream.writeWithLineBreak("KO (éteindre)");
@@ -33,6 +33,4 @@ public class Reminder {
         }
     }
 
-    private record Word(String portugues, String french) {
-    }
 }
