@@ -2,34 +2,33 @@ package com.fgiannesini;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Scanner;
 
 public class Reminder {
     private final InputStream inputStream;
-    private final OutputStream outputStream;
+    private final StringOutputStream outputStream;
 
-    public Reminder(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public Reminder(InputStream inputStream, StringOutputStream outputStream) throws IOException {
         this.inputStream = inputStream;
         this.outputStream = outputStream;
-        outputStream.write(("Reminder" + System.lineSeparator()).getBytes());
+        outputStream.writeWithLineBreak("Reminder");
     }
 
     public void run() throws IOException {
         var dictionnary = List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Scanner scanner = new Scanner(inputStream);
         for (var word : dictionnary) {
-            outputStream.write((word.portugues + System.lineSeparator()).getBytes());
+            outputStream.writeWithLineBreak(word.portugues);
             String s = scanner.nextLine();
             if (s.equals("quit")) {
-                outputStream.write(("Bye" + System.lineSeparator()).getBytes());
+                outputStream.writeWithLineBreak("Bye");
                 return;
             }
             if (word.french.equals(s)) {
-                outputStream.write(("OK" + System.lineSeparator()).getBytes());
+                outputStream.writeWithLineBreak("OK");
             } else {
-                outputStream.write(("KO (éteindre)" + System.lineSeparator()).getBytes());
+                outputStream.writeWithLineBreak("KO (éteindre)");
             }
         }
     }
