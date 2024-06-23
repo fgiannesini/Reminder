@@ -28,4 +28,14 @@ class ReminderTest {
         Mockito.verify(outputStream).write("desligar\r\n".getBytes());
         Mockito.verify(outputStream).write("KO (éteindre)\r\n".getBytes());
     }
+
+    @Test
+    public void Should_quit_if_asked() throws IOException {
+        OutputStream outputStream = Mockito.mock(OutputStream.class);
+        Reminder reminder = new Reminder(new ByteArrayInputStream("quit".getBytes()), outputStream);
+        reminder.run();
+        Mockito.verify(outputStream).write("Reminder\r\n".getBytes());
+        Mockito.verify(outputStream).write("desligar\r\n".getBytes());
+        Mockito.verify(outputStream).write("Bye\r\n".getBytes());
+    }
 }

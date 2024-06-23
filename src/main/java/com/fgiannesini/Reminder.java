@@ -18,6 +18,10 @@ public class Reminder {
     public void run() throws IOException {
         outputStream.write(("desligar" + System.lineSeparator()).getBytes());
         String s = new Scanner(inputStream).nextLine();
+        if (s.equals("quit")) {
+            outputStream.write(("Bye" + System.lineSeparator()).getBytes());
+            return;
+        }
         if (s.equals("éteindre")) {
             outputStream.write(("OK" + System.lineSeparator()).getBytes());
         } else {
