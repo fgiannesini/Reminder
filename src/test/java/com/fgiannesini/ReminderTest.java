@@ -12,7 +12,8 @@ class ReminderTest {
     @Test
     public void Should_validate_a_translation_from_portugues_to_french() throws IOException {
         OutputStream outputStream = Mockito.mock(OutputStream.class);
-        new Reminder(new ByteArrayInputStream("éteindre".getBytes()), outputStream);
+        Reminder reminder = new Reminder(new ByteArrayInputStream("éteindre".getBytes()), outputStream);
+        reminder.run();
         Mockito.verify(outputStream).write("Reminder\r\n".getBytes());
         Mockito.verify(outputStream).write("desligar\r\n".getBytes());
         Mockito.verify(outputStream).write("OK\r\n".getBytes());
@@ -22,6 +23,7 @@ class ReminderTest {
     public void Should_reject_a_translation_from_portugues_to_french() throws IOException {
         OutputStream outputStream = Mockito.mock(OutputStream.class);
         Reminder reminder = new Reminder(new ByteArrayInputStream("allumer".getBytes()), outputStream);
+        reminder.run();
         Mockito.verify(outputStream).write("Reminder\r\n".getBytes());
         Mockito.verify(outputStream).write("desligar\r\n".getBytes());
         Mockito.verify(outputStream).write("KO (éteindre)\r\n".getBytes());
