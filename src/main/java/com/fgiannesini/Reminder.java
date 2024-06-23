@@ -2,7 +2,7 @@ package com.fgiannesini;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Reminder {
@@ -16,9 +16,10 @@ public class Reminder {
     }
 
     public void run() throws IOException {
-        var dictionnary = List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+        var dictionnary = new Words(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Scanner scanner = new Scanner(inputStream);
-        for (var word : dictionnary) {
+        for (Iterator<Word> it = dictionnary.iterator(); it.hasNext(); ) {
+            var word = it.next();
             outputStream.writeWithLineBreak(word.portugues());
             String s = scanner.nextLine();
             if (s.equals("quit")) {
