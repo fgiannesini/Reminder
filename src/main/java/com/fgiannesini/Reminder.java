@@ -32,7 +32,7 @@ public class Reminder {
             if (word.isFrench(s)) {
                 write(this.outputStream, "OK");
             } else {
-                write(this.outputStream, "KO (éteindre)");
+                write(this.outputStream, "KO (" + word.french() + ")");
             }
         }
     }
