@@ -11,27 +11,14 @@ import java.util.List;
 
 class ReminderTest {
 
-
-    private final Words dictionary = new Words(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+    private final Words dictionary = new Words(new NextGenerator(),
+            new Word("desligar", "éteindre"),
+            new Word("acender", "allumer"),
+            new Word("negar", "nier")
+    );
 
     private static ByteArrayInputStream getInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
-    }
-
-    @Test
-    public void Should_validate_a_translation_from_portugues_to_french() throws IOException {
-        var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream("""
-                éteindre
-                quit"""), outputStream);
-        reminder.run(dictionary);
-        Assertions.assertEquals(outputStream.getWrittenText(), """
-                Reminder
-                desligar
-                OK
-                acender
-                Bye
-                """);
     }
 
     @Test
@@ -48,6 +35,8 @@ class ReminderTest {
                 OK
                 acender
                 OK
+                negar
+                Bye
                 """);
     }
 

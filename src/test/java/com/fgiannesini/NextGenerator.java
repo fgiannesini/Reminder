@@ -11,7 +11,7 @@ class NextGenerator implements RandomGenerator {
     }
 
     @Override
-    public int nextInt() {
+    public int nextInt(int n) {
         return counter++;
     }
 }

@@ -3,7 +3,6 @@ package com.fgiannesini;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Reminder {
@@ -22,8 +21,8 @@ public class Reminder {
 
     public void run(Words dictionary) throws IOException {
         Scanner scanner = new Scanner(inputStream);
-        for (Iterator<Word> it = dictionary.iterator(); it.hasNext(); ) {
-            var word = it.next();
+        for (; ; ) {
+            var word = dictionary.next();
             write(this.outputStream, word.portugues());
             String s = scanner.nextLine();
             if (s.equals("quit")) {
