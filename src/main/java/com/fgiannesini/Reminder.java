@@ -2,17 +2,22 @@ package com.fgiannesini;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class Reminder {
     private final InputStream inputStream;
-    private final StringOutputStream outputStream;
+    private final OutputStream outputStream;
 
-    public Reminder(InputStream inputStream, StringOutputStream outputStream) throws IOException {
+    public Reminder(InputStream inputStream, OutputStream outputStream) throws IOException {
         this.inputStream = inputStream;
         this.outputStream = outputStream;
-        outputStream.writeWithLineBreak("Reminder");
+        write(this.outputStream, "Reminder");
+    }
+
+    private static void write(OutputStream outputStream, String text) throws IOException {
+        outputStream.write((text + "\n").getBytes());
     }
 
     public void run() throws IOException {
@@ -20,16 +25,16 @@ public class Reminder {
         Scanner scanner = new Scanner(inputStream);
         for (Iterator<Word> it = dictionnary.iterator(); it.hasNext(); ) {
             var word = it.next();
-            outputStream.writeWithLineBreak(word.portugues());
+            write(this.outputStream, word.portugues());
             String s = scanner.nextLine();
             if (s.equals("quit")) {
-                outputStream.writeWithLineBreak("Bye");
+                write(this.outputStream, "Bye");
                 return;
             }
             if (word.isFrench(s)) {
-                outputStream.writeWithLineBreak("OK");
+                write(this.outputStream, "OK");
             } else {
-                outputStream.writeWithLineBreak("KO (éteindre)");
+                write(this.outputStream, "KO (éteindre)");
             }
         }
     }
