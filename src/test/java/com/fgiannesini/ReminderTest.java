@@ -33,8 +33,10 @@ class ReminderTest {
                 Reminder
                 desligar
                 OK
+                                
                 acender
                 OK
+                                
                 negar
                 Bye
                 """);
@@ -51,6 +53,7 @@ class ReminderTest {
                 Reminder
                 desligar
                 KO (éteindre)
+                                
                 acender
                 Bye
                 """);
