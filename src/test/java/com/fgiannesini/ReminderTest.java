@@ -11,6 +11,9 @@ import java.util.List;
 
 class ReminderTest {
 
+
+    private final Words dictionary = new Words(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+
     private static ByteArrayInputStream getInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
@@ -21,7 +24,7 @@ class ReminderTest {
         Reminder reminder = new Reminder(getInputStream("""
                 éteindre
                 quit"""), outputStream);
-        reminder.run();
+        reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar
@@ -38,7 +41,7 @@ class ReminderTest {
                 éteindre
                 allumer
                 quit"""), outputStream);
-        reminder.run();
+        reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar
@@ -54,7 +57,7 @@ class ReminderTest {
         Reminder reminder = new Reminder(getInputStream("""
                 allumer
                 quit"""), outputStream);
-        reminder.run();
+        reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar
@@ -68,7 +71,7 @@ class ReminderTest {
     public void Should_quit_if_asked() throws IOException {
         var outputStream = new MockedOutputStream();
         Reminder reminder = new Reminder(getInputStream("quit"), outputStream);
-        reminder.run();
+        reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar

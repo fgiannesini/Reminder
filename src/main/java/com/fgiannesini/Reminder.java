@@ -20,10 +20,9 @@ public class Reminder {
         outputStream.write((text + "\n").getBytes());
     }
 
-    public void run() throws IOException {
-        var dictionnary = new Words(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+    public void run(Words dictionary) throws IOException {
         Scanner scanner = new Scanner(inputStream);
-        for (Iterator<Word> it = dictionnary.iterator(); it.hasNext(); ) {
+        for (Iterator<Word> it = dictionary.iterator(); it.hasNext(); ) {
             var word = it.next();
             write(this.outputStream, word.portugues());
             String s = scanner.nextLine();
