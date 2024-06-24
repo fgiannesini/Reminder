@@ -1,6 +1,7 @@
 package com.fgiannesini;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -18,6 +19,7 @@ class WordTest {
     void should_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
         Assertions.assertTrue(word.isFrench(input));
+        Assertions.assertEquals(word.isFrenchMatching(input), Word.Matching.MATCHED);
     }
 
     @ParameterizedTest
@@ -29,5 +31,13 @@ class WordTest {
     void should_not_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
         Assertions.assertFalse(word.isFrench(input));
+        Assertions.assertEquals(word.isFrenchMatching(input), Word.Matching.NOT_MATCHED);
+    }
+
+    @Test
+    void should_be_closed_to_matching_french_if_input_has_accents() {
+        Word word = new Word("ou seja", "c'est à dire");
+        Assertions.assertFalse(word.isFrench("c est a dire"));
+        Assertions.assertEquals(word.isFrenchMatching("c est a dire"), Word.Matching.CLOSED);
     }
 }
