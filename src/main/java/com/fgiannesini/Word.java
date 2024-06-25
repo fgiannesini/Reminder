@@ -1,6 +1,8 @@
 package com.fgiannesini;
 
 import java.text.Normalizer;
+import java.util.Arrays;
+import java.util.List;
 
 public record Word(String portugues, String french) {
     public boolean isFrench(String translation) {
@@ -24,8 +26,17 @@ public record Word(String portugues, String french) {
     }
 
     public Matching isFrenchMatching(String translation) {
+        List<Matching> list = Arrays.stream(french.split(",")).map(word -> getMatching(translation, word)).toList();
+        if (list.stream().anyMatch(match -> match == Matching.MATCHED)) {
+            return Matching.MATCHED;
+        } else if (list.stream().anyMatch(match -> match == Matching.CLOSED)) {
+            return Matching.CLOSED;
+        } else return Matching.NOT_MATCHED;
+    }
+
+    private Matching getMatching(String translation, String word) {
         String cleanTransaction = cleanPunctuationAndSpaces(translation);
-        String cleanFrench = cleanPunctuationAndSpaces(french);
+        String cleanFrench = cleanPunctuationAndSpaces(word);
         if (cleanFrench.equals(cleanTransaction)) {
             return Matching.MATCHED;
         } else if (isClosed(cleanFrench, cleanTransaction)) {

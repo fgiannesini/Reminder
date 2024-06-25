@@ -40,4 +40,13 @@ class WordTest {
         Assertions.assertFalse(word.isFrench("c est a dire"));
         Assertions.assertEquals(word.isFrenchMatching("c est a dire"), Word.Matching.CLOSED);
     }
+
+    @Test
+    void should_handle_two_translations() {
+        Word word = new Word("conferir", "confirmer, vérifier");
+        Assertions.assertEquals(word.isFrenchMatching("confirmer"), Word.Matching.MATCHED);
+        Assertions.assertEquals(word.isFrenchMatching("vérifier"), Word.Matching.MATCHED);
+        Assertions.assertEquals(word.isFrenchMatching("confirmer, vérifier"), Word.Matching.MATCHED);
+        Assertions.assertEquals(word.isFrenchMatching("vérifier, confirmer"), Word.Matching.MATCHED);
+    }
 }
