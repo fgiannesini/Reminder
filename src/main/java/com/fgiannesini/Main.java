@@ -9,10 +9,10 @@ public class Main {
         Reminder reminder = new Reminder(System.in, System.out);
         reminder.run(new Words(
                 new SecureRandom(new Date().toString().getBytes()),
-                new Word("eteindre", "desligar"),
-                new Word("allumer", "acender"),
-                new Word("depenser", "gastar"),
-                new Word("economiser", "poupar"),
+                new Word("desligar", "eteindre"),
+                new Word("acender", "allumer"),
+                new Word("gastar", "depenser"),
+                new Word("poupar", "economiser"),
                 new Word("reparar", "reparer"),
                 new Word("arrumar", "ranger"),
                 new Word("empurrar", "pousser"),
@@ -28,7 +28,7 @@ public class Main {
                 new Word("tesora", "ciseaux"),
                 new Word("aguentar", "tenir"),
                 new Word("eu nao aguento mais", "je n'en peux plus"),
-                new Word("estacionar", "garer"),
+                new Word("estacionar", "garer, se garer, stationner"),
                 new Word("dirigir", "conduire"),
                 new Word("apoiar, sustentar", "soutenir"),
                 new Word("acampar", "camper"),
