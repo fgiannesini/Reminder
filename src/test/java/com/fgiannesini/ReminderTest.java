@@ -25,14 +25,14 @@ class ReminderTest {
     public void Should_validate_two_translations_from_portugues_to_french() throws IOException {
         var outputStream = new MockedOutputStream();
         Reminder reminder = new Reminder(getInputStream("""
-                éteindre
+                eteindre
                 allumer
                 quit"""), outputStream);
         reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar
-                OK
+                CLOSE (éteindre)
                                 
                 acender
                 OK

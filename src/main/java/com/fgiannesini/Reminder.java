@@ -29,10 +29,10 @@ public class Reminder {
                 write(this.outputStream, "Bye");
                 return;
             }
-            if (word.isFrench(s)) {
-                write(this.outputStream, "OK\n");
-            } else {
-                write(this.outputStream, "KO (" + word.french() + ")\n");
+            switch (word.isFrenchMatching(s)) {
+                case MATCHED -> write(this.outputStream, "OK\n");
+                case CLOSED -> write(this.outputStream, "CLOSE (" + word.french() + ")\n");
+                case NOT_MATCHED -> write(this.outputStream, "KO (" + word.french() + ")\n");
             }
         }
     }
