@@ -32,7 +32,7 @@ public class Main {
                 new Word("dirigir", "conduire"),
                 new Word("apoiar, sustentar", "soutenir"),
                 new Word("acampar", "camper"),
-                new Word("assar", "cuire"),
+                new Word("assar", "rôtir"),
                 new Word("fritar", "faire cuire"),
                 new Word("ferver", "bouillir"),
                 new Word("panela", "casserole"),
