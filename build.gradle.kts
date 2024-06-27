@@ -18,3 +18,12 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks {
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+    compileTestJava {
+        options.encoding = "UTF-8"
+    }
+}
