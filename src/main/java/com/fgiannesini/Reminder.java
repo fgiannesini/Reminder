@@ -31,7 +31,7 @@ public class Reminder {
             }
             switch (word.isFrenchMatching(s)) {
                 case MATCHED -> write(this.outputStream, "OK\n");
-                case CLOSED -> write(this.outputStream, "CLOSE (" + word.french() + ")\n");
+                case CLOSED -> write(this.outputStream, "CLOSED (" + word.french() + ")\n");
                 case NOT_MATCHED -> write(this.outputStream, "KO (" + word.french() + ")\n");
             }
         }
