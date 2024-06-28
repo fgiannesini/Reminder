@@ -23,16 +23,16 @@ public class Reminder {
         Scanner scanner = new Scanner(inputStream);
         for (; ; ) {
             var word = dictionary.next();
-            write(this.outputStream, word.portugues());
+            write(this.outputStream, word.word());
             String s = scanner.nextLine();
             if (s.equals("quit")) {
                 write(this.outputStream, "Bye");
                 return;
             }
-            switch (word.isFrenchMatching(s)) {
+            switch (word.getMatching(s)) {
                 case MATCHED -> write(this.outputStream, "OK\n");
-                case CLOSED -> write(this.outputStream, "CLOSED (" + word.french() + ")\n");
-                case NOT_MATCHED -> write(this.outputStream, "KO (" + word.french() + ")\n");
+                case CLOSED -> write(this.outputStream, "CLOSED (" + word.translation() + ")\n");
+                case NOT_MATCHED -> write(this.outputStream, "KO (" + word.translation() + ")\n");
             }
         }
     }

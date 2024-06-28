@@ -3,41 +3,38 @@ package com.fgiannesini;
 import java.text.Normalizer;
 import java.util.Arrays;
 
-public record Word(String portugues, String french) {
+public record Word(String word, String translation) {
 
     private static String cleanPunctuationAndSpaces(String string) {
         return string.toLowerCase().replaceAll("[^\\p{L}]", "");
     }
 
-    private static boolean isClosed(String cleanFrench, String cleanTransaction) {
-        String normalized = cleanAccents(cleanFrench);
-        String normalizedTranslation = cleanAccents(cleanTransaction);
-        return normalized.equals(normalizedTranslation);
+    private static boolean isClosed(String cleanedWord, String cleanedTranslation) {
+        String normalizedWord = cleanAccents(cleanedWord);
+        String normalizedTranslation = cleanAccents(cleanedTranslation);
+        return normalizedWord.equals(normalizedTranslation);
     }
 
-    private static String cleanAccents(String cleanFrench) {
-        return Normalizer.normalize(cleanFrench, Normalizer.Form.NFKD).replaceAll("\\p{M}", "");
+    private static String cleanAccents(String toClean) {
+        return Normalizer.normalize(toClean, Normalizer.Form.NFKD).replaceAll("\\p{M}", "");
     }
 
-    public Matching isFrenchMatching(String translation) {
-        String[] frenchs = french.split(",");
-        String[] translations = translation.split(",");
-        var matchings = Arrays.stream(frenchs)
-                .flatMap(f ->
-                        Arrays.stream(translations)
-                                .map(t -> getMatching(f, t))
+    public Matching getMatching(String input) {
+        String[] splitTranslations = translation.split(",");
+        String[] inputs = input.split(",");
+        var matchings = Arrays.stream(splitTranslations)
+                .flatMap(translationToCheck ->
+                        Arrays.stream(inputs)
+                                .map(inputToCheck -> getMatching(translationToCheck, inputToCheck))
                 ).toList();
         return Matching.from(matchings);
     }
 
-    private Matching getMatching(String translation, String word) {
-        String cleanTransaction = cleanPunctuationAndSpaces(translation);
-        String cleanFrench = cleanPunctuationAndSpaces(word);
-        if (cleanFrench.equals(cleanTransaction)) {
-            return Matching.MATCHED;
-        } else if (isClosed(cleanFrench, cleanTransaction)) {
-            return Matching.CLOSED;
-        }
+    private Matching getMatching(String wordToCheck, String inputToCheck) {
+        String cleanedWord = cleanPunctuationAndSpaces(wordToCheck);
+        String cleanedInput = cleanPunctuationAndSpaces(inputToCheck);
+        if (cleanedInput.equals(cleanedWord)) return Matching.MATCHED;
+        if (isClosed(cleanedInput, cleanedWord)) return Matching.CLOSED;
         return Matching.NOT_MATCHED;
     }
 

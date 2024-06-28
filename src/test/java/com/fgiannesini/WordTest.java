@@ -18,7 +18,7 @@ class WordTest {
     })
     void should_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertEquals(word.isFrenchMatching(input), Matching.MATCHED);
+        Assertions.assertEquals(word.getMatching(input), Matching.MATCHED);
     }
 
     @ParameterizedTest
@@ -29,21 +29,21 @@ class WordTest {
     })
     void should_not_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertEquals(word.isFrenchMatching(input), Matching.NOT_MATCHED);
+        Assertions.assertEquals(word.getMatching(input), Matching.NOT_MATCHED);
     }
 
     @Test
     void should_be_closed_to_matching_french_if_input_has_accents() {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertEquals(word.isFrenchMatching("c est a dire"), Matching.CLOSED);
+        Assertions.assertEquals(word.getMatching("c est a dire"), Matching.CLOSED);
     }
 
     @Test
     void should_handle_two_translations() {
         Word word = new Word("conferir", "confirmer, vérifier");
-        Assertions.assertEquals(word.isFrenchMatching("confirmer"), Matching.MATCHED);
-        Assertions.assertEquals(word.isFrenchMatching("vérifier"), Matching.MATCHED);
-        Assertions.assertEquals(word.isFrenchMatching("confirmer, vérifier"), Matching.MATCHED);
-        Assertions.assertEquals(word.isFrenchMatching("vérifier, confirmer"), Matching.MATCHED);
+        Assertions.assertEquals(word.getMatching("confirmer"), Matching.MATCHED);
+        Assertions.assertEquals(word.getMatching("vérifier"), Matching.MATCHED);
+        Assertions.assertEquals(word.getMatching("confirmer, vérifier"), Matching.MATCHED);
+        Assertions.assertEquals(word.getMatching("vérifier, confirmer"), Matching.MATCHED);
     }
 }

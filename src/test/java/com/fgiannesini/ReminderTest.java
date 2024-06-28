@@ -11,18 +11,14 @@ import java.util.List;
 
 class ReminderTest {
 
-    private final Words dictionary = new Words(new NextGenerator(),
-            new Word("desligar", "éteindre"),
-            new Word("acender", "allumer"),
-            new Word("negar", "nier")
-    );
+    private final Words dictionary = new Words(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"), new Word("negar", "nier"));
 
     private static ByteArrayInputStream getInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
 
     @Test
-    public void Should_validate_two_translations_from_portugues_to_french() throws IOException {
+    public void Should_validate_two_translations() throws IOException {
         var outputStream = new MockedOutputStream();
         Reminder reminder = new Reminder(getInputStream("""
                 eteindre
@@ -43,7 +39,7 @@ class ReminderTest {
     }
 
     @Test
-    public void Should_reject_a_translation_from_portugues_to_french() throws IOException {
+    public void Should_reject_a_translation() throws IOException {
         var outputStream = new MockedOutputStream();
         Reminder reminder = new Reminder(getInputStream("""
                 allumer
@@ -60,7 +56,7 @@ class ReminderTest {
     }
 
     @Test
-    public void Should_quit_if_asked() throws IOException {
+    public void Should_quit() throws IOException {
         var outputStream = new MockedOutputStream();
         Reminder reminder = new Reminder(getInputStream("quit"), outputStream);
         reminder.run(dictionary);
