@@ -3,6 +3,7 @@ package com.fgiannesini;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Reminder {
@@ -20,7 +21,7 @@ public class Reminder {
     }
 
     public void run(Words dictionary) throws IOException {
-        Scanner scanner = new Scanner(inputStream);
+        Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8);
         for (; ; ) {
             var word = dictionary.next();
             write(this.outputStream, word.word());
