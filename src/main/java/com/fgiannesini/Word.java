@@ -4,11 +4,6 @@ import java.text.Normalizer;
 import java.util.Arrays;
 
 public record Word(String portugues, String french) {
-    public boolean isFrench(String translation) {
-        String cleanTransaction = translation.toLowerCase().replaceAll("[^a-z]", "");
-        String cleanFrench = french.toLowerCase().replaceAll("[^a-z]", "");
-        return cleanTransaction.equals(cleanFrench);
-    }
 
     private static String cleanPunctuationAndSpaces(String string) {
         return string.toLowerCase().replaceAll("[^\\p{L}]", "");
@@ -25,10 +20,6 @@ public record Word(String portugues, String french) {
     }
 
     public Matching isFrenchMatching(String translation) {
-        return getMatching(translation);
-    }
-
-    private Matching getMatching(String translation) {
         String[] frenchs = french.split(",");
         String[] translations = translation.split(",");
         var matchings = Arrays.stream(frenchs)

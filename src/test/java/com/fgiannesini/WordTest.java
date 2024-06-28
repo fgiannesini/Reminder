@@ -18,7 +18,6 @@ class WordTest {
     })
     void should_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertTrue(word.isFrench(input));
         Assertions.assertEquals(word.isFrenchMatching(input), Matching.MATCHED);
     }
 
@@ -30,14 +29,12 @@ class WordTest {
     })
     void should_not_validate_french_if_input_has_mistakes(String input) {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertFalse(word.isFrench(input));
         Assertions.assertEquals(word.isFrenchMatching(input), Matching.NOT_MATCHED);
     }
 
     @Test
     void should_be_closed_to_matching_french_if_input_has_accents() {
         Word word = new Word("ou seja", "c'est à dire");
-        Assertions.assertFalse(word.isFrench("c est a dire"));
         Assertions.assertEquals(word.isFrenchMatching("c est a dire"), Matching.CLOSED);
     }
 
