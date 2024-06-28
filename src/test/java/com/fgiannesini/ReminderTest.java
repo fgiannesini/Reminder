@@ -29,17 +29,17 @@ class ReminderTest {
                 allumer
                 quit"""), outputStream);
         reminder.run(dictionary);
-        Assertions.assertEquals(outputStream.getWrittenText(), """
+        Assertions.assertEquals("""
                 Reminder
                 desligar
-                CLOSE (éteindre)
+                CLOSED (éteindre)
                                 
                 acender
                 OK
                                 
                 negar
                 Bye
-                """);
+                """, outputStream.getWrittenText());
     }
 
     @Test
@@ -49,14 +49,14 @@ class ReminderTest {
                 allumer
                 quit"""), outputStream);
         reminder.run(dictionary);
-        Assertions.assertEquals(outputStream.getWrittenText(), """
+        Assertions.assertEquals("""
                 Reminder
                 desligar
                 KO (éteindre)
                                 
                 acender
                 Bye
-                """);
+                """, outputStream.getWrittenText());
     }
 
     @Test
