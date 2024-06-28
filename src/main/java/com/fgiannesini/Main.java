@@ -1,58 +1,19 @@
 package com.fgiannesini;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.Date;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        Reminder reminder = new Reminder(System.in, System.out);
-        reminder.run(new Words(
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        var path = Paths.get(ClassLoader.getSystemResource("dictionary.csv").toURI());
+        Words dictionary = Words.from(
                 new SecureRandom(new Date().toString().getBytes()),
-                new Word("desligar", "eteindre"),
-                new Word("acender", "allumer"),
-                new Word("gastar", "depenser"),
-                new Word("poupar", "economiser"),
-                new Word("reparar", "reparer"),
-                new Word("arrumar", "ranger"),
-                new Word("empurrar", "pousser"),
-                new Word("vencer,ganhar,derrotar", "vaincre"),
-                new Word("saltar,pular", "sauter"),
-                new Word("conseguir", "reussir"),
-                new Word("ao inves, em vez de", "au lieu de"),
-                new Word("ou seja", "c'est à dire"),
-                new Word("pertencer", "appartenir"),
-                new Word("gozar", "se moquer"),
-                new Word("brincar", "jouer"),
-                new Word("boneca", "poupée"),
-                new Word("tesora", "ciseaux"),
-                new Word("aguentar", "tenir"),
-                new Word("eu nao aguento mais", "je n'en peux plus"),
-                new Word("estacionar", "garer, se garer, stationner"),
-                new Word("dirigir", "conduire"),
-                new Word("apoiar, sustentar", "soutenir"),
-                new Word("acampar", "camper"),
-                new Word("assar", "rôtir"),
-                new Word("fritar", "faire cuire"),
-                new Word("ferver", "bouillir"),
-                new Word("panela", "casserole"),
-                new Word("secar", "secher"),
-                new Word("cruzar", "traverser"),
-                new Word("explorar", "exploiter"),
-                new Word("merecer", "meriter"),
-                new Word("eu costumo", "j'ai l'habitude"),
-                new Word("recusar", "refuser"),
-                new Word("girar, virar", "tourner"),
-                new Word("descansar", "se reposer"),
-                new Word("morar", "habiter"),
-                new Word("aumentar", "augmenter"),
-                new Word("conferir", "confirmer, verifier"),
-                new Word("arrumar", "ranger"),
-                new Word("concertar", "reparer"),
-                new Word("negar", "nier"),
-                new Word("desenvolver", "developper"),
-                new Word("somente", "seulement"),
-                new Word("ralada", "râpé")
-        ));
+                path
+        );
+        Reminder reminder = new Reminder(System.in, System.out);
+        reminder.run(dictionary);
     }
 }
