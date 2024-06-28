@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ class ReminderTest {
 
         @Override
         public void write(byte[] b) {
-            written.add(new String(b));
+            written.add(new String(b, StandardCharsets.UTF_8));
         }
 
         public String getWrittenText() {

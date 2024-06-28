@@ -17,7 +17,7 @@ public class Reminder {
     }
 
     private static void write(OutputStream outputStream, String text) throws IOException {
-        outputStream.write((text + "\n").getBytes());
+        outputStream.write((text + "\n").getBytes(StandardCharsets.UTF_8));
     }
 
     public void run(Words dictionary) throws IOException {
