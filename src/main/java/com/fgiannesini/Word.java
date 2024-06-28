@@ -2,7 +2,6 @@ package com.fgiannesini;
 
 import java.text.Normalizer;
 import java.util.Arrays;
-import java.util.List;
 
 public record Word(String portugues, String french) {
     public boolean isFrench(String translation) {
@@ -26,12 +25,18 @@ public record Word(String portugues, String french) {
     }
 
     public Matching isFrenchMatching(String translation) {
-        List<Matching> list = Arrays.stream(french.split(",")).map(word -> getMatching(translation, word)).toList();
-        if (list.stream().anyMatch(match -> match == Matching.MATCHED)) {
-            return Matching.MATCHED;
-        } else if (list.stream().anyMatch(match -> match == Matching.CLOSED)) {
-            return Matching.CLOSED;
-        } else return Matching.NOT_MATCHED;
+        return getMatching(translation);
+    }
+
+    private Matching getMatching(String translation) {
+        String[] frenchs = french.split(",");
+        String[] translations = translation.split(",");
+        var matchings = Arrays.stream(frenchs)
+                .flatMap(f ->
+                        Arrays.stream(translations)
+                                .map(t -> getMatching(f, t))
+                ).toList();
+        return Matching.from(matchings);
     }
 
     private Matching getMatching(String translation, String word) {
@@ -45,9 +50,4 @@ public record Word(String portugues, String french) {
         return Matching.NOT_MATCHED;
     }
 
-    public enum Matching {
-        MATCHED,
-        CLOSED,
-        NOT_MATCHED
-    }
 }
