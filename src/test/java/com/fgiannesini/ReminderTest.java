@@ -12,7 +12,7 @@ import java.util.List;
 
 class ReminderTest {
 
-    private final Words dictionary = new Words(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"), new Word("negar", "nier"));
+    private final Dictionary dictionary = new Dictionary(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"), new Word("negar", "nier"));
 
     private static ByteArrayInputStream getInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());

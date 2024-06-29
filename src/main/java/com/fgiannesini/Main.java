@@ -9,7 +9,7 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary.csv").toURI());
-        Words dictionary = Words.from(
+        Dictionary dictionary = Dictionary.from(
                 new SecureRandom(new Date().toString().getBytes()),
                 path
         );

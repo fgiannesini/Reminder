@@ -8,11 +8,11 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.List;
 
-class WordsTest {
+class DictionaryTest {
 
     @Test
     void should_get_next_word() {
-        Words dictionary = new Words(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+        Dictionary dictionary = new Dictionary(new NextGenerator(), new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Assertions.assertEquals(dictionary.next(), new Word("desligar", "éteindre"));
         Assertions.assertEquals(dictionary.next(), new Word("acender", "allumer"));
     }
@@ -21,9 +21,9 @@ class WordsTest {
     void should_load_from_file() throws URISyntaxException, IOException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
 
-        Words actual = Words.from(new NextGenerator(), path);
+        Dictionary actual = Dictionary.from(new NextGenerator(), path);
 
-        Words expected = new Words(
+        Dictionary expected = new Dictionary(
                 new NextGenerator(),
                 List.of(
                         new Word("ao inves, em vez de", "au lieu de"),

@@ -20,7 +20,7 @@ public class Reminder {
         outputStream.write((text + "\n").getBytes(StandardCharsets.UTF_8));
     }
 
-    public void run(Words dictionary) throws IOException {
+    public void run(Dictionary dictionary) throws IOException {
         Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8);
         for (; ; ) {
             var word = dictionary.next();
