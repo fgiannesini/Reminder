@@ -24,10 +24,10 @@ public class FileStorageHandler implements StorageHandler {
         this.storageDir = storageDir;
     }
 
-    private static List<CsvOriginalWord> readCsvFile(Path csvFilePath) throws IOException {
+    private static <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
         try (Reader reader = Files.newBufferedReader(csvFilePath)) {
-            CsvToBean<CsvOriginalWord> cb = new CsvToBeanBuilder<CsvOriginalWord>(reader)
-                    .withType(CsvOriginalWord.class)
+            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
+                    .withType(type)
                     .withSeparator(';')
                     .build();
             return cb.parse();
@@ -35,13 +35,21 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     public List<Word> load(Path csvFilePath) throws IOException {
-        var words = readCsvFile(csvFilePath)
-                .stream()
-                .map(CsvOriginalWord::toWord)
-                .toList();
+        Path tempFilePath = storageDir.resolve(csvFilePath.getFileName());
+        if (tempFilePath.toFile().exists()) {
+            return readCsvFile(tempFilePath, CsvWord.class)
+                    .stream()
+                    .map(CsvWord::toWord)
+                    .toList();
+        } else {
+            var words = readCsvFile(csvFilePath, CsvOriginalWord.class)
+                    .stream()
+                    .map(CsvOriginalWord::toWord)
+                    .toList();
 
-        writeCsvFile(words, storageDir.resolve(csvFilePath.getFileName()));
-        return words;
+            writeCsvFile(words, tempFilePath);
+            return words;
+        }
     }
 
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
