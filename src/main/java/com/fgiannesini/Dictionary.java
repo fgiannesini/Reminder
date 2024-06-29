@@ -19,12 +19,12 @@ public record Dictionary(RandomGenerator randomProvider, List<Word> words) {
 
     public static Dictionary from(RandomGenerator randomProvider, Path csvFilePath) throws IOException {
         try (Reader reader = Files.newBufferedReader(csvFilePath)) {
-            CsvToBean<CsvWord> cb = new CsvToBeanBuilder<CsvWord>(reader)
-                    .withType(CsvWord.class)
+            CsvToBean<CsvOriginalWord> cb = new CsvToBeanBuilder<CsvOriginalWord>(reader)
+                    .withType(CsvOriginalWord.class)
                     .withSeparator(';')
                     .build();
-            List<CsvWord> csvWords = cb.parse();
-            List<Word> words = csvWords.stream().map(CsvWord::toWord).toList();
+            List<CsvOriginalWord> csvOriginalWords = cb.parse();
+            List<Word> words = csvOriginalWords.stream().map(CsvOriginalWord::toWord).toList();
             return new Dictionary(randomProvider, words);
         }
     }

@@ -2,7 +2,7 @@ package com.fgiannesini;
 
 import com.opencsv.bean.CsvBindByPosition;
 
-public class CsvWord {
+public class CsvOriginalWord {
 
     @CsvBindByPosition(position = 0)
     private String word;
