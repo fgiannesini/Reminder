@@ -21,4 +21,11 @@ public class CsvWord {
     public Word toWord() {
         return new Word(word, translation);
     }
+
+    public static CsvWord fromWord(Word word) {
+        CsvWord csvWord = new CsvWord();
+        csvWord.setWord(word.word());
+        csvWord.setTranslation(word.translation());
+        return csvWord;
+    }
 }

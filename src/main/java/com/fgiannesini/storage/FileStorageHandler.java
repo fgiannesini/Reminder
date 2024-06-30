@@ -54,12 +54,7 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
-        var csvWords = words.stream().map(w -> {
-            CsvWord csvWord = new CsvWord();
-            csvWord.setWord(w.word());
-            csvWord.setTranslation(w.translation());
-            return csvWord;
-        }).toList();
+        var csvWords = words.stream().map(CsvWord::fromWord).toList();
 
         try (Writer writer = new FileWriter(filePath.toFile(), StandardCharsets.UTF_8)) {
             StatefulBeanToCsv<CsvWord> sbc = new StatefulBeanToCsvBuilder<CsvWord>(writer)
