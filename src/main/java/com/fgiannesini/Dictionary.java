@@ -5,10 +5,11 @@ import com.fgiannesini.storage.StorageHandler;
 import java.io.IOException;
 import java.util.List;
 import java.util.random.RandomGenerator;
+import java.util.stream.Stream;
 
 public final class Dictionary {
     private final RandomGenerator randomProvider;
-    private final List<Word> words;
+    private List<Word> words;
     private final StorageHandler storageHandler;
 
     public Dictionary(RandomGenerator randomProvider, StorageHandler storageHandler) throws IOException {
@@ -21,8 +22,8 @@ public final class Dictionary {
         return words.get(randomProvider.nextInt(words.size()));
     }
 
-    public void update(Word word) throws IOException {
-        words.remove(0);
+    public void update(Word newWord) throws IOException {
+        this.words = Stream.concat(this.words.stream().filter(word -> !word.isSimilarTo(newWord)), Stream.of(newWord)).toList();
         storageHandler.save(this.words);
     }
 }
