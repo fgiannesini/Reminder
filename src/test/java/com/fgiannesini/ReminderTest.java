@@ -26,7 +26,7 @@ class ReminderTest {
     }
 
     private static ByteArrayInputStream getInputStream(String input) {
-        return new ByteArrayInputStream(input.getBytes());
+        return new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
     }
 
     @Test
@@ -77,6 +77,34 @@ class ReminderTest {
                 desligar
                 Bye
                 """);
+    }
+
+    @Test
+    public void Should_learn_a_word() throws IOException {
+        var storageHandler = new MemoryStorageHandler(
+                new Word("desligar", "éteindre", 4),
+                new Word("acender", "allumer")
+        );
+
+        var outputStream = new MockedOutputStream();
+        Reminder reminder = new Reminder(getInputStream("""
+                éteindre
+                quit"""), outputStream);
+        reminder.run(new Dictionary(
+                new NextGenerator(),
+                storageHandler
+        ));
+        Assertions.assertEquals("""
+                Reminder
+                desligar
+                OK
+                                
+                Translation 'desligar -> éteindre' learned
+                                
+                acender
+                Bye
+                """, outputStream.getWrittenText());
+        Assertions.assertEquals(storageHandler.saveCallsCount(), 1);
     }
 
     private static class MockedOutputStream extends OutputStream {

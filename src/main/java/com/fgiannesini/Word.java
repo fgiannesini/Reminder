@@ -3,7 +3,7 @@ package com.fgiannesini;
 import java.text.Normalizer;
 import java.util.Arrays;
 
-public record Word(String word, String translation, int checked) {
+public record Word(String word, String translation, int checkedCount) {
 
     public Word(String word, String translation) {
         this(word, translation, 0);
@@ -43,6 +43,14 @@ public record Word(String word, String translation, int checked) {
     }
 
     public boolean isLearned() {
-        return checked == 5;
+        return checkedCount == 5;
+    }
+
+    public Word reset() {
+        return new Word(word, translation, 0);
+    }
+
+    public Word checked() {
+        return new Word(word, translation, checkedCount + 1);
     }
 }

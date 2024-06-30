@@ -55,6 +55,11 @@ public class FileStorageHandler implements StorageHandler {
         }
     }
 
+    @Override
+    public void save(List<Word> words) throws IOException {
+
+    }
+
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
         var csvWords = words.stream().map(CsvWord::fromWord).toList();
 

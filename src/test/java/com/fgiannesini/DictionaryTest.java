@@ -15,5 +15,4 @@ class DictionaryTest {
         Assertions.assertEquals(dictionary.next(), new Word("desligar", "éteindre"));
         Assertions.assertEquals(dictionary.next(), new Word("acender", "allumer"));
     }
-
 }

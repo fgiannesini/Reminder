@@ -30,11 +30,21 @@ public class Reminder {
                 write(this.outputStream, "Bye");
                 return;
             }
-            switch (word.getMatching(input)) {
+            Matching matching = word.getMatching(input);
+            switch (matching) {
                 case MATCHED -> write(this.outputStream, "OK\n");
                 case CLOSED -> write(this.outputStream, "CLOSED (" + word.translation() + ")\n");
                 case NOT_MATCHED -> write(this.outputStream, "KO (" + word.translation() + ")\n");
             }
+
+            Word newWord = switch (matching) {
+                case MATCHED, CLOSED -> word.checked();
+                case NOT_MATCHED -> word.reset();
+            };
+            if (newWord.isLearned()) {
+                write(this.outputStream, "Translation '" + newWord.word() + " -> " + newWord.translation() + "' learned\n");
+            }
+            dictionary.update(newWord);
         }
     }
 
