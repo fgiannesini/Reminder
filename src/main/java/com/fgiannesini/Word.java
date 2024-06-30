@@ -3,7 +3,11 @@ package com.fgiannesini;
 import java.text.Normalizer;
 import java.util.Arrays;
 
-public record Word(String word, String translation) {
+public record Word(String word, String translation, int checked) {
+
+    public Word(String word, String translation) {
+        this(word, translation, 0);
+    }
 
     private static String cleanPunctuationAndSpaces(String string) {
         return string.toLowerCase().replaceAll("[^\\p{L}]", "");
@@ -38,4 +42,7 @@ public record Word(String word, String translation) {
         return Matching.NOT_MATCHED;
     }
 
+    public boolean isLearned() {
+        return checked == 5;
+    }
 }

@@ -46,4 +46,16 @@ class WordTest {
         Assertions.assertEquals(word.getMatching("confirmer, vérifier"), Matching.MATCHED);
         Assertions.assertEquals(word.getMatching("vérifier, confirmer"), Matching.MATCHED);
     }
+
+    @Test
+    void should_be_learned_when_checked_lots_of_time() {
+        Word word = new Word("ou seja", "c'est à dire", 5);
+        Assertions.assertTrue(word.isLearned());
+    }
+
+    @Test
+    void should_not_be_learned_when_not_checked() {
+        Word word = new Word("ou seja", "c'est à dire", 0);
+        Assertions.assertFalse(word.isLearned());
+    }
 }
