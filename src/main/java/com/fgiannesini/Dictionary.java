@@ -22,6 +22,7 @@ public final class Dictionary {
     }
 
     public void update(Word word) throws IOException {
+        words.remove(0);
         storageHandler.save(this.words);
     }
 }
