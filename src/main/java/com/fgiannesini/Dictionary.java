@@ -1,16 +1,19 @@
 package com.fgiannesini;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.random.RandomGenerator;
 
-public record Dictionary(RandomGenerator randomProvider, List<Word> words) {
+public final class Dictionary {
+    private final RandomGenerator randomProvider;
+    private final List<Word> words;
 
-    public Dictionary(RandomGenerator randomProvider, Word... words) {
-        this(randomProvider, Arrays.stream(words).toList());
+    public Dictionary(RandomGenerator randomProvider, List<Word> words) {
+        this.randomProvider = randomProvider;
+        this.words = words;
     }
 
     public Word next() {
         return words.get(randomProvider.nextInt(words.size()));
     }
+
 }
