@@ -19,8 +19,8 @@ class FileStorageHandlerTest {
     void should_load_from_resource_file_and_store_a_copy(@TempDir Path tempDir) throws URISyntaxException, IOException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
 
-        var storageHandler = new FileStorageHandler(tempDir);
-        List<Word> wordList = storageHandler.load(path);
+        var storageHandler = new FileStorageHandler(tempDir, path);
+        List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
                 new Word("ao inves, em vez de", "au lieu de"),
@@ -44,8 +44,8 @@ class FileStorageHandlerTest {
         Files.writeString(tempDir.resolve("dictionary-for-test.csv"), """
                 ao inves, em vez de;au lieu de
                 ou seja;c'est à dire""");
-        var storageHandler = new FileStorageHandler(tempDir);
-        List<Word> wordList = storageHandler.load(Paths.get("dictionary-for-test.csv"));
+        var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
+        List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
                 new Word("ao inves, em vez de", "au lieu de"),

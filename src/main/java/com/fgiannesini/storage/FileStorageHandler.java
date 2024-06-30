@@ -20,9 +20,11 @@ import java.util.List;
 public class FileStorageHandler implements StorageHandler {
 
     private final Path storageDir;
+    private final Path originalCsvFilePath;
 
-    public FileStorageHandler(Path storageDir) {
+    public FileStorageHandler(Path storageDir, Path originalCsvFilePath) {
         this.storageDir = storageDir;
+        this.originalCsvFilePath = originalCsvFilePath;
     }
 
     private static <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
@@ -35,15 +37,15 @@ public class FileStorageHandler implements StorageHandler {
         }
     }
 
-    public List<Word> load(Path csvFilePath) throws IOException {
-        Path tempFilePath = storageDir.resolve(csvFilePath.getFileName());
+    public List<Word> load() throws IOException {
+        Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
         if (tempFilePath.toFile().exists()) {
             return readCsvFile(tempFilePath, CsvWord.class)
                     .stream()
                     .map(CsvWord::toWord)
                     .toList();
         } else {
-            var words = readCsvFile(csvFilePath, CsvOriginalWord.class)
+            var words = readCsvFile(originalCsvFilePath, CsvOriginalWord.class)
                     .stream()
                     .map(CsvOriginalWord::toWord)
                     .toList();
