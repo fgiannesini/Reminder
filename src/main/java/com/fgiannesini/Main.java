@@ -1,5 +1,7 @@
 package com.fgiannesini;
 
+import com.fgiannesini.storage.FileStorageHandler;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;

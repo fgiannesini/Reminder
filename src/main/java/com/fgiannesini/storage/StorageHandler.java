@@ -1,4 +1,6 @@
-package com.fgiannesini;
+package com.fgiannesini.storage;
+
+import com.fgiannesini.Word;
 
 import java.io.IOException;
 import java.nio.file.Path;

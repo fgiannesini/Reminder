@@ -1,5 +1,6 @@
-package com.fgiannesini;
+package com.fgiannesini.storage;
 
+import com.fgiannesini.Word;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;

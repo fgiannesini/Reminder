@@ -1,5 +1,6 @@
-package com.fgiannesini;
+package com.fgiannesini.storage;
 
+import com.fgiannesini.Word;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class CsvWord {

@@ -1,5 +1,6 @@
-package com.fgiannesini;
+package com.fgiannesini.storage;
 
+import com.fgiannesini.Word;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

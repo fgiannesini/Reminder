@@ -25,12 +25,12 @@ public class Reminder {
         for (; ; ) {
             var word = dictionary.next();
             write(this.outputStream, word.word());
-            String s = scanner.nextLine();
-            if (s.equals("quit")) {
+            String input = scanner.nextLine();
+            if (input.equals("quit")) {
                 write(this.outputStream, "Bye");
                 return;
             }
-            switch (word.getMatching(s)) {
+            switch (word.getMatching(input)) {
                 case MATCHED -> write(this.outputStream, "OK\n");
                 case CLOSED -> write(this.outputStream, "CLOSED (" + word.translation() + ")\n");
                 case NOT_MATCHED -> write(this.outputStream, "KO (" + word.translation() + ")\n");
