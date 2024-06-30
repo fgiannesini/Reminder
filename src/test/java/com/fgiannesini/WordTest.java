@@ -58,4 +58,18 @@ class WordTest {
         Word word = new Word("ou seja", "c'est à dire", 0);
         Assertions.assertFalse(word.isLearned());
     }
+
+    @Test
+    void should_be_similar() {
+        Word word1 = new Word("ou seja", "c'est à dire", 0);
+        Word word2 = new Word("ou seja", "c'est à dire", 1);
+        Assertions.assertTrue(word1.isSimilarTo(word2));
+    }
+
+    @Test
+    void should_not_be_similar() {
+        Word word1 = new Word("ou seja", "c'est à dire", 0);
+        Word word2 = new Word("conferir", "confirmer, vérifier", 0);
+        Assertions.assertFalse(word1.isSimilarTo(word2));
+    }
 }

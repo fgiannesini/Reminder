@@ -53,4 +53,8 @@ public record Word(String word, String translation, int checkedCount) {
     public Word checked() {
         return new Word(word, translation, checkedCount + 1);
     }
+
+    public boolean isSimilarTo(Word word) {
+        return word.translation.equals(this.translation) && word.word.equals(this.word);
+    }
 }
