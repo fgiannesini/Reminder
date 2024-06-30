@@ -8,16 +8,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.Date;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary.csv").toURI());
-        var storageHandler = new FileStorageHandler(Path.of(System.getProperty("user.home")).resolve("Reminder"), path);
-        List<Word> words = storageHandler.load();
+        var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
+        var storageHandler = new FileStorageHandler(storageDir, path);
         Dictionary dictionary = new Dictionary(
                 new SecureRandom(new Date().toString().getBytes()),
-                words
+                storageHandler
         );
         Reminder reminder = new Reminder(System.in, System.out);
         reminder.run(dictionary);
