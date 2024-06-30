@@ -10,12 +10,12 @@ public class CsvWord {
     @CsvBindByPosition(position = 1)
     private String translation;
 
-    public void setWord(String word) {
+    public CsvWord(String word, String translation) {
         this.word = word;
+        this.translation = translation;
     }
 
-    public void setTranslation(String translation) {
-        this.translation = translation;
+    public CsvWord() {
     }
 
     public Word toWord() {
@@ -23,9 +23,6 @@ public class CsvWord {
     }
 
     public static CsvWord fromWord(Word word) {
-        CsvWord csvWord = new CsvWord();
-        csvWord.setWord(word.word());
-        csvWord.setTranslation(word.translation());
-        return csvWord;
+        return new CsvWord(word.word(), word.translation());
     }
 }

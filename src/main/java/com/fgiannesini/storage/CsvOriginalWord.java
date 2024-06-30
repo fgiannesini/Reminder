@@ -10,12 +10,7 @@ public class CsvOriginalWord {
     @CsvBindByPosition(position = 1)
     private String translation;
 
-    public void setWord(String word) {
-        this.word = word;
-    }
-
-    public void setTranslation(String translation) {
-        this.translation = translation;
+    public CsvOriginalWord() {
     }
 
     public Word toWord() {
