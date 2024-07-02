@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.List;
 
 class FileStorageHandlerTest {
@@ -33,20 +34,20 @@ class FileStorageHandlerTest {
 
         String actual = readTempFile(storageDir);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de;0
-                au lieu de;ao inves, em vez de;0
-                ou seja;c'est à dire;0
-                c'est à dire;ou seja;0""");
+                ao inves, em vez de;au lieu de;0;
+                au lieu de;ao inves, em vez de;0;
+                ou seja;c'est à dire;0;
+                c'est à dire;ou seja;0;""");
     }
 
 
     @Test
     void should_load_the_copy_if_exists_and_synchronize_words(@TempDir Path tempDir) throws IOException, URISyntaxException {
         writeInTempFile(tempDir, """
-                ao inves, em vez de;au lieu de;1
-                au lieu de;ao inves, em vez de;2
-                acender;allumer;3
-                allumer;acender;4""");
+                ao inves, em vez de;au lieu de;1;
+                au lieu de;ao inves, em vez de;2;
+                acender;allumer;3;
+                allumer;acender;4;""");
 
         var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvFilePath());
         List<Word> wordList = storageHandler.load();
@@ -61,30 +62,30 @@ class FileStorageHandlerTest {
 
         String actual = readTempFile(tempDir);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de;1
-                au lieu de;ao inves, em vez de;2
-                ou seja;c'est à dire;0
-                c'est à dire;ou seja;0""");
+                ao inves, em vez de;au lieu de;1;
+                au lieu de;ao inves, em vez de;2;
+                ou seja;c'est à dire;0;
+                c'est à dire;ou seja;0;""");
     }
 
     @Test
     void should_save_the_updated_copy(@TempDir Path tempDir) throws IOException {
         writeInTempFile(tempDir, """
-                ao inves, em vez de;au lieu de;1
-                ou seja;c'est à dire;2""");
+                ao inves, em vez de;au lieu de;1;
+                ou seja;c'est à dire;4;""");
         var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
 
         var wordsToSave = List.of(
                 new Word("ao inves, em vez de", "au lieu de", 1, null),
-                new Word("ou seja", "c'est à dire", 3, null)
+                new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 2, 11, 51))
         );
 
         storageHandler.save(wordsToSave);
 
         String actual = readTempFile(tempDir);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de;1
-                ou seja;c'est à dire;3""");
+                ao inves, em vez de;au lieu de;1;
+                ou seja;c'est à dire;5;2024-07-02T11:51""");
     }
 
     private String readTempFile(Path testStorageDir) throws IOException {
