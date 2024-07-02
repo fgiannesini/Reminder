@@ -23,7 +23,7 @@ public class Reminder {
     public void run(Dictionary dictionary) throws IOException {
         Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8);
         for (; ; ) {
-            var word = dictionary.next(20);
+            var word = dictionary.next(40);
             write(this.outputStream, word.word());
             String input = scanner.nextLine();
             if (input.equals("quit")) {
