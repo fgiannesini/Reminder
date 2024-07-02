@@ -15,6 +15,15 @@ import java.util.List;
 
 class FileStorageHandlerTest {
 
+    private static String readTempFile(Path tempDir) throws IOException {
+        File[] files = tempDir.toFile().listFiles();
+        Assertions.assertNotNull(files);
+        Assertions.assertEquals(1, files.length);
+        File file = files[0];
+        List<String> elements = Files.readAllLines(file.toPath());
+        return String.join("\n", elements);
+    }
+
     @Test
     void should_load_from_resource_file_and_store_a_copy(@TempDir Path tempDir) throws URISyntaxException, IOException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
@@ -28,12 +37,8 @@ class FileStorageHandlerTest {
         );
 
         Assertions.assertEquals(expected, wordList);
-        File[] files = tempDir.toFile().listFiles();
-        Assertions.assertNotNull(files);
-        Assertions.assertEquals(1, files.length);
-        File file = files[0];
-        List<String> elements = Files.readAllLines(file.toPath());
-        String actual = String.join("\n", elements);
+
+        String actual = readTempFile(tempDir);
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;0
                 au lieu de;ao inves, em vez de;0
@@ -54,5 +59,25 @@ class FileStorageHandlerTest {
                 new Word("ou seja", "c'est à dire", 2)
         );
         Assertions.assertEquals(expected, wordList);
+    }
+
+    @Test
+    void should_save_the_updated_copy(@TempDir Path tempDir) throws IOException {
+        Files.writeString(tempDir.resolve("dictionary-for-test.csv"), """
+                ao inves, em vez de;au lieu de;1
+                ou seja;c'est à dire;2""");
+        var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
+
+        var wordsToSave = List.of(
+                new Word("ao inves, em vez de", "au lieu de", 1),
+                new Word("ou seja", "c'est à dire", 3)
+        );
+
+        storageHandler.save(wordsToSave);
+
+        String actual = readTempFile(tempDir);
+        Assertions.assertEquals(actual, """
+                ao inves, em vez de;au lieu de;1
+                ou seja;c'est à dire;3""");
     }
 }
