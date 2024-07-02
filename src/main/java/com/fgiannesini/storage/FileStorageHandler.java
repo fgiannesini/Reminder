@@ -28,18 +28,17 @@ public class FileStorageHandler implements StorageHandler {
         this.originalCsvFilePath = originalCsvFilePath;
     }
 
-    private <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
-        try (Reader reader = Files.newBufferedReader(csvFilePath)) {
-            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
-                    .withType(type)
-                    .withSeparator(';')
-                    .build();
-            return cb.parse();
-        }
+    private static List<Word> addDuplicates(List<Word> words) {
+        return words.stream()
+                .flatMap(word -> Stream.of(
+                        word,
+                        buildDuplicate(word)
+                ))
+                .toList();
     }
 
-    private static Word getOppositeWord(Word word) {
-        return new Word(word.translation(), word.word());
+    private static Word buildDuplicate(Word word) {
+        return new Word(word.translation(), word.word(), word.checkedCount());
     }
 
     public List<Word> load() throws IOException {
@@ -53,31 +52,15 @@ public class FileStorageHandler implements StorageHandler {
         }
         Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
         if (tempFilePath.toFile().exists()) {
-            List<Word> existingWords = readCsvFile(tempFilePath, CsvWord.class)
+            var existingWords = readCsvFile(tempFilePath, CsvWord.class)
                     .stream()
                     .map(CsvWord::toWord)
                     .toList();
-            var existingWordsWithoutRemoved = existingWords.stream().filter(existingWord -> {
-                return words.stream().anyMatch(word -> existingWord.isSimilarTo(word) || existingWord.isSimilarTo(getOppositeWord(word)));
-            }).toList();
-            List<Word> wordsToAdd = words.stream().filter(word -> {
-                        return existingWordsWithoutRemoved.stream().noneMatch(existingWord -> existingWord.isSimilarTo(word) || existingWord.isSimilarTo(getOppositeWord(word)));
-                    })
-                    .flatMap(word -> Stream.of(
-                            word,
-                            getOppositeWord(word)
-                    ))
-                    .toList();
-            List<Word> list = Stream.concat(existingWordsWithoutRemoved.stream(), wordsToAdd.stream()).toList();
-            writeCsvFile(list, tempFilePath);
-            return list;
+            var synchronisedWords = synchronize(words, existingWords);
+            writeCsvFile(synchronisedWords, tempFilePath);
+            return synchronisedWords;
         } else {
-            var wordsWithDuplicates = words.stream()
-                    .flatMap(word -> Stream.of(
-                            word,
-                            getOppositeWord(word)
-                    ))
-                    .toList();
+            var wordsWithDuplicates = addDuplicates(words);
             writeCsvFile(wordsWithDuplicates, tempFilePath);
             return wordsWithDuplicates;
         }
@@ -87,6 +70,17 @@ public class FileStorageHandler implements StorageHandler {
     public void save(List<Word> words) throws IOException {
         Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
         writeCsvFile(words, tempFilePath);
+    }
+
+    private List<Word> synchronize(List<Word> words, List<Word> existingWords) {
+        var existingWordsToKeep = existingWords.stream()
+                .filter(existingWord -> words.stream().anyMatch(word -> isWordOrDuplicate(word, existingWord)))
+                .toList();
+        var wordsToAdd = words.stream()
+                .filter(word -> existingWords.stream().noneMatch(existingWord -> isWordOrDuplicate(word, existingWord)))
+                .toList();
+        var wordsToAddWithDuplicates = addDuplicates(wordsToAdd);
+        return Stream.concat(existingWordsToKeep.stream(), wordsToAddWithDuplicates.stream()).toList();
     }
 
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
@@ -100,6 +94,20 @@ public class FileStorageHandler implements StorageHandler {
             sbc.write(csvWords);
         } catch (CsvException e) {
             throw new IOException(e);
+        }
+    }
+
+    private boolean isWordOrDuplicate(Word word1, Word word2) {
+        return word1.isSimilarTo(word2) || word1.isSimilarTo(buildDuplicate(word2));
+    }
+
+    private <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
+        try (Reader reader = Files.newBufferedReader(csvFilePath)) {
+            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
+                    .withType(type)
+                    .withSeparator(';')
+                    .build();
+            return cb.parse();
         }
     }
 }
