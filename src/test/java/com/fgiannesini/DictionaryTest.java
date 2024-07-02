@@ -5,35 +5,41 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 class DictionaryTest {
 
     @Test
     void should_get_next_word() throws IOException {
         StorageHandler storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+
         Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
+
         Assertions.assertEquals(dictionary.next(20), new Word("desligar", "éteindre"));
         Assertions.assertEquals(dictionary.next(20), new Word("acender", "allumer"));
     }
 
     @Test
-    void should_update_and_not_return_a_word_when_it_is_learned() throws IOException {
+    void should_update_and_return_a_learnt_word_at_the_end() throws IOException {
         MemoryStorageHandler storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+        var learnedMoment = LocalDateTime.now();
+
         Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
-        dictionary.update(new Word("desligar", "éteindre", 5, null));
+        dictionary.update(new Word("desligar", "éteindre", 5, learnedMoment));
+
         Assertions.assertEquals(dictionary.next(20), new Word("acender", "allumer"));
+        Assertions.assertEquals(dictionary.next(20), new Word("desligar", "éteindre", 5, learnedMoment));
         Assertions.assertEquals(1, storageHandler.saveCallsCount());
     }
 
     @Test
-    void should_get_first_words_not_learned() throws IOException {
+    void should_get_first_words() throws IOException {
         StorageHandler storageHandler = new MemoryStorageHandler(
-                new Word("desligar", "éteindre", 5, null),
-                new Word("acender", "allumer"),
-                new Word("conferir", "confirmer, vérifier")
+                new Word("desligar", "éteindre"),
+                new Word("acender", "allumer")
         );
         Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
-        Assertions.assertEquals(dictionary.next(1), new Word("acender", "allumer"));
-        Assertions.assertEquals(dictionary.next(1), new Word("acender", "allumer"));
+        Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
+        Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
     }
 }

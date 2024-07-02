@@ -83,7 +83,8 @@ class ReminderTest {
     public void Should_learn_a_word() throws IOException {
         var storageHandler = new MemoryStorageHandler(
                 new Word("desligar", "éteindre", 4, null),
-                new Word("acender", "allumer")
+                new Word("acender", "allumer"),
+                new Word("negar", "nier")
         );
 
         var outputStream = new MockedOutputStream();
@@ -101,7 +102,7 @@ class ReminderTest {
                                 
                 Translation 'desligar -> éteindre' learned
                                 
-                acender
+                negar
                 Bye
                 """, outputStream.getWrittenText());
         Assertions.assertEquals(storageHandler.saveCallsCount(), 1);

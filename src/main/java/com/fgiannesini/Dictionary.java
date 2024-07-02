@@ -3,6 +3,7 @@ package com.fgiannesini;
 import com.fgiannesini.storage.StorageHandler;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.random.RandomGenerator;
 
@@ -18,7 +19,7 @@ public final class Dictionary {
     }
 
     public Word next(int limit) {
-        var eligibleWords = words.stream().filter(word -> !word.isLearned()).limit(limit).toList();
+        var eligibleWords = words.stream().sorted(Comparator.comparing(Word::learnedMoment, Comparator.nullsFirst(Comparator.naturalOrder()))).limit(limit).toList();
         return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
     }
 

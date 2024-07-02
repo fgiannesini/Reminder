@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 class WordTest {
 
@@ -77,7 +77,7 @@ class WordTest {
 
     @Test
     void should_reset() {
-        Word word = new Word("ou seja", "c'est à dire", 5, new Date());
+        Word word = new Word("ou seja", "c'est à dire", 5, LocalDateTime.now());
         Word actual = word.reset();
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 0, null), actual);
     }
@@ -92,16 +92,16 @@ class WordTest {
     @Test
     void should_check_a_word_to_learn() {
         Word word = new Word("ou seja", "c'est à dire", 4, null);
-        Date learnedMoment = new Date();
+        var learnedMoment = LocalDateTime.now();
         Word actual = word.checked(learnedMoment);
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, learnedMoment), actual);
     }
 
     @Test
     void should_check_a_word_learnt() {
-        Date oldLearntMoment = new Date();
+        var oldLearntMoment = LocalDateTime.now();
         Word word = new Word("ou seja", "c'est à dire", 5, oldLearntMoment);
-        Date newLearntMoment = new Date();
+        var newLearntMoment = LocalDateTime.now();
         Word actual = word.checked(newLearntMoment);
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, newLearntMoment), actual);
     }

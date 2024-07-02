@@ -1,10 +1,10 @@
 package com.fgiannesini;
 
 import java.text.Normalizer;
+import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 
-public record Word(String word, String translation, int checkedCount, Date learnedMoment) {
+public record Word(String word, String translation, int checkedCount, LocalDateTime learnedMoment) {
 
     private static final int repetitionLimitToLearn = 5;
 
@@ -54,10 +54,10 @@ public record Word(String word, String translation, int checkedCount, Date learn
     }
 
     public Word checked() {
-        return checked(new Date());
+        return checked(LocalDateTime.now());
     }
 
-    public Word checked(Date learnedMoment) {
+    public Word checked(LocalDateTime learnedMoment) {
         var newWord = new Word(word, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
         if (newWord.isLearned()) {
             newWord = new Word(newWord.word(), newWord.translation(), newWord.checkedCount(), learnedMoment);
