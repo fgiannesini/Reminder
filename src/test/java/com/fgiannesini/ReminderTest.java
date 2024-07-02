@@ -43,7 +43,7 @@ class ReminderTest {
                 CLOSED (éteindre)
                                 
                 acender
-                OK
+                OK (allumer)
                                 
                 negar
                 Bye
@@ -98,7 +98,7 @@ class ReminderTest {
         Assertions.assertEquals("""
                 Reminder
                 desligar
-                OK
+                OK (éteindre)
                                 
                 Translation 'desligar -> éteindre' learned
                                 

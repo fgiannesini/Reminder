@@ -32,7 +32,7 @@ public class Reminder {
             }
             Matching matching = word.getMatching(input);
             switch (matching) {
-                case MATCHED -> write(this.outputStream, "OK\n");
+                case MATCHED -> write(this.outputStream, "OK (" + word.translation() + ")\n");
                 case CLOSED -> write(this.outputStream, "CLOSED (" + word.translation() + ")\n");
                 case NOT_MATCHED -> write(this.outputStream, "KO (" + word.translation() + ")\n");
             }
