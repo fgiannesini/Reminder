@@ -35,21 +35,23 @@ class FileStorageHandlerTest {
         List<String> elements = Files.readAllLines(file.toPath());
         String actual = String.join("\n", elements);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de
-                ou seja;c'est à dire""");
+                ao inves, em vez de;au lieu de;0
+                au lieu de;ao inves, em vez de;0
+                ou seja;c'est à dire;0
+                c'est à dire;ou seja;0""");
     }
 
     @Test
     void should_load_the_copy_if_exists(@TempDir Path tempDir) throws IOException {
         Files.writeString(tempDir.resolve("dictionary-for-test.csv"), """
-                ao inves, em vez de;au lieu de
-                ou seja;c'est à dire""");
+                ao inves, em vez de;au lieu de;1
+                ou seja;c'est à dire;2""");
         var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
         List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
-                new Word("ao inves, em vez de", "au lieu de"),
-                new Word("ou seja", "c'est à dire")
+                new Word("ao inves, em vez de", "au lieu de", 1),
+                new Word("ou seja", "c'est à dire", 2)
         );
         Assertions.assertEquals(expected, wordList);
     }

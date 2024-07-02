@@ -9,20 +9,23 @@ public class CsvWord {
     private String word;
     @CsvBindByPosition(position = 1)
     private String translation;
+    @CsvBindByPosition(position = 2)
+    private int checkedCount;
 
-    public CsvWord(String word, String translation) {
+    public CsvWord(String word, String translation, int checkedCount) {
         this.word = word;
         this.translation = translation;
+        this.checkedCount = checkedCount;
     }
 
     public CsvWord() {
     }
 
-    public Word toWord() {
-        return new Word(word, translation);
+    public static CsvWord fromWord(Word word) {
+        return new CsvWord(word.word(), word.translation(), word.checkedCount());
     }
 
-    public static CsvWord fromWord(Word word) {
-        return new CsvWord(word.word(), word.translation());
+    public Word toWord() {
+        return new Word(word, translation, checkedCount);
     }
 }

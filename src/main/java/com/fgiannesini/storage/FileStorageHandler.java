@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class FileStorageHandler implements StorageHandler {
 
@@ -50,7 +51,13 @@ public class FileStorageHandler implements StorageHandler {
                     .map(CsvOriginalWord::toWord)
                     .toList();
 
-            writeCsvFile(words, tempFilePath);
+            var wordsWithDuplicates = words.stream()
+                    .flatMap(word -> Stream.of(
+                            word,
+                            new Word(word.translation(), word.word())
+                    ))
+                    .toList();
+            writeCsvFile(wordsWithDuplicates, tempFilePath);
             return words;
         }
     }
