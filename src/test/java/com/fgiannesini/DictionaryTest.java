@@ -12,8 +12,8 @@ class DictionaryTest {
     void should_get_next_word() throws IOException {
         StorageHandler storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
-        Assertions.assertEquals(dictionary.next(), new Word("desligar", "éteindre"));
-        Assertions.assertEquals(dictionary.next(), new Word("acender", "allumer"));
+        Assertions.assertEquals(dictionary.next(20), new Word("desligar", "éteindre"));
+        Assertions.assertEquals(dictionary.next(20), new Word("acender", "allumer"));
     }
 
     @Test
@@ -21,7 +21,19 @@ class DictionaryTest {
         MemoryStorageHandler storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
         Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
         dictionary.update(new Word("desligar", "éteindre", 5));
-        Assertions.assertEquals(dictionary.next(), new Word("acender", "allumer"));
+        Assertions.assertEquals(dictionary.next(20), new Word("acender", "allumer"));
         Assertions.assertEquals(1, storageHandler.saveCallsCount());
+    }
+
+    @Test
+    void should_get_first_words_not_learned() throws IOException {
+        StorageHandler storageHandler = new MemoryStorageHandler(
+                new Word("desligar", "éteindre", 5),
+                new Word("acender", "allumer"),
+                new Word("conferir", "confirmer, vérifier")
+        );
+        Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        Assertions.assertEquals(dictionary.next(1), new Word("acender", "allumer"));
+        Assertions.assertEquals(dictionary.next(1), new Word("acender", "allumer"));
     }
 }

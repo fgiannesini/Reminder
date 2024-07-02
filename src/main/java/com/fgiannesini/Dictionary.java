@@ -5,7 +5,6 @@ import com.fgiannesini.storage.StorageHandler;
 import java.io.IOException;
 import java.util.List;
 import java.util.random.RandomGenerator;
-import java.util.stream.Stream;
 
 public final class Dictionary {
     private final RandomGenerator randomProvider;
@@ -18,12 +17,15 @@ public final class Dictionary {
         this.words = this.storageHandler.load();
     }
 
-    public Word next() {
-        return words.get(randomProvider.nextInt(words.size()));
+    public Word next(int limit) {
+        var eligibleWords = words.stream().filter(word -> !word.isLearned()).limit(limit).toList();
+        return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
     }
 
     public void update(Word newWord) throws IOException {
-        this.words = Stream.concat(this.words.stream().filter(word -> !word.isSimilarTo(newWord)), Stream.of(newWord)).toList();
+        this.words = words.stream()
+                .map(word -> word.isSimilarTo(newWord) ? newWord : word)
+                .toList();
         storageHandler.save(this.words);
     }
 }
