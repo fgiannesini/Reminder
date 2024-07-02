@@ -15,21 +15,11 @@ import java.util.List;
 
 class FileStorageHandlerTest {
 
-    private static String readTempFile(Path tempDir) throws IOException {
-        File[] files = tempDir.toFile().listFiles();
-        Assertions.assertNotNull(files);
-        Assertions.assertEquals(1, files.length);
-        File file = files[0];
-        List<String> elements = Files.readAllLines(file.toPath());
-        return String.join("\n", elements);
-    }
 
     @Test
     void should_load_from_resource_file_and_store_a_copy_if_not_existing(@TempDir Path tempDir) throws URISyntaxException, IOException {
-        var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
-
-        Path testDir = tempDir.resolve("Reminder");
-        var storageHandler = new FileStorageHandler(testDir, path);
+        Path storageDir = buildTestStorageDir(tempDir);
+        var storageHandler = new FileStorageHandler(storageDir, getTestOriginalCsvFilePath());
         List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
@@ -41,7 +31,7 @@ class FileStorageHandlerTest {
 
         Assertions.assertEquals(expected, wordList);
 
-        String actual = readTempFile(testDir);
+        String actual = readTempFile(storageDir);
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;0
                 au lieu de;ao inves, em vez de;0
@@ -49,15 +39,16 @@ class FileStorageHandlerTest {
                 c'est à dire;ou seja;0""");
     }
 
+
     @Test
     void should_load_the_copy_if_exists_and_synchronize_words(@TempDir Path tempDir) throws IOException, URISyntaxException {
-        var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
-        Files.writeString(tempDir.resolve("dictionary-for-test.csv"), """
+        writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1
                 au lieu de;ao inves, em vez de;2
                 acender;allumer;3
                 allumer;acender;4""");
-        var storageHandler = new FileStorageHandler(tempDir, path);
+
+        var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvFilePath());
         List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
@@ -78,7 +69,7 @@ class FileStorageHandlerTest {
 
     @Test
     void should_save_the_updated_copy(@TempDir Path tempDir) throws IOException {
-        Files.writeString(tempDir.resolve("dictionary-for-test.csv"), """
+        writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1
                 ou seja;c'est à dire;2""");
         var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
@@ -94,5 +85,26 @@ class FileStorageHandlerTest {
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;1
                 ou seja;c'est à dire;3""");
+    }
+
+    private String readTempFile(Path testStorageDir) throws IOException {
+        File[] files = testStorageDir.toFile().listFiles();
+        Assertions.assertNotNull(files);
+        Assertions.assertEquals(1, files.length);
+        File file = files[0];
+        List<String> elements = Files.readAllLines(file.toPath());
+        return String.join("\n", elements);
+    }
+
+    private void writeInTempFile(Path tempDir, String csq) throws IOException {
+        Files.writeString(tempDir.resolve("dictionary-for-test.csv"), csq);
+    }
+
+    private Path getTestOriginalCsvFilePath() throws URISyntaxException {
+        return Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
+    }
+
+    private Path buildTestStorageDir(Path tempDir) {
+        return tempDir.resolve("Reminder");
     }
 }
