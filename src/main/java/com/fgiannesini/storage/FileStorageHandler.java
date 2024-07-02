@@ -61,7 +61,7 @@ public class FileStorageHandler implements StorageHandler {
                     ))
                     .toList();
             writeCsvFile(wordsWithDuplicates, tempFilePath);
-            return words;
+            return wordsWithDuplicates;
         }
     }
 

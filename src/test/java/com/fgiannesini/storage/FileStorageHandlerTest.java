@@ -34,7 +34,9 @@ class FileStorageHandlerTest {
 
         var expected = List.of(
                 new Word("ao inves, em vez de", "au lieu de"),
-                new Word("ou seja", "c'est à dire")
+                new Word("au lieu de", "ao inves, em vez de"),
+                new Word("ou seja", "c'est à dire"),
+                new Word("c'est à dire", "ou seja")
         );
 
         Assertions.assertEquals(expected, wordList);
