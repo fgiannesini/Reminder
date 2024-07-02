@@ -26,6 +26,6 @@ public class CsvWord {
     }
 
     public Word toWord() {
-        return new Word(word, translation, checkedCount);
+        return new Word(word, translation, checkedCount, null);
     }
 }

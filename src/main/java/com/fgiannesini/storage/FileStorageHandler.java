@@ -38,7 +38,7 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     private static Word buildDuplicate(Word word) {
-        return new Word(word.translation(), word.word(), word.checkedCount());
+        return new Word(word.translation(), word.word(), word.checkedCount(), null);
     }
 
     public List<Word> load() throws IOException {

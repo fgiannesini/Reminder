@@ -2,11 +2,14 @@ package com.fgiannesini;
 
 import java.text.Normalizer;
 import java.util.Arrays;
+import java.util.Date;
 
-public record Word(String word, String translation, int checkedCount) {
+public record Word(String word, String translation, int checkedCount, Date learnedMoment) {
+
+    private static final int repetitionLimitToLearn = 5;
 
     public Word(String word, String translation) {
-        this(word, translation, 0);
+        this(word, translation, 0, null);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {
@@ -43,15 +46,23 @@ public record Word(String word, String translation, int checkedCount) {
     }
 
     public boolean isLearned() {
-        return checkedCount == 5;
+        return checkedCount == repetitionLimitToLearn;
     }
 
     public Word reset() {
-        return new Word(word, translation, 0);
+        return new Word(word, translation, 0, null);
     }
 
     public Word checked() {
-        return new Word(word, translation, checkedCount + 1);
+        return checked(new Date());
+    }
+
+    public Word checked(Date learnedMoment) {
+        var newWord = new Word(word, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
+        if (newWord.isLearned()) {
+            newWord = new Word(newWord.word(), newWord.translation(), newWord.checkedCount(), learnedMoment);
+        }
+        return newWord;
     }
 
     public boolean isSimilarTo(Word word) {

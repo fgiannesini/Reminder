@@ -82,7 +82,7 @@ class ReminderTest {
     @Test
     public void Should_learn_a_word() throws IOException {
         var storageHandler = new MemoryStorageHandler(
-                new Word("desligar", "éteindre", 4),
+                new Word("desligar", "éteindre", 4, null),
                 new Word("acender", "allumer")
         );
 

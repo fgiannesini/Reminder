@@ -52,10 +52,10 @@ class FileStorageHandlerTest {
         List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 1),
-                new Word("au lieu de", "ao inves, em vez de", 2),
-                new Word("ou seja", "c'est à dire", 0),
-                new Word("c'est à dire", "ou seja", 0)
+                new Word("ao inves, em vez de", "au lieu de", 1, null),
+                new Word("au lieu de", "ao inves, em vez de", 2, null),
+                new Word("ou seja", "c'est à dire", 0, null),
+                new Word("c'est à dire", "ou seja", 0, null)
         );
         Assertions.assertEquals(expected, wordList);
 
@@ -75,8 +75,8 @@ class FileStorageHandlerTest {
         var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
 
         var wordsToSave = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 1),
-                new Word("ou seja", "c'est à dire", 3)
+                new Word("ao inves, em vez de", "au lieu de", 1, null),
+                new Word("ou seja", "c'est à dire", 3, null)
         );
 
         storageHandler.save(wordsToSave);
