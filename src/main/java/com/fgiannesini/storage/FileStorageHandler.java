@@ -38,26 +38,44 @@ public class FileStorageHandler implements StorageHandler {
         }
     }
 
+    private static Word getOppositeWord(Word word) {
+        return new Word(word.translation(), word.word());
+    }
+
     public List<Word> load() throws IOException {
+        var words = readCsvFile(originalCsvFilePath, CsvOriginalWord.class)
+                .stream()
+                .map(CsvOriginalWord::toWord)
+                .toList();
+
         if (!Files.exists(storageDir)) {
             Files.createDirectories(storageDir);
         }
         Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
         if (tempFilePath.toFile().exists()) {
-            return readCsvFile(tempFilePath, CsvWord.class)
+            List<Word> existingWords = readCsvFile(tempFilePath, CsvWord.class)
                     .stream()
                     .map(CsvWord::toWord)
                     .toList();
-        } else {
-            var words = readCsvFile(originalCsvFilePath, CsvOriginalWord.class)
-                    .stream()
-                    .map(CsvOriginalWord::toWord)
+            var existingWordsWithoutRemoved = existingWords.stream().filter(existingWord -> {
+                return words.stream().anyMatch(word -> existingWord.isSimilarTo(word) || existingWord.isSimilarTo(getOppositeWord(word)));
+            }).toList();
+            List<Word> wordsToAdd = words.stream().filter(word -> {
+                        return existingWordsWithoutRemoved.stream().noneMatch(existingWord -> existingWord.isSimilarTo(word) || existingWord.isSimilarTo(getOppositeWord(word)));
+                    })
+                    .flatMap(word -> Stream.of(
+                            word,
+                            getOppositeWord(word)
+                    ))
                     .toList();
-
+            List<Word> list = Stream.concat(existingWordsWithoutRemoved.stream(), wordsToAdd.stream()).toList();
+            writeCsvFile(list, tempFilePath);
+            return list;
+        } else {
             var wordsWithDuplicates = words.stream()
                     .flatMap(word -> Stream.of(
                             word,
-                            new Word(word.translation(), word.word())
+                            getOppositeWord(word)
                     ))
                     .toList();
             writeCsvFile(wordsWithDuplicates, tempFilePath);
