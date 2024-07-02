@@ -2,6 +2,7 @@ package com.fgiannesini.storage;
 
 import com.fgiannesini.Word;
 import com.opencsv.bean.CsvBindByPosition;
+import com.opencsv.bean.CsvDate;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +14,7 @@ public class CsvWord {
     private String translation;
     @CsvBindByPosition(position = 2)
     private int checkedCount;
+    @CsvDate
     @CsvBindByPosition(position = 3)
     private LocalDateTime learntMoment;
 

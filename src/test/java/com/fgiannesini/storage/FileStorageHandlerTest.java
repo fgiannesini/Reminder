@@ -72,20 +72,20 @@ class FileStorageHandlerTest {
     void should_save_the_updated_copy(@TempDir Path tempDir) throws IOException {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
-                ou seja;c'est à dire;4;""");
+                ou seja;c'est à dire;5;20240702T115135""");
         var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
 
         var wordsToSave = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 1, null),
-                new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 2, 11, 51))
+                new Word("ao inves, em vez de", "au lieu de", 2, null),
+                new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0))
         );
 
         storageHandler.save(wordsToSave);
 
         String actual = readTempFile(tempDir);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de;1;
-                ou seja;c'est à dire;5;2024-07-02T11:51""");
+                ao inves, em vez de;au lieu de;2;
+                ou seja;c'est à dire;5;20240703T131800""");
     }
 
     private String readTempFile(Path testStorageDir) throws IOException {
