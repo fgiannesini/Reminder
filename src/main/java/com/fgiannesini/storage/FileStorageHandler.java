@@ -28,7 +28,7 @@ public class FileStorageHandler implements StorageHandler {
         this.originalCsvFilePath = originalCsvFilePath;
     }
 
-    private static <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
+    private <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
         try (Reader reader = Files.newBufferedReader(csvFilePath)) {
             CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
                     .withType(type)
@@ -39,6 +39,9 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     public List<Word> load() throws IOException {
+        if (!Files.exists(storageDir)) {
+            Files.createDirectories(storageDir);
+        }
         Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
         if (tempFilePath.toFile().exists()) {
             return readCsvFile(tempFilePath, CsvWord.class)

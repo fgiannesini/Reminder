@@ -28,7 +28,8 @@ class FileStorageHandlerTest {
     void should_load_from_resource_file_and_store_a_copy(@TempDir Path tempDir) throws URISyntaxException, IOException {
         var path = Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
 
-        var storageHandler = new FileStorageHandler(tempDir, path);
+        Path testDir = tempDir.resolve("Reminder");
+        var storageHandler = new FileStorageHandler(testDir, path);
         List<Word> wordList = storageHandler.load();
 
         var expected = List.of(
@@ -38,7 +39,7 @@ class FileStorageHandlerTest {
 
         Assertions.assertEquals(expected, wordList);
 
-        String actual = readTempFile(tempDir);
+        String actual = readTempFile(testDir);
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;0
                 au lieu de;ao inves, em vez de;0
