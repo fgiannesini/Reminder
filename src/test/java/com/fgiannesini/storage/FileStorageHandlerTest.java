@@ -7,10 +7,9 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,17 +17,12 @@ class FileStorageHandlerTest {
 
 
     @Test
-    void should_load_from_resource_file_and_store_a_copy_if_not_existing(@TempDir Path tempDir) throws URISyntaxException, IOException {
+    void should_load_from_resource_file_and_store_a_copy_if_not_existing(@TempDir Path tempDir) throws IOException {
         Path storageDir = buildTestStorageDir(tempDir);
-        var storageHandler = new FileStorageHandler(storageDir, getTestOriginalCsvFilePath());
+        var storageHandler = new FileStorageHandler(storageDir, getTestOriginalCsvInputStream());
         List<Word> wordList = storageHandler.load();
 
-        var expected = List.of(
-                new Word("ao inves, em vez de", "au lieu de"),
-                new Word("au lieu de", "ao inves, em vez de"),
-                new Word("ou seja", "c'est à dire"),
-                new Word("c'est à dire", "ou seja")
-        );
+        var expected = List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("au lieu de", "ao inves, em vez de"), new Word("ou seja", "c'est à dire"), new Word("c'est à dire", "ou seja"));
 
         Assertions.assertEquals(expected, wordList);
 
@@ -42,22 +36,17 @@ class FileStorageHandlerTest {
 
 
     @Test
-    void should_load_the_copy_if_exists_and_synchronize_words(@TempDir Path tempDir) throws IOException, URISyntaxException {
+    void should_load_the_copy_if_exists_and_synchronize_words(@TempDir Path tempDir) throws IOException {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
                 au lieu de;ao inves, em vez de;2;
                 acender;allumer;3;
                 allumer;acender;4;""");
 
-        var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvFilePath());
+        var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvInputStream());
         List<Word> wordList = storageHandler.load();
 
-        var expected = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 1, null),
-                new Word("au lieu de", "ao inves, em vez de", 2, null),
-                new Word("ou seja", "c'est à dire", 0, null),
-                new Word("c'est à dire", "ou seja", 0, null)
-        );
+        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, null), new Word("au lieu de", "ao inves, em vez de", 2, null), new Word("ou seja", "c'est à dire", 0, null), new Word("c'est à dire", "ou seja", 0, null));
         Assertions.assertEquals(expected, wordList);
 
         String actual = readTempFile(tempDir);
@@ -73,12 +62,9 @@ class FileStorageHandlerTest {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
                 ou seja;c'est à dire;5;20240702T115135""");
-        var storageHandler = new FileStorageHandler(tempDir, Paths.get("dictionary-for-test.csv"));
+        var storageHandler = new FileStorageHandler(tempDir, InputStream.nullInputStream());
 
-        var wordsToSave = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 2, null),
-                new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0))
-        );
+        var wordsToSave = List.of(new Word("ao inves, em vez de", "au lieu de", 2, null), new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0)));
 
         storageHandler.save(wordsToSave);
 
@@ -98,11 +84,11 @@ class FileStorageHandlerTest {
     }
 
     private void writeInTempFile(Path tempDir, String csq) throws IOException {
-        Files.writeString(tempDir.resolve("dictionary-for-test.csv"), csq);
+        Files.writeString(tempDir.resolve("dictionary.csv"), csq);
     }
 
-    private Path getTestOriginalCsvFilePath() throws URISyntaxException {
-        return Paths.get(ClassLoader.getSystemResource("dictionary-for-test.csv").toURI());
+    private InputStream getTestOriginalCsvInputStream() {
+        return ClassLoader.getSystemResourceAsStream("dictionary-for-test.csv");
     }
 
     private Path buildTestStorageDir(Path tempDir) {

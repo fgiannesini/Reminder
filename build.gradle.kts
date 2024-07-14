@@ -29,18 +29,18 @@ tasks {
 }
 
 task("copyDependencies", Copy::class) {
-    from(configurations.runtimeClasspath).into("$buildDir/jars")
+    from(configurations.runtimeClasspath).into(layout.buildDirectory.dir("jars"))
 }
 
 task("copyJar", Copy::class) {
-    from(tasks.jar).into("$buildDir/jars")
+    from(tasks.jar).into(layout.buildDirectory.dir("jars"))
 }
 
 tasks.jpackage {
     dependsOn("build", "copyDependencies", "copyJar")
 
-    input = "$buildDir/jars"
-    destination = "$buildDir/dist"
+    input = layout.buildDirectory.dir("jars").map { it.asFile.path }.get()
+    destination = layout.buildDirectory.dir("dist").map { it.asFile.path }.get()
 
     appName = "Reminder"
     vendor = "fgiannesini"

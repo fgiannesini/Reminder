@@ -8,10 +8,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvException;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,11 +18,12 @@ import java.util.stream.Stream;
 public class FileStorageHandler implements StorageHandler {
 
     private final Path storageDir;
-    private final Path originalCsvFilePath;
+    private final InputStream inputStream;
+    private final String tempFileName = "dictionary.csv";
 
-    public FileStorageHandler(Path storageDir, Path originalCsvFilePath) {
+    public FileStorageHandler(Path storageDir, InputStream originalFileInputStream) {
         this.storageDir = storageDir;
-        this.originalCsvFilePath = originalCsvFilePath;
+        this.inputStream = originalFileInputStream;
     }
 
     private static List<Word> addDuplicates(List<Word> words) {
@@ -42,7 +40,7 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     public List<Word> load() throws IOException {
-        var words = readCsvFile(originalCsvFilePath, CsvOriginalWord.class)
+        var words = readCsvFile(inputStream, CsvOriginalWord.class)
                 .stream()
                 .map(CsvOriginalWord::toWord)
                 .toList();
@@ -50,7 +48,7 @@ public class FileStorageHandler implements StorageHandler {
         if (!Files.exists(storageDir)) {
             Files.createDirectories(storageDir);
         }
-        Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
+        Path tempFilePath = storageDir.resolve(tempFileName);
         if (tempFilePath.toFile().exists()) {
             var existingWords = readCsvFile(tempFilePath, CsvWord.class)
                     .stream()
@@ -66,9 +64,19 @@ public class FileStorageHandler implements StorageHandler {
         }
     }
 
+    private <T> List<T> readCsvFile(InputStream inputStream, Class<T> type) throws IOException {
+        try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
+                    .withType(type)
+                    .withSeparator(';')
+                    .build();
+            return cb.parse();
+        }
+    }
+
     @Override
     public void save(List<Word> words) throws IOException {
-        Path tempFilePath = storageDir.resolve(originalCsvFilePath.getFileName());
+        Path tempFilePath = storageDir.resolve(tempFileName);
         writeCsvFile(words, tempFilePath);
     }
 
