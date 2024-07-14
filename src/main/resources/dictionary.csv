@@ -1,5 +1,6 @@
 acampar;camper
-acender;allumer
+acender;allumer, (un feu)
+apagar;éteindre, (un feu)
 aguentar;tenir
 ao invés, em vez de;au lieu de
 apoiar;soutenir, appuyer
@@ -18,7 +19,8 @@ conseguir;réussir
 cruzar;traverser
 descansar;se reposer
 desenvolver;développer
-desligar;éteindre
+desligar;éteindre, (l'électricité)
+ligar;allumer, (l'électricité)
 dirigir;diriger, commander
 conduzir;conduire
 empurrar;pousser
