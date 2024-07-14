@@ -50,7 +50,7 @@ public class FileStorageHandler implements StorageHandler {
         }
         Path tempFilePath = storageDir.resolve(tempFileName);
         if (tempFilePath.toFile().exists()) {
-            var existingWords = readCsvFile(tempFilePath, CsvWord.class)
+            var existingWords = readCsvFile(Files.newInputStream(tempFilePath), CsvWord.class)
                     .stream()
                     .map(CsvWord::toWord)
                     .toList();
@@ -61,16 +61,6 @@ public class FileStorageHandler implements StorageHandler {
             var wordsWithDuplicates = addDuplicates(words);
             writeCsvFile(wordsWithDuplicates, tempFilePath);
             return wordsWithDuplicates;
-        }
-    }
-
-    private <T> List<T> readCsvFile(InputStream inputStream, Class<T> type) throws IOException {
-        try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
-            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
-                    .withType(type)
-                    .withSeparator(';')
-                    .build();
-            return cb.parse();
         }
     }
 
@@ -109,8 +99,8 @@ public class FileStorageHandler implements StorageHandler {
         return word1.isSimilarTo(word2) || word1.isSimilarTo(buildDuplicate(word2));
     }
 
-    private <T> List<T> readCsvFile(Path csvFilePath, Class<T> type) throws IOException {
-        try (Reader reader = Files.newBufferedReader(csvFilePath)) {
+    private <T> List<T> readCsvFile(InputStream inputStream, Class<T> type) throws IOException {
+        try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
             CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
                     .withType(type)
                     .withSeparator(';')
@@ -118,4 +108,5 @@ public class FileStorageHandler implements StorageHandler {
             return cb.parse();
         }
     }
+
 }
