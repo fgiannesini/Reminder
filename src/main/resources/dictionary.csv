@@ -106,8 +106,8 @@ melancia;pastèque
 pepino;concombre
 curgete;courgette
 beringela;aubergine
-fungo;champignon, medical
-cogumelo;champignon, alimentaire
+fungo;champignon, (medical)
+cogumelo;champignon, (alimentaire)
 pimenta;poivron
 alface;laitue
 omeleta;omelette
@@ -123,8 +123,8 @@ morango;fraise
 cheio;plein
 proposta;proposition
 dano;dommage
-atender o telefone;répondre, au téléphone
-atender o cliente;recevoir, le client
+atender o telefone;répondre au téléphone
+atender o cliente;recevoir le client
 tornar-se;devenir
 pedreiro;maçon
 contratar;engager, embaucher
@@ -136,7 +136,7 @@ redondezas;environs, alentours
 exceto;sauf, excepté
 severamente;sévèrement
 adiantar;avancer, quelque chose
-nem adianta; ça ne sert à rien
+nem adianta;ça ne sert à rien
 preencher;remplir, combler, compléter
 encher;remplir
 sesta;sieste
