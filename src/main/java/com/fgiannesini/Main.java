@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        var originalfileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
+        var originalFileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
         var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
-        var storageHandler = new FileStorageHandler(storageDir, originalfileInputStream);
+        var storageHandler = new FileStorageHandler(storageDir, originalFileInputStream);
         Dictionary dictionary = new Dictionary(
                 new SecureRandom(LocalDateTime.now().toString().getBytes()),
                 storageHandler
