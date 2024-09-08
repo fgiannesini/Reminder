@@ -2,6 +2,8 @@ package com.fgiannesini;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -67,10 +69,11 @@ class ReminderTest {
                 """, outputStream.getWrittenText());
     }
 
-    @Test
-    public void Should_quit() throws IOException {
+    @ParameterizedTest
+    @ValueSource(strings = {"quit", "exit", "Quit", "Exit"})
+    public void Should_quit(String quitCommand) throws IOException {
         var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream("quit"), outputStream);
+        Reminder reminder = new Reminder(getInputStream(quitCommand), outputStream);
         reminder.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder

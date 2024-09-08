@@ -26,7 +26,7 @@ public class Reminder {
             var word = dictionary.next(40);
             write(this.outputStream, word.word());
             String input = scanner.nextLine();
-            if (input.equals("quit")) {
+            if (input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("exit")) {
                 write(this.outputStream, "Bye");
                 return;
             }
