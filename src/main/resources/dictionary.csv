@@ -490,7 +490,7 @@ constituição;constitution
 discurso;discours
 líder;leader
 municipal;municipal, municipale
-prefeito;maire
+prefeito, presidente de câmara;maire
 oposição;opposition
 campanha;campagne
 justiça;justice, la justice
@@ -1583,7 +1583,8 @@ monte;mont
 biblioteca;bibliothèque
 padaria;boulangerie
 pátio;cour
-município;municipalité, mairie
+município;municipalité
+câmara;mairie
 bar;bar
 fronteira;frontière
 continente;continent
