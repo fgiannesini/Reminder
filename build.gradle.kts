@@ -1,6 +1,7 @@
 plugins {
     id("java")
-    id("org.panteleyev.jpackageplugin") version "1.6.0"
+    id("org.springframework.boot") version "3.3.4"
+    id("io.spring.dependency-management") version "1.1.6"
 }
 
 group = "com.fgiannesini"
@@ -11,9 +12,9 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.opencsv:opencsv:5.9")
-    testImplementation(platform("org.junit:junit-bom:5.11.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks {
@@ -25,32 +26,5 @@ tasks {
     }
     compileTestJava {
         options.encoding = "UTF-8"
-    }
-}
-
-task("copyDependencies", Copy::class) {
-    from(configurations.runtimeClasspath).into(layout.buildDirectory.dir("jars"))
-}
-
-task("copyJar", Copy::class) {
-    from(tasks.jar).into(layout.buildDirectory.dir("jars"))
-}
-
-tasks.jpackage {
-    dependsOn("build", "copyDependencies", "copyJar")
-
-    input = layout.buildDirectory.dir("jars").map { it.asFile.path }.get()
-    destination = layout.buildDirectory.dir("dist").map { it.asFile.path }.get()
-
-    appName = "Reminder"
-    vendor = "fgiannesini"
-
-    mainJar = tasks.jar.get().archiveFileName.get()
-    mainClass = "com.fgiannesini.Main"
-
-    javaOptions = listOf("-Dfile.encoding=UTF-8")
-
-    windows {
-        winConsole = true
     }
 }
