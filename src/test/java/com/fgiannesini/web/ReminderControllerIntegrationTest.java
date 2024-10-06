@@ -1,5 +1,6 @@
 package com.fgiannesini.web;
 
+import com.fgiannesini.Matching;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,5 +24,12 @@ public class ReminderControllerIntegrationTest {
         var response = restTemplate.getForEntity("http://localhost:%d/reminder/word/next".formatted(port), WordDto.class);
         assertEquals(OK, response.getStatusCode());
         assertEquals(new WordDto("Hello, World!"), response.getBody());
+    }
+
+    @Test
+    public void Should_post_a_translation() {
+        var response = restTemplate.postForEntity("http://localhost:%d/reminder/word/check/%s".formatted(port, "aze"), null, TranslationCheckDto.class);
+        assertEquals(OK, response.getStatusCode());
+        assertEquals(new TranslationCheckDto(Matching.MATCHED, "aze"), response.getBody());
     }
 }

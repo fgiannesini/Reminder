@@ -1,5 +1,6 @@
 package com.fgiannesini.web;
 
+import com.fgiannesini.Matching;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,8 +12,8 @@ public class ReminderController {
         return new WordDto("Hello, World!");
     }
 
-    @PostMapping("/check")
-    String check(@RequestParam String data) {
-        return "Data received: ${data.name}";
+    @PostMapping("/check/{translation}")
+    TranslationCheckDto check(@PathVariable String translation) {
+        return new TranslationCheckDto(Matching.MATCHED, translation);
     }
 }
