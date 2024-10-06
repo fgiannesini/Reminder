@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Test Hello API</title>
+    <script>
+        const getNextWord = async () => {
+            const response = await fetch('/reminder/word/next');
+            if (response.ok) {
+                document.getElementById('response').textContent = await response.text();
+            } else {
+                document.getElementById('response').textContent = "Erreur lors de l'appel à l'API";
+            }
+        };
+    </script>
+</head>
+<body>
+<h1>Reminder</h1>
+<button onclick="getNextWord()">Appeler l'API</button>
+<p>Réponse : <span id="response"></span></p>
+</body>
+</html>
