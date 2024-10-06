@@ -16,7 +16,7 @@ public class Main {
                 new SecureRandom(LocalDateTime.now().toString().getBytes()),
                 storageHandler
         );
-        Reminder reminder = new Reminder(System.in, System.out);
-        reminder.run(dictionary);
+        ReminderConsole reminderConsole = new ReminderConsole(System.in, System.out);
+        reminderConsole.run(dictionary);
     }
 }

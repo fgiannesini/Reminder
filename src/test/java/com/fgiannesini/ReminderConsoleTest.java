@@ -12,11 +12,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-class ReminderTest {
+class ReminderConsoleTest {
 
     private final Dictionary dictionary;
 
-    ReminderTest() throws IOException {
+    ReminderConsoleTest() throws IOException {
         dictionary = new Dictionary(
                 new NextGenerator(),
                 new MemoryStorageHandler(
@@ -34,11 +34,11 @@ class ReminderTest {
     @Test
     public void Should_validate_two_translations() throws IOException {
         var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream("""
+        ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
                 eteindre
                 allumer
                 quit"""), outputStream);
-        reminder.run(dictionary);
+        reminderConsole.run(dictionary);
         Assertions.assertEquals("""
                 Reminder
                 desligar
@@ -55,10 +55,10 @@ class ReminderTest {
     @Test
     public void Should_reject_a_translation() throws IOException {
         var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream("""
+        ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
                 allumer
                 quit"""), outputStream);
-        reminder.run(dictionary);
+        reminderConsole.run(dictionary);
         Assertions.assertEquals("""
                 Reminder
                 desligar
@@ -73,8 +73,8 @@ class ReminderTest {
     @ValueSource(strings = {"quit", "exit", "Quit", "Exit"})
     public void Should_quit(String quitCommand) throws IOException {
         var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream(quitCommand), outputStream);
-        reminder.run(dictionary);
+        ReminderConsole reminderConsole = new ReminderConsole(getInputStream(quitCommand), outputStream);
+        reminderConsole.run(dictionary);
         Assertions.assertEquals(outputStream.getWrittenText(), """
                 Reminder
                 desligar
@@ -91,10 +91,10 @@ class ReminderTest {
         );
 
         var outputStream = new MockedOutputStream();
-        Reminder reminder = new Reminder(getInputStream("""
+        ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
                 éteindre
                 quit"""), outputStream);
-        reminder.run(new Dictionary(
+        reminderConsole.run(new Dictionary(
                 new NextGenerator(),
                 storageHandler
         ));

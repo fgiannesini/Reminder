@@ -6,11 +6,11 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-public class Reminder {
+public class ReminderConsole {
     private final InputStream inputStream;
     private final OutputStream outputStream;
 
-    public Reminder(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public ReminderConsole(InputStream inputStream, OutputStream outputStream) throws IOException {
         this.inputStream = inputStream;
         this.outputStream = outputStream;
         write(this.outputStream, "Reminder");
