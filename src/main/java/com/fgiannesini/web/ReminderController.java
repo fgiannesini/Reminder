@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 public class ReminderController {
 
     @GetMapping("/next")
-    public String next() {
-        return "Hello, World!";
+    public WordDto next() {
+        return new WordDto("Hello, World!");
     }
 
     @PostMapping("/check")
