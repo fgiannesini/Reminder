@@ -1,4 +1,8 @@
-package com.fgiannesini;
+package com.fgiannesini.console;
+
+import com.fgiannesini.Dictionary;
+import com.fgiannesini.Matching;
+import com.fgiannesini.Word;
 
 import java.io.IOException;
 import java.io.InputStream;

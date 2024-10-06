@@ -1,5 +1,9 @@
-package com.fgiannesini;
+package com.fgiannesini.console;
 
+import com.fgiannesini.Dictionary;
+import com.fgiannesini.MemoryStorageHandler;
+import com.fgiannesini.NextGenerator;
+import com.fgiannesini.Word;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

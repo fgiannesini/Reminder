@@ -2,7 +2,7 @@ package com.fgiannesini;
 
 import java.util.random.RandomGenerator;
 
-class NextGenerator implements RandomGenerator {
+public class NextGenerator implements RandomGenerator {
     private int counter = 0;
 
     @Override

@@ -5,7 +5,7 @@ import com.fgiannesini.storage.StorageHandler;
 import java.util.Arrays;
 import java.util.List;
 
-class MemoryStorageHandler implements StorageHandler {
+public class MemoryStorageHandler implements StorageHandler {
 
     private final List<Word> words;
     private int saveCalls = 0;

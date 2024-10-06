@@ -1,5 +1,6 @@
-package com.fgiannesini;
+package com.fgiannesini.console;
 
+import com.fgiannesini.Dictionary;
 import com.fgiannesini.storage.FileStorageHandler;
 
 import java.io.IOException;

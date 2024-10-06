@@ -1,4 +1,4 @@
-package com.fgiannesini;
+package com.fgiannesini.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
