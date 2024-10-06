@@ -29,4 +29,11 @@ public final class Dictionary {
                 .toList();
         storageHandler.save(this.words);
     }
+
+    public Word find(String wordToLearn) {
+        return words.stream()
+                .filter(word -> word.wordToLearn().equals(wordToLearn))
+                .findAny()
+                .orElse(null);
+    }
 }

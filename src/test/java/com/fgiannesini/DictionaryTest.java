@@ -42,4 +42,14 @@ class DictionaryTest {
         Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
         Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
     }
+
+    @Test
+    void should_find_a_word() throws IOException {
+        StorageHandler storageHandler = new MemoryStorageHandler(
+                new Word("desligar", "éteindre"),
+                new Word("acender", "allumer")
+        );
+        Dictionary dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        Assertions.assertEquals(dictionary.find("desligar"), new Word("desligar", "éteindre"));
+    }
 }

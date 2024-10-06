@@ -29,7 +29,7 @@ public class CsvWord {
     }
 
     public static CsvWord fromWord(Word word) {
-        return new CsvWord(word.word(), word.translation(), word.checkedCount(), word.learnedMoment());
+        return new CsvWord(word.wordToLearn(), word.translation(), word.checkedCount(), word.learnedMoment());
     }
 
     public Word toWord() {

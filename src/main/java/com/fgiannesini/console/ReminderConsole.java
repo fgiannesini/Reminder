@@ -28,7 +28,7 @@ public class ReminderConsole {
         Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8);
         for (; ; ) {
             var word = dictionary.next(40);
-            write(this.outputStream, word.word());
+            write(this.outputStream, word.wordToLearn());
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("exit")) {
                 write(this.outputStream, "Bye");
@@ -46,7 +46,7 @@ public class ReminderConsole {
                 case NOT_MATCHED -> word.reset();
             };
             if (newWord.isLearned()) {
-                write(this.outputStream, "Translation '" + newWord.word() + " -> " + newWord.translation() + "' learned\n");
+                write(this.outputStream, "Translation '" + newWord.wordToLearn() + " -> " + newWord.translation() + "' learned\n");
             }
             dictionary.update(newWord);
         }

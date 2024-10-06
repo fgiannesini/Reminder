@@ -4,7 +4,7 @@ import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public record Word(String word, String translation, int checkedCount, LocalDateTime learnedMoment) {
+public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime learnedMoment) {
 
     private static final int repetitionLimitToLearn = 5;
 
@@ -50,7 +50,7 @@ public record Word(String word, String translation, int checkedCount, LocalDateT
     }
 
     public Word reset() {
-        return new Word(word, translation, 0, null);
+        return new Word(wordToLearn, translation, 0, null);
     }
 
     public Word checked() {
@@ -58,14 +58,14 @@ public record Word(String word, String translation, int checkedCount, LocalDateT
     }
 
     public Word checked(LocalDateTime learnedMoment) {
-        var newWord = new Word(word, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
+        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
         if (newWord.isLearned()) {
-            newWord = new Word(newWord.word(), newWord.translation(), newWord.checkedCount(), learnedMoment);
+            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment);
         }
         return newWord;
     }
 
     public boolean isSimilarTo(Word word) {
-        return word.translation.equals(this.translation) && word.word.equals(this.word);
+        return word.translation.equals(this.translation) && word.wordToLearn.equals(this.wordToLearn);
     }
 }
