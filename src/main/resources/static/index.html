@@ -7,17 +7,28 @@
     <script>
         const getNextWord = async () => {
             const response = await fetch('/reminder/word/next');
-            if (response.ok) {
-                document.getElementById('response').textContent = await response.text();
-            } else {
-                document.getElementById('response').textContent = "Erreur lors de l'appel à l'API";
+            if (!response.ok) {
+                let elementById = document.getElementById('error');
+                elementById.style.display = 'block';
+                elementById.textContent = await response.text();
+                return;
             }
+            const translation = document.getElementById('translation');
+            translation.value = "";
+            const word = document.getElementById('word');
+            word.value = await response.text();
+            translation.focus();
         };
     </script>
 </head>
 <body>
 <h1>Reminder</h1>
-<button onclick="getNextWord()">Appeler l'API</button>
-<p>Réponse : <span id="response"></span></p>
+
+<button onclick="getNextWord()">Next</button>
+<br/><br/>
+<label for="word">Word</label> <input disabled id="word"/><br/><br/>
+<label for="translation">Translation</label> <input id="translation"/><br/><br/>
+
+<span id="error" style="display: none"></span>
 </body>
 </html>
