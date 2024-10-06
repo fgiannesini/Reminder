@@ -27,7 +27,7 @@ public class ReminderController {
 
     @PostMapping("/check")
     TranslationResponseDto check(@RequestBody TranslationDto translation) throws IOException {
-        Word wordToLearn = dictionary.find(translation.word());
+        Word wordToLearn = dictionary.find(translation.wordToLearn());
         Matching matching = wordToLearn.getMatching(translation.proposedTranslation());
 
         Word newWord = switch (matching) {

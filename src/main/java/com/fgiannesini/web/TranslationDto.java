@@ -1,4 +1,4 @@
 package com.fgiannesini.web;
 
-public record TranslationDto(String word, String proposedTranslation) {
+public record TranslationDto(String wordToLearn, String proposedTranslation) {
 }

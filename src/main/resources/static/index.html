@@ -8,56 +8,59 @@
 <body>
 <h1>Reminder</h1>
 
-<button onclick="getNextWord()">Next</button>
+<button id="next-button" onclick="getNextWord()">Next</button>
 <br/><br/>
-<label for="word">Word: </label> <input disabled id="word"/><br/><br/>
-<label for="translation">Translation: </label> <input id="translation"/><br/><br/>
-<label for="real-translation">Real Translation: </label><input disabled id="real-translation"/><br/><br/>
+<label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
+<label for="translation-input">Translation: </label> <input id="translation-input"/><br/><br/>
+<label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
 
-<span id="error" style="display: none"></span>
+<span id="error-span" style="display: none"></span>
 </body>
 <script>
     const getNextWord = async () => {
         const response = await fetch('/reminder/word/next');
         if (!response.ok) {
-            let elementById = document.getElementById('error');
+            let elementById = document.getElementById('error-span');
             elementById.style.display = 'block';
             elementById.textContent = await response.text();
             return;
         }
-        document.getElementById('word').value = JSON.parse(await response.text()).value;
-        document.getElementById('real-translation').value = "";
-        let translation = document.getElementById('translation');
+        document.getElementById('word-to-learn-span').textContent = JSON.parse(await response.text()).value;
+        document.getElementById('real-translation-span').textContent = "";
+        let translation = document.getElementById('translation-input');
         translation.value = "";
         translation.focus();
     };
 
-    document.getElementById("translation")
+    const submitTranslation = async () => {
+        const proposedTranslation = document.getElementById('translation-input').value;
+        const wordToLearn = document.getElementById('word-to-learn-span').textContent;
+        const response = await fetch('/reminder/word/check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({proposedTranslation, wordToLearn})
+        });
+
+        if (!response.ok) {
+            let elementById = document.getElementById('error-span');
+            elementById.style.display = 'block';
+            elementById.textContent = await response.text();
+            return;
+        }
+        const check = JSON.parse(await response.text());
+        document.getElementById('real-translation-span').textContent = `${check.matching}: ${check.realTranslation}`;
+        document.getElementById('next-button').focus();
+    };
+
+    document.getElementById("translation-input")
         .addEventListener("keydown", async event => {
             if (event.key === "Enter") {
                 event.preventDefault();
                 await submitTranslation();
             }
         });
-
-    const submitTranslation = async () => {
-        const value = document.getElementById('translation').value;
-        const response = await fetch('/reminder/word/check', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({value: value})
-        });
-
-        if (!response.ok) {
-            let elementById = document.getElementById('error');
-            elementById.style.display = 'block';
-            elementById.textContent = await response.text();
-            return;
-        }
-        const check = JSON.parse(await response.text());
-        document.getElementById('real-translation').value = `${check.matching}: ${check.realTranslation}`;
-    };
+    document.getElementById('next-button').focus();
 </script>
 </html>
