@@ -12,8 +12,8 @@ public class ReminderController {
         return new WordDto("Hello, World!");
     }
 
-    @PostMapping("/check/{translation}")
-    TranslationCheckDto check(@PathVariable String translation) {
-        return new TranslationCheckDto(Matching.MATCHED, translation);
+    @PostMapping("/check")
+    TranslationResponseDto check(@RequestBody TranslationDto translation) {
+        return new TranslationResponseDto(Matching.MATCHED, translation.value());
     }
 }
