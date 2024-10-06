@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Test Hello API</title>
-    <script>
-        const getNextWord = async () => {
-            const response = await fetch('/reminder/word/next');
-            if (!response.ok) {
-                let elementById = document.getElementById('error');
-                elementById.style.display = 'block';
-                elementById.textContent = await response.text();
-                return;
-            }
-            const translation = document.getElementById('translation');
-            translation.value = "";
-            const word = document.getElementById('word');
-            word.value = await response.text();
-            translation.focus();
-        };
-    </script>
+    <title>Reminder</title>
 </head>
 <body>
 <h1>Reminder</h1>
 
 <button onclick="getNextWord()">Next</button>
 <br/><br/>
-<label for="word">Word</label> <input disabled id="word"/><br/><br/>
-<label for="translation">Translation</label> <input id="translation"/><br/><br/>
+<label for="word">Word: </label> <input disabled id="word"/><br/><br/>
+<label for="translation">Translation: </label> <input id="translation"/><br/><br/>
+<label for="real-translation">Real Translation: </label><input disabled id="real-translation"/><br/><br/>
 
 <span id="error" style="display: none"></span>
 </body>
+<script>
+    const getNextWord = async () => {
+        const response = await fetch('/reminder/word/next');
+        if (!response.ok) {
+            let elementById = document.getElementById('error');
+            elementById.style.display = 'block';
+            elementById.textContent = await response.text();
+            return;
+        }
+        document.getElementById('word').value = JSON.parse(await response.text()).value;
+        document.getElementById('real-translation').value = "";
+        let translation = document.getElementById('translation');
+        translation.value = "";
+        translation.focus();
+    };
+
+    document.getElementById("translation")
+        .addEventListener("keydown", async event => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                await submitTranslation();
+            }
+        });
+
+    const submitTranslation = async () => {
+        const value = document.getElementById('translation').value;
+        const response = await fetch('/reminder/word/check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({value: value})
+        });
+
+        if (!response.ok) {
+            let elementById = document.getElementById('error');
+            elementById.style.display = 'block';
+            elementById.textContent = await response.text();
+            return;
+        }
+        const check = JSON.parse(await response.text());
+        document.getElementById('real-translation').value = `${check.matching}: ${check.realTranslation}`;
+    };
+</script>
 </html>
