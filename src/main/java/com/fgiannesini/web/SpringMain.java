@@ -23,7 +23,7 @@ public class SpringMain {
 
         @Bean
         public Dictionary dictionary() throws IOException {
-            var originalFileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
+            var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
             var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
             var storageHandler = new FileStorageHandler(storageDir, originalFileInputStream);
             return new Dictionary(
