@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime learnedMoment) {
 
-    private static final int repetitionLimitToLearn = 5;
+    private static final int repetitionLimitToLearn = 3;
 
     public Word(String word, String translation) {
-        this(word, translation, 0, null);
+        this(word, translation, repetitionLimitToLearn, null);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {

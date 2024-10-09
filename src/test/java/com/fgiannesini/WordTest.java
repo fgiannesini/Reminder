@@ -51,7 +51,7 @@ class WordTest {
 
     @Test
     void should_be_learned_when_checked_lots_of_time() {
-        Word word = new Word("ou seja", "c'est à dire", 5, null);
+        Word word = new Word("ou seja", "c'est à dire", 3, null);
         Assertions.assertTrue(word.isLearned());
     }
 
@@ -91,19 +91,19 @@ class WordTest {
 
     @Test
     void should_check_a_word_to_learn() {
-        Word word = new Word("ou seja", "c'est à dire", 4, null);
+        Word word = new Word("ou seja", "c'est à dire", 2, null);
         var learnedMoment = LocalDateTime.now();
         Word actual = word.checked(learnedMoment);
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, learnedMoment), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, learnedMoment), actual);
     }
 
     @Test
     void should_check_a_word_learnt() {
         var oldLearntMoment = LocalDateTime.now();
-        Word word = new Word("ou seja", "c'est à dire", 5, oldLearntMoment);
+        Word word = new Word("ou seja", "c'est à dire", 3, oldLearntMoment);
         var newLearntMoment = LocalDateTime.now();
         Word actual = word.checked(newLearntMoment);
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, newLearntMoment), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, newLearntMoment), actual);
     }
 
 }

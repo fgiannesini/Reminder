@@ -28,7 +28,7 @@ public class ReminderControllerIntegrationTest {
     public void Should_get_next_word_to_translate() {
         var response = restTemplate.getForEntity("http://localhost:%d/reminder/word/next".formatted(port), WordDto.class);
         assertEquals(OK, response.getStatusCode());
-        assertEquals(new WordDto("Hello, World!"), response.getBody());
+        assertEquals(new WordDto("acender"), response.getBody());
     }
 
     @Test

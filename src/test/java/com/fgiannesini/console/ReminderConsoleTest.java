@@ -24,8 +24,8 @@ class ReminderConsoleTest {
         dictionary = new Dictionary(
                 new NextGenerator(),
                 new MemoryStorageHandler(
-                        new Word("desligar", "éteindre"),
-                        new Word("acender", "allumer"),
+                        new Word("desligar", "éteindre", 0, null),
+                        new Word("acender", "allumer", 0, null),
                         new Word("negar", "nier")
                 )
         );
@@ -89,7 +89,7 @@ class ReminderConsoleTest {
     @Test
     public void Should_learn_a_word() throws IOException {
         var storageHandler = new MemoryStorageHandler(
-                new Word("desligar", "éteindre", 4, null),
+                new Word("desligar", "éteindre", 2, null),
                 new Word("acender", "allumer"),
                 new Word("negar", "nier")
         );

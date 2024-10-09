@@ -22,16 +22,20 @@ class FileStorageHandlerTest {
         var storageHandler = new FileStorageHandler(storageDir, getTestOriginalCsvInputStream());
         List<Word> wordList = storageHandler.load();
 
-        var expected = List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("au lieu de", "ao inves, em vez de"), new Word("ou seja", "c'est à dire"), new Word("c'est à dire", "ou seja"));
+        var expected = List.of(
+                new Word("ao inves, em vez de", "au lieu de"),
+                new Word("au lieu de", "ao inves, em vez de"),
+                new Word("ou seja", "c'est à dire"),
+                new Word("c'est à dire", "ou seja"));
 
         Assertions.assertEquals(expected, wordList);
 
         String actual = readTempFile(storageDir);
         Assertions.assertEquals(actual, """
-                ao inves, em vez de;au lieu de;0;
-                au lieu de;ao inves, em vez de;0;
-                ou seja;c'est à dire;0;
-                c'est à dire;ou seja;0;""");
+                ao inves, em vez de;au lieu de;3;
+                au lieu de;ao inves, em vez de;3;
+                ou seja;c'est à dire;3;
+                c'est à dire;ou seja;3;""");
     }
 
 
@@ -40,21 +44,25 @@ class FileStorageHandlerTest {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
                 au lieu de;ao inves, em vez de;2;
-                acender;allumer;3;
-                allumer;acender;4;""");
+                acender;allumer;0;
+                allumer;acender;0;""");
 
         var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvInputStream());
         List<Word> wordList = storageHandler.load();
 
-        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, null), new Word("au lieu de", "ao inves, em vez de", 2, null), new Word("ou seja", "c'est à dire", 0, null), new Word("c'est à dire", "ou seja", 0, null));
+        var expected = List.of(
+                new Word("ao inves, em vez de", "au lieu de", 1, null),
+                new Word("au lieu de", "ao inves, em vez de", 2, null),
+                new Word("ou seja", "c'est à dire", 3, null),
+                new Word("c'est à dire", "ou seja", 3, null));
         Assertions.assertEquals(expected, wordList);
 
         String actual = readTempFile(tempDir);
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;1;
                 au lieu de;ao inves, em vez de;2;
-                ou seja;c'est à dire;0;
-                c'est à dire;ou seja;0;""");
+                ou seja;c'est à dire;3;
+                c'est à dire;ou seja;3;""");
     }
 
     @Test
