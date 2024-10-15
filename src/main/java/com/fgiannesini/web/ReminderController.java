@@ -21,7 +21,7 @@ public class ReminderController {
 
     @GetMapping("/next")
     public WordDto next() {
-        var word = dictionary.next(40);
+        var word = dictionary.next(20);
         return new WordDto(word.wordToLearn());
     }
 

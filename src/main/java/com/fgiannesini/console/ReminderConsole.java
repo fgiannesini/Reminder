@@ -27,7 +27,7 @@ public class ReminderConsole {
     public void run(Dictionary dictionary) throws IOException {
         Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8);
         for (; ; ) {
-            var word = dictionary.next(40);
+            var word = dictionary.next(20);
             write(this.outputStream, word.wordToLearn());
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("exit")) {
