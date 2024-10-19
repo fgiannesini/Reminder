@@ -13,7 +13,7 @@
 <br/><br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
 <label for="translation-input">Translation: </label> <input id="translation-input"/>
-<button onclick="await submitTranslation()">Submit</button>
+<button onclick="submitTranslation()">Submit</button>
 <progress hidden id="progress-submit"></progress>
 <br/><br/>
 <label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
@@ -33,8 +33,8 @@
         document.getElementById('real-translation-span').textContent = "";
         let translation = document.getElementById('translation-input');
         translation.value = "";
-        translation.focus();
         document.getElementById('progress-next').hidden = true;
+        translation.focus();
     };
 
     const submitTranslation = async () => {
@@ -73,8 +73,8 @@
             learned = "learned !";
         }
         document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
-        document.getElementById('next-button').focus();
         document.getElementById('progress-submit').hidden = true;
+        document.getElementById('next-button').focus();
     };
 
     document.getElementById("translation-input")
