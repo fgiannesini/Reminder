@@ -35,7 +35,7 @@ public class ReminderControllerIntegrationTest {
     public void Should_post_a_valid_translation() {
         var response = restTemplate.postForEntity("http://localhost:%d/reminder/word/check".formatted(port), new TranslationDto("desligar", "éteindre"), TranslationResponseDto.class);
         assertEquals(OK, response.getStatusCode());
-        assertEquals(new TranslationResponseDto(Matching.MATCHED, "éteindre"), response.getBody());
+        assertEquals(new TranslationResponseDto(Matching.MATCHED, "éteindre", false), response.getBody());
     }
 
     @TestConfiguration

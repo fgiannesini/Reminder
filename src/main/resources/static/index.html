@@ -11,9 +11,10 @@
 <button id="next-button" onclick="getNextWord()">Next</button>
 <br/><br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
-<label for="translation-input">Translation: </label> <input id="translation-input"/><br/><br/>
+<label for="translation-input">Translation: </label> <input id="translation-input"/>
+<button onclick="await submitTranslation()">Submit</button>
+<br/><br/>
 <label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
-
 <span id="error-span" style="display: none"></span>
 </body>
 <script>
@@ -50,7 +51,23 @@
             return;
         }
         const check = JSON.parse(await response.text());
-        document.getElementById('real-translation-span').textContent = `${check.matching}: ${check.realTranslation}`;
+        let matchingSmiley;
+        switch (check.matching) {
+            case "MATCHED" :
+                matchingSmiley = String.fromCodePoint(0x1F600)
+                break;
+            case "NOT_MATCHED" :
+                matchingSmiley = String.fromCodePoint(0x1F612);
+                break;
+            case "CLOSED" :
+                matchingSmiley = String.fromCodePoint(0x1F610)
+                break;
+        }
+        let learned = ""
+        if (check.learned) {
+            learned = "learned !";
+        }
+        document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
         document.getElementById('next-button').focus();
     };
 
