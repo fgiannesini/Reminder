@@ -9,16 +9,19 @@
 <h1>Reminder</h1>
 
 <button id="next-button" onclick="getNextWord()">Next</button>
+<progress hidden id="progress-next"></progress>
 <br/><br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
 <label for="translation-input">Translation: </label> <input id="translation-input"/>
 <button onclick="await submitTranslation()">Submit</button>
+<progress hidden id="progress-submit"></progress>
 <br/><br/>
 <label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
 <span id="error-span" style="display: none"></span>
 </body>
 <script>
     const getNextWord = async () => {
+        document.getElementById('progress-next').hidden = false;
         const response = await fetch('/reminder/word/next');
         if (!response.ok) {
             let elementById = document.getElementById('error-span');
@@ -31,9 +34,11 @@
         let translation = document.getElementById('translation-input');
         translation.value = "";
         translation.focus();
+        document.getElementById('progress-next').hidden = true;
     };
 
     const submitTranslation = async () => {
+        document.getElementById('progress-submit').hidden = false;
         const proposedTranslation = document.getElementById('translation-input').value;
         const wordToLearn = document.getElementById('word-to-learn-span').textContent;
         const response = await fetch('/reminder/word/check', {
@@ -69,6 +74,7 @@
         }
         document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
         document.getElementById('next-button').focus();
+        document.getElementById('progress-submit').hidden = true;
     };
 
     document.getElementById("translation-input")
