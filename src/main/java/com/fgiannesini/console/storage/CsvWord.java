@@ -1,4 +1,4 @@
-package com.fgiannesini.storage;
+package com.fgiannesini.console.storage;
 
 import com.fgiannesini.Word;
 import com.opencsv.bean.CsvBindByPosition;

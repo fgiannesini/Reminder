@@ -2,7 +2,6 @@ package com.fgiannesini.web;
 
 import com.fgiannesini.Dictionary;
 import com.fgiannesini.Matching;
-import com.fgiannesini.MemoryStorageHandler;
 import com.fgiannesini.NextGenerator;
 import com.fgiannesini.original.OriginalDictionary;
 import com.fgiannesini.storage.StorageHandler;
@@ -25,7 +24,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.http.HttpStatus.OK;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = "spring.main.allow-bean-definition-overriding=true")
+@Testcontainers
 public class ReminderControllerIntegrationTest {
+
+    @Container
+    public static PostgreSQLContainer<?> postgresDB = new PostgreSQLContainer<>("postgres:16")
+            .withDatabaseName("testdb")
+            .withUsername("user")
+            .withPassword("password");
+
+    @DynamicPropertySource
+    static void configureProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgresDB::getJdbcUrl);
+        registry.add("spring.datasource.username", postgresDB::getUsername);
+        registry.add("spring.datasource.password", postgresDB::getPassword);
+    }
 
     @LocalServerPort
     private int port;
@@ -50,8 +63,7 @@ public class ReminderControllerIntegrationTest {
     @TestConfiguration
     public static class ReminderConfigurationForTest {
         @Bean
-        public Dictionary dictionary() throws IOException {
-            StorageHandler storageHandler = new MemoryStorageHandler();
+        public Dictionary dictionary(StorageHandler storageHandler) throws IOException {
             var dictionary = new Dictionary(new NextGenerator(), storageHandler);
             var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary-for-test.csv");
             var originalWords = new OriginalDictionary(originalFileInputStream).load();

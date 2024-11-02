@@ -2,8 +2,8 @@ package com.fgiannesini.console;
 
 import com.fgiannesini.Dictionary;
 import com.fgiannesini.Word;
+import com.fgiannesini.console.storage.FileStorageHandler;
 import com.fgiannesini.original.OriginalDictionary;
-import com.fgiannesini.storage.FileStorageHandler;
 
 import java.io.IOException;
 import java.nio.file.Path;
