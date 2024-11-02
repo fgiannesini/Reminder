@@ -4,8 +4,6 @@ import com.fgiannesini.Dictionary;
 import com.fgiannesini.MemoryStorageHandler;
 import com.fgiannesini.NextGenerator;
 import com.fgiannesini.Word;
-import com.fgiannesini.original.OriginalDictionary;
-import com.fgiannesini.original.OriginalDictionaryForTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,13 +27,13 @@ class ReminderConsoleTest {
                         new Word("desligar", "éteindre", 0, null),
                         new Word("acender", "allumer", 0, null),
                         new Word("negar", "nier")
-                ),
-                new OriginalDictionaryForTest(
-                        new Word("desligar", "éteindre", 0, null),
-                        new Word("acender", "allumer", 0, null),
-                        new Word("negar", "nier")
                 )
         );
+        dictionary.load(List.of(
+                new Word("desligar", "éteindre", 0, null),
+                new Word("acender", "allumer", 0, null),
+                new Word("negar", "nier")
+        ));
     }
 
     private static ByteArrayInputStream getInputStream(String input) {
@@ -54,10 +52,10 @@ class ReminderConsoleTest {
                 Reminder
                 desligar
                 CLOSED (éteindre)
-                                
+                
                 acender
                 OK (allumer)
-                                
+                
                 negar
                 Bye
                 """, outputStream.getWrittenText());
@@ -74,7 +72,7 @@ class ReminderConsoleTest {
                 Reminder
                 desligar
                 KO (éteindre)
-                                
+                
                 acender
                 Bye
                 """, outputStream.getWrittenText());
@@ -100,31 +98,32 @@ class ReminderConsoleTest {
                 new Word("acender", "allumer"),
                 new Word("negar", "nier")
         );
-        OriginalDictionary originalDictionary = new OriginalDictionaryForTest(
+        Dictionary dictionary1 = new Dictionary(
+                new NextGenerator(),
+                storageHandler
+        );
+        dictionary1.load(List.of(
                 new Word("desligar", "éteindre", 0, null),
                 new Word("acender", "allumer", 0, null),
                 new Word("negar", "nier")
-        );
+        ));
         var outputStream = new MockedOutputStream();
         ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
                 éteindre
                 quit"""), outputStream);
-        reminderConsole.run(new Dictionary(
-                new NextGenerator(),
-                storageHandler,
-                originalDictionary
-        ));
+
+        reminderConsole.run(dictionary1);
         Assertions.assertEquals("""
                 Reminder
                 desligar
                 OK (éteindre)
-                                
+                
                 Translation 'desligar -> éteindre' learned
-                                
+                
                 negar
                 Bye
                 """, outputStream.getWrittenText());
-        Assertions.assertEquals(storageHandler.saveCallsCount(), 1);
+        Assertions.assertEquals(storageHandler.saveCallsCount(), 2);
     }
 
     private static class MockedOutputStream extends OutputStream {

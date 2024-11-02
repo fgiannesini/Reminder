@@ -14,7 +14,6 @@ import java.util.List;
 
 class FileStorageHandlerTest {
 
-
     @Test
     void should_load_from_resource_file_and_store_a_copy_if_not_existing(@TempDir Path tempDir) throws IOException {
         Path storageDir = buildTestStorageDir(tempDir);

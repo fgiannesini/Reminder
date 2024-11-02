@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MemoryStorageHandler implements StorageHandler {
 
-    private final List<Word> words;
+    private List<Word> words;
     private int saveCalls = 0;
 
     public MemoryStorageHandler(Word... words) {
@@ -21,9 +21,13 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public void save(List<Word> words) {
+        this.words = words;
         saveCalls++;
     }
 
+    public List<Word> getAllWords() {
+        return this.words;
+    }
     public int saveCallsCount() {
         return saveCalls;
     }

@@ -24,14 +24,16 @@ public class SpringMain {
 
         @Bean
         public Dictionary dictionary() throws IOException {
-            var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
             var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
             var storageHandler = new FileStorageHandler(storageDir);
-            return new Dictionary(
+            var dictionary = new Dictionary(
                     new SecureRandom(LocalDateTime.now().toString().getBytes()),
-                    storageHandler,
-                    new OriginalDictionary(originalFileInputStream)
+                    storageHandler
             );
+            var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
+            var originalWords = new OriginalDictionary(originalFileInputStream).load();
+            dictionary.load(originalWords);
+            return dictionary;
         }
     }
 }
