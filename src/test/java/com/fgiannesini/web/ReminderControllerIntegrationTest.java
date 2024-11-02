@@ -1,6 +1,8 @@
 package com.fgiannesini.web;
 
 import com.fgiannesini.*;
+import com.fgiannesini.original.OriginalDictionary;
+import com.fgiannesini.original.OriginalDictionaryForTest;
 import com.fgiannesini.storage.StorageHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,8 @@ public class ReminderControllerIntegrationTest {
         @Bean
         public Dictionary dictionary() throws IOException {
             StorageHandler storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
-            return new Dictionary(new NextGenerator(), storageHandler);
+            OriginalDictionary originalDictionary = new OriginalDictionaryForTest(new Word("desligar", "éteindre"), new Word("acender", "allumer"));
+            return new Dictionary(new NextGenerator(), storageHandler, originalDictionary);
         }
     }
 }

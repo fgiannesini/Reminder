@@ -7,7 +7,6 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -19,8 +18,11 @@ class FileStorageHandlerTest {
     @Test
     void should_load_from_resource_file_and_store_a_copy_if_not_existing(@TempDir Path tempDir) throws IOException {
         Path storageDir = buildTestStorageDir(tempDir);
-        var storageHandler = new FileStorageHandler(storageDir, getTestOriginalCsvInputStream());
-        List<Word> wordList = storageHandler.load();
+        var storageHandler = new FileStorageHandler(storageDir);
+        List<Word> wordList = storageHandler.load(List.of(
+                new Word("ao inves, em vez de", "au lieu de"),
+                new Word("ou seja", "c'est à dire")
+        ));
 
         var expected = List.of(
                 new Word("ao inves, em vez de", "au lieu de"),
@@ -47,8 +49,11 @@ class FileStorageHandlerTest {
                 acender;allumer;0;
                 allumer;acender;0;""");
 
-        var storageHandler = new FileStorageHandler(tempDir, getTestOriginalCsvInputStream());
-        List<Word> wordList = storageHandler.load();
+        var storageHandler = new FileStorageHandler(tempDir);
+        List<Word> wordList = storageHandler.load(List.of(
+                new Word("ao inves, em vez de", "au lieu de"),
+                new Word("ou seja", "c'est à dire")
+        ));
 
         var expected = List.of(
                 new Word("ao inves, em vez de", "au lieu de", 1, null),
@@ -70,7 +75,7 @@ class FileStorageHandlerTest {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
                 ou seja;c'est à dire;5;20240702T115135""");
-        var storageHandler = new FileStorageHandler(tempDir, InputStream.nullInputStream());
+        var storageHandler = new FileStorageHandler(tempDir);
 
         var wordsToSave = List.of(new Word("ao inves, em vez de", "au lieu de", 2, null), new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0)));
 
@@ -93,10 +98,6 @@ class FileStorageHandlerTest {
 
     private void writeInTempFile(Path tempDir, String csq) throws IOException {
         Files.writeString(tempDir.resolve("dictionary.csv"), csq);
-    }
-
-    private InputStream getTestOriginalCsvInputStream() {
-        return ClassLoader.getSystemResourceAsStream("dictionary-for-test.csv");
     }
 
     private Path buildTestStorageDir(Path tempDir) {

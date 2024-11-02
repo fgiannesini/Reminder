@@ -1,7 +1,6 @@
 package com.fgiannesini.storage;
 
 import com.fgiannesini.Word;
-import com.fgiannesini.original.CsvOriginalWord;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -19,12 +18,10 @@ import java.util.stream.Stream;
 public class FileStorageHandler implements StorageHandler {
 
     private final Path storageDir;
-    private final InputStream inputStream;
     private final String tempFileName = "dictionary.csv";
 
-    public FileStorageHandler(Path storageDir, InputStream originalFileInputStream) {
+    public FileStorageHandler(Path storageDir) {
         this.storageDir = storageDir;
-        this.inputStream = originalFileInputStream;
     }
 
     private static List<Word> addDuplicates(List<Word> words) {
@@ -40,12 +37,7 @@ public class FileStorageHandler implements StorageHandler {
         return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null);
     }
 
-    public List<Word> load() throws IOException {
-        var words = readCsvFile(inputStream, CsvOriginalWord.class)
-                .stream()
-                .map(CsvOriginalWord::toWord)
-                .toList();
-
+    public List<Word> load(List<Word> originalWords) throws IOException {
         if (!Files.exists(storageDir)) {
             Files.createDirectories(storageDir);
         }
@@ -55,11 +47,11 @@ public class FileStorageHandler implements StorageHandler {
                     .stream()
                     .map(CsvWord::toWord)
                     .toList();
-            var synchronisedWords = synchronize(words, existingWords);
+            var synchronisedWords = synchronize(originalWords, existingWords);
             writeCsvFile(synchronisedWords, tempFilePath);
             return synchronisedWords;
         } else {
-            var wordsWithDuplicates = addDuplicates(words);
+            var wordsWithDuplicates = addDuplicates(originalWords);
             writeCsvFile(wordsWithDuplicates, tempFilePath);
             return wordsWithDuplicates;
         }

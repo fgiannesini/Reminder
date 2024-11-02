@@ -4,6 +4,8 @@ import com.fgiannesini.Dictionary;
 import com.fgiannesini.MemoryStorageHandler;
 import com.fgiannesini.NextGenerator;
 import com.fgiannesini.Word;
+import com.fgiannesini.original.OriginalDictionary;
+import com.fgiannesini.original.OriginalDictionaryForTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,6 +26,11 @@ class ReminderConsoleTest {
         dictionary = new Dictionary(
                 new NextGenerator(),
                 new MemoryStorageHandler(
+                        new Word("desligar", "éteindre", 0, null),
+                        new Word("acender", "allumer", 0, null),
+                        new Word("negar", "nier")
+                ),
+                new OriginalDictionaryForTest(
                         new Word("desligar", "éteindre", 0, null),
                         new Word("acender", "allumer", 0, null),
                         new Word("negar", "nier")
@@ -93,14 +100,19 @@ class ReminderConsoleTest {
                 new Word("acender", "allumer"),
                 new Word("negar", "nier")
         );
-
+        OriginalDictionary originalDictionary = new OriginalDictionaryForTest(
+                new Word("desligar", "éteindre", 0, null),
+                new Word("acender", "allumer", 0, null),
+                new Word("negar", "nier")
+        );
         var outputStream = new MockedOutputStream();
         ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
                 éteindre
                 quit"""), outputStream);
         reminderConsole.run(new Dictionary(
                 new NextGenerator(),
-                storageHandler
+                storageHandler,
+                originalDictionary
         ));
         Assertions.assertEquals("""
                 Reminder

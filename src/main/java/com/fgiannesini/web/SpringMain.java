@@ -1,6 +1,7 @@
 package com.fgiannesini.web;
 
 import com.fgiannesini.Dictionary;
+import com.fgiannesini.original.OriginalDictionary;
 import com.fgiannesini.storage.FileStorageHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,10 +26,11 @@ public class SpringMain {
         public Dictionary dictionary() throws IOException {
             var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
             var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
-            var storageHandler = new FileStorageHandler(storageDir, originalFileInputStream);
+            var storageHandler = new FileStorageHandler(storageDir);
             return new Dictionary(
                     new SecureRandom(LocalDateTime.now().toString().getBytes()),
-                    storageHandler
+                    storageHandler,
+                    new OriginalDictionary(originalFileInputStream)
             );
         }
     }

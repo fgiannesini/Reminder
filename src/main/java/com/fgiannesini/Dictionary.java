@@ -1,5 +1,6 @@
 package com.fgiannesini;
 
+import com.fgiannesini.original.OriginalDictionary;
 import com.fgiannesini.storage.StorageHandler;
 
 import java.io.IOException;
@@ -12,10 +13,11 @@ public final class Dictionary {
     private List<Word> words;
     private final StorageHandler storageHandler;
 
-    public Dictionary(RandomGenerator randomProvider, StorageHandler storageHandler) throws IOException {
+    public Dictionary(RandomGenerator randomProvider, StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
         this.randomProvider = randomProvider;
         this.storageHandler = storageHandler;
-        this.words = this.storageHandler.load();
+        var originalWords = originalDictionary.load();
+        this.words = this.storageHandler.load(originalWords);
     }
 
     public Word next(int limit) {
