@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface StorageHandler {
-    List<Word> load(List<Word> originalWords) throws IOException;
+    List<Word> load() throws IOException;
 
     void save(List<Word> words) throws IOException;
 }

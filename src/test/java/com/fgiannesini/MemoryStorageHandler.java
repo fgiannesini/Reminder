@@ -15,7 +15,7 @@ public class MemoryStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> load(List<Word> originalWords) {
+    public List<Word> load() {
         return this.words;
     }
 

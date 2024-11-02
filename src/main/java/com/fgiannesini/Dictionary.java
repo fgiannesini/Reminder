@@ -33,7 +33,7 @@ public final class Dictionary {
     }
 
     public void load(List<Word> originalWords) throws IOException {
-        var existingWords = storageHandler.load(List.of());
+        var existingWords = storageHandler.load();
         if (!existingWords.isEmpty()) {
             var synchronisedWords = synchronize(originalWords, existingWords);
             storageHandler.save(synchronisedWords);

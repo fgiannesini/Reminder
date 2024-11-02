@@ -13,65 +13,32 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class FileStorageHandler implements StorageHandler {
 
-    private final Path storageDir;
-    private final String tempFileName = "dictionary.csv";
+    private final Path tempFilePath;
 
-    public FileStorageHandler(Path storageDir) {
-        this.storageDir = storageDir;
-    }
-
-    private static List<Word> addDuplicates(List<Word> words) {
-        return words.stream()
-                .flatMap(word -> Stream.of(
-                        word,
-                        buildDuplicate(word)
-                ))
-                .toList();
-    }
-
-    private static Word buildDuplicate(Word word) {
-        return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null);
-    }
-
-    public List<Word> load(List<Word> originalWords) throws IOException {
+    public FileStorageHandler(Path storageDir) throws IOException {
         if (!Files.exists(storageDir)) {
             Files.createDirectories(storageDir);
         }
-        Path tempFilePath = storageDir.resolve(tempFileName);
-        if (tempFilePath.toFile().exists()) {
-            var existingWords = readCsvFile(Files.newInputStream(tempFilePath), CsvWord.class)
-                    .stream()
-                    .map(CsvWord::toWord)
-                    .toList();
-            var synchronisedWords = synchronize(originalWords, existingWords);
-            writeCsvFile(synchronisedWords, tempFilePath);
-            return synchronisedWords;
-        } else {
-            var wordsWithDuplicates = addDuplicates(originalWords);
-            writeCsvFile(wordsWithDuplicates, tempFilePath);
-            return wordsWithDuplicates;
+        tempFilePath = storageDir.resolve("dictionary.csv");
+    }
+
+    @Override
+    public List<Word> load() throws IOException {
+        if (!Files.exists(tempFilePath)) {
+            return List.of();
         }
+        return readCsvFile(Files.newInputStream(tempFilePath))
+                .stream()
+                .map(CsvWord::toWord)
+                .toList();
     }
 
     @Override
     public void save(List<Word> words) throws IOException {
-        Path tempFilePath = storageDir.resolve(tempFileName);
         writeCsvFile(words, tempFilePath);
-    }
-
-    private List<Word> synchronize(List<Word> words, List<Word> existingWords) {
-        var existingWordsToKeep = existingWords.stream()
-                .filter(existingWord -> words.stream().anyMatch(word -> isWordOrDuplicate(word, existingWord)))
-                .toList();
-        var wordsToAdd = words.stream()
-                .filter(word -> existingWords.stream().noneMatch(existingWord -> isWordOrDuplicate(word, existingWord)))
-                .toList();
-        var wordsToAddWithDuplicates = addDuplicates(wordsToAdd);
-        return Stream.concat(existingWordsToKeep.stream(), wordsToAddWithDuplicates.stream()).toList();
     }
 
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
@@ -88,18 +55,13 @@ public class FileStorageHandler implements StorageHandler {
         }
     }
 
-    private boolean isWordOrDuplicate(Word word1, Word word2) {
-        return word1.isSimilarTo(word2) || word1.isSimilarTo(buildDuplicate(word2));
-    }
-
-    private <T> List<T> readCsvFile(InputStream inputStream, Class<T> type) throws IOException {
+    private List<CsvWord> readCsvFile(InputStream inputStream) throws IOException {
         try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
-            CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
-                    .withType(type)
+            CsvToBean<CsvWord> cb = new CsvToBeanBuilder<CsvWord>(reader)
+                    .withType(CsvWord.class)
                     .withSeparator(';')
                     .build();
             return cb.parse();
         }
     }
-
 }
