@@ -9,4 +9,6 @@ public interface StorageHandler {
     List<Word> load() throws IOException;
 
     void save(List<Word> words) throws IOException;
+
+    Word find(String wordToLearn);
 }

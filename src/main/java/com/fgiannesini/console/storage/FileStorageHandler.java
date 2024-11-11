@@ -18,28 +18,38 @@ import java.util.List;
 public class FileStorageHandler implements StorageHandler {
 
     private final Path tempFilePath;
+    private List<Word> words;
 
     public FileStorageHandler(Path storageDir) throws IOException {
         if (!Files.exists(storageDir)) {
             Files.createDirectories(storageDir);
         }
         tempFilePath = storageDir.resolve("dictionary.csv");
+        this.words = List.of();
     }
 
     @Override
     public List<Word> load() throws IOException {
-        if (!Files.exists(tempFilePath)) {
-            return List.of();
+        if (Files.exists(tempFilePath)) {
+            this.words = readCsvFile(Files.newInputStream(tempFilePath))
+                    .stream()
+                    .map(CsvWord::toWord)
+                    .toList();
         }
-        return readCsvFile(Files.newInputStream(tempFilePath))
-                .stream()
-                .map(CsvWord::toWord)
-                .toList();
+        return words;
     }
 
     @Override
     public void save(List<Word> words) throws IOException {
         writeCsvFile(words, tempFilePath);
+    }
+
+    @Override
+    public Word find(String wordToLearn) {
+        return words.stream()
+                .filter(word -> word.wordToLearn().equals(wordToLearn))
+                .findAny()
+                .orElse(null);
     }
 
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {

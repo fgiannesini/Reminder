@@ -25,6 +25,11 @@ public class MemoryStorageHandler implements StorageHandler {
         saveCalls++;
     }
 
+    @Override
+    public Word find(String wordToLearn) {
+        return null;
+    }
+
     public List<Word> getAllWords() {
         return this.words;
     }

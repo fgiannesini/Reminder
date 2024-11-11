@@ -49,7 +49,10 @@ class FileStorageHandlerTest {
                 ou seja;c'est à dire;5;20240702T115135""");
         var storageHandler = new FileStorageHandler(tempDir);
 
-        var wordsToSave = List.of(new Word("ao inves, em vez de", "au lieu de", 2, null), new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0)));
+        var wordsToSave = List.of(
+                new Word("ao inves, em vez de", "au lieu de", 2, null),
+                new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0)
+                ));
 
         storageHandler.save(wordsToSave);
 
@@ -57,6 +60,19 @@ class FileStorageHandlerTest {
         Assertions.assertEquals(actual, """
                 ao inves, em vez de;au lieu de;2;
                 ou seja;c'est à dire;5;20240703T131800""");
+    }
+
+    @Test
+    void should_find_a_word(@TempDir Path tempDir) throws IOException {
+        writeInTempFile(tempDir, """
+                ao inves, em vez de;au lieu de;1;
+                ou seja;c'est à dire;5;""");
+        var storageHandler = new FileStorageHandler(tempDir);
+        storageHandler.load();
+
+        var word = storageHandler.find("ou seja");
+
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, null), word);
     }
 
     private String readTempFile(Path testStorageDir) throws IOException {

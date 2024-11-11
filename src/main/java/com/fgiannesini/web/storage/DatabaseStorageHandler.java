@@ -26,4 +26,9 @@ public class DatabaseStorageHandler implements StorageHandler {
         var wordDaos = words.stream().map(WordDao::fromWord).toList();
         wordRepository.saveAll(wordDaos);
     }
+
+    @Override
+    public Word find(String wordToLearn) {
+        return null;
+    }
 }

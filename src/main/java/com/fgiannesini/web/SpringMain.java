@@ -29,13 +29,17 @@ public class SpringMain {
         }
 
         @Bean
-        public Dictionary dictionary(StorageHandler storageHandler) throws IOException {
+        public OriginalDictionary originalDictionary() {
+            var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
+            return new OriginalDictionary(originalFileInputStream);
+        }
+        @Bean
+        public Dictionary dictionary(StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
             var dictionary = new Dictionary(
                     new SecureRandom(LocalDateTime.now().toString().getBytes()),
                     storageHandler
             );
-            var originalFileInputStream = getClass().getClassLoader().getResourceAsStream("dictionary.csv");
-            var originalWords = new OriginalDictionary(originalFileInputStream).load();
+            var originalWords = originalDictionary.load();
             dictionary.load(originalWords);
             return dictionary;
         }
