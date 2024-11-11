@@ -66,13 +66,13 @@ class FileStorageHandlerTest {
     void should_find_a_word(@TempDir Path tempDir) throws IOException {
         writeInTempFile(tempDir, """
                 ao inves, em vez de;au lieu de;1;
-                ou seja;c'est à dire;5;""");
+                ou seja;c'est à dire;3;""");
         var storageHandler = new FileStorageHandler(tempDir);
         storageHandler.load();
 
         var word = storageHandler.find("ou seja");
 
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 5, null), word);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, null), word);
     }
 
     private String readTempFile(Path testStorageDir) throws IOException {

@@ -33,4 +33,10 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         );
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void should_find_a_word() {
+        var word = storageHandler.find("ou seja");
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, null), word);
+    }
 }

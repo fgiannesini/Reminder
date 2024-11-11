@@ -29,6 +29,6 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public Word find(String wordToLearn) {
-        return null;
+        return wordRepository.getReferenceById(wordToLearn).toWord();
     }
 }
