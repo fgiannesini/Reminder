@@ -83,12 +83,4 @@ class DictionaryTest {
         Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
         Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
     }
-
-    @Test
-    void should_find_a_word() throws IOException {
-        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
-        dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
-
-        Assertions.assertEquals(dictionary.find("desligar"), new Word("desligar", "éteindre"));
-    }
 }

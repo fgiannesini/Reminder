@@ -73,9 +73,6 @@ public final class Dictionary {
     }
 
     public Word find(String wordToLearn) {
-        return words.stream()
-                .filter(word -> word.wordToLearn().equals(wordToLearn))
-                .findAny()
-                .orElse(null);
+        return storageHandler.find(wordToLearn);
     }
 }
