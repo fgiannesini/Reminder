@@ -50,4 +50,21 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
         var actual = storageHandler.find("ou seja");
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0)), actual);
     }
+
+    @Test
+    @Transactional
+    void should_get_next_words_ordered_by_learnt_moment_null_first() throws IOException {
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0)));
+        storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0)));
+
+        var actual = storageHandler.getNextWords(4);
+
+        var expected = List.of(
+                new Word("au lieu de", "ao inves, em vez de", 3, null),
+                new Word("c'est à dire", "ou seja", 3, null),
+                new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0)),
+                new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0))
+        );
+        Assertions.assertEquals(expected, actual);
+    }
 }

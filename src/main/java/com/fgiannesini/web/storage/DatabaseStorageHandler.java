@@ -36,4 +36,12 @@ public class DatabaseStorageHandler implements StorageHandler {
     public void update(Word word) {
         wordRepository.save(WordDao.fromWord(word));
     }
+
+    @Override
+    public List<Word> getNextWords(int limit) {
+        return wordRepository.getTopOrderByLearntMoment(limit)
+                .stream()
+                .map(WordDao::toWord)
+                .toList();
+    }
 }

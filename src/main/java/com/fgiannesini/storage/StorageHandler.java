@@ -13,4 +13,6 @@ public interface StorageHandler {
     Word find(String wordToLearn);
 
     void update(Word word) throws IOException;
+
+    List<Word> getNextWords(int limit);
 }

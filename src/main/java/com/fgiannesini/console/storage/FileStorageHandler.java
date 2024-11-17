@@ -15,6 +15,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import static java.util.Comparator.*;
+
 public class FileStorageHandler implements StorageHandler {
 
     private final Path tempFilePath;
@@ -60,8 +62,18 @@ public class FileStorageHandler implements StorageHandler {
         this.save(this.words);
     }
 
+    @Override
+    public List<Word> getNextWords(int limit) {
+        return this.words.stream()
+                .sorted(comparing(Word::learnedMoment, nullsFirst(naturalOrder())))
+                .limit(limit)
+                .toList();
+    }
+
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
-        var csvWords = words.stream().map(CsvWord::fromWord).toList();
+        var csvWords = words.stream()
+                .map(CsvWord::fromWord)
+                .toList();
 
         try (Writer writer = new FileWriter(filePath.toFile(), StandardCharsets.UTF_8)) {
             StatefulBeanToCsv<CsvWord> sbc = new StatefulBeanToCsvBuilder<CsvWord>(writer)

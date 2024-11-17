@@ -35,6 +35,11 @@ public class MemoryStorageHandler implements StorageHandler {
 
     }
 
+    @Override
+    public List<Word> getNextWords(int limit) {
+        return this.words;
+    }
+
     public List<Word> getAllWords() {
         return this.words;
     }

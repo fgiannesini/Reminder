@@ -52,9 +52,9 @@ class FileStorageHandlerTest {
         storageHandler.save(wordsToSave);
 
         var actual = readTempFile(tempDir);
-        Assertions.assertEquals(actual, """
+        Assertions.assertEquals("""
                 ao inves, em vez de;au lieu de;2;
-                ou seja;c'est à dire;5;20240703T131800""");
+                ou seja;c'est à dire;5;20240703T131800""", actual);
     }
 
     @Test
@@ -83,9 +83,27 @@ class FileStorageHandlerTest {
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0)), actualWord);
 
         var actualTempFile = readTempFile(tempDir);
-        Assertions.assertEquals(actualTempFile, """
+        Assertions.assertEquals("""
                 ao inves, em vez de;au lieu de;1;
-                ou seja;c'est à dire;3;20240703T131800""");
+                ou seja;c'est à dire;3;20240703T131800""", actualTempFile);
+    }
+
+    @Test
+    void should_find_next_words_ordered_by_learnt_moment_null_first(@TempDir Path tempDir) throws IOException {
+        writeInTempFile(tempDir, """
+                ligar;allumer;3;20240817T114002
+                ao inves, em vez de;au lieu de;3;20200817T114002
+                ou seja;c'est à dire;2;
+                """);
+
+        var storageHandler = new FileStorageHandler(tempDir);
+        storageHandler.load();
+
+        var nextWords = storageHandler.getNextWords(2);
+        Assertions.assertEquals(List.of(
+                new Word("ou seja", "c'est à dire", 2, null),
+                new Word("ao inves, em vez de", "au lieu de", 3, LocalDateTime.of(2020, 8, 17, 11, 40, 2))
+        ), nextWords);
     }
 
     private String readTempFile(Path testStorageDir) throws IOException {
