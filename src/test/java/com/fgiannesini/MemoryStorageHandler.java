@@ -45,10 +45,6 @@ public class MemoryStorageHandler implements StorageHandler {
         this.words.removeAll(word);
     }
 
-    public int saveCallsCount() {
-        return 2;
-    }
-
     public Word getUpdatedWord() {
         return updatedWord;
     }

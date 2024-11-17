@@ -84,19 +84,18 @@ class ReminderConsoleTest {
         var outputStream = new MockedOutputStream();
         ReminderConsole reminderConsole = new ReminderConsole(getInputStream(quitCommand), outputStream);
         reminderConsole.run(dictionary);
-        Assertions.assertEquals(outputStream.getWrittenText(), """
+        Assertions.assertEquals("""
                 Reminder
                 desligar
                 Bye
-                """);
+                """, outputStream.getWrittenText());
     }
 
     @Test
     public void Should_learn_a_word() throws IOException {
         var storageHandler = new MemoryStorageHandler(
                 new Word("desligar", "éteindre", 2, null),
-                new Word("acender", "allumer"),
-                new Word("negar", "nier")
+                new Word("acender", "allumer")
         );
         Dictionary dictionary1 = new Dictionary(
                 new NextGenerator(),
@@ -104,8 +103,7 @@ class ReminderConsoleTest {
         );
         dictionary1.load(List.of(
                 new Word("desligar", "éteindre", 0, null),
-                new Word("acender", "allumer", 0, null),
-                new Word("negar", "nier")
+                new Word("acender", "allumer", 0, null)
         ));
         var outputStream = new MockedOutputStream();
         ReminderConsole reminderConsole = new ReminderConsole(getInputStream("""
@@ -120,10 +118,9 @@ class ReminderConsoleTest {
                 
                 Translation 'desligar -> éteindre' learned
                 
-                negar
+                acender
                 Bye
                 """, outputStream.getWrittenText());
-        Assertions.assertEquals(storageHandler.saveCallsCount(), 2);
     }
 
     private static class MockedOutputStream extends OutputStream {
