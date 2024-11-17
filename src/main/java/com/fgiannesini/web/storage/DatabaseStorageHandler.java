@@ -31,4 +31,9 @@ public class DatabaseStorageHandler implements StorageHandler {
     public Word find(String wordToLearn) {
         return wordRepository.getReferenceById(wordToLearn).toWord();
     }
+
+    @Override
+    public void update(Word word) {
+        wordRepository.save(WordDao.fromWord(word));
+    }
 }

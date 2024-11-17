@@ -52,6 +52,14 @@ public class FileStorageHandler implements StorageHandler {
                 .orElse(null);
     }
 
+    @Override
+    public void update(Word newWord) throws IOException {
+        this.words = words.stream()
+                .map(word -> word.isSimilarTo(newWord) ? newWord : word)
+                .toList();
+        this.save(this.words);
+    }
+
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
         var csvWords = words.stream().map(CsvWord::fromWord).toList();
 

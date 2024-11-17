@@ -30,6 +30,11 @@ public class MemoryStorageHandler implements StorageHandler {
         return null;
     }
 
+    @Override
+    public void update(Word word) {
+
+    }
+
     public List<Word> getAllWords() {
         return this.words;
     }
