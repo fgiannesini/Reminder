@@ -55,10 +55,10 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
         dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
 
-        Assertions.assertEquals(dictionary.next(20), new Word("desligar", "éteindre"));
-        Assertions.assertEquals(dictionary.next(20), new Word("éteindre", "desligar"));
-        Assertions.assertEquals(dictionary.next(20), new Word("acender", "allumer"));
-        Assertions.assertEquals(dictionary.next(20), new Word("allumer", "acender"));
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(20));
+        Assertions.assertEquals(new Word("éteindre", "desligar"), dictionary.next(20));
+        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next(20));
+        Assertions.assertEquals(new Word("allumer", "acender"), dictionary.next(20));
     }
 
     @Test
@@ -70,7 +70,7 @@ class DictionaryTest {
         var learnedMoment = LocalDateTime.now();
         dictionary.update(new Word("desligar", "éteindre", 3, learnedMoment));
 
-        Assertions.assertEquals(dictionary.next(20), new Word("éteindre", "desligar"));
+        Assertions.assertEquals(new Word("éteindre", "desligar"), dictionary.next(20));
         Assertions.assertEquals(dictionary.next(20), new Word("desligar", "éteindre", 3, learnedMoment));
         Assertions.assertEquals(2, storageHandler.saveCallsCount());
     }
@@ -80,7 +80,7 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
         dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
 
-        Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
-        Assertions.assertEquals(dictionary.next(1), new Word("desligar", "éteindre"));
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(1));
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(1));
     }
 }
