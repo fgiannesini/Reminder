@@ -70,6 +70,14 @@ public class FileStorageHandler implements StorageHandler {
                 .toList();
     }
 
+    @Override
+    public void delete(List<Word> wordsToDelete) throws IOException {
+        this.words = words.stream()
+                .filter(word -> wordsToDelete.stream().noneMatch(word::isSimilarTo))
+                .toList();
+        this.save(this.words);
+    }
+
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
         var csvWords = words.stream()
                 .map(CsvWord::fromWord)

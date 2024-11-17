@@ -67,4 +67,20 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
         );
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    @Transactional
+    void should_delete() throws IOException {
+        storageHandler.delete(List.of(
+                new Word("ao inves, em vez de", "au lieu de", 3, null),
+                new Word("ou seja", "c'est à dire", 3, null)
+        ));
+
+        var actual = storageHandler.load();
+        var expected = List.of(
+                new Word("au lieu de", "ao inves, em vez de", 3, null),
+                new Word("c'est à dire", "ou seja", 3, null)
+        );
+        Assertions.assertEquals(expected, actual);
+    }
 }

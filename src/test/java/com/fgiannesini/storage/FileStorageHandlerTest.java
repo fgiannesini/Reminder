@@ -106,6 +106,24 @@ class FileStorageHandlerTest {
         ), nextWords);
     }
 
+    @Test
+    void should_delete(@TempDir Path tempDir) throws IOException {
+        writeInTempFile(tempDir, """
+                ao inves, em vez de;au lieu de;1;
+                ou seja;c'est à dire;5;""");
+        var storageHandler = new FileStorageHandler(tempDir);
+        storageHandler.load();
+
+        var wordsToDelete = List.of(
+                new Word("ao inves, em vez de", "au lieu de", 1, null)
+        );
+        storageHandler.delete(wordsToDelete);
+
+        var actual = readTempFile(tempDir);
+        Assertions.assertEquals("""
+                ou seja;c'est à dire;5;""", actual);
+    }
+
     private String readTempFile(Path testStorageDir) throws IOException {
         var files = testStorageDir.toFile().listFiles();
         Assertions.assertNotNull(files);

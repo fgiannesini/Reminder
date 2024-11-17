@@ -21,7 +21,9 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public void save(List<Word> words) {
-        var wordDaos = words.stream().map(WordDao::fromWord).toList();
+        var wordDaos = words.stream()
+                .map(WordDao::fromWord)
+                .toList();
         wordRepository.saveAll(wordDaos);
     }
 
@@ -41,5 +43,10 @@ public class DatabaseStorageHandler implements StorageHandler {
                 .stream()
                 .map(WordDao::toWord)
                 .toList();
+    }
+
+    @Override
+    public void delete(List<Word> wordsToDelete) {
+        wordRepository.deleteAll(wordsToDelete.stream().map(WordDao::fromWord).toList());
     }
 }

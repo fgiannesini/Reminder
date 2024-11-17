@@ -15,4 +15,6 @@ public interface StorageHandler {
     void update(Word word) throws IOException;
 
     List<Word> getNextWords(int limit);
+
+    void delete(List<Word> word) throws IOException;
 }

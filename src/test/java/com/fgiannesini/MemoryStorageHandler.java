@@ -40,9 +40,15 @@ public class MemoryStorageHandler implements StorageHandler {
         return this.words;
     }
 
+    @Override
+    public void delete(List<Word> word) {
+
+    }
+
     public List<Word> getAllWords() {
         return this.words;
     }
+
     public int saveCallsCount() {
         return saveCalls;
     }
