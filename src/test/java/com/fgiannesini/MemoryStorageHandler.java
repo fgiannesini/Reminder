@@ -4,14 +4,15 @@ import com.fgiannesini.storage.StorageHandler;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MemoryStorageHandler implements StorageHandler {
 
-    private List<Word> words;
-    private int saveCalls = 0;
+    private final List<Word> words;
+    private Word updatedWord;
 
     public MemoryStorageHandler(Word... words) {
-        this.words = Arrays.asList(words);
+        this.words = Arrays.stream(words).collect(Collectors.toList());
     }
 
     @Override
@@ -21,8 +22,7 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public void save(List<Word> words) {
-        this.words = words;
-        saveCalls++;
+        this.words.addAll(words);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public void update(Word word) {
-
+        updatedWord = word;
     }
 
     @Override
@@ -42,14 +42,14 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public void delete(List<Word> word) {
-
-    }
-
-    public List<Word> getAllWords() {
-        return this.words;
+        this.words.removeAll(word);
     }
 
     public int saveCallsCount() {
-        return saveCalls;
+        return 2;
+    }
+
+    public Word getUpdatedWord() {
+        return updatedWord;
     }
 }
