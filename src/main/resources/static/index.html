@@ -8,15 +8,15 @@
 <body>
 <h1>Reminder</h1>
 
-<button id="next-button" onclick="getNextWord()">Next</button>
-<progress hidden id="progress-next"></progress>
-<br/><br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
 <label for="translation-input">Translation: </label> <input id="translation-input"/>
 <button onclick="submitTranslation()">Submit</button>
 <progress hidden id="progress-submit"></progress>
 <br/><br/>
 <label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
+<button id="next-button" onclick="getNextWord()">Next</button>
+<progress hidden id="progress-next"></progress>
+<br/><br/>
 <span id="error-span" style="display: none"></span>
 </body>
 <script>
