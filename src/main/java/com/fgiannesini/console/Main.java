@@ -1,19 +1,16 @@
 package com.fgiannesini.console;
 
-import com.fgiannesini.Dictionary;
 import com.fgiannesini.Word;
-import com.fgiannesini.console.storage.FileStorageHandler;
 import com.fgiannesini.original.OriginalDictionary;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.security.SecureRandom;
-import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        var originalFileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
+        duplicate();
+       /* var originalFileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
         var storageDir = Path.of(System.getProperty("user.home")).resolve("Reminder");
         var storageHandler = new FileStorageHandler(storageDir);
         List<Word> originalWords = new OriginalDictionary(originalFileInputStream).load();
@@ -23,6 +20,29 @@ public class Main {
         );
         dictionary.load(originalWords);
         ReminderConsole reminderConsole = new ReminderConsole(System.in, System.out);
-        reminderConsole.run(dictionary);
+        reminderConsole.run(dictionary);*/
+    }
+
+    static void duplicate() throws IOException {
+        var originalFileInputStream = ClassLoader.getSystemResourceAsStream("dictionary.csv");
+        List<Word> load = new OriginalDictionary(originalFileInputStream).load();
+        for (int i = 0; i < load.size() - 1; i++) {
+            Word word = load.get(i);
+            for (int j = i + 1; j < load.size(); j++) {
+                Word word2 = load.get(j);
+                boolean wordToLearn = Arrays.stream(getSplit(word.wordToLearn())).anyMatch(s -> Arrays.asList(getSplit(word2.wordToLearn())).contains(s));
+                if (wordToLearn) {
+                    System.out.println(word.wordToLearn() + " " + i + " " + word2.wordToLearn() + " " + j);
+                }
+                boolean translation = Arrays.stream(getSplit(word.translation())).anyMatch(s -> Arrays.asList(getSplit(word2.translation())).contains(s));
+                if (translation) {
+                    System.out.println(word.translation() + " " + i + " " + word2.translation() + " " + j);
+                }
+            }
+        }
+    }
+
+    private static String[] getSplit(String word) {
+        return word.split(";")[0].split(",");
     }
 }
