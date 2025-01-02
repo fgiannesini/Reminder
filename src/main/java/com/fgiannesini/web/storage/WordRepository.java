@@ -12,4 +12,6 @@ public interface WordRepository extends JpaRepository<WordDao, String> {
 
     @Query(value = "SELECT * FROM word w ORDER BY w.learnt_moment IS NULL DESC, w.checked_count, w.learnt_moment LIMIT :limit", nativeQuery = true)
     List<WordDao> getTopOrderByLearntMoment(@Param("limit") int limit);
+
+    long countByLearntMomentIsNull();
 }

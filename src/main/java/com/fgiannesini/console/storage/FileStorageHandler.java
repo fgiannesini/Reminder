@@ -78,6 +78,11 @@ public class FileStorageHandler implements StorageHandler {
         this.save(this.words);
     }
 
+    @Override
+    public long getCountToLearn() {
+        return words.stream().filter(word -> !word.isLearnt()).count();
+    }
+
     private void writeCsvFile(List<Word> words, Path filePath) throws IOException {
         var csvWords = words.stream()
                 .map(CsvWord::fromWord)

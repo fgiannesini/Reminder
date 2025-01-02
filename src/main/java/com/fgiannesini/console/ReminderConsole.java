@@ -45,7 +45,7 @@ public class ReminderConsole {
                 case MATCHED, CLOSED -> word.checked();
                 case NOT_MATCHED -> word.reset();
             };
-            if (newWord.isLearned()) {
+            if (newWord.shouldBeMarkedAsLearnt()) {
                 write(this.outputStream, "Translation '" + newWord.wordToLearn() + " -> " + newWord.translation() + "' learned\n");
             }
             dictionary.update(newWord);

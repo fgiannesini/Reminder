@@ -45,8 +45,12 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
         return Matching.NOT_MATCHED;
     }
 
-    public boolean isLearned() {
+    public boolean shouldBeMarkedAsLearnt() {
         return checkedCount == repetitionLimitToLearn;
+    }
+
+    public boolean isLearnt() {
+        return this.learnedMoment != null;
     }
 
     public Word reset() {
@@ -59,7 +63,7 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
 
     public Word checked(LocalDateTime learnedMoment) {
         var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
-        if (newWord.isLearned()) {
+        if (newWord.shouldBeMarkedAsLearnt()) {
             newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment);
         }
         return newWord;

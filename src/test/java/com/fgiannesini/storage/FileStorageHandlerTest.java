@@ -124,6 +124,21 @@ class FileStorageHandlerTest {
                 ou seja;c'est à dire;5;""", actual);
     }
 
+    @Test
+    void should_get_count_of_words_to_learn(@TempDir Path tempDir) throws IOException {
+        writeInTempFile(tempDir, """
+                ligar;allumer;3;20240817T114002
+                ao inves, em vez de;au lieu de;3;20200817T114002
+                ou seja;c'est à dire;2;
+                """);
+
+        var storageHandler = new FileStorageHandler(tempDir);
+        storageHandler.load();
+
+        var countToLearn = storageHandler.getCountToLearn();
+        Assertions.assertEquals(1, countToLearn);
+    }
+
     private String readTempFile(Path testStorageDir) throws IOException {
         var files = testStorageDir.toFile().listFiles();
         Assertions.assertNotNull(files);

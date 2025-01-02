@@ -45,6 +45,11 @@ public class MemoryStorageHandler implements StorageHandler {
         this.words.removeAll(word);
     }
 
+    @Override
+    public long getCountToLearn() {
+        return 0;
+    }
+
     public Word getUpdatedWord() {
         return updatedWord;
     }

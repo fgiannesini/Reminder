@@ -49,4 +49,9 @@ public class DatabaseStorageHandler implements StorageHandler {
     public void delete(List<Word> wordsToDelete) {
         wordRepository.deleteAll(wordsToDelete.stream().map(WordDao::fromWord).toList());
     }
+
+    @Override
+    public long getCountToLearn() {
+        return wordRepository.countByLearntMomentIsNull();
+    }
 }

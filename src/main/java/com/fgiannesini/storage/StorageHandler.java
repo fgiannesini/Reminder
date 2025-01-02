@@ -17,4 +17,6 @@ public interface StorageHandler {
     List<Word> getNextWords(int limit);
 
     void delete(List<Word> word) throws IOException;
+
+    long getCountToLearn();
 }

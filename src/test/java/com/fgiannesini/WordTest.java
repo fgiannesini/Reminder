@@ -52,13 +52,13 @@ class WordTest {
     @Test
     void should_be_learned_when_checked_lots_of_time() {
         Word word = new Word("ou seja", "c'est à dire", 3, null);
-        Assertions.assertTrue(word.isLearned());
+        Assertions.assertTrue(word.shouldBeMarkedAsLearnt());
     }
 
     @Test
     void should_not_be_learned_when_not_checked() {
         Word word = new Word("ou seja", "c'est à dire", 0, null);
-        Assertions.assertFalse(word.isLearned());
+        Assertions.assertFalse(word.shouldBeMarkedAsLearnt());
     }
 
     @Test
