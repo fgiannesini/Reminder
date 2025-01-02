@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>Reminder</h1>
-
+<div id="remaining-words-count-span"></div>
+<br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
 <label for="translation-input">Translation: </label> <input id="translation-input"/>
 <button onclick="submitTranslation()">Submit</button>
@@ -20,6 +21,16 @@
 <span id="error-span" style="display: none"></span>
 </body>
 <script>
+    const setRemainingWordsCount = async () => {
+        const response = await fetch('/reminder/word/remaining');
+        if (!response.ok) {
+            let elementById = document.getElementById('error-span');
+            elementById.style.display = 'block';
+            elementById.textContent = await response.text();
+            return;
+        }
+        document.getElementById('remaining-words-count-span').textContent = `${await response.text()} words to learn.`;
+    }
     const getNextWord = async () => {
         document.getElementById('progress-next').hidden = false;
         const response = await fetch('/reminder/word/next');
@@ -84,6 +95,11 @@
                 await submitTranslation();
             }
         });
+    document.addEventListener("DOMContentLoaded", async () => {
+            await setRemainingWordsCount();
+        }
+    );
+
     document.getElementById('next-button').focus();
 </script>
 </html>
