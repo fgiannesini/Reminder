@@ -37,4 +37,9 @@ public class ReminderController {
         dictionary.update(newWord);
         return new TranslationResponseDto(matching, newWord.translation(), newWord.shouldBeMarkedAsLearnt());
     }
+
+    @GetMapping("/remaining")
+    public long remainingWordsCountToLearn() {
+        return dictionary.remainingWordsCountToLearn();
+    }
 }

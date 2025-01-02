@@ -18,5 +18,5 @@ public interface StorageHandler {
 
     void delete(List<Word> word) throws IOException;
 
-    long getCountToLearn();
+    long getRemainingWordsCountToLearn();
 }

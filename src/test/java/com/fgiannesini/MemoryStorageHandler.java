@@ -46,7 +46,7 @@ public class MemoryStorageHandler implements StorageHandler {
     }
 
     @Override
-    public long getCountToLearn() {
+    public long getRemainingWordsCountToLearn() {
         return 0;
     }
 

@@ -79,7 +79,7 @@ public class FileStorageHandler implements StorageHandler {
     }
 
     @Override
-    public long getCountToLearn() {
+    public long getRemainingWordsCountToLearn() {
         return words.stream().filter(word -> !word.isLearnt()).count();
     }
 

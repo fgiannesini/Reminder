@@ -58,4 +58,8 @@ public final class Dictionary {
     public Word find(String wordToLearn) {
         return storageHandler.find(wordToLearn);
     }
+
+    public long remainingWordsCountToLearn() {
+        return storageHandler.getRemainingWordsCountToLearn();
+    }
 }

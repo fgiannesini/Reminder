@@ -33,5 +33,11 @@ public class ReminderControllerIntegrationTest extends TestContainerIntegrationT
         assertEquals(new TranslationResponseDto(Matching.MATCHED, "c'est à dire", true), response.getBody());
     }
 
+    @Test
+    public void Should_get_remaining_words_count() {
+        var response = restTemplate.getForEntity("http://localhost:%d/reminder/word/remaining".formatted(port), long.class);
+        assertEquals(OK, response.getStatusCode());
+        assertEquals(4, response.getBody());
+    }
 }
 

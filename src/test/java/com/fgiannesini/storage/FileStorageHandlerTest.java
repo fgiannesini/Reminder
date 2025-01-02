@@ -135,7 +135,7 @@ class FileStorageHandlerTest {
         var storageHandler = new FileStorageHandler(tempDir);
         storageHandler.load();
 
-        var countToLearn = storageHandler.getCountToLearn();
+        var countToLearn = storageHandler.getRemainingWordsCountToLearn();
         Assertions.assertEquals(1, countToLearn);
     }
 
