@@ -17,11 +17,10 @@ recusar;refuser
 ampliação;amplification, aggrandissement
 raiz;racine
 areia;sable
-apenas, somente, só;seulement
 basta;il suffit de
 demorar;prendre du temps
 compromisso;engagement
-aleijar, magoar;blesser, se faire mal
+aleijar, magoar, machucar;blesser, se faire mal
 ferir;blesser, (avec du sang)
 embora;bien que, même si
 vamos embora;on y va, allons y
@@ -46,7 +45,6 @@ pêssego;pêche
 damasco,alperce;abricot
 proposta;proposition
 dano;dommage
-atender o telefone;répondre au téléphone
 atender o cliente;recevoir le client
 tornar-se;devenir
 pedreiro;maçon
@@ -66,7 +64,6 @@ aço;acier
 benevolente;bienveillant
 benevolo;bénévole
 sagaz;habile, perspicace
-prefeito, presidente da câmara;maire
 enjoado;nauséeux
 sozinho;seul
 duvidar;douter
@@ -77,7 +74,6 @@ motívo;motif
 caixa de correio;boîte aux lettres
 regra;règle
 miúdo;menu, petit
-aborrecido;ennuyeux
 bloquear;bloquer
 descalço;dechaussé, nu-pieds
 domínio;domaine
@@ -104,13 +100,11 @@ classificação;classement, classification
 fábula;fable
 lebre;lièvre
 desistir;se désister, renoncer, abandonner
-alcançar;atteindre
 semelhante;pareil, semblable
 de fato;en effet
 aprendizagem;apprentissage
 desafiador;provocateur
 calendário;calendrier
-aula;cours
 sala de aula;salle de classe
 marcar;marquer, étiquetter
 preferências;préférences
@@ -140,7 +134,6 @@ sério;sérieux
 terreno;terrain
 povo;peuple
 combinado;combiné, convenu, entendu
-cachueira, cascata;cascade
 ás vezes;parfois
 asa;aile
 assegurado;assuré, garanti
@@ -163,7 +156,6 @@ feio;laid
 travessa;entretoise, barre
 meia;chaussette
 macio;doux, moelleux
-cá;ici
 ovelha;brebis
 boda;noce, festin
 bode;bouc
@@ -238,7 +230,7 @@ apegar;attacher
 urso;ours
 armadilha;piège
 fiambre;jambon
-barraca;tente
+barraca, tenda;tente
 meta;objectif, but, limite
 parceria;partenariat
 ameixa;prune
@@ -287,11 +279,9 @@ mexer;remuer
 anel;bague, anneau
 maravilhoso;merveilleux
 febre;fièvre
-mandar;envoyer
 brique;tijolo
 ponto;point
 soberano;souverain
-furar;percer, trouer
 aldeia;village
 amaldiçoado;maudit
 terramoto;séisme, tremblement de terre
@@ -339,7 +329,6 @@ elétrico;electrique
 azulejo;mosaïque
 estreito;étroit
 descer;descendre
-paragem;arrêt
 tremoço;lupin
 cavala;maquereau
 coentro;coriandre
@@ -361,14 +350,12 @@ estar feito ao bife;être fait comme un rat
 ter dor de cotovelo;être jaloux
 cotovelo;coude
 ciúme;jalousie
-inveja;envie
 são muitos anos a virar frangos;c'est avoir de la bouteille
 humilde;humble
 eu peço;je demande
 eu fiz;j'ai fait
 redor;contour
 afetado;affecté
-serra;mont
 solo;sol
 amadurecer;mûrir
 rípicola;riverain
@@ -376,7 +363,6 @@ perda;perte
 falar por alto;mentionner en passant
 infelizmente;malheureusement
 exército;armée
-subir;monter
 impedir;empêcher
 escorrega;toboggan
 escorregar;glisser
@@ -420,7 +406,7 @@ votar;voter
 transição;transition
 estado;état, été
 base;base
-general;général
+general;général, (armée)
 diplomacia;diplomatie
 eleitoral;électoral, électorale
 projeto;projet
@@ -461,7 +447,7 @@ líder;leader
 municipal;municipal, municipale
 prefeito, presidente de câmara;maire
 oposição;opposition
-campanha;campagne
+campanha;campagne, (militaire)
 justiça;justice, la justice
 democracia;démocratie
 ministério;ministère
@@ -520,7 +506,7 @@ encontro;rencontre, trouve, rendez-vous
 organização;organisation
 ordem;commande, ordre
 euro;euro
-cartão;carte
+cartão;carte, (bancaire), carton
 fábrica;usine
 finança;finance
 cliente;client, cliente
@@ -542,7 +528,7 @@ preço;prix
 oferta;offre, aubaine
 comércio;commerce
 taxa;taux, taxe
-cachoeira;cascade, chute d'eau, cascades
+cachoeira, cascata;cascade, chute d'eau, cascades
 nevar;neiger
 mar;mer
 temporal;tempête
@@ -591,7 +577,6 @@ torre;tour
 entendimento;compréhension
 síntese;synthèse
 barulho;bruit, de bruit
-relato;rapport
 agência;agence
 interpretação;interprétation
 imprimir;imprimer
@@ -665,7 +650,7 @@ volume;volume
 análise;analyse
 teoria;théorie
 matéria;matière
-técnico;entraîneur, technicien, technique
+técnico;technicien, technique
 ciência;science
 conceito;concept
 talvez;peut-être
@@ -676,7 +661,7 @@ causa;cause
 ideia;idée
 figura;figure
 questão;question
-relatório;rapport
+relatório, relato;rapport
 ataque;attaque
 detalhe;détail
 força;force
@@ -763,7 +748,7 @@ câmera;caméra
 dança;danse, fait de la danse
 musical;musicale, musical
 ópera;opéra, art lyrique
-palco;scène
+palco;scène, (théatre)
 atuação;représentation, performance
 concerto;concert
 orquestra;orchestre
@@ -805,10 +790,9 @@ dizendo;disant
 fazendo;faisant, en train de faire
 querendo;voulant
 podendo;pouvant
-tendo;ayant
+tendo, havendo;ayant
 errando;se trompant, en train de se tromper
 conversando;à discuter, à converser, conversant
-havendo;ayant
 adorando;adorant
 tirando;tirant
 lembrando;se souvenant
@@ -859,7 +843,7 @@ ambulância;ambulance
 cuidado;attention, soin
 acidente;accident
 orelha;oreille
-língua;langue
+língua;langue, (anatomie)
 remédio;médicament, remède, médicaments
 circulação;circulation
 cabelo;cheveux, cheveu
@@ -897,7 +881,7 @@ romper;rompre
 eliminar;éliminer
 cobrir;couvrir
 assumir;prendre en charge, assumer, prendre
-atender;répondre
+atender;répondre, (au téléphone)
 definir;définir
 garantir;garantir
 aplicar;appliquer, d'en appliquer
@@ -951,7 +935,6 @@ comportamento;comportement., comportement
 iniciativa;initiative
 erro;erreur, faute
 presença;présence
-conferência;conférence
 distribuição;distribution
 ato;acte, frappe, geste
 identidade;identité
@@ -1084,7 +1067,7 @@ surpreso;surpris
 calmo;calme
 ansioso;anxieux, impatient
 sonho;rêve, songe, je rêve
-vontade;envie
+inveja, vontade;envie
 tímido;timide
 divertimento;divertissement
 confundir;confondre
@@ -1115,7 +1098,7 @@ alegria;joie, de la joie
 feliz;heureux, heureuse, joyeux
 sorriso;sourire
 felicidade;bonheur
-parada;arrêt, pause
+parada, paragem;arrêt, pause
 topo;sommet, en haut
 começo;commencement, commence, début
 rota;route
@@ -1163,7 +1146,7 @@ leste;est, l'est
 voo;je envole, envole, vole
 alemão;allemand
 brasileiro;brésilien, Brésilien
-palestra;conférence
+palestra, conferência;conférence
 instituto;lycée, institut
 tabela;table, tableau
 conselho;conseil
@@ -1188,7 +1171,7 @@ capítulo;chapitre
 grau;degré, grade
 inteligência;intelligence
 leitura;lecture
-curso;cours
+curso, aula;cours
 problema;problème
 estudo;étude, j'étudie
 nível;niveau
@@ -1265,7 +1248,7 @@ radical;radical, radicale
 urbano;urbain
 positivo;positif, de positif, positive
 particular;particulière, particulier, privée
-chato;ennuyeux
+chato;ennuyeux, aborrecido
 antigo;vieux, ancien
 clássico;classique
 liberal;libéral, libérale
@@ -1332,7 +1315,7 @@ derrotar;battre
 dirigir;conduire
 continuar;continuer, continuerai
 salvar;sauver
-pedir;demander
+pedir;demander, mendier
 resolver;résoudre
 considerar;considérer
 tratar;traiter, s'occuper
@@ -1518,7 +1501,7 @@ local;local, locale, lieu
 supermercado;supermarché
 capital;capitale, capital, chef-lieu
 distância;distance
-monte;mont
+monte, serra;mont
 biblioteca;bibliothèque
 padaria;boulangerie
 pátio;cour
@@ -1602,7 +1585,7 @@ sempre;toujours
 novamente;de nouveau
 antes;avant, plutôt
 já;déjà, tout de suite
-aqui;ici, ci
+aqui, cá;ici, ci
 só;juste, ne ... que, seul
 grátis;gratuitement, gratuit, gratuite
 depois;après, ensuite, puis
@@ -1621,13 +1604,12 @@ aonde;où
 embaixo;sous, au-dessous, en
 especialmente;surtout, notamment, spécialement
 cedo;tôt
-somente;seulement, juste, seules
+somente, apenas, só;seulement, juste, seules
 tanto;tant, tellement, autant
 ali;là-bas
 cuidar;soigner, s'occuper
 observar;regarder, observer
-machucar;blesser
-montar;monter
+montar, subir;monter
 treinar;entraîner
 lançar;lancer
 existir;exister
@@ -1646,7 +1628,7 @@ crescer;pousser
 oferecer;offrir
 concordar;être d'accord, se mettre d'accord
 morar;vivre, habiter
-atingir;atteindre
+atingir, alcançar;atteindre
 responder;répondre
 explicar;expliquer
 construir;construire
@@ -1654,7 +1636,7 @@ convidar;inviter
 há;depuis, il y a
 escutar;écoutent, écouter
 aprender;apprendre
-enviar;envoyer
+enviar, mandar;envoyer
 escolher;choisir
 virar;devient, tourner
 fechar;près, fermer
@@ -1850,7 +1832,7 @@ diretor;directeur
 polícia;police
 estudante;élève, étudiant, étudiante
 rei;roi
-doutor;docteur
+doutor;docteur, (en lettres, droit...)
 tamanho;dimension, taille, pointure
 comprido;long, longue
 enorme;énorme
@@ -1997,7 +1979,7 @@ partir;couper, partir
 esquecer;oublier
 mostrar;montrer, indiquer
 manter;maintenir, garder, conserver
-perguntar;demander
+perguntar;demander, questionner
 pagar;paie, payer, paye
 ganhar;gagner
 mudar;changer
@@ -2241,7 +2223,7 @@ menina;fille
 mulher;femme, nana, meuf (verlan)
 homem;homme, mec
 tu dizes;tu dis
-sertão;campagne
+sertão;campagne, (lieu)
 engrossar;épaissir
 quinhentos;cinq cents
 clara;blanc d'oeuf
@@ -2264,7 +2246,7 @@ corredor;couloir
 entalhar;entailler
 aprimoramento;amélioration
 tesouro;trésor
-brocar;percer, (perceuse)
+brocar, furar;percer, (perceuse)
 broca;perceuse
 afetar;affecter
 velhote;vieillot
@@ -2385,7 +2367,6 @@ incêndio;incendie
 apaziguar;apaiser
 ira;colère, courroux
 liderança;commandement
-tenda;tente
 praxe;bizutage
 caloiro;bizut
 batina;soutane
