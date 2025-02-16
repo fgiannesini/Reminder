@@ -22,6 +22,7 @@ public class OriginalDictionary {
     public List<Word> load() throws IOException {
         return readCsvFile(csvInputStream)
                 .stream()
+                .peek(CsvOriginalWord::check)
                 .map(CsvOriginalWord::toWord)
                 .toList();
     }

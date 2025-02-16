@@ -16,4 +16,10 @@ public class CsvOriginalWord {
     public Word toWord() {
         return new Word(word, translation);
     }
+
+    public void check() {
+        if (word == null || translation == null) {
+            throw new IllegalWordFormatException("word: " + this.word + " | translation:" + this.translation);
+        }
+    }
 }
