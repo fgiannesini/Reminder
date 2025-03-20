@@ -1779,7 +1779,7 @@ engenheiro;ingénieur
 emprego;emploi, boulot
 especialista;spécialiste
 trabalho;travaille, travail, métier
-conselheiro;conseiller
+conselheiro;conseiller, (personne)
 profissão;profession, métier
 espectador;spectateur
 bispo;évêque
@@ -1850,7 +1850,6 @@ mãe;mère, maman
 quinta;cinquième
 data;date
 feira;foire, fête foraine
-terça;mardi
 manhã;matin
 início;début
 aniversário;anniversaire
@@ -2117,7 +2116,6 @@ garfo;fourchette
 bebida;boisson, boivent, breuvage
 peixe;poisson
 regime;régime
-corta;coupe
 chocolate;chocolat, du chocolat
 xícara;tasse, tasses
 ele tem;il a, contient, il y a
@@ -2128,7 +2126,6 @@ lata;boîte, canette, boîte de conserve
 nos comemos;nous mangeons, nous avons mangé
 eles comem;vous mangez, ils mangent
 eu cozinho;je cuisine
-amargo;amer
 ferve;bout, bouillonne
 português;portugais
 ele fala;il parle
@@ -2168,7 +2165,6 @@ patrão;patron
 calcanhar;talon
 ele veio;il est venu
 inscrever;inscrire
-turma;troupe, classe
 corredor;couloir
 entalhar;entailler
 aprimoramento;amélioration, perfectionnisme
@@ -2193,7 +2189,7 @@ plátano;platane
 taça;coupe, (tournoi, de champagne)
 até logo;à tout à l'heure
 até breve;à bientôt
-varanda;balcon
+varanda, balcão;balcon
 estar farto de;avoir assez de
 fartura;abondance
 lenda;légende
@@ -2207,14 +2203,13 @@ pisar;fouler
 seres humanos;êtres humains
 boné;casquette
 que eu faça;que je fasse
-tampa;bouchon
+tampa;couvercle
 robalo;bar, (poisson)
 pregado;turbot
 carapau;chinchard
 posta;tranche, (poisson, viande)
 trator;tracteur
 buraco;trou
-sede;soif
 grávida;enceinte, (femme)
 coçar;gratter, (avec les ongles)
 fornecer;fournir
@@ -2230,8 +2225,6 @@ matança;tuerie
 desenfreado;effréné
 ansiar;attendre avec impatience
 vastidão;ampleur
-entretando;entretemps
-quebrar;casser
 trás;arrière
 ativador;activateur
 cercado;entouré
@@ -2245,8 +2238,8 @@ coxa;cuisse
 pintainho;poussin
 galo;coq
 calças;pantalon
-cuecas;culotte
-asneira;bêtise
+cuecas;culotte, calcinha
+asneira;bêtise, gaffe
 castigar;punir
 geral;général
 garra;griffe
@@ -2272,7 +2265,7 @@ despreocupado;insouciant
 abanar;agiter
 que eu perca;que je perde
 eu perco;je perds
-foco;centre, (figuratif)
+foco;foyer, centre, (figuratif)
 inimaginável;inimaginable
 eficácia;efficacité
 enfatizar;accentuer
@@ -2321,7 +2314,6 @@ esferovite;polystyrène
 façanha;prouesse, exploit
 desconhecido;inconnu
 corajoso;courageux
-bordo;bord
 altura de natal;periode de nöel
 eslavo;slave
 pagão;païen
@@ -2335,7 +2327,6 @@ brotar;pousser, germer, bourgeonner
 decifrar;déchiffrer
 ensáista;essayiste
 retratar;portraiturer
-pormenor;detail
 desígnio;dessein
 coroa;couronne
 fidalgo;noble
@@ -2345,7 +2336,6 @@ quatrocentos;quatre cents
 índico;indien
 próspero;prospère
 acessível;accessible
-principiante;débutant
 faça chuva ou faça sol;quoi qu'il arrive
 ambicioso;ambitieux
 alargar;élargir
@@ -2393,8 +2383,6 @@ tónico;tonique, stimulant
 voar;voler
 elo;maillon
 ligação;liaison
-piada;blague
-enganar;tromper
 roer;ronger
 rolha;bouchon
 redondo;rond
@@ -2426,7 +2414,6 @@ glúteo;fessier
 alongamento;allongement
 puxar;tirer
 fletir;fléchir
-coxa;cuisse
 avarento;avare
 esmola;aumône
 soar;sonner
@@ -2456,10 +2443,8 @@ possuir;posséder
 gravação;enregistrement
 calar;taire
 destreza;dextérité
-impor;imposer
 coagir;contraindre
 culpar;accuser
-cego;aveugle
 quieto;tranquille, paisible
 prender;saisir
 enganar;tromper
@@ -2471,7 +2456,6 @@ chicote;fouet
 chicotear;fouetter
 cócegas;chatouillement
 coloquial;familier
-ecrã;écran
 maneta;manchot
 lâmpada;ampoule
 linha;ligne
@@ -2481,7 +2465,6 @@ tabuada;table de multiplication
 espancar;rouer de coups
 abalar;ébranler
 piscar;cligner
-teimosia;obstination
 arranjar;arranger
 pregar;prêcher
 mentira, peta;mensonge
@@ -2492,7 +2475,6 @@ ceia;souper
 coelho;lapin
 jejum;jeûne
 iguaria;met, (culinaire)
-fidalgo;noble
 lavrador;laboureur
 safar;dégager, débarrasser
 bulha;dispute, querelle
@@ -2506,7 +2488,7 @@ caderninho;carnet
 quinto;cinquième
 andor;brancard
 despachar-se;se dépêcher
-beira;bord
+beira, bordo;bord
 treino;entraînement
 aloquete, cadeado;cadenas
 arame;fil de fer
@@ -2516,26 +2498,20 @@ sítio;site
 riscar;rayer
 saquinho;petit sac
 escachar;fendre
-se calhar;il se peut
 amolar;aiguiser
 acaso;hasard
 mármore;marbre
 marfim;ivoire
 talco;talc
-balcão;balcon, comptoir
-asneira;gaffe
 demitir;démissionner
 certidão;certificat
-tripulação;équipage
-quatrocentos;quatre cent
 légua;lieue, (marine)
 comprovar;confirmer
 escorar-se;s'appuyer
 cego;aveugle
 sumir-se;s'etteindre, s'effacer
-festejar;fêter
 somar;additionner
-teimosia;entêtement
+teimosia;entêtement, obstination
 descontentes;mécontent
 eu proprio;moi-même
 tossir;tousser
@@ -2544,11 +2520,9 @@ taxa;taxe, taux
 falecer;décéder
 espingarda;fusil
 custar;coûter
-acaso;hasard
 assinalável;remarquable
 cantinho;recoin
 turma;classe, groupe, troupe
-calcinha;culotte
 gorjeta;pourboire
 ruim;mauvais
 desonesto;malhonnête
@@ -2558,7 +2532,6 @@ se calhar;il se peut
 porrada;correction, volée de coups
 barata;cafard
 torrada;toast
-amostra;échantillon
 bicho;ver
 idoso;âgé
 engasgar;étouffer, suffoquer
@@ -2566,15 +2539,12 @@ amargo;amer
 espirrar;éternuer
 chupar;sucer
 vingança;vengeance
-coçar;gratter
-soar;sonner
 fita-cola ;scotch
 alcunha;sobriquet
 fêmea;femelle
 ratazana;campagnol
 piada;blague
 rebentar;éclater, crever
-se calhar;il se peut
 gajo;gars
 calão;argo;jargon
 impor;imposer
@@ -2583,14 +2553,11 @@ fixe;chouette, sympa
 óbvio;evident
 engano;erreur, méprise
 arca;coffre, arche
-se calhar;il se peut
 sacar;retirer, extraire
 percurso;parcours
-turma;classe, équipe
-arranjar;arranger
 mandarim;mandarin
 despachar;dépêcher, expédier
-aconselhar;conseiller
+aconselhar;conseiller, (action)
 principiante;débutant
 desabafar;se confier
 servo;serviteur
@@ -2600,9 +2567,8 @@ sumir;disparaître
 molenga;flemmard
 sede;soif
 comichão;démangeaison
-despachar;dépêcher
-ir ter a, vir ter a : aller à/aboutir
-ir ter com, vir ter com : aller trouver
+ir ter a, vir ter a;aller à/aboutir
+ir ter com, vir ter com;aller trouver
 caracol;escargot
 despesa;depense
 arregaçar as mangas;retrousser les manches
@@ -2616,9 +2582,7 @@ aprimorar;perfectionner
 desperdício;déperdition
 eu pus;j'ai mis
 escravo;esclave
-impor;imposer
 espontâneo;spontané
-foco;foyer
 escassez;disette
 encaixar;emboîter, adapter
 desvantajoso;desavantageux
@@ -2640,7 +2604,6 @@ regresso;retour
 naufragar;faire naufrage
 resgatar;racheter
 nau;vaisseau
-enganar;tromper
 oxála;pourvu que
 de arromba;fantastique
 conterrâneo;compatriote
@@ -2648,14 +2611,12 @@ espiga;epi
 archote;torche
 grinalda;guirlande
 fita;ruban
-caracol;escargot
 adiar;reporter
 trocadilho;jeu de mots
 arraial;fête foraine
 arrepender-se;regretter
 esmagar;écraser
 papear;jacter
-quieto;tranquille
 selva;jungle
 patamar;palier
 gargalhada;éclat de rire
@@ -2676,7 +2637,6 @@ temer;craindre
 ofegante;essoufflé
 moleza;molesse
 eles dão;ils donnent
-encaixar;emballer, encaisser
 furto;vol, larcin
 descarado;effronté
 entretanto;entretemps
