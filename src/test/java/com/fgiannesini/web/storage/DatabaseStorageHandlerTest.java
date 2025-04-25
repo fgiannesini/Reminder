@@ -70,6 +70,21 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
+    void should_get_next_words_not_fully_learnt() throws IOException {
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 2));
+        storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 2));
+
+        var actual = storageHandler.getNextWords(4);
+
+        var expected = List.of(
+                new Word("au lieu de", "ao inves, em vez de", 3, null, 0),
+                new Word("c'est à dire", "ou seja", 3, null, 0)
+        );
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Transactional
     void should_delete() throws IOException {
         storageHandler.delete(List.of(
                 new Word("ao inves, em vez de", "au lieu de", 3, null, 0),
