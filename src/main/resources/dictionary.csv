@@ -249,7 +249,6 @@ curto;court
 pena;peine, plume
 atrapalhar;troubler
 medalha;medaille
-desempenho;accomplissement
 palpite;palpitation
 prever;prévoir
 camada;couche,(de peinture)
@@ -362,7 +361,6 @@ perda;perte
 falar por alto;mentionner en passant
 infelizmente;malheureusement
 exército;armée
-impedir;empêcher
 escorrega;toboggan
 escorregar;glisser
 eu digo;je dis
@@ -526,7 +524,6 @@ negócio;négoce, commerce, affaire
 preço;prix
 oferta;offre, aubaine
 comércio;commerce
-taxa;taux, taxe
 cachoeira, cascata;cascade, chute d'eau, cascades
 nevar;neiger
 mar;mer
@@ -952,7 +949,6 @@ sensação;sensation
 descobrir;découvrir
 favor;favor
 senha;mot de passe
-mentira;mensonge
 atraso;retard
 decisão;décision
 corte;cour, coupure, coupe
@@ -1207,7 +1203,7 @@ raro;rare
 legal;chouette, gentil, super
 aberto;ouvert
 especial;spécial, spéciale
-estranho;bizarre, étranger, étrange
+estranho;étranger, étrange
 barulhento;bruyantes, bruyant
 moderno;moderne
 pesado;lourd
@@ -1331,7 +1327,6 @@ par;pair, (nombre), une paire, pair
 oitavo;huitième
 nono;neuvième
 número;nombre, numéro
-quinto;cinquième
 maioria;majorité
 sétimo;septième
 sexto;sixième
@@ -1424,7 +1419,7 @@ prenda, presente;cadeau, présent
 guarda-chuva;parapluie
 pilha;pile, batterie
 tela;toile
-folha;drap, feuille
+folha;feuille
 pedaço;morceau, part, bout
 escova;brosse
 teclado;clavier
@@ -1521,7 +1516,7 @@ hospital;hôpital
 região;région
 universidade;université
 sala;salon, salle
-classe;classe
+classe;classe, (chic)
 praça;place
 banco;banque
 teatro;théâtre
@@ -1580,7 +1575,6 @@ devagar;lentement
 além;au-delà, là-bas
 demais;trop
 tão;si, tellement
-aí;là
 enquanto;pendant que, alors que, instant
 atualmente;actuellement
 geralmente;généralement, en général
@@ -1588,11 +1582,11 @@ praticamente;pratiquement
 mal;mal, à peine
 absolutamente;absolument
 embaixo;sous, au-dessous, en
-especialmente;notamment, spécialement
+especialmente;spécialement
 cedo;tôt
 somente, apenas, só;seulement, juste, seules
 tanto;tant, tellement, autant
-ali, là;là
+ali, là, aí;là
 cuidar;soigner, s'occuper
 observar;regarder, observer
 montar, subir;monter
@@ -1674,7 +1668,7 @@ pobre;pauvre
 natural;naturel, naturelle
 simples;simples, simple
 nacional;national, nationale
-familiar;familier, familière, familiale
+familiar, coloquial;familier, familière, familiale
 impossível;impossible
 pior;pire
 industrial;industrielle, industriel
@@ -1847,7 +1841,7 @@ tio;oncle
 filho;enfant, fils
 esposo;époux, mari
 mãe;mère, maman
-quinta;cinquième
+quinta;cinquième, ferme
 data;date
 feira;foire, fête foraine
 manhã;matin
@@ -1926,7 +1920,7 @@ salmão;saumon
 turquesa;turquoise
 cinza;cendre
 marrom, castanho;marron
-violeta;violet, violette
+violeta;violette
 colorido;coloré
 preto;noir, noire
 roxo;violet
@@ -1983,7 +1977,7 @@ pensar;penser, réfléchir
 gostar;kiff, aimer
 deixar;quitter, laisser
 esperar;espérer, attendre
-passar;réussir, passer
+passar;passer
 precisar;avoir besoin
 falar;parler
 ficar;auras, rester, devient
@@ -2083,7 +2077,7 @@ mosca;mouche
 pato;canard
 boi;boeuf
 vaca;vache
-cachorro;chien, chiot
+cachorro;chiot
 cão;chien
 gato;chat
 borboleta;papillon
@@ -2318,7 +2312,6 @@ altura de natal;periode de nöel
 eslavo;slave
 pagão;païen
 manjedoura;mangeoire
-quinta;ferme
 enfeitar;embellir
 presépio;crèche
 pastor;berger
@@ -2366,7 +2359,6 @@ vomitar;vomir
 por tanto;par conséquent
 pois;car
 consoante;consonne
-gravar;graver, enregistrer
 molhado;mouillé, trempé
 alguidar;bassin, (endroit)
 armar;armer
@@ -2432,8 +2424,7 @@ caçar;chasser
 soco;coup de poing
 padrão;modèle, norme
 maluco, doido;fou
-perca;perte
-abençoar;benir
+perca;perche
 mesada;argent de poche
 permanecer;rester, demeurer
 firme;ferme, solide
@@ -2443,11 +2434,9 @@ possuir;posséder
 gravação;enregistrement
 calar;taire
 destreza;dextérité
-coagir;contraindre
 culpar;accuser
 quieto;tranquille, paisible
 prender;saisir
-enganar;tromper
 estragar;abîmer
 alvo;cible
 giro;mignon
@@ -2455,9 +2444,7 @@ bochecha;joue
 chicote;fouet
 chicotear;fouetter
 cócegas;chatouillement
-coloquial;familier
 maneta;manchot
-lâmpada;ampoule
 linha;ligne
 camisola;pull over
 pia;evier
@@ -2467,7 +2454,7 @@ abalar;ébranler
 piscar;cligner
 arranjar;arranger
 pregar;prêcher
-mentira, peta;mensonge
+mentira;mensonge
 desmentir;démentir
 despreocupação;insouciance
 ressurreição;résurrection
@@ -2506,7 +2493,6 @@ talco;talc
 demitir;démissionner
 certidão;certificat
 légua;lieue, (marine)
-comprovar;confirmer
 escorar-se;s'appuyer
 cego;aveugle
 sumir-se;s'etteindre, s'effacer
@@ -2572,7 +2558,7 @@ ir ter com, vir ter com;aller trouver
 caracol;escargot
 despesa;depense
 arregaçar as mangas;retrousser les manches
-troco;monnaie
+troco;rendu, (monnaie)
 posse;possession
 enxugar;essuyer
 escorrer;égoutter
@@ -2643,7 +2629,6 @@ entretanto;entretemps
 falência;faillite
 pormenor;detail
 birra, capricho;caprice
-esquisito;bizarre
 enganado;trompé, abusé
 capacete;casque
 mergulho;plongeon
@@ -2651,18 +2636,16 @@ impedir;empêcher
 que tu corrijas;que tu corriges
 palhaço;clown, pitre, bouffon
 crioulo;créole
-barato;bon marché
 gravar;graver, enregistrer
 afastarse;s'éloigner
 esclarecer;éclaircir
 enviesado;biaisé
 abençoar;bénir
 acolhimento;accueil
-magro;maigre
 enganar;tromper, duper, abuser
 mestrado;maîtrise
 esquisito;bizarre
-afiar;aiguiser
+afiar;affûter
 autoclismo;chasse d'eau
 biscate;petit boulot
 bem cedinho;de bonne heure, très tôt
