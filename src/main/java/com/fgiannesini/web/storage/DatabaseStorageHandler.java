@@ -3,7 +3,6 @@ package com.fgiannesini.web.storage;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
 
-import java.io.IOException;
 import java.util.List;
 
 public class DatabaseStorageHandler implements StorageHandler {
@@ -15,7 +14,7 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> load() throws IOException {
+    public List<Word> load() {
         return wordRepository.findAll().stream().map(WordDao::toWord).toList();
     }
 
