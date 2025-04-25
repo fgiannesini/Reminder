@@ -30,10 +30,10 @@ class DictionaryTest {
     @Test
     void should_synchronize_words() throws IOException {
         var storageHandler = new MemoryStorageHandler(
-                new Word("ao inves, em vez de", "au lieu de", 1, null),
-                new Word("au lieu de", "ao inves, em vez de", 2, null),
-                new Word("acender", "allumer", 0, null),
-                new Word("allumer", "acender", 0, null)
+                new Word("ao inves, em vez de", "au lieu de", 1, null, 0),
+                new Word("au lieu de", "ao inves, em vez de", 2, null, 0),
+                new Word("acender", "allumer", 0, null, 1),
+                new Word("allumer", "acender", 0, null, 1)
         );
 
         var dictionary = new Dictionary(
@@ -47,10 +47,10 @@ class DictionaryTest {
         );
 
         var expected = List.of(
-                new Word("ao inves, em vez de", "au lieu de", 1, null),
-                new Word("au lieu de", "ao inves, em vez de", 2, null),
-                new Word("ou seja", "c'est à dire", 3, null),
-                new Word("c'est à dire", "ou seja", 3, null));
+                new Word("ao inves, em vez de", "au lieu de", 1, null, 0),
+                new Word("au lieu de", "ao inves, em vez de", 2, null, 0),
+                new Word("ou seja", "c'est à dire", 3, null, 0),
+                new Word("c'est à dire", "ou seja", 3, null, 0));
         Assertions.assertEquals(expected, storageHandler.load());
     }
 
@@ -71,9 +71,9 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
 
         var learnedMoment = LocalDateTime.now();
-        dictionary.update(new Word("desligar", "éteindre", 3, learnedMoment));
+        dictionary.update(new Word("desligar", "éteindre", 3, learnedMoment, 1));
 
-        Assertions.assertEquals(new Word("desligar", "éteindre", 3, learnedMoment), storageHandler.getUpdatedWord());
+        Assertions.assertEquals(new Word("desligar", "éteindre", 3, learnedMoment, 1), storageHandler.getUpdatedWord());
     }
 
     @Test

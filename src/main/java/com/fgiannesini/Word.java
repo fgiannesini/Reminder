@@ -4,12 +4,13 @@ import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime learnedMoment) {
+public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime learnedMoment,
+                   int learntCount) {
 
     private static final int repetitionLimitToLearn = 3;
 
     public Word(String word, String translation) {
-        this(word, translation, repetitionLimitToLearn, null);
+        this(word, translation, repetitionLimitToLearn, null, 0);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {
@@ -49,12 +50,8 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
         return checkedCount == repetitionLimitToLearn;
     }
 
-    public boolean isLearnt() {
-        return this.learnedMoment != null;
-    }
-
     public Word reset() {
-        return new Word(wordToLearn, translation, 0, null);
+        return new Word(wordToLearn, translation, 0, null, 0);
     }
 
     public Word checked() {
@@ -62,9 +59,9 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
     }
 
     public Word checked(LocalDateTime learnedMoment) {
-        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null);
+        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null, learntCount);
         if (newWord.shouldBeMarkedAsLearnt()) {
-            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment);
+            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, Math.min(newWord.learntCount + 1, 2));
         }
         return newWord;
     }

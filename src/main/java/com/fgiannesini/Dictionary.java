@@ -26,7 +26,7 @@ public final class Dictionary {
     }
 
     private static Word buildDuplicate(Word word) {
-        return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null);
+        return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null, 0);
     }
 
     public void load(List<Word> originalWords) throws IOException {
