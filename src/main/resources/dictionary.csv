@@ -49,7 +49,7 @@ tornar-se;devenir
 pedreiro;maçon
 contratar;engager, embaucher
 pesadelo;cauchemard
-redondezas;environs, alentours
+redondezas, arredores;environs, alentours
 exceto;sauf, excepté
 severamente;sévèrement
 nem adianta;ça ne sert à rien
@@ -166,7 +166,7 @@ fortalecer;fortifier, (un corps, un esprit)
 fortificar;fortifier, (un fort, une muraille)
 especificamente;spécifiquement
 comprimido;comprimé
-tocha;torche, flambeau
+tocha;flambeau
 apelar;demander, appeler, (au vote)
 vergonha;honte
 repulsa;repulsion, dégoût
@@ -179,7 +179,7 @@ feriado;jour férié
 doação;donation
 através;à travers
 adivinhar;deviner
-ora;or
+ora;or, (conjoction)
 ouro;or, (métal)
 perante;devant, en présence
 poderoso;puissant
@@ -531,7 +531,6 @@ temporal;tempête
 litoral;littoral
 rocha;roche
 neve;neige
-neblina;brouillard, du brouillard
 raio;rayon, éclair
 eletricidade;électricité, de l'électricité, d'électricité
 nuvem;nuage
@@ -569,7 +568,7 @@ rio;rivière, fleuve
 céu;ciel
 sol;soleil
 publicidade;publicité
-torre;tour
+torre;tour, (édifice)
 entendimento;compréhension
 síntese;synthèse
 barulho;bruit, de bruit
@@ -769,9 +768,8 @@ passando;passant
 esperando;en train d'attendre, attendant
 encontrando;en train de rencontrer, trouvant, en train de trouver
 voltando;revenant
-gostando;aimant, appréciant
+gostando, amando;aimant, appréciant
 precisando;ayant besoin, en train d'avoir besoin
-ficando;rester, être, devenir
 falando;parlant
 dando;donnant
 vindo;venu, venant, venue
@@ -789,7 +787,6 @@ conversando;à discuter, à converser, conversant
 adorando;adorant
 tirando;tirant
 lembrando;se souvenant
-amando;aimant
 desculpando;excusant
 achando;trouvant
 tomando;en train de prendre, prenant
@@ -883,7 +880,7 @@ analisar;analyser
 defender;défendre
 recuperar;récupérer
 repetir;répéter
-abandonar;quitter, abandonner
+abandonar;abandonner
 comprovar;prouver
 formar;former, fonder
 diminuir;diminuer
@@ -955,7 +952,6 @@ corte;cour, coupure, coupe
 ajuda;aide, aides
 plano;plan, plat
 referência;référence
-propósito;propos, intention
 intervenção;intervention
 circunstância;circonstance
 caso;cas
@@ -1009,7 +1005,7 @@ movimento;mouvement
 obra;oeuvre, ouvrage, travail
 mudança;changement, différence, déménagement
 tipo;type, genre, sorte
-modo, jeito;manière, mode, façon
+modo, jeito;mode, façon
 realidade;réalité
 sistema;système
 processo;processus
@@ -1028,11 +1024,11 @@ partida;départ, match, partie
 membro;membre
 prêmio;prix, (nobel)
 treinador;entraîneur, entraineur, coach
-jogo;jeu, je joue, match
+jogo;jeu, je joue
 salto;talons, talon, saut
 ginásio;gymnase
 passatempo;hobby, passe-temps
-gol;but
+gol;but, (foot)
 competição;compétition
 basquete;basket
 atleta;athlète
@@ -1091,7 +1087,6 @@ sorriso;sourire
 felicidade;bonheur
 parada, paragem;arrêt, pause
 topo;sommet, en haut
-começo;commencement, commence, début
 rota, estrada;route
 esquerda;gauche
 direito;droit
@@ -1137,7 +1132,7 @@ voo;je envole, envole, vole
 alemão;allemand
 brasileiro;brésilien, Brésilien
 palestra, conferência;conférence
-instituto;lycée, institut
+instituto;institut
 tabela;table, tableau
 conselho;conseil
 escola;école, collège
@@ -1275,7 +1270,7 @@ ti;toi, te
 contigo;avec toi
 controlar;contrôler
 adorar;adorer
-tirar;sortir, tirer, retirer
+tirar;tirer, retirer
 vai haver;il va y avoir
 desenvolver;développer
 nascer;naître
@@ -1283,7 +1278,6 @@ atrás;derrière, arrière
 chove;pleut, il pleut
 aguentar;subir, supporter
 fritar;frire
-girar;tourner
 cozinhar;cuisiner
 descrever;décrire
 lavar;laver
@@ -1292,7 +1286,6 @@ descansar;se reposer
 atuar;agir
 odiar;haïr
 levantar;lever
-pular;sauter
 chamar;appeler
 iniciar;démarrer, commencer, initier
 poder;pouvoir, du pouvoir
@@ -1300,8 +1293,6 @@ anunciar;annoncer
 aumentar;augmenter
 cortar;couper
 reconhecer;reconnaître
-derrotar;battre
-dirigir;conduire
 continuar;continuer, continuerai
 salvar;sauver
 pedir;demander, mendier
@@ -1378,7 +1369,7 @@ adulto;adulte
 testemunha;témoin
 sujeito;type, (personne)
 sócio;associé
-garoto;garçon
+garoto;garçon, (familier)
 delegação;délégation
 costume;habitude, coutume
 preso;détenu, prisonnier
@@ -1418,7 +1409,7 @@ licença;licence
 prenda, presente;cadeau, présent
 guarda-chuva;parapluie
 pilha;pile, batterie
-tela;toile
+tela;toile, tissu
 folha;feuille
 pedaço;morceau, part, bout
 escova;brosse
@@ -1457,7 +1448,6 @@ corrente;courant, chaîne
 cima;dessus
 aos;aux
 cara;gars, visage, keum, (verlan)
-texto;texte
 dólar;dollar, piasse
 objeto;objet
 cabeça;tête
@@ -1495,7 +1485,7 @@ fronteira;frontière
 continente;continent
 distrito;district
 avenida;avenue
-colégio;lycée, école
+colégio;collège
 residência;résidence
 localidade;localité, emplacement
 parque;parc
@@ -1511,12 +1501,11 @@ tribunal;tribunal
 departamento;département
 instituição;institution
 propriedade;propriété
-área;zone, aire, domaine
+área;aire
 hospital;hôpital
 região;région
 universidade;université
 sala;salon, salle
-classe;classe, (chic)
 praça;place
 banco;banque
 teatro;théâtre
@@ -1611,14 +1600,12 @@ morar;vivre, habiter
 atingir, alcançar;atteindre
 responder;répondre
 explicar;expliquer
-construir;construire
 convidar;inviter
 há;il y a
 escutar;écouter
 aprender;apprendre
 enviar, mandar;envoyer
 escolher;choisir
-virar;devient, tourner
 fechar;fermer
 servir;servir
 entrar;entrer
@@ -1699,7 +1686,6 @@ doente;malade
 bonito;jolis, beaux, bel
 primeiro;premier, tout d'abord, premièrement
 jovem;jeune
-média;moyenne, moyen
 total;totale, total
 metro;mètre, métro
 quilo;kilos, kilo
@@ -1793,7 +1779,7 @@ conde;comte
 capitão;capitaine
 escritor;écrivain
 porta-voz;porte-parole
-advogado;avocat
+advogado;avocat, (métier)
 empresário;entrepreneur, homme d'affaires
 professor;professeur, enseignante, enseignant
 representante;représentant, représentante
@@ -1841,11 +1827,10 @@ tio;oncle
 filho;enfant, fils
 esposo;époux, mari
 mãe;mère, maman
-quinta;cinquième, ferme
+quinta;ferme
 data;date
 feira;foire, fête foraine
 manhã;matin
-início;début
 aniversário;anniversaire
 festival;festival
 estação;gare, (de train), saison, station
@@ -1940,11 +1925,10 @@ vender;vendre
 decidir;décider
 comprar;acheter
 dormir;dormir
-jogar;jouer, jeter
 escrever;écrire
 correr;courir
 ler;lire
-partir;couper, partir
+partir;partir
 esquecer;oublier
 mostrar;montrer, indiquer
 manter;maintenir, garder, conserver
@@ -1980,8 +1964,8 @@ esperar;espérer, attendre
 passar;passer
 precisar;avoir besoin
 falar;parler
-ficar;auras, rester, devient
-conhecer;connaître, rencontrer
+ficar;rester
+conhecer;connaître
 dizer;disons, dire
 dar;donner, suffire
 lembrar;me souvenir de, rappeler, se souvenir de
@@ -2096,8 +2080,6 @@ boas;bonnes, bon, de bonnes
 palavras;mots, paroles, des mots
 bons;bons, de bons
 livros;des livres, livres
-chaves;clés, des clés
-cartas;lettres, des lettres, cartes
 frito;frit
 suco;jus
 fruta;des fruits, fruit, fruits
@@ -2111,7 +2093,6 @@ bebida;boisson, boivent, breuvage
 peixe;poisson
 regime;régime
 chocolate;chocolat, du chocolat
-xícara;tasse, tasses
 ele tem;il a, contient, il y a
 café;café, du café
 biscoito;biscuit
@@ -2425,7 +2406,7 @@ padrão;modèle, norme
 maluco, doido;fou
 perca;perche
 mesada;argent de poche
-permanecer;rester, demeurer
+permanecer;demeurer
 firme;ferme, solide
 azarento;malchanceux
 alvoroço;agitation
@@ -2572,7 +2553,7 @@ escassez;disette
 encaixar;emboîter, adapter
 desvantajoso;desavantageux
 sobrelotar;surcharger
-empenhar;engager
+empenhar;engager, mettre en gage
 obrigar;obliger
 descontar;décompter
 crente;croyant
@@ -2660,7 +2641,6 @@ coagir;contraindre, obliger
 pousada;auberge, maison d'hôtes
 rola;tourterelle
 carioca;café allongé
-arredores;environs
 alcance;portée
 falhar;échouer
 aderir;adhérer
@@ -2669,12 +2649,12 @@ missa;messe
 rumar;mettre le cap
 beterraba;betterave
 noz, nozes;noix
-abacate;avocat
+abacate;avocat, (fruit)
 selvagem;sauvage
 desembuchar;déboucher
 aldeão;villageois
 frasco;flacon
-teia;toile
+teia;toile, (araignée)
 arrastar;traîner
 envelhecimento;vieillissement
 aveia;avoine
@@ -2708,7 +2688,7 @@ explorar;exploiter
 couro;cuir
 tesoura;ciseaux
 agradecer;remercier
-técnico, treinador;entraineur
+treinador;entraineur
 bombom;petit chocolat, praliné
 menino;garçon
 menina;fille
@@ -2721,16 +2701,16 @@ eles são;ils sont, ce sont, êtes
 mulheres;les femmes, femmes, des femmes
 eu bebo;je bois
 leite;lait
-como;comment, je mange, dont
+como;comment
 pão;pain
 ele bebe;il boit
 água;eau
 carta;lettre, carte
 meninas;filles, des filles
-bebemos;nous buvons, avons bu
+nos bebemos;nous buvons, avons bu
 cerveja;bière
 meninos;garçons, enfants, des garçons
-bebem;ils boivent, buvez, boivent-elles
+eles bebem;ils boivent, buvez, boivent-elles
 livro;livre, bouquin
 ele come;il mange
 nos lemos;nous lisons, avons lu, sommes en train de lire
@@ -2754,23 +2734,16 @@ nadar;nager
 outro;autre, un autre, une autre
 ao invés, em vez de;au lieu de
 arrumar;ranger
-aumentar;augmenter
 boneca;poupée
 acampar;camper
 jogar;jouer, (à un jeu)
-tocar;toucher, jouer un instrument
 confirmar;confirmer
-conseguir;réussir
-descansar;se reposer
-desenvolver;développer
 dirigir;diriger, commander
 conduzir;conduire
 eu costumo;j'ai l'habitude
 ferver;bouillir
-fritar;frire
 girar, virar;tourner
 merecer;mériter
-morar;habiter
 ou seja;c'est à dire
 pertencer;appartenir
 ralado;râpé
@@ -2781,22 +2754,13 @@ vencer, ganhar;vaincre, (un prix)
 derrotar;vaincre, (un adversaire)
 neblina, névoa;brume
 nevoeiro;brouillard
-natureza;nature
 assustador;effrayant
 durar;durer
-propósito;but
+propósito;but, (intention)
 fazer de propósito;faire exprès
-pente;peigne
-teste;test
 texto;texte
 focar;se concentrer
-volta;tour
-então;alors, donc
-vista;vue
-nenhum;aucun
-pegar;prendre
-doce;doux, sucré
-estrela;étoile
+volta;tour, (mouvement)
 alho;ail
 cereja;cerise
 melancia;pastèque
@@ -2808,30 +2772,20 @@ omeleta;omelette
 ovo cozido;oeuf dur
 por isso;du coup
 ovo estrelado;oeuf au plat
-vento;vent
-morango;fraise
-cheio;plein
 marcador;marqueur, repère
 classe;(avoir la), classe
 droga;drogue
-adiantar;avancer, quelque chose
-encher;remplir
 sesta;sieste
 soneca;roupillon
 pó;poudre, poussière
-ar;air
 erva, grama;herbe
 relva;pelouse
-ambiente;environnement
 início, começo;début
-divertimento;divertissement
 corrida;course
-acreditar;croire
 nata, creme;crème
 assinar;signer, s'abonner
 fatia;tranche
 mente;mental
-espirito;esprit
 construir;construire
 gorro;bonnet
 cachecol;écharpe
