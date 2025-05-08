@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>Reminder</h1>
-<div id="remaining-words-count-span"></div>
+<div id="remaining-words-count-to-learn-span"></div>
+<div id="remaining-words-count-to-confirm-span"></div>
 <br/>
 <label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
 <label for="translation-input">Translation: </label> <input id="translation-input"/>
@@ -29,7 +30,9 @@
             elementById.textContent = await response.text();
             return;
         }
-        document.getElementById('remaining-words-count-span').textContent = `${await response.text()} words to learn.`;
+        const stats = JSON.parse(await response.text())
+        document.getElementById('remaining-words-count-to-learn-span').textContent = `${stats.countToLearn} words to learn.`;
+        document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} words to confirm.`;
     }
     const getNextWord = async () => {
         document.getElementById('progress-next').hidden = false;
