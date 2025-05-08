@@ -3,14 +3,13 @@ package com.fgiannesini;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
 class DictionaryTest {
 
     @Test
-    void should_create_and_store_all_words_if_not_existing() throws IOException {
+    void should_create_and_store_all_words_if_not_existing() {
         var storageHandler = new MemoryStorageHandler();
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
@@ -21,7 +20,7 @@ class DictionaryTest {
     }
 
     @Test
-    void should_synchronize_words() throws IOException {
+    void should_synchronize_words() {
         var storageHandler = new MemoryStorageHandler(new Word("ao inves, em vez de", "au lieu de", 1, null, 0), new Word("au lieu de", "ao inves, em vez de", 2, null, 0), new Word("acender", "allumer", 0, null, 1), new Word("allumer", "acender", 0, null, 1));
 
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
@@ -33,7 +32,7 @@ class DictionaryTest {
     }
 
     @Test
-    void should_get_next_word() throws IOException {
+    void should_get_next_word() {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
         dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
 
@@ -44,7 +43,7 @@ class DictionaryTest {
     }
 
     @Test
-    void should_update() throws IOException {
+    void should_update() {
         var storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"));
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
 
