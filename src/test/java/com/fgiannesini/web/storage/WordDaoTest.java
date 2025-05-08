@@ -1,7 +1,6 @@
-package com.fgiannesini.storage;
+package com.fgiannesini.web.storage;
 
 import com.fgiannesini.Word;
-import com.fgiannesini.web.storage.WordDao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
