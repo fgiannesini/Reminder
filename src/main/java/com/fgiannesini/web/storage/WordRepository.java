@@ -14,4 +14,6 @@ public interface WordRepository extends JpaRepository<WordDao, String> {
     List<WordDao> getTopOrderByLearntMoment(@Param("limit") int limit);
 
     long countByLearntMomentIsNull();
+
+    long countByLearntCountLessThan(int learntCount);
 }

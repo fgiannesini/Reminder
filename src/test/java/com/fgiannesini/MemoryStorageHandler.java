@@ -50,6 +50,11 @@ public class MemoryStorageHandler implements StorageHandler {
         return 0;
     }
 
+    @Override
+    public long getRemainingWordsCountToConfirm() {
+        return 0;
+    }
+
     public Word getUpdatedWord() {
         return updatedWord;
     }

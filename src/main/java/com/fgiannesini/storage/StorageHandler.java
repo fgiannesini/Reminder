@@ -18,4 +18,6 @@ public interface StorageHandler {
     void delete(List<Word> word);
 
     long getRemainingWordsCountToLearn();
+
+    long getRemainingWordsCountToConfirm();
 }

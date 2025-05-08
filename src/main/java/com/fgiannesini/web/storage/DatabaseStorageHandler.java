@@ -53,4 +53,9 @@ public class DatabaseStorageHandler implements StorageHandler {
     public long getRemainingWordsCountToLearn() {
         return wordRepository.countByLearntMomentIsNull();
     }
+
+    @Override
+    public long getRemainingWordsCountToConfirm() {
+        return wordRepository.countByLearntCountLessThan(2);
+    }
 }

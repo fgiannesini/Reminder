@@ -105,4 +105,12 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
         var actual = storageHandler.getRemainingWordsCountToLearn();
         Assertions.assertEquals(3, actual);
     }
+
+    @Test
+    @Transactional
+    void should_get_count_of_words_to_confirm() {
+        storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 2));
+        var actual = storageHandler.getRemainingWordsCountToConfirm();
+        Assertions.assertEquals(3, actual);
+    }
 }
