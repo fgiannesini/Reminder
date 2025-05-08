@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -56,7 +57,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1));
 
-        var actual = storageHandler.getNextWords(4);
+        var actual = storageHandler.getNextWords(4, LocalDate.of(2024, 7, 11));
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 3, null, 0),
@@ -73,7 +74,22 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 2));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 2));
 
-        var actual = storageHandler.getNextWords(4);
+        var actual = storageHandler.getNextWords(4, LocalDate.now());
+
+        var expected = List.of(
+                new Word("au lieu de", "ao inves, em vez de", 3, null, 0),
+                new Word("c'est à dire", "ou seja", 3, null, 0)
+        );
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Transactional
+    void should_get_next_words_not_fully_learnt_before_one_week() {
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
+        storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1));
+
+        var actual = storageHandler.getNextWords(4, LocalDate.of(2024, 7, 9));
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 3, null, 0),

@@ -3,6 +3,7 @@ package com.fgiannesini.web.storage;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class DatabaseStorageHandler implements StorageHandler {
@@ -37,8 +38,8 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> getNextWords(int limit) {
-        return wordRepository.getTopOrderByLearntMoment(limit)
+    public List<Word> getNextWords(int limit, LocalDate now) {
+        return wordRepository.getTopOrderByLearntMoment(limit, now.minusWeeks(1))
                 .stream()
                 .map(WordDao::toWord)
                 .toList();

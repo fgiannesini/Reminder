@@ -2,6 +2,7 @@ package com.fgiannesini;
 
 import com.fgiannesini.storage.StorageHandler;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
@@ -46,7 +47,7 @@ public final class Dictionary {
     }
 
     public Word next(int limit) {
-        var eligibleWords = storageHandler.getNextWords(limit);
+        var eligibleWords = storageHandler.getNextWords(limit, LocalDate.now());
         return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
     }
 

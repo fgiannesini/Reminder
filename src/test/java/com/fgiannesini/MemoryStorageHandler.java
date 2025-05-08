@@ -2,6 +2,7 @@ package com.fgiannesini;
 
 import com.fgiannesini.storage.StorageHandler;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +37,7 @@ public class MemoryStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> getNextWords(int limit) {
+    public List<Word> getNextWords(int limit, LocalDate localDate) {
         return this.words;
     }
 
