@@ -1,6 +1,7 @@
 package com.fgiannesini.web;
 
 import com.fgiannesini.Matching;
+import com.fgiannesini.RemainingStats;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,10 @@ public class ReminderControllerIntegrationTest extends TestContainerIntegrationT
     }
 
     @Test
-    public void Should_get_remaining_words_count() {
-        var response = restTemplate.getForEntity("http://localhost:%d/reminder/word/remaining".formatted(port), long.class);
+    public void Should_get_remaining_stats() {
+        var response = restTemplate.getForEntity("http://localhost:%d/reminder/word/remaining".formatted(port), RemainingStats.class);
         assertEquals(OK, response.getStatusCode());
-        assertEquals(4, response.getBody());
+        assertEquals(new RemainingStats(4, 4), response.getBody());
     }
 }
 

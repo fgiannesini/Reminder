@@ -2,11 +2,10 @@ package com.fgiannesini.web;
 
 import com.fgiannesini.Dictionary;
 import com.fgiannesini.Matching;
+import com.fgiannesini.RemainingStats;
 import com.fgiannesini.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping("/reminder/word")
@@ -26,7 +25,7 @@ public class ReminderController {
     }
 
     @PostMapping("/check")
-    TranslationResponseDto check(@RequestBody TranslationDto translation) throws IOException {
+    TranslationResponseDto check(@RequestBody TranslationDto translation) {
         Word wordToLearn = dictionary.find(translation.wordToLearn());
         Matching matching = wordToLearn.getMatching(translation.proposedTranslation());
 
@@ -39,7 +38,7 @@ public class ReminderController {
     }
 
     @GetMapping("/remaining")
-    public long remainingWordsCountToLearn() {
-        return dictionary.remainingWordsCountToLearn();
+    public RemainingStats remainingWordsCountToLearn() {
+        return dictionary.remainingStats();
     }
 }
