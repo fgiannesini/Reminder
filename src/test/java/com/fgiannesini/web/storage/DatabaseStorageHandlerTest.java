@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,7 +18,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void Should_save_and_load_words() throws IOException {
+    void Should_save_and_load_words() {
         var words = List.of(
                 new Word("ao inves, em vez de", "au lieu de", 2, null, 0),
                 new Word("ou seja", "c'est à dire", 5, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1
@@ -45,7 +44,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_update_a_word() throws IOException {
+    void should_update_a_word() {
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         var actual = storageHandler.find("ou seja");
         Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1), actual);
@@ -53,7 +52,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_get_next_words_ordered_by_learnt_moment_null_first() throws IOException {
+    void should_get_next_words_ordered_by_learnt_moment_null_first() {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1));
 
@@ -70,7 +69,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_get_next_words_not_fully_learnt() throws IOException {
+    void should_get_next_words_not_fully_learnt() {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 2));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 2));
 
@@ -85,7 +84,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_delete() throws IOException {
+    void should_delete() {
         storageHandler.delete(List.of(
                 new Word("ao inves, em vez de", "au lieu de", 3, null, 0),
                 new Word("ou seja", "c'est à dire", 3, null, 0)
@@ -101,7 +100,7 @@ class DatabaseStorageHandlerTest extends TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_get_count_of_words_to_learn() throws IOException {
+    void should_get_count_of_words_to_learn() {
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         var actual = storageHandler.getRemainingWordsCountToLearn();
         Assertions.assertEquals(3, actual);
