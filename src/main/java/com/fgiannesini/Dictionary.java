@@ -2,7 +2,6 @@ package com.fgiannesini;
 
 import com.fgiannesini.storage.StorageHandler;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
@@ -29,7 +28,7 @@ public final class Dictionary {
         return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null, 0);
     }
 
-    public void load(List<Word> originalWords) throws IOException {
+    public void load(List<Word> originalWords) {
         var existingWords = storageHandler.load();
         var wordsToAdd = originalWords.stream()
                 .filter(word -> existingWords.stream().noneMatch(existingWord -> isWordOrDuplicate(word, existingWord)))
@@ -51,7 +50,7 @@ public final class Dictionary {
         return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
     }
 
-    public void update(Word newWord) throws IOException {
+    public void update(Word newWord) {
         storageHandler.update(newWord);
     }
 
@@ -61,5 +60,12 @@ public final class Dictionary {
 
     public long remainingWordsCountToLearn() {
         return storageHandler.getRemainingWordsCountToLearn();
+    }
+
+    public RemainingStats remainingStats() {
+        return new RemainingStats(
+                storageHandler.getRemainingWordsCountToLearn(),
+                storageHandler.getRemainingWordsCountToConfirm()
+        );
     }
 }
