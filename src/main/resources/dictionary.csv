@@ -371,7 +371,7 @@ je viens;eu venho
 il vient;ele vem
 je suis venu;eu vim
 j'ai vu;eu vi
-fato de banho;maillot de bain
+traje de banho;maillot de bain
 gota;goutte
 rezar;prier
 milho;maïs
@@ -1108,13 +1108,13 @@ exterior;extérieur, étranger
 princípio;début, principe
 lado;côté
 direita;droite
-metrô;métro
+metro;métro
 oeste;ouest
 barco;bateau
 evento;événement, évènement
 rodoviária;gare routière
 férias;vacances
-trem;train
+comboio;train
 pneu;pneu
 turista;touriste
 trânsito;trafic, circulation
@@ -1126,7 +1126,7 @@ vista;vue
 guia;guide
 passaporte;passeport
 piloto;pilote
-ônibus;bus, autobus
+autocarro;bus, autobus
 leste;est, l'est
 voo;je envole, envole, vole
 alemão;allemand
@@ -1404,7 +1404,7 @@ ele está;il est, (temporairement)
 eu estou;je suis, (temporairement)
 tù estás;tu es, (temporairement)
 nos estamos;nous sommes, (temporairement)
-celular;portable, téléphone portable
+telemóvel;portable, téléphone portable
 licença;licence
 prenda, presente;cadeau, présent
 guarda-chuva;parapluie
@@ -1458,7 +1458,7 @@ avião;avion
 mala;valise
 olho;je regarde, oeil, oeil
 pé;pied
-computador;ordinateur
+ordenador;ordinateur
 mapa;carte, plan
 dinheiro;argent, liquide, fric
 carro;voiture, char
@@ -1592,7 +1592,7 @@ julgar;juger
 guardar;garder
 chorar;pleurer
 estudar;étudier
-ensinar;enseignent
+ensinar;enseigner
 crescer;pousser, grandir
 oferecer;offrir
 concordar;être d'accord, se mettre d'accord
@@ -1701,7 +1701,7 @@ estrutura;structure
 barbeador;rasoir
 fonte;puits, source, fontaine
 muro;mur, muraille
-xampu;shampoing, shampooing
+champô;shampoing, shampooing
 chuveiro;douche
 escada;escalier
 brinquedo;jouet
@@ -1711,20 +1711,20 @@ tomada;prise
 luz;lumière
 quarto;quart, chambre, quatrième
 aquecimento;chauffage, réchauffement
-travesseiro;oreiller, traversin
+almofada;oreiller, traversin
 casa;maison
 lâmpada;lampe, ampoule
 móvel;meuble
 limpar;nettoyer
 sofá;canapé
 portão;portail
-geladeira;frigo, réfrigérateur
+frigorífico;frigo, réfrigérateur
 cortina;rideau
 tapete;tapis
 limpo;pure, propre, je nettoie
-banheiro;toilettes, salle de bain
+casa de banho;toilettes, salle de bain
 banho;bain, baignoire, douche
-apartamento;appartement
+andar;appartement
 cobertor;couverture
 chão;sol, par terre
 parede;mur, paroie
@@ -1816,10 +1816,10 @@ sobrinho;neveu
 avô;grand-père
 marido;mari, époux
 primo;cousin
-mamãe;maman
+mãe;maman
 bebê;bébé
 neto;petit-fils
-papai;papa
+pai;papa
 pai;père
 família;famille
 irmão;frère
@@ -2000,7 +2000,7 @@ luva;gant
 fantasia;déguisement, costume
 bota;botte
 cinto;ceinture
-blusa;chemisier, blouse
+camisola;chemisier, blouse
 bolsa;sac, bourse, sac à main
 camisa;chemise, chemisier
 sapato;chaussure, soulier
@@ -2032,7 +2032,7 @@ sopa;soupe, de la soupe
 receita;recette
 sal;sel, du sel
 arroz;riz
-sanduíche;sandwich
+sandes;sandwich
 prato;assiette, assiettes, plat
 pimenta;poivre
 laranja;orange
@@ -2061,7 +2061,6 @@ mosca;mouche
 pato;canard
 boi;boeuf
 vaca;vache
-cachorro;chiot
 cão;chien
 gato;chat
 borboleta;papillon
@@ -2081,7 +2080,7 @@ palavras;mots, paroles, des mots
 bons;bons, de bons
 livros;des livres, livres
 frito;frit
-suco;jus
+sumo;jus
 fruta;des fruits, fruit, fruits
 copo;verre
 fome;faim
@@ -2111,7 +2110,7 @@ olá;allô, salut
 parabéns;félicitations
 prazer em conhecer;enchanté, enchantée
 bom;bon, bonne, gentil
-abacaxi;ananas
+ananás;ananas
 eu leio;je lis
 nos falamos;nous parlons, nous avons parlé
 nos escrevemos;nous écrivons
