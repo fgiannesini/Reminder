@@ -1119,7 +1119,7 @@ pneu;pneu
 turista;touriste
 trânsito;trafic, circulation
 táxi;taxi
-visita;il rend visite à, il visite, tu rends visite à
+visita;il visite
 norte;nord
 sul;sud
 vista;vue
@@ -1128,7 +1128,7 @@ passaporte;passeport
 piloto;pilote
 autocarro;bus, autobus
 leste;est, l'est
-voo;je envole, envole, vole
+voo;vol
 alemão;allemand
 brasileiro;brésilien, Brésilien
 palestra, conferência;conférence
@@ -1402,7 +1402,7 @@ amigo;copain, ami, amie
 eles estão;ils sont, (temporairement)
 ele está;il est, (temporairement)
 eu estou;je suis, (temporairement)
-tù estás;tu es, (temporairement)
+tu estás;tu es, (temporairement)
 nos estamos;nous sommes, (temporairement)
 telemóvel;portable, téléphone portable
 licença;licence
@@ -1455,7 +1455,7 @@ coisa;truc, chose, patente, (québécois)
 moto;moto
 papel;papier, rôle, du papier
 avião;avion
-mala;valise
+mala;valise, sac à main
 olho;je regarde, oeil, oeil
 pé;pied
 ordenador;ordinateur
@@ -1993,28 +1993,29 @@ traje;costume
 casaco;manteau
 bolso;poche
 sandália;sandale
-agasalho;chandail, pull
+agasalho;protection, (vêtement)
 vestir;porter, habiller
 capa;cape
 luva;gant
 fantasia;déguisement, costume
 bota;botte
 cinto;ceinture
-camisola;chemisier, blouse
-bolsa;sac, bourse, sac à main
-camisa;chemise, chemisier
+camisola;pull, pull-over
+bolsa;bourse
+camisa;chemise
 sapato;chaussure, soulier
-vestido;porté, robe, portée
+vestido;robe
 chapéu;chapeau
 saia;sors, jupe, sortez
-roupa;vêtement, linge, vêtements
-tù escreves;tu écris
-tù és;tu es
-tù comes;tu manges
-tù bebes;tu bois
-tù lês;tu lis
-tù tens;tu as
-vegetal;végétal, légume
+roupa;vêtement, vêtements
+tu escreves;tu écris
+tu és;tu es
+tu comes;tu manges
+tu bebes;tu bois
+tu lês;tu lis
+tu tens;tu as
+vegetal;végétal
+legume;légume
 vegetariano;végétarien
 tomate;tomate
 alimento;aliment
@@ -2097,7 +2098,7 @@ café;café, du café
 biscoito;biscuit
 frango;poulet
 lata;boîte, canette, boîte de conserve
-nos comemos;nous mangeons, nous avons mangé
+nós comemos;nous mangeons, nous avons mangé
 eles comem;vous mangez, ils mangent
 eu cozinho;je cuisine
 ferve;bout, bouillonne
@@ -2112,8 +2113,8 @@ prazer em conhecer;enchanté, enchantée
 bom;bon, bonne, gentil
 ananás;ananas
 eu leio;je lis
-nos falamos;nous parlons, nous avons parlé
-nos escrevemos;nous écrivons
+nós falamos;nous parlons, nous avons parlé
+nós escrevemos;nous écrivons
 jornal;journal
 ele lê;il lit
 eles escrevem;ils écrivent
@@ -2212,7 +2213,7 @@ coxa;cuisse
 pintainho;poussin
 galo;coq
 calças;pantalon
-cuecas;culotte, calcinha
+cuecas;culotte, caleçon
 asneira;bêtise, gaffe
 castigar;punir
 geral;général
@@ -2394,7 +2395,7 @@ abotoar;boutonner
 colete;gilet
 chocar, (ovos);couver
 moleque;gamin
-recatar;protéger, préserver
+recatar;protéger, préserver, cacher, dissimuler
 quebrar;casser
 vislumbre;lueur
 fadar;destiner
@@ -2425,7 +2426,6 @@ chicotear;fouetter
 cócegas;chatouillement
 maneta;manchot
 linha;ligne
-camisola;pull over
 pia;evier
 tabuada;table de multiplication
 espancar;rouer de coups
@@ -2507,7 +2507,8 @@ vingança;vengeance
 fita-cola;scotch
 alcunha;sobriquet
 fêmea;femelle
-ratazana;campagnol
+ratazana;gros rat
+rato do campo;campagnol
 piada;blague
 rebentar;éclater, crever
 gajo;gars
@@ -2694,7 +2695,7 @@ menina;fille
 mulher;femme, nana, meuf (verlan)
 homem;homme, mec
 eles leem;ils lisent
-nos somos;nous sommes
+nós somos;nous sommes
 homens;hommes, des hommes
 eles são;ils sont, ce sont, êtes
 mulheres;les femmes, femmes, des femmes
@@ -2706,13 +2707,13 @@ ele bebe;il boit
 água;eau
 carta;lettre, carte
 meninas;filles, des filles
-nos bebemos;nous buvons, avons bu
+nós bebemos;nous buvons, avons bu
 cerveja;bière
 meninos;garçons, enfants, des garçons
 eles bebem;ils boivent, buvez, boivent-elles
 livro;livre, bouquin
 ele come;il mange
-nos lemos;nous lisons, avons lu, sommes en train de lire
+nós lemos;nous lisons, avons lu, sommes en train de lire
 eles gostam;ils aiment, aimez
 boa;bonne, bon
 tchau;au revoir, revoir, salut
