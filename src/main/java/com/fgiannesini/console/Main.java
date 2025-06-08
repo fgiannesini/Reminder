@@ -15,11 +15,11 @@ public class Main {
             Word word = load.get(i);
             for (int j = i + 1; j < load.size(); j++) {
                 Word word2 = load.get(j);
-                boolean wordToLearn = Arrays.stream(getSplit(word.wordToLearn())).anyMatch(s -> Arrays.asList(getSplit(word2.wordToLearn())).contains(s));
+                boolean wordToLearn = getSplit(word.wordToLearn()).stream().anyMatch(s -> getSplit(word2.wordToLearn()).contains(s));
                 if (wordToLearn) {
                     System.out.println(word.wordToLearn() + " " + i + " " + word2.wordToLearn() + " " + j);
                 }
-                boolean translation = Arrays.stream(getSplit(word.translation())).anyMatch(s -> Arrays.asList(getSplit(word2.translation())).contains(s));
+                boolean translation = getSplit(word.translation()).stream().anyMatch(s -> getSplit(word2.translation()).contains(s));
                 if (translation) {
                     System.out.println(word.translation() + " " + i + " " + word2.translation() + " " + j);
                 }
@@ -27,7 +27,7 @@ public class Main {
         }
     }
 
-    private static String[] getSplit(String word) {
-        return word.split(";")[0].split(",");
+    public static List<String> getSplit(String word) {
+        return Arrays.stream(word.split(";")[0].split(",")).filter(string -> !string.trim().startsWith("(")).toList();
     }
 }
