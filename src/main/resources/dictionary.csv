@@ -1523,7 +1523,7 @@ rua;rue
 hotel;hôtel
 restaurante;restaurant
 normalmente;normalement
-ainda;encore, toujours, autant
+ainda;encore
 acima;au-dessus, dessus
 logo;ensuite, bientôt, donc
 também;aussi, gêné
@@ -1545,7 +1545,7 @@ quase;à peu près, presque, quasiment
 menos;moins
 dentro;à l'intérieur, dedans, dans
 igualmente;également, pareillement
-mais;plus, plutôt, davantage
+mais;plus, davantage
 exatamente;exactement
 finalmente;enfin, finalement
 facilmente;facilement
@@ -1554,10 +1554,9 @@ definitivamente;définitivement, certainement, vraiment
 completamente;tout à fait, absolument, complètement
 sempre;toujours
 novamente;de nouveau
-antes;avant, plutôt
+antes;avant
 já;déjà
 aqui, cá;ici, ci
-só;juste, ne ... que, seul
 grátis;gratuitement, gratuit, gratuite
 depois;après, ensuite, puis
 devagar;lentement
@@ -1577,7 +1576,7 @@ somente, apenas, só;seulement, juste, seules
 tanto;tant, tellement, autant
 ali, là, aí;là
 cuidar;soigner, s'occuper
-observar;regarder, observer
+observar;observer
 montar, subir;monter
 treinar;entraîner
 lançar;lancer
@@ -1615,8 +1614,8 @@ acabar, terminar;finir, terminer, se terminer
 começar;commencer
 parecer;ressembles, paraître
 apresentar;présenter
-provar;goûter
-levar;conduire, porter, emmener
+provar;goûter, (action)
+levar;porter, emmener
 sonhar;rêver
 produzir;produire
 aparecer;apparaître, arriver
@@ -1668,15 +1667,15 @@ suficiente;assez, suffisante, suffisant
 forte;fort, forte
 militar;militaire
 público;public
-menor;plus petite, plus petit, moins grand
+menor;plus petit
 mundial;mondial, mondiale, du monde
 duro;dur, difficile
 popular;populaire
 pessoal;personnel, personnelle
-real;vrais, réel, royale
+real;réel, royale
 diferente;différente, différent, diférent
-verdadeiro;véritable, vrai, réel
-novo;jeune, nouveau, neuf
+verdadeiro;véritable, vrai
+novo;nouveau, neuf
 possível;possible
 melhor;mieux, meilleur, meilleure
 importante;important, importante
@@ -1692,7 +1691,6 @@ quilo;kilos, kilo
 litro;litre
 quilômetro;kilomètre
 centímetro;centimètre
-grama;herbe, gramme, pelouse
 trimestre;trimestre
 lote;lot, parcelle
 óleo;huile
@@ -1724,7 +1722,7 @@ tapete;tapis
 limpo;pure, propre, je nettoie
 casa de banho;toilettes, salle de bain
 banho;bain, baignoire, douche
-andar;appartement
+andar,(batîment);appartement
 cobertor;couverture
 chão;sol, par terre
 parede;mur, paroie
@@ -1744,7 +1742,7 @@ cama;lit
 policial;policier
 carteiro;facteur
 profissional;professionnelle, professionnel
-ocupação;occupation, métier
+ocupação;occupation
 oficial;officiel, officielle, officier
 trabalhador;travailleur
 especialidade;spécialité
@@ -1758,9 +1756,9 @@ gerente;gérant
 engenheiro;ingénieur
 emprego;emploi, boulot
 especialista;spécialiste
-trabalho;travaille, travail, métier
+trabalho;travaille, travail
 conselheiro;conseiller, (personne)
-profissão;profession, métier
+profissão;profession
 espectador;spectateur
 bispo;évêque
 pesquisador;chercheur
@@ -1784,7 +1782,7 @@ empresário;entrepreneur, homme d'affaires
 professor;professeur, enseignante, enseignant
 representante;représentant, représentante
 aluno;élève
-guarda;policier, garde
+guarda;garde
 promotor;procureur
 secretário;secrétaire
 modelo;mannequin, modèle, top model
@@ -1807,7 +1805,7 @@ longo, comprido;long
 grande;grande, grand, grosse
 alto;haut, grand, élevé
 pequeno;petit, petite
-amplo;ample, grand
+amplo;ample
 medida;mesure
 sobrenome;nom, nom de famille
 nome;prénom
@@ -1816,11 +1814,9 @@ sobrinho;neveu
 avô;grand-père
 marido;mari, époux
 primo;cousin
-mãe;maman
 bebê;bébé
 neto;petit-fils
-pai;papa
-pai;père
+pai;papa, père
 família;famille
 irmão;frère
 tio;oncle
@@ -1840,7 +1836,7 @@ nascimento;naissance
 duração;durée, une durée
 segundo;selon, deuxième, second
 madrugada;lever du jour, petit matin, aurore
-festa;fête, soirée
+festa;fête
 etapa;étape
 instante;instant
 período;période
@@ -1851,7 +1847,7 @@ tempo;temps, du temps, mi-temps
 primavera;printemps, le printemps
 inverno;hiver
 minuto;minute, minuit
-época;saison, époque, période
+época;époque, période
 século;siècle
 outubro;octobre
 verão;été, verrez
@@ -1869,7 +1865,7 @@ março;mars
 julho;juillet
 mês;mois
 semana;semaine
-temporada;saison
+temporada;saison, (série)
 prazo;délai, date limite
 momento;moment
 vez;fois, tour
@@ -1936,7 +1932,7 @@ perguntar;demander, questionner
 pagar;paie, payer, paye
 ganhar;gagner
 mudar;changer
-trazer;porter, apporter, amener
+trazer;apporter, amener
 colocar;mettre, poser, placer
 andar, piso;étage, marcher
 desculpar;excuser
@@ -1952,7 +1948,7 @@ caminhar;marcher
 entender;comprendre
 sentir;sentir, sente
 olhar;regarder, regard
-chegar;arriver, suffire, se rendre
+chegar;arriver
 encontrar;trouver, rencontrer
 tentar;essayer, essayer de, tenter
 parar;arrêter
@@ -1967,7 +1963,7 @@ falar;parler
 ficar;rester
 conhecer;connaître
 dizer;disons, dire
-dar;donner, suffire
+dar;donner
 lembrar;me souvenir de, rappeler, se souvenir de
 tomar;prendre
 errar;se tromper, faire une erreur
@@ -1983,7 +1979,7 @@ quê;quoi, quel
 onde;où, (lieu)
 aonde;où, (direction)
 pergunta;question, il demande, demande
-quanto;combien, que, autant
+quanto;combien
 resposta;réponse
 qual;quel, lequel, laquelle
 carteira;portefeuille, porte-monnaie
@@ -2253,7 +2249,6 @@ arrasar;raser, (un bâtiment)
 figo;figue
 trigo;blé
 cabrito;chevreau, cabri
-bastar;suffire
 fugir;fuir, s'enfuir
 incêndio;incendie
 apaziguar;apaiser
@@ -2681,7 +2676,7 @@ assar;rôtir, griller
 brincar;jouer, plaisanter
 desligar;éteindre, (l'électricité)
 ligar;allumer, (l'électricité)
-empurrar;pousser
+empurrar;pousser, (quelque chose)
 estacionar;garer, se garer, stationner
 eu não aguento mais;je n'en peux plus
 explorar;exploiter
