@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.testcontainers:testcontainers-bom:1.21.1"))
+    implementation(platform("org.testcontainers:testcontainers-bom:1.21.3"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
