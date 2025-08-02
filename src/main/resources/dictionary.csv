@@ -1673,7 +1673,7 @@ importante;important, importante
 velho;vieux, vieil
 maior;âgée, large, plus grand
 doente;malade
-bonito;jolis, beaux, bel
+bonito;beau
 primeiro;premier, tout d'abord, premièrement
 jovem;jeune
 total;totale, total
@@ -1738,7 +1738,7 @@ oficial;officiel, officielle, officier
 trabalhador;travailleur
 especialidade;spécialité
 carpinteiro;menuisier, charpentier
-motorista;chauffeur, conducteur
+motorista, chofer;chauffeur, conducteur
 arquiteto;architecte
 fazendeiro;fermier
 químico;chimiste
@@ -1819,7 +1819,7 @@ data;date
 feira;foire
 manhã;matin
 aniversário;anniversaire
-festival;festival
+festival, arraial;festival
 estação;gare, (de train), saison, station
 juventude, mocidade;jeunesse
 ciclo;cycle
@@ -1879,7 +1879,7 @@ até;jusque, à, jusqu'à
 pelos;pour les, poils, les
 para;pour, pour la, il arrête
 sem;sans
-sobre;sur, sous
+sobre;sur
 durante;durant, pendant
 apesar;malgré
 mas;mais
@@ -1988,7 +1988,7 @@ cinto;ceinture
 camisola;pull, pull-over
 bolsa;bourse
 camisa;chemise
-sapato;chaussure, soulier
+sapato, calçado;chaussure, soulier
 vestido;robe
 chapéu;chapeau
 saia;sors, jupe, sortez
@@ -2053,7 +2053,7 @@ borboleta;papillon
 abelha;abeille
 cavalo;cheval
 porco;porc, du porc, cochon
-pássaro;oiseau
+pássaro, ave;oiseau
 animal;animal
 formiga;fourmi
 bananas;bananes
@@ -2095,7 +2095,7 @@ inglês;anglais
 olá;allô, salut
 parabéns;félicitations
 prazer em conhecer;enchanté, enchantée
-bom;bon, bonne, gentil
+bom;bon, gentil
 ananás;ananas
 eu leio;je lis
 nós falamos;nous parlons, nous avons parlé
@@ -2487,7 +2487,7 @@ espirrar;éternuer
 chupar;sucer
 vingança;vengeance
 fita-cola;scotch
-alcunha;sobriquet
+alcunha;sobriquet, surnom
 fêmea;femelle
 ratazana;gros rat
 rato do campo;campagnol
@@ -2513,7 +2513,6 @@ pião;toupie
 desanimar;décourager
 sumir;disparaître
 molenga;flemmard
-sede;soif
 comichão;démangeaison
 ir ter a, vir ter a;aller à, aboutir
 ir ter com, vir ter com;aller trouver
@@ -2561,7 +2560,6 @@ grinalda;guirlande
 fita;ruban
 adiar;reporter
 trocadilho;jeu de mots
-arraial;festival
 arrepender-se;regretter
 esmagar;écraser
 papear;jacter
@@ -2643,7 +2641,7 @@ aveia;avoine
 manjericão;basilique
 rúcula;roquette
 esperma;sperme
-foguetão;fusée
+foguetão;fusée, (espace)
 dar à luz;accoucher
 parir;mettre bas
 por favor;s'il te plaît, s'il vous plaît
@@ -2697,7 +2695,7 @@ livro;livre, bouquin
 ele come;il mange
 nós lemos;nous lisons, avons lu, sommes en train de lire
 eles gostam;ils aiment, aimez
-boa;bonne, bon
+boa;bonne
 tchau;au revoir, revoir, salut
 ele gosta;il aime, tu aimes
 eu gosto;j'aime, goût, aime
@@ -2778,3 +2776,127 @@ a galinha da vizinha é sempre melhor do que a minha;l'herbe est toujours plus v
 grão a grão enche a galinha o papo;petit à petit l'oiseau fait son nid
 devagar se vai ao longe;rien ne sert de courir, il faut partir à point
 chave;clé, clef
+caos;chaos
+rouco;enroué
+encerrar;clore, fermer, conclure
+toca;terrier
+alcachofra;artichaut
+motim;émeute
+alistar;enrôler
+disfarçar;déguiser
+saiote;jupon
+condecorar;décorer, (médaille)
+coroar;couronner
+majestade;majesté
+alteza;altesse
+realeza;royauté
+nobreza;noblesse
+vossa mercê;votre grâce
+babar;baver
+sustentável;soutenable, durable
+entre aspas;entre guillemets
+destaque;mise en valeur, vedette, ou surlignement
+carregador;chargeur
+apagão;panne d'électricité
+anasalado;nasale
+assédio;harcèlement
+propina;tarif, frais, (d'université)
+esquadra;commissariat
+marisco;fruits de mer
+eixo;axe
+ecoponto;point de recyclage
+refém;otage
+desafogar;soulager, libérer
+erguer;ériger, dresser
+imponente;imposant
+emoldurar;encadrer
+ângulo reto;angle droit
+marinheiro;marin
+prostituta;prostituée
+abrigar;abriter
+sede;siège, (social), soif
+nu;nu
+repolho;choux blanc
+petisco;en-cas, tapas, petit plat salé
+pendurar;pendre
+beco;ruelle
+adega;cave
+muleta;béquille
+porreiro, bacano;cool, chouette
+delgado;fin, mince, ténu
+relevância;importance
+cunho;empreinte, (monnaie)
+puxar;tirer, traîner
+vacina;vaccin
+sé;cathédrale
+canudo;paille, (boisson)
+moelas;gésiers
+recalcar;refouler
+tonelada;tonne
+telescópio;télescope
+adereçar;préparer, arranger
+parolo;plouc, beauf, rustre
+cabana;cabane
+coscuvilheira;commère
+canalizador;plombier
+fazer um brinde;porter un toast, boire à la santé
+vassoura;balai
+descurar;négliger, délaisser
+atirar;tirer, lancer
+tolo;idiot, nigaud
+irrequieto;agité
+traquina;turbulent
+jardineiras;salopette
+esfregona;serpillière
+aspirador;aspirateur
+foguete;fusée, (feu d'artifice)
+fogo de artifício;feu d'artifice
+sob;sous
+obrigatório;obligatoire
+recolher obrigatório;couvre feu
+afastar;éloigner
+arredar;écarter
+rusga;descente de police, perquisition surprise, fouille
+alastrar-se;se propager
+espreitar;épier, guetter
+fiel;fidèle
+acérrimo;fervent, ardent
+manobras;manoeuvres
+espionagem;espionnage
+bisbilhotar;fouiner
+estabelecer;établir
+parvo;idiot
+não me faças de parvo;ne me prends pas pour un idiot
+coto;moignon
+vasculhar;fouiller
+péssimo;très mauvais, exécrable
+alívio;soulagement
+cunhar;inventer
+derreter;fondre, faire fondre
+abater;abattre
+candeeiro;lampe, lampadaire
+desempregado;chômeur
+aba;rabat, languette
+bastão;bâton, matraque, perche
+pau;bâton
+não vai ser pera doce;ça ne va pas être de la tarte
+maroto;coquin, polisson, filou
+demolhar;tremper
+ficar em águas de bacalhau;tomber à l'eau
+puxar a brasa á nossa sardinha;tirer la couverture à soi
+brasa;braise
+descontrair-se;se détendre
+preferível;préférable
+pecar;pécher
+migalha;miette
+centeio;seigle
+aguentar;résister
+aguardar;attendre, patienter
+pegajoso;collant, adhérant
+baunilha;vanille
+pecado;péché
+escaldar;ébouillanter
+rescisão;résiliation, licenciement
+entupido;bouché, (nez)
+calçar;mettre, enfiler, (chaussures)
+sapatilhas;baskets
