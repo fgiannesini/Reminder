@@ -26,7 +26,7 @@ embora;bien que, même si
 vamos embora;on y va, allons-y
 exceção;exception
 envolver;impliquer, envelopper
-sofrer;subir, souffrir
+sofrer;souffrir
 rebuçado;bonbon
 conta;compte, note, addition
 fatura;facture
@@ -53,7 +53,7 @@ redondezas, arredores;environs, alentours
 exceto;sauf, excepté
 severamente;sévèrement
 nem adianta;ça ne sert à rien, inutile de
-preencher;remplir, combler, compléter
+preencher;remplir, (un document)
 moscar;décamper, filer, se sauver, (familier)
 meio;milieu, moyen, demi
 capaz;capable
@@ -228,7 +228,7 @@ urso;ours
 armadilha;piège
 fiambre;jambon
 tenda;tente
-barraca;cabane
+barraca;abri, stand
 meta;objectif, but, limite
 parceria;partenariat
 ameixa;prune
@@ -307,7 +307,7 @@ mascarar;masquer, déguiser
 guloseima;gourmandise, friandise
 ocorrer;avoir lieu, surgir
 decorrer;s’écouler, se dérouler
-perseguir;poursuivre
+perseguir;poursuivre, (quelqu'un ou quelque chose)
 cometer;commettre
 lamber;lécher
 estrear;étrenner, faire ses débuts, (pour un artiste, un film…)
@@ -459,7 +459,7 @@ reflexão;réflexion
 libertação;délivrance, libération
 destino;destin
 religioso;religieux
-catedral;cathédrale
+catedral, sé;cathédrale
 crença;croyance
 católico;catholique
 graça;grâce, drôle
@@ -800,7 +800,7 @@ nadando;nageant
 escrevendo;écrivant
 pele;peau
 fumo;je fume, fumée
-penso;pansement ⚠️ (au Portugal on dit plutôt penso)
+penso;pansement
 dente;dent
 proteção;protection
 convênio;accord
@@ -850,7 +850,7 @@ perna;jambe
 braço;bras
 pressão;pression, une pression
 medicina;médecine
-rosto;visage
+rosto;visage, (formel)
 risco;risque
 operação;opération
 tratamento;traitement
@@ -865,7 +865,6 @@ romper;rompre
 eliminar;éliminer
 cobrir;couvrir
 assumir;prendre en charge, assumer
-responder;répondre (au téléphone)
 definir;définir
 garantir;garantir
 aplicar;appliquer
@@ -898,7 +897,6 @@ critério;critère
 sessão;session, séance
 honra;honneur
 experiência;expérience, de l'expérience
-motivo;motif
 categoria;catégorie
 perspectiva;perspective
 resistência;résistance
@@ -978,7 +976,7 @@ origem;origine
 resultado;résultat
 conjunto;ensemble
 qualidade;qualité
-importância;importance
+importância;importance, (degré de valeur d'une chose)
 caráter;caractère
 objetivo;objectif
 controle;contrôle
@@ -1201,7 +1199,7 @@ tranquilo;tranquille
 grave;grave
 livre;libre
 cheio;plein, rempli
-ótimo;super, excellent
+ótimo;excellent
 igual;égal
 gratuito;gratuit
 perfeito;parfait
@@ -1425,7 +1423,7 @@ banda;groupe, (de musique), ensemble, (musical)
 foto;photo
 ponta;bout, pointe
 aparelho;appareil
-veículo;véhicule
+veículo;véhicule, (général)
 álcool;alcool, de l'alcool
 documento;document
 filme;film
@@ -1434,7 +1432,7 @@ revista;magazine, revue
 corrente;courant, chaîne
 às, aos;aux, envers
 cima;dessus
-cara;visage
+cara;visage, (familier)
 dólar;dollar, piasse
 objeto;objet
 cabeça;tête
@@ -1569,7 +1567,7 @@ treinar;entraîner
 lançar;lancer
 existir;exister
 beijar;embrasser
-encher;remplir, emplir
+encher;remplir, (un espace ou un contenant)
 melhorar;améliorer
 gritar;crier
 visitar;visiter
@@ -2565,7 +2563,6 @@ gargalhada;éclat de rire
 ounvinte;auditeur
 decorar;décorer, apprendre par coeur
 j'ai couru;eu corri
-desempenho;accomplissement
 elle m'a vaincu;ela venceu-me
 parceiro;partenaire
 elle a voulu;ela quis
@@ -2820,17 +2817,15 @@ adega;cave
 muleta;béquille
 porreiro, bacano;cool, chouette
 delgado;fin, mince, ténu
-relevância;importance
+relevância;importance, (degré de pertinence d'une information)
 cunho;empreinte, (monnaie)
-puxar;tirer, traîner
 vacina;vaccin
-sé;cathédrale
 canudo;paille, (boisson)
 moelas;gésiers
 recalcar;refouler
 tonelada;tonne
 telescópio;télescope
-adereçar;préparer, arranger
+adereçar;preparer, (décorer)
 parolo;plouc, beauf, rustre
 cabana;cabane
 coscuvilheira;commère
@@ -2886,7 +2881,6 @@ preferível;préférable
 pecar;pécher
 migalha;miette
 centeio;seigle
-aguentar;résister
 aguardar;attendre, patienter
 pegajoso;collant, adhérant
 baunilha;vanille
@@ -2910,7 +2904,7 @@ ele esteja;il soit
 enfrentar;affronter
 invulgar;inhabituel, peu commun
 pera;poire
-esfregão;éponge, serpillière
+esfregão;serpillière
 eles vão;ils vont
 eu sinto;je sens
 despejo;expulsion
@@ -2920,12 +2914,10 @@ senhorio;propriétaire, bailleur
 renda;loyer
 arrendamento;location, bail
 alojamento;logement
-prosseguir;poursuivre
-derreter;fondre, faire fondre
-fio;fil, brin, ligne
+prosseguir;poursuivre, (une action)
 cobre;cuivre
 seiscentos;six cents
-rasto;piste
+rasto;piste, trace
 variável;variable
 deter;détenir
 reter;retenir
@@ -2941,7 +2933,7 @@ hematoma;hématome
 negra;bleu, (sur la peau)
 trailer;bande-annonce, trailer
 percorrer;parcourir
-viatura;véhicule
+viatura;véhicule, (d'une institution ou organisation)
 abastecer;ravitailler, approvisionner
 anfíbio;amphibien
 descolar;décoller
@@ -2961,7 +2953,6 @@ feno;foin
 teimar;s'entêter
 ardido;brûlé
 provocação;provocation
-empenhar;engager
 rescaldo;bilan
 assolar;dévaster
 camiseta;t-shirt
@@ -2970,7 +2961,6 @@ percalço;ennui, pépin
 eleições autárquicas;élections municipales
 desempenho;performance
 surpreender;surprendre
-cimeira;sommet
+cimeira;sommet, (politique)
 antecipação;anticipation
-diminuir;diminuer
 vendedor;vendeur
