@@ -607,7 +607,7 @@ física;physique
 energia;énergie
 matemática;mathématiques, mathématique
 estatística;statistique
-fenômeno;phénomène
+fenómeno;phénomène
 pesquisa;recherche, (scientifique)
 prova;preuve
 plástico;plastique
@@ -629,7 +629,7 @@ equilíbrio;équilibre
 limite;limite
 cientista;scientifique
 hipótese;hypothèse
-filosofia;philosophie, philososphie
+filosofia;philosophie
 fórmula;formule
 tecnologia;technologie
 elemento;élément
@@ -646,7 +646,7 @@ ciência;science
 conceito;concept
 talvez;peut-être
 parte;partie, il part
-resto;restante, reste
+resto;restant, reste
 batalha;bataille
 causa;cause
 ideia;idée
@@ -707,14 +707,14 @@ homenagem;hommage
 esquema;schéma
 norma;norme
 execução;exécution
-manutenção;manutention
+manutenção;maintenance
 concurso;concours
 consideração;considération
 passo;passe, pas, repasse
 dificuldade;difficulté
 cantor;chanteur
 disco;disque
-novela;novela, feuilleton, (télévisé)
+novela;feuilleton, (télévisé)
 cinema;cinéma, ciné
 estúdio;studio
 fotografar;photographier
@@ -726,19 +726,19 @@ pintar;peindre
 filmar;filmer
 tambor;tambour, du tambour
 exposição;exposition
-desenho;je dessine, dessin, il dessine
+desenho;dessin, je dessine
 músico;musicien
-violão;guitare
+guitarra;guitare, (acoustique)
 dançar;danser
 ator;acteur
 arte;arts, art
 atriz;actrice
-câmera;caméra
+câmara;caméra
 álbum;album
 dança;danse, fait de la danse
 musical;musicale, musical
 ópera;opéra, art lyrique
-palco;scène, (théatre)
+palco;scène, (théâtre)
 atuação;représentation, performance
 concerto;concert
 orquestra;orchestre
@@ -753,13 +753,12 @@ moda;mode
 medindo;mesurant
 lançando;lançant
 tentando;essayant
-machucando;blessant
 cuidando;en train de nous occuper, en train de m'occuper, s'occupant
 perdendo;perdant
 usando;utilisant
-pegando, tomando;prenant
+tomando;prenant
 parando;arrêtant
-olhando;regardant, en train de regarder
+observando;regardant, en train de regarder
 entendendo;comprenant
 passando;passant
 esperando;en train d'attendre, attendant
@@ -784,8 +783,8 @@ adorando;adorant
 tirando;tirant
 lembrando;se souvenant
 desculpando;excusant
-achando, encontrando;trouvant
-incluindo;incluse, inclut, inclus
+encontrando;trouvant
+incluindo;incluant, inclus
 acontecendo;arrivant
 seguindo;suivant
 pagando;payant
@@ -801,10 +800,10 @@ nadando;nageant
 escrevendo;écrivant
 pele;peau
 fumo;je fume, fumée
-curativo;pansement
+penso;pansement ⚠️ (au Portugal on dit plutôt penso)
 dente;dent
 proteção;protection
-convênio;mutuelle, accord, assurance
+convênio;accord
 organismo;organisme
 postura;posture
 espera;attente
@@ -813,12 +812,12 @@ estômago;estomac
 voz;voix
 garganta;gorge
 componente;composant
-enjoo;nausées
+enjoo;nausées, mal de mer
 ombro;épaule
 unha;ongle
 enfermeiro;infirmier
 farmácia;pharmacie
-paciente;patiente, patient
+paciente;patient, patiente
 músculo;muscle
 joelho;genou
 dentista;dentiste
@@ -827,9 +826,9 @@ tornozelo;cheville
 ambulância;ambulance
 cuidado;attention, soin
 acidente;accident
-orelha;oreille
+orelha;oreille, (externe)
 língua;langue, (anatomie)
-remédio;médicament, remède, médicaments
+medicamento;médicament, remède
 circulação;circulation
 cabelo;cheveux, cheveu
 mão;main
@@ -860,13 +859,13 @@ boca;bouche
 sangue;sang
 médico;docteur, médecin
 saúde;santé
-coração;coeur, coeur
+coração;coeur
 preparar;préparer
 romper;rompre
 eliminar;éliminer
 cobrir;couvrir
 assumir;prendre en charge, assumer
-atender;répondre, (au téléphone)
+responder;répondre (au téléphone)
 definir;définir
 garantir;garantir
 aplicar;appliquer
@@ -881,14 +880,14 @@ formar;former, fonder
 diminuir;diminuer
 acreditar;croire
 participar;participer
-cargo;poste, (travail)
+cargo, posto;poste, (travail)
 pausa;pause
 avaliação;évaluation
 surpresa;surprise
 benefício;bénéfice
 extensão;extension
 fracasso;échec
-lugar;lieu, site
+lugar;lieu, endroit
 índice;index, indice
 composição;composition
 impacto;impact
@@ -896,10 +895,10 @@ definição;définition
 cheiro;odeur, je sens
 abertura;ouverture
 critério;critère
-sessão;session
+sessão;session, séance
 honra;honneur
 experiência;expérience, de l'expérience
-motivo;je motive, motif
+motivo;motif
 categoria;catégorie
 perspectiva;perspective
 resistência;résistance
@@ -912,16 +911,15 @@ ele mente;il ment
 preocupação;préoccupation
 missão;mission
 canal;canal, chaîne, (de télévision)
-posto;mis, le poste, poste
 apresentação;présentation, représentation
 continuação;suite
 divisão;division
-comportamento;comportement., comportement
+comportamento;comportement
 iniciativa;initiative
 erro;erreur, faute
 presença;présence
 distribuição;distribution
-ato;acte, frappe, geste
+ato;acte
 identidade;identité
 edição;édition
 união;union
@@ -939,12 +937,12 @@ tom;ton
 gesto;geste
 sensação;sensation
 descobrir;découvrir
-senha;mot de passe
+palavra-passe;mot de passe
 atraso;retard
 decisão;décision
 corte;coupure, coupe
-ajuda;aide, aides
-plano;plan, plat
+ajuda;aide
+plano;plan
 referência;référence
 intervenção;intervention
 circunstância;circonstance
@@ -2898,3 +2896,81 @@ rescisão;résiliation, licenciement
 entupido;bouché, (nez)
 calçar;mettre, enfiler, (chaussures)
 sapatilhas;baskets
+melga;moustique
+costeiro;côtier
+faixa;bande, bandeau
+bombeiro;pompier
+ameaçar;menacer
+amamentar;allaiter
+amamentação;allaitement
+alegado;prétendu, présumé
+laboral;lié au travail
+recado;message, note
+ele esteja;il soit
+enfrentar;affronter
+invulgar;inhabituel, peu commun
+pera;poire
+esfregão;éponge, serpillière
+eles vão;ils vont
+eu sinto;je sens
+despejo;expulsion
+inquilino, arrendatário;locataire
+balcão;comptoir, guichet
+senhorio;propriétaire, bailleur
+renda;loyer
+arrendamento;location, bail
+alojamento;logement
+prosseguir;poursuivre
+derreter;fondre, faire fondre
+fio;fil, brin, ligne
+cobre;cuivre
+seiscentos;six cents
+rasto;piste
+variável;variable
+deter;détenir
+reter;retenir
+aéreo;aérien
+visível;visible
+autarca;élu local
+producente;productif
+acarinhar;câliner
+estímulo;stimulus, encouragement
+fidedigno;fiable
+tu viste;tu as vu
+hematoma;hématome
+negra;bleu, (sur la peau)
+trailer;bande-annonce, trailer
+percorrer;parcourir
+viatura;véhicule
+abastecer;ravitailler, approvisionner
+anfíbio;amphibien
+descolar;décoller
+dezena;dizaine
+aceso;allumé
+Moscovo;Moscou
+míssil;missile
+borboto;bouloche
+mirtilo;myrtille
+campa;tombe
+poeira;poussière
+galgar;grimper
+progredir;progresser
+freguesia;paroisse
+meda;meule, (de foin)
+feno;foin
+teimar;s'entêter
+ardido;brûlé
+provocação;provocation
+empenhar;engager
+rescaldo;bilan
+assolar;dévaster
+camiseta;t-shirt
+chumbo;plomb
+percalço;ennui, pépin
+eleições autárquicas;élections municipales
+desempenho;performance
+surpreender;surprendre
+cimeira;sommet
+antecipação;anticipation
+diminuir;diminuer
+vendedor;vendeur
