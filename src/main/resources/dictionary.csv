@@ -1037,7 +1037,7 @@ dependência;dépendance
 perceção;perception
 intensidade;intensité
 beijo;bisou, baiser
-riso;rire
+riso;rire, (nom)
 surpreso;surpris
 ódio;haine, la haine
 calmo;calme
@@ -1107,7 +1107,7 @@ férias;vacances
 comboio;train
 pneu;pneu
 turista;touriste
-trânsito;circulation
+trânsito;circulation, (routière)
 tráfico;trafic
 táxi;taxi
 ele visita;il visite
@@ -1128,9 +1128,9 @@ instituto;institut
 tabela;tableau, (de chiffres, statistiques)
 conselho;conseil, (organe administratif)
 escola;école
-escola secundária:lyvée
-escola básica; collège
-colégio: école privée
+escola secundária;lycée
+escola básica;collège
+colégio;école privée
 introdução;introduction
 mestre;maître, (professeur)
 disciplina;discipline
@@ -1145,7 +1145,6 @@ discussão;discussion, (débat)
 seção;section
 explicação;explication
 academia;académie
-ginásio;gymnase
 tarefa;tâche
 ausência;absence
 capítulo;chapitre
@@ -1479,7 +1478,6 @@ fronteira;frontière
 continente;continent
 distrito;district
 avenida;avenue
-colégio;collège
 residência;résidence
 localidade;localité, emplacement
 parque;parc
@@ -1580,7 +1578,7 @@ encher;remplir, (un espace ou un contenant)
 melhorar;améliorer
 gritar;crier
 visitar;visiter
-rir;rire
+rir;rire, (verbe)
 julgar;juger
 guardar;garder
 chorar;pleurer
@@ -2435,7 +2433,6 @@ belo;bel
 orgulhoso;orgueilleux
 eles deram;ils ont donné
 tripulação;équipage
-prémio;prix, récompense
 caderninho;carnet
 quinto;cinquième
 andor;brancard
@@ -2847,7 +2844,7 @@ tolo;idiot, nigaud
 irrequieto;agité
 traquina;turbulent
 jardineiras;salopette
-esfregona;serpillière
+esfregona, esfregão;serpillière
 aspirador;aspirateur
 foguete;fusée, (feu d'artifice)
 fogo de artifício;feu d'artifice
@@ -2913,7 +2910,6 @@ ele esteja;il soit
 enfrentar;affronter
 invulgar;inhabituel, peu commun
 pera;poire
-esfregão;serpillière
 eles vão;ils vont
 eu sinto;je sens
 despejo;expulsion
