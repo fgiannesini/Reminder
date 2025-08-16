@@ -968,7 +968,7 @@ aspecto;aspect
 consciência;conscience
 existência;existence
 prática;pratique
-formação;formation
+formação;formation, cursus
 sucesso;succès
 construção;construction, chantier
 crescimento;croissance
@@ -976,15 +976,15 @@ origem;origine
 resultado;résultat
 conjunto;ensemble
 qualidade;qualité
-importância;importance, (degré de valeur d'une chose)
+importância;importance, (degré de valeur d’une chose)
 caráter;caractère
 objetivo;objectif
-controle;contrôle
+controle;contrôlo
 capacidade;capacité
 efeito;effet
-programa;il programme, émission
+programa;programme, émission
 possibilidade;possibilité
-investigação;investigation
+investigação;investigation, enquête
 informação;information, renseignement
 paz;paix, la paix
 imagem;image
@@ -992,7 +992,7 @@ verdade;vérité
 ação;action
 setor;secteur
 movimento;mouvement
-obra;oeuvre, ouvrage
+obra;oeuvre, ouvrage, chantier
 mudança;changement, différence, déménagement
 tipo;type, genre, sorte
 modo, jeito;mode, façon
@@ -1000,8 +1000,8 @@ realidade;réalité
 sistema;système
 processo;processus
 contra;contre
-tênis;tennis
-convocação;convocation, composition
+ténis;tennis
+convocação;convocation, composition, (d'équipe)
 defesa;défense
 pista;piste
 luta;lutte
@@ -1011,47 +1011,49 @@ lazer;loisir, loisirs
 passeio;promenade, balade
 partida;départ, match, partie
 membro;membre
-prêmio;prix, (nobel)
-jogo;jeu, je joue
-salto;talons, talon, saut
+prémio;prix
+jogo;jeu
+salto;saut
+sapatos de salto;chaussures à talons
 ginásio;gymnase
 passatempo;hobby, passe-temps
-gol;but, (foot)
+golo;but
 competição;compétition
-basquete;basket
+basquetebol;basket, basketball
 atleta;athlète
 vitória;victoire
 final;final, finale
 bicicleta;vélo, bicyclette
 atividade;activité
-esporte;sport
+desporto;sport
 campeonato;championnat
 torneio;tournoi
-equipe, time;équipe
+equipa;équipe
 campeão;champion
 jogador;joueur
 carreira;carrière
 exercício;exercice
 dependência;dépendance
-percepção;perception
+perceção;perception
 intensidade;intensité
 beijo;bisou, baiser
-o riso;le rire
+riso;rire
 surpreso;surpris
 ódio;haine, la haine
 calmo;calme
 ansioso;anxieux, impatient
-sonho;rêve, songe, je rêve
-inveja, vontade;envie
+sonho;rêve, songe
+inveja;envie, (jalousie)
+vontade;envie, (de quelque chose)
 tímido;timide
 divertimento;divertissement
 confundir;confondre
-desejo;je souhaite, désir
+desejo;désir
 certeza;certitude
-culpa;faute
-falta;faut, absence
+culpa;faute, culpabilité
+falta;manque, absence
 sentimento;sentiment
-respeito;respect, respecte, du respect
+respeito;respect
 glória;gloire
 curiosidade;curiosité
 humor;humeur, humour
@@ -1069,42 +1071,44 @@ esperança;espérance, espoir
 amizade;amitié
 tensão;tension
 amor;amour
-alegria;joie, de la joie
-feliz;heureux, heureuse, joyeux
+alegria;joie
+feliz;heureux, heureuse
 sorriso;sourire
 felicidade;bonheur
-parada, paragem;arrêt, pause
+paragem;arrêt
 topo;sommet, en haut
-rota, estrada;route
+rota;route, (itinéraire)
+estrada; route, (chaussée)
 esquerda;gauche
-direito;droit
-frente;front, avant, devant
-fundo;fond, fonds
-caminho;chemin, marche, trajet
+direito;droit, (juridique)
+frente;devant, front, (position)
+fundo;fond
+caminho;chemin, trajet, parcours
 direção;direction
-interior;intérieure, intérieur, province
-rumo;but, voie
+interior;intérieur, province
+rumo;cap, (orientation)
 viagem;voyage
 fim;fin
-sinal;signal, signe, feu
-busca;recherche
+sinal;signe, signal, feu, (de circulation)
+busca;recherche, (quête)
 orientação;orientation
 chegada;arrivée
 entrada;entrée
-saída;sortie, départ
+saída;sortie
 exterior;extérieur, étranger
 princípio;principe
 lado;côté
 direita;droite
 oeste;ouest
 barco;bateau
-evento;événement, évènement
-rodoviária;gare routière
+evento;événement
+estação rodoviária;gare routière
 férias;vacances
 comboio;train
 pneu;pneu
 turista;touriste
-trânsito;trafic, circulation
+trânsito;circulation
+tráfico;trafic
 táxi;taxi
 ele visita;il visite
 norte;nord
@@ -1117,40 +1121,46 @@ autocarro;bus, autobus
 leste;est, l'est
 voo;vol, (dans le ciel)
 alemão;allemand
-brasileiro;brésilien, Brésilien
-palestra, conferência;conférence
+brasileiro;Brésilien
+palestra;exposé, (discours académique)
+conferência;conférence, (colloque)
 instituto;institut
-tabela;table, tableau
-conselho;conseil
-escola;école, collège
+tabela;tableau, (de chiffres, statistiques)
+conselho;conseil, (organe administratif)
+escola;école
+escola secundária:lyvée
+escola básica; collège
+colégio: école privée
 introdução;introduction
-mestre;maître
+mestre;maître, (professeur)
 disciplina;discipline
-redação;rédaction, essai
+redação;rédaction, (exercice scolaire)
 solução;solution
-intercâmbio;échange
+intercâmbio;échange, (académique)
 geografia;géographie
 tema;thème
 conhecimento;connaissance, savoir
-faculdade;faculté
-discussão;discussion
+faculdade;faculté, (université)
+discussão;discussion, (débat)
 seção;section
 explicação;explication
-academia;salle de sport, gymnase, académie
+academia;académie
+ginásio;gymnase
 tarefa;tâche
 ausência;absence
 capítulo;chapitre
-grau;degré, grade
+grau;degré
 inteligência;intelligence
 leitura;lecture
-curso;cours
-turma, aula;classe, (endroit)
+curso;cours, filière (université)
+turma;classe, (groupe d’élèves)
+aula;cours, (séance de classe)
 problema;problème
 estudo;étude, j'étudie
 nível;niveau
 exemplo;exemple
 título;titre
-educação;éducation, education
+educação;éducation
 lápis;crayon
 lição;leçon
 idioma;langue
@@ -1177,17 +1187,16 @@ mexicano;mexicain
 argentino;argentin
 francês;français, Français
 espanhol;espagnol
-úmido;humide
+húmido;humide
 útil;utile
 ensolarado;ensoleillé
 semanal;hebdomadaire
 morno;tiède, tièdement
 raro;rare
-legal;super
 aberto;ouvert
 especial;spécial, spéciale
-estranho; étrange
-barulhento;bruyantes, bruyant
+estranho;étrange
+barulhento;bruyant
 moderno;moderne
 pesado;lourd
 mensal;mensuel
@@ -1211,30 +1220,30 @@ formal;formel, formelle
 nojento;dégoûtant
 feminino;féminin, féminine
 imediato;immédiat
-vivo;vivant, vis
+vivo;vivant
 negativo;négatif
-nervoso;vénère, nerveux
+nervoso;nerveux
 revolucionário;révolutionnaire
-mínimo;minimum, auriculaire, (doigt)
+mínimo;minimum
 vital;vital, vitale
 radical;radical, radicale
 urbano;urbain
-positivo;positif, de positif, positive
-particular;particulière, particulier, privée
+positivo;positif
+particular;particulier
 chato, aborrecido;ennuyeux
 antigo;vieux, ancien
 clássico;classique
 liberal;libéral, libérale
 puro;pur
-doce;douce, doux, sucrée
+doce;doux, douce, sucré
 fundamental;fondamental, fondamentale
 infantil;puéril, puérile, infantile
 fechado;fermé, fermée
-profundo;profonde, profond
+profundo;profond, profonde
 comercial;commercial, commerciale
 superior;supérieur, supérieure
 triste;triste
-médio;moyen, majeur, (doigt)
+médio;moyen
 lógico;logique
 ideal;idéal, idéale
 direto;direct, directement, droit
@@ -1243,28 +1252,28 @@ global;global
 universal;universel, universelle
 máximo;maximum
 intelectual;intellectuel, intellectuelle
-independente;indépendante, indépendant
-cujo;dont, dont le
+independente;indépendant, indépendante
+cujo;dont
 alguém;quelqu'un
-ninguém;personne n', personne, personne ne
-algo;quelque chose.
+ninguém;personne
+algo;quelque chose
 mim;moi
 conosco;avec nous
 tudo;tout
-ambos;Les deux, (Tous)
-comigo;avec moi, moi
+ambos;les deux
+comigo;avec moi
 si;soi
 ti;toi, te
 contigo;avec toi
 controlar;contrôler
 adorar;adorer
-tirar;tirer, sortir
+tirar;tirer, (enlever)
 vai haver;il va y avoir
 desenvolver;développer
 nascer;naître
-atrás;derrière, arrière
-chove;pleut, il pleut
-aguentar;subir, supporter
+atrás;derrière, à l’arrière
+chove;il pleut
+aguentar;supporter, endurer
 fritar;frire
 cozinhar;cuisiner
 descrever;décrire
@@ -1273,36 +1282,36 @@ telefonar;téléphoner
 descansar;se reposer
 atuar;agir
 odiar;haïr
-levantar;lever
+levantar;lever, se lever
 chamar;appeler
 iniciar;démarrer, commencer, initier
-poder;pouvoir, du pouvoir
+poder;pouvoir
 anunciar;annoncer
 aumentar;augmenter
 cortar;couper
 reconhecer;reconnaître
-continuar;continuer, continuerai
+continuar;continuer
 salvar;sauver
-pedir;demander, mendier
+pedir;demander
 resolver;résoudre
 considerar;considérer
 tratar;traiter
 receber;recevoir
-conseguir;réussir, atteindre
+conseguir;réussir
 obter;obtenir
 criar;créer
 realizar;réaliser
-pôr, colocar;mettre, poser, coucher, (soleil)
+pôr, colocar;mettre, poser
 sair;sortir
-evitar;éviter, éviter de
+evitar;éviter
 pesar;peser
-nenhum;aucun, pas de
-qualquer;n'importe quel, quelconque, n'importe quelle
-todo;toute, entière, tout
+nenhum;aucun
+qualquer;n'importe quel, n'importe quelle, quelconque
+todo;tout, toute, entier, entière
 dobro;double
 algum;quelque
 metade;moitié
-par;pair, (nombre), une paire, pair
+par;pair, (nombre)
 oitavo;huitième
 nono;neuvième
 número;nombre, numéro
@@ -1310,7 +1319,7 @@ maioria;majorité
 sétimo;septième
 sexto;sixième
 terceiro;troisième
-zero;zéro, nulle
+zero;zéro
 mil;mille
 milhão;million
 setenta;soixante-dix
@@ -1318,23 +1327,23 @@ oitenta;quatre-vingts
 noventa;quatre-vingt-dix
 sessenta;soixante
 quarenta;quarante
-cinquenta;cinquante, 50
+cinquenta;cinquante
 cem;cent
 vinte;vingt
-dezessete;dix-sept
+dezassete;dix-sept
 dezoito;dix-huit
-dezenove;dix-neuf
+dezanove;dix-neuf
 quinze;quinze
 trinta;trente
-dezesseis;seize
+dezasseis;seize
 oito;huit
 treze;treize
 doze;douze
-quatorze;quatorze
-onze;onze, onze heures
+catorze;quatorze
+onze;onze
 dez;dix
 nove;neuf
-cinco;cinq, à dix-sept heures
+cinco;cinq
 seis;six
 quatro;quatre
 três;trois
@@ -2491,7 +2500,7 @@ gajo;gars
 calão;argo, jargon
 impor;imposer
 oposto;opposé
-fixe;chouette, sympa
+fixe;super
 óbvio;evident
 engano;erreur, méprise
 arca;coffre, arche
