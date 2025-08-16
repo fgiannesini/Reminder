@@ -1374,7 +1374,7 @@ secretaria;secrétariat
 rapaz;jeune homme, garçon, mec
 turismo;tourisme
 inimigo;ennemi
-greve;frappe, grève
+greve;grève
 assembleia;assemblée
 vítima;victime
 indivíduo;individu
@@ -1398,7 +1398,7 @@ eles estão;ils sont, (temporairement)
 ele está;il est, (temporairement)
 eu estou;je suis, (temporairement)
 tu estás;tu es, (temporairement)
-nos estamos;nous sommes, (temporairement)
+nós estamos;nous sommes, (temporairement)
 telemóvel;portable, téléphone portable
 licença;licence
 prenda, presente;cadeau, présent
@@ -1408,7 +1408,7 @@ folha;feuille
 pedaço;morceau, part, bout
 escova;brosse
 teclado;clavier
-diário;journalier
+diário;journal, quotidien, journalier
 ventilador;ventilateur
 envelope;enveloppe
 pente;peigne
@@ -1449,7 +1449,7 @@ moto;moto
 papel;papier, rôle, du papier
 avião;avion
 mala;valise, sac à main
-olho;je regarde, oeil, oeil
+olho;oeil
 pé;pied
 ordenador;ordinateur
 mapa;carte, plan
@@ -1493,7 +1493,7 @@ tribunal;tribunal
 departamento;département
 instituição;institution
 propriedade;propriété
-área;aire
+área;aire, zone
 hospital;hôpital
 região;région
 universidade;université
@@ -1517,8 +1517,8 @@ restaurante;restaurant
 normalmente;normalement
 ainda;encore
 acima;au-dessus, dessus
-logo;bientôt
-também;aussi, gêné
+logo;bientôt, tout de suite
+também;aussi
 então;donc, alors
 assim;ainsi, tel, comme ça
 simplesmente;simplement
@@ -1533,7 +1533,7 @@ perto;près
 nunca;jamais
 felizmente;heureusement
 imediatamente;immédiatement, tout de suite
-quase;quasiment
+quase;presque, quasiment
 menos;moins
 dentro;à l'intérieur, dedans, dans
 igualmente;également, pareillement
@@ -1548,29 +1548,29 @@ sempre;toujours
 novamente;de nouveau
 antes;avant
 já;déjà
-aqui, cá;ici, ci
+aqui, cá;ici
 grátis;gratuitement, gratuit, gratuite
 depois;ensuite
-devagar;lentement
-além;au-delà, là-bas
+devagar;doucement
+além;au-delà, plus loin
 demais;trop
 tão;si, tellement
-enquanto;pendant que, alors que, instant
+enquanto;pendant que, alors que
 atualmente;actuellement
 geralmente;généralement, en général
 praticamente;pratiquement
 mal;mal, à peine
 absolutamente;absolument
-embaixo;sous, au-dessous, en
+embaixo;sous, en dessous, au-dessous
 especialmente;spécialement
 cedo;tôt
-somente, apenas, só;seulement, juste, seules
+somente, apenas, só;seulement, juste
 tanto;tant, tellement, autant
-ali, là, aí;là
-cuidar;soigner, s'occuper
+ali, aí;là
+cuidar;soigner, s'occuper de
 observar;observer
 montar, subir;monter
-treinar;entraîner
+treinar;entraîner, s'entraîner
 lançar;lancer
 existir;exister
 beijar;embrasser
@@ -1604,9 +1604,9 @@ procurar;chercher, rechercher
 contar;raconter, conter, compter
 acabar, terminar;finir, terminer, se terminer
 começar;commencer
-parecer;ressembles, paraître
+parecer;ressembler, paraître
 apresentar;présenter
-provar;goûter, (action)
+provar;goûter, (action de goûter)
 levar;porter, emmener
 sonhar;rêver
 produzir;produire
@@ -1618,12 +1618,12 @@ pouco;peu
 estrangeiro;étranger
 sujo;sale
 difícil;difficile, dure, dur
-excelente;excellent, excellente, écoeurant
+excelente;excellent, excellente
 vazio;vide
 famoso;célèbre, fameux, connu
 seco;sec, sèche
-caro;chère, cher
-certo;certain, assuré
+caro;cher, chère
+certo;certain, assuré, sûr
 perigoso;dangereux
 querido;cher, chéri
 frio;froid, froide
@@ -1634,19 +1634,19 @@ a calma;le calme
 último;dernier, dernière
 recente;récent, récente
 rico;riche
-preciso;nécessaire, je dois, il faut
+preciso;précis, nécessaire
 regional;régional, régionale
 muito;beaucoup, (quantité)
-responsável;responsable, responsable de, responsable du
+responsável;responsable, responsable de
 definitivo;définitif
 histórico;historique
 mau;mauvaise, mauvais, méchant
 franco;franc
 pobre;pauvre
 natural;naturel, naturelle
-simples;simples, simple
+simples;simple
 nacional;national, nationale
-familiar, coloquial;familier, familière, familiale
+familiar, coloquial;familier, familière, colloquial
 impossível;impossible
 pior;pire
 industrial;industrielle, industriel
@@ -1664,7 +1664,7 @@ mundial;mondial, mondiale
 duro;dur, difficile
 popular;populaire
 pessoal;personnel, personnelle
-real;réel, royale
+real;réel, vrai, royal
 diferente;différente, différent
 verdadeiro;véritable, vrai
 novo;nouveau, neuf
@@ -1672,7 +1672,7 @@ possível;possible
 melhor;mieux, meilleur, meilleure
 importante;important, importante
 velho;vieux, vieil
-maior;âgée, large, plus grand
+maior;plus grand, majeur, plus âgé
 doente;malade
 bonito;beau
 primeiro;premier, tout d'abord, premièrement
@@ -1696,8 +1696,8 @@ chuveiro;douche
 escada;escalier
 brinquedo;jouet
 toalha;serviette
-ferramenta;outil, util
-tomada;prise
+ferramenta;outil
+tomada;prise électrique
 luz;lumière
 quarto;quart, chambre, quatrième
 aquecimento;chauffage, réchauffement
