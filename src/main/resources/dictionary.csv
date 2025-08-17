@@ -329,7 +329,7 @@ tremoço;lupin
 cavala;maquereau
 coentro;coriandre
 polvo;poulpe
-bolacha;biscuits, galette
+bolacha;biscuit, galette
 nomeadamente;notamment
 atento;attentif
 sentido;sens
@@ -1457,7 +1457,7 @@ dinheiro;argent, liquide, fric
 carro;voiture, char
 bola;ballon, balle
 centro;centre
-campo;champ
+campo;champ, campagne
 clube;club
 galeria;galerie
 estádio;stade
@@ -1701,7 +1701,8 @@ tomada;prise électrique
 luz;lumière
 quarto;quart, chambre, quatrième
 aquecimento;chauffage, réchauffement
-almofada;oreiller, traversin
+almofada;coussin, traversin
+travesseiro;oreiller
 casa;maison
 lâmpada;lampe, ampoule
 móvel;meuble
@@ -1711,13 +1712,13 @@ portão;portail
 frigorífico;frigo, réfrigérateur
 cortina;rideau
 tapete;tapis
-limpo;propre, je nettoie
-casa de banho;toilettes, salle de bain
-banho;bain, baignoire, douche
+limpo;propre
+casa de banho;salle de bain, toilettes
+banho;bain, douche
 apartamento;appartement
 cobertor;couverture
-chão;plancher
-parede;mur, paroie
+chão;sol, plancher
+parede;mur, paroi
 forno;four
 porta;porte
 teto;plafond
@@ -1725,13 +1726,13 @@ escritório;bureau
 berço;berceau
 lustre;lustre
 espelho;miroir
-televisão;télévision, la télévision, télé
+televisão;télévision, télé
 janela;fenêtre
-telefone;téléphones, téléphone
+telefone;téléphone
 mesa;table
 cadeira;chaise
 cama;lit
-policial;policier
+agente da polícia;policier
 carteiro;facteur
 profissional;professionnelle, professionnel
 ocupação;occupation
@@ -1739,27 +1740,27 @@ oficial;officiel, officielle, officier
 trabalhador;travailleur
 especialidade;spécialité
 carpinteiro;menuisier, charpentier
-motorista, chofer;chauffeur, conducteur
+motorista;conducteur, chauffeur
 arquiteto;architecte
-fazendeiro;fermier
+agricultor;agriculteur
 químico;chimiste
 pescador;pêcheur
-gerente;gérant
+gestor;gérant
 engenheiro;ingénieur
 emprego;emploi, boulot
 especialista;spécialiste
-trabalho;travaille, travail
+trabalho;travail
 conselheiro;conseiller, (personne)
 profissão;profession
 espectador;spectateur
 bispo;évêque
-pesquisador;chercheur
-agente;agent, agente
+investigador;chercheur
+agente;agent
 comandante;commandant
 dono;propriétaire, maître
-pintor;peintre, paintre
+pintor;peintre
 príncipe;prince
-usuário;utilisateur
+utilizador;utilisateur
 leitor;lecteur
 jornalista;journaliste
 artista;artiste
@@ -1777,7 +1778,7 @@ aluno;élève
 guarda;garde
 promotor;procureur
 secretário;secrétaire
-modelo;mannequin, modèle, top model
+modelo;mannequin, modèle
 juiz;juge
 autor;auteur
 autoridade;autorité
@@ -1794,38 +1795,38 @@ mesmo;même
 largo;large
 justo;juste
 longo, comprido;long
-grande;grande, grand, grosse
+grande;grand, grande, gros, grosse
 alto;haut, grand, élevé
 pequeno;petit, petite
 amplo;ample
 medida;mesure
-sobrenome;nom, nom de famille
-nome;prénom
+apelido;nom de famille
+nome;nom, prénom
 comunidade;communauté
 sobrinho;neveu
 avô;grand-père
 marido;mari, époux
 primo;cousin
-bebê;bébé
+bebé;bébé
 neto;petit-fils
 pai;papa, père
 família;famille
 irmão;frère
 tio;oncle
 filho;enfant, fils
-esposo;époux, mari
+marido;époux, mari (mot brésilien, au Portugal on dit marido)
 mãe;mère, maman
 quinta;ferme, (endroit)
 data;date
 feira;foire
 manhã;matin
 aniversário;anniversaire
-festival, arraial;festival
+festival, arraial;festival, fête populaire
 estação;gare, (de train), saison, station
 juventude, mocidade;jeunesse
 ciclo;cycle
 nascimento;naissance
-duração;durée, une durée
+duração;durée
 segundo;selon, deuxième, second
 madrugada;lever du jour, petit matin, aurore
 festa;fête
@@ -1835,14 +1836,14 @@ período;période
 década;décennie
 fase;phase
 geração;génération
-tempo;temps, du temps, mi-temps
-primavera;printemps, le printemps
+tempo;temps, mi-temps
+primavera;printemps
 inverno;hiver
-minuto;minute, minuit
+minuto;minute
 época;époque, période
 século;siècle
 outubro;octobre
-verão;été, verrez
+verão;été
 dezembro;décembre
 setembro;septembre
 novembro;novembre
@@ -1857,7 +1858,7 @@ março;mars
 julho;juillet
 mês;mois
 semana;semaine
-temporada;saison, (série)
+temporada;saison, (d'une série), période
 prazo;délai, date limite
 momento;moment
 vez;fois, tour
@@ -1873,14 +1874,14 @@ amanhã;demain
 quarta-feira;mercredi
 terça-feira;mardi
 segunda-feira;lundi
-por;à, par, pour
+por;par, pour
 em;en, à, sur
 desde;depuis
 até;jusque, à, jusqu'à
-pelos;pour les, poils, les
-para;pour, pour la, il arrête
+pelos;pour les, poils
+para;pour, pour la
 sem;sans
-sobre;sur
+sobre;sur, au sujet de
 durante;durant, pendant
 apesar;malgré
 mas;mais
@@ -1893,20 +1894,20 @@ salmão;saumon
 turquesa;turquoise
 cinza;cendre
 marrom, castanho;marron
-violeta;violette
-colorido;coloré
+violeta;violet, violette
+colorido;coloré, colorié
 preto;noir, noire
 roxo;violet
-rosa;rose, roses
-moreno;brun
-branco;blanc, blanche
+rosa;rose
+moreno;brun, basané, (teint)
+branco;blanc
 azul;bleu
-amarelo;jaune, le jaune
-verde;verte, vert
+amarelo;jaune
+verde;vert
 vermelho;rouge
-negro;noir, obscur
+negro;noir, sombre
 cor;couleur
-eu tenho;je dois, j'ai
+eu tenho;j'ai
 cair;tomber
 medir;mesurer
 vender;vendre
@@ -1920,8 +1921,8 @@ partir;partir
 esquecer;oublier
 mostrar;montrer, indiquer
 manter;maintenir, garder, conserver
-perguntar;demander, questionner
-pagar;paie, payer, paye
+perguntar;demander, poser une question
+pagar;payer
 ganhar;gagner
 mudar;changer
 trazer;apporter, amener
@@ -1930,69 +1931,69 @@ desculpar;excuser
 seguir;suivre, continuer
 abrir;ouvrir
 amar;aimer
-pegar;attrape, pécho, prendre
+pegar;attraper, prendre
 perder;perdre, rater
-usar;utiliser, utilisent, porter, (un vêtement)
-trabalhar;travailler, bosser
+usar;utiliser, porter, (un vêtement)
+trabalhar;travailler
 ajudar;aider
 caminhar;marcher
-entender;comprendre
-sentir;sentir, sente
-olhar;regarder, regard
+perceber, entender;comprendre
+sentir;sentir, éprouver
+olhar;regarder
 chegar;arriver
 encontrar;trouver, rencontrer
-tentar;essayer, essayer de, tenter
+tentar;essayer, tenter
 parar;arrêter
 voltar;revenir, rentrer, retourner
 pensar;penser, réfléchir
-gostar;kiff, aimer
+gostar;aimer
 deixar;quitter, laisser
 esperar;espérer, attendre
 passar;passer
-precisar;avoir besoin
+precisar;avoir besoin de
 falar;parler
 ficar;rester
 conhecer;connaître
-dizer;disons, dire
+dizer;dire
 dar;donner
-lembrar;me souvenir de, rappeler, se souvenir de
+lembrar;se souvenir de, rappeler
 tomar;prendre
 errar;se tromper, faire une erreur
 conversar;converser
-tocar;appuyer, sonner, toucher
+tocar;jouer, (d'un instrument), sonner, toucher
 ver;voir
-ouvir;entendre
+ouvir;entendre, écouter
 achar;trouver, penser
 acontecer;arriver, avoir lieu, se passer
 quem;qui
-quando;quand, lorsque, lorsqu'
-quê;quoi, quel
+quando;quand, lorsque
+quê;quoi
 onde;où, (lieu)
 aonde;où, (direction)
-pergunta;question, il demande, demande
+pergunta;question, demande
 quanto;combien
 resposta;réponse
 qual;quel, lequel, laquelle
 carteira;portefeuille, porte-monnaie
 relógio;montre, horloge
-jeans;jeans, jean, des jeans
-casaco;manteau
+jeans;jean, jeans
+casaco;manteau, veste
 bolso;poche
 sandália;sandale
-agasalho;protection, (vêtement)
-vestir;porter, habiller
+agasalho;manteau ,(chaud), vêtement, (chaud)
+vestir;mettre, (un vêtement), habiller
 capa;cape
 luva;gant
 fantasia;déguisement, costume
 bota;botte
 cinto;ceinture
-camisola;pull, pull-over
-bolsa;bourse
+camisola;pull, chemise de nuit
+bolsa;sac, bourse
 camisa;chemise
 sapato, calçado;chaussure, soulier
 vestido;robe
 chapéu;chapeau
-saia;sors, jupe, sortez
+saia;jupe
 roupa;vêtement, vêtements
 tu escreves;tu écris
 tu és;tu es
@@ -2006,27 +2007,27 @@ vegetariano;végétarien
 tomate;tomate
 alimento;aliment
 azeite;huile d'olive
-vinho;vin, du vin, le vin
-menu;menu
-bife;steak
-azedo;aigre
+vinho;vin
+menu;menu, carte
+bife;steak, bifteck
+azedo;aigre, acide
 morango;fraise
 chá;thé
-açúcar;sucre, du sucre
-salada;salade, de la salade
+açúcar;sucre
+salada;salade
 lanche;goûter, casse-croûte
-sopa;soupe, de la soupe
+sopa;soupe
 receita;recette
-sal;sel, du sel
+sal;sel
 arroz;riz
 sandes;sandwich
-prato;assiette, assiettes, plat
-pimenta;poivre
+prato;plat, assiette
+pimenta;poivre, piment
 laranja;orange
 cebola;oignon
 batata;pomme de terre, patate
-massa;pâte, des pâtes, les pâtes
-limonada;citronnade, de la citronnade
+massa;pâtes, pâte
+limonada;limonade
 refeição;repas
 limão;citron
 cozinha;cuisine
@@ -2037,7 +2038,7 @@ cobra;serpent
 leão;lion
 lobo;loup
 tigre;tigre
-rato;souris
+rato;souris, rat
 tartaruga;tortue
 aranha;araignée
 inseto;insecte
@@ -2053,50 +2054,47 @@ gato;chat
 borboleta;papillon
 abelha;abeille
 cavalo;cheval
-porco;porc, du porc, cochon
+porco;porc, cochon
 pássaro, ave;oiseau
 animal;animal
 formiga;fourmi
 bananas;bananes
-insetos;insectes, des insectes
-moscas;mouches, les mouches
-vinhos;vins, des vins
-batatas;des pommes de terre, pommes de terre
-boas;bonnes, bon, de bonnes
-palavras;mots, paroles, des mots
-bons;bons, de bons
-livros;des livres, livres
+insetos;insectes
+moscas;mouches
+batatas;pommes de terre, patates
+boas;bonnes
+palavras;mots, paroles
+bons;bons
+livros;livres
 frito;frit
 sumo;jus
-fruta;des fruits, fruit, fruits
+fruta;fruit, fruits
 copo;verre
 fome;faim
 uva;raisin
 ovo;oeuf
 jantar;dîner
 garfo;fourchette
-bebida;boisson, boivent, breuvage
+bebida;boisson, breuvage
 peixe;poisson
 regime;régime
-chocolate;chocolat, du chocolat
-ele tem;il a, contient, il y a
-café;café, du café
-biscoito;biscuit
+chocolate;chocolat
+ele tem;il a
+café;café
 frango;poulet
 lata;boîte, canette, boîte de conserve
-nós comemos;nous mangeons, nous avons mangé
-eles comem;vous mangez, ils mangent
+nós comemos;nous mangeons
+eles comem;ils mangent
 eu cozinho;je cuisine
-ferve;bout, bouillonne
 português;portugais
 ele fala;il parle
 eu falo;je parle
-desculpe;pardon, désolé, excuse
+desculpe;pardon, désolé, excusez-moi
 inglês;anglais
-olá;allô, salut
+olá;salut
 parabéns;félicitations
-prazer em conhecer;enchanté, enchantée
-bom;bon, gentil
+prazer em conhecer;enchanté
+bom;bon
 ananás;ananas
 eu leio;je lis
 nós falamos;nous parlons, nous avons parlé
@@ -2108,43 +2106,43 @@ ele escreve;il écrit
 eu escrevo;j'écris
 maçã;pomme
 tu dizes;tu dis
-sertão;campagne, (lieu)
 engrossar;épaissir
 quinhentos;cinq cents
 clara;blanc d'oeuf
-bater as claras en neve, bater as claras en castelo;battre les oeufs en neige
+bater as claras em neve, bater as claras em castelo;battre les blancs en neige
 amora;mûre, (fruit)
 emprestar;prêter
-couve;choux
-presunto;jambon cru, jambon fumé
+couve;chou
+presunto;jambon cru
 eu venho;je viens
-assalto;cambriolage
-ladrão, assaltante;cambrioleur
-padrasto;beau-père
-madrasta, sogra;belle-mère
+assalto;braquage, attaque
+ladrão, assaltante;voleur, agresseur
+padrasto;beau-père, (second mari de la mère)
+madrasta;belle-mère, (seconde femme du père)
+sogra;belle-mère, (mère du conjoint)
 patrão;patron
 calcanhar;talon
 ele veio;il est venu
 inscrever;inscrire
 corredor;couloir
 entalhar;entailler
-aprimoramento;amélioration, perfectionnisme
+aprimoramento;amélioration, perfectionnement
 tesouro;trésor
-brocar, furar;percer, (perceuse)
-broca;perceuse
+brocar, furar;percer
+broca;foret, mèche, (perceuse)
 afetar;affecter
-velhote;vieillot
+velhote;vieil homme, papi
 loucura;folie
 canhão;canon
 gordo;gras, gros
-magro;écrémé, (lait), maigre
+magro;maigre, écrémé, (pour le lait)
 frigideira, sertã;poêle
 casca;coquille, (noix, oeuf), épluchure
 talento;talent
 obscuridade;obscurité
 cinzento;gris
 pastelaria;pâtisserie
-robinet;torneira
+torneira;robinet
 choupo;peuplier
 plátano;platane
 taça;coupe, (tournoi, de champagne)
