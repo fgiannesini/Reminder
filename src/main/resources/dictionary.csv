@@ -323,7 +323,7 @@ sugerir;suggérer
 deslocar;déplacer
 elétrico;électrique, tramway
 azulejo;carreau décoré
-estreito;étroit
+estreito, (adjetivo);étroit
 descer;descendre
 tremoço;lupin
 cavala;maquereau
@@ -518,7 +518,7 @@ crédito;crédit
 contrato;contrat, embauche
 interesse;intérêt
 negócio;négoce, commerce, affaire
-preço;prix
+preço;prix, (montant)
 oferta;offre, aubaine
 comércio;commerce
 cascata;cascade, chute d'eau, cascades
@@ -612,7 +612,6 @@ pesquisa;recherche, (scientifique)
 prova;preuve
 plástico;plastique
 futuro;futur, avenir
-nave;navire
 núcleo;noyau, (atome)
 perito;expert
 invenção;invention
@@ -654,7 +653,6 @@ figura;figure
 questão;question
 relatório, relato;rapport
 ataque;attaque
-detalhe;détail
 força;force
 reação;réaction
 maneira;manière
@@ -1011,7 +1009,7 @@ lazer;loisir, loisirs
 passeio;promenade, balade
 partida;départ, match, partie
 membro;membre
-prémio;prix
+prémio;prix, (gain)
 jogo;jeu
 salto;saut
 sapatos de salto;chaussures à talons
@@ -1254,7 +1252,7 @@ intelectual;intellectuel, intellectuelle
 independente;indépendant, indépendante
 cujo;dont
 alguém;quelqu'un
-ninguém;personne
+ninguém;personne, (absence)
 algo;quelque chose
 mim;moi
 conosco;avec nous
@@ -1390,7 +1388,7 @@ associação;association
 senhor;monsieur
 noivo;fiancé
 população;population
-pessoa;personne
+pessoa;personne, (être)
 gente;gens, monde
 comissão;commission
 amigo;copain, ami, amie
@@ -1688,7 +1686,7 @@ lote;lot, parcelle
 óleo;huile
 lençol;drap
 estrutura;structure
-barbeador;rasoir
+barbeador, máquina de barbear;rasoir
 fonte;puits, source, fontaine
 muro;mur, muraille
 champô;shampoing, shampooing
@@ -1814,7 +1812,6 @@ família;famille
 irmão;frère
 tio;oncle
 filho;enfant, fils
-marido;époux, mari (mot brésilien, au Portugal on dit marido)
 mãe;mère, maman
 quinta;ferme, (endroit)
 data;date
@@ -1930,7 +1927,7 @@ andar, piso;étage, marcher
 desculpar;excuser
 seguir;suivre, continuer
 abrir;ouvrir
-amar;aimer
+amar, gostar;aimer
 pegar; prendre
 perder;perdre, rater
 usar;utiliser, porter, (un vêtement)
@@ -1946,7 +1943,6 @@ tentar;essayer, tenter
 parar;arrêter
 voltar;revenir, rentrer, retourner
 pensar;penser, réfléchir
-gostar;aimer
 deixar;quitter, laisser
 esperar;espérer, attendre
 passar;passer
@@ -2549,7 +2545,8 @@ gruta;grotte
 regresso;retour
 naufragar;faire naufrage
 resgatar;racheter, sauver
-nau;navire
+nau;navire, (voilier historique)
+nauvio;navire, (moderne)
 oxalá;pourvu que
 de arromba;fantastique
 conterrâneo;compatriote
@@ -2607,7 +2604,7 @@ afiar;affûter
 autoclismo;chasse d'eau
 biscate;petit boulot
 bem cedinho;de bonne heure, très tôt
-estreito;détroit
+estreito, (nome);détroit
 caldeira;chaudière
 enxofre;soufre
 vingar;venger
@@ -2754,7 +2751,7 @@ marcador;marqueur, repère
 classe;(avoir la), classe
 droga;drogue
 sesta;sieste
-soneca;sieste, petit somme
+soneca;petit somme
 pó;poudre
 erva, grama;herbe
 relva;pelouse, gazon
@@ -2839,7 +2836,7 @@ fazer um brinde;porter un toast
 vassoura;balai
 descurar;négliger
 atirar;tirer, lancer
-tolo;idiot, nigaud
+tolo, parvo;idiot, nigaud
 irrequieto;agité
 traquina;turbulent
 jardineiras;salopette
@@ -2861,7 +2858,6 @@ manobras;manoeuvres
 espionagem;espionnage
 bisbilhotar;fouiner
 estabelecer;établir
-parvo;idiot, nigaud
 não me faças de parvo;ne me prends pas pour un idiot
 coto;moignon
 vasculhar;fouiller, farfouiller
@@ -2996,7 +2992,6 @@ cotonete;coton-tige
 higiene;hygiène
 lâmina;lame
 descartável;jetable
-máquina de barbear;rasoir
 navalha;couteau à lame
 fofo;mignon, (peluche)
 sagrado;sacré
@@ -3009,7 +3004,6 @@ charcutaria;charcuterie, (boutique)
 enchidos;charcuterie, (nourriture)
 tabacaria;bureau de tabac
 retomar;reprendre
-barato;bon marché
 cancro;cancer
 reboque;remorque
 waffle;gaufre
@@ -3020,11 +3014,10 @@ couve-flor;chou-fleur
 discutir;se disputer
 esqui;ski
 acessório;accessoire
-bastão;bâton, (ski)
 barbatana;nageoire
 camelo;chameau
 espada;épée
-concha;coquille
+concha;coquille, (molusque)
 unicórnio;licorne
 carvão;charbon
 namorar;sortir avec
@@ -3032,5 +3025,4 @@ falcão;faucon
 cárcere;cachot
 audição;audition
 paladar;goût
-visão;vision
 tato;toucher
