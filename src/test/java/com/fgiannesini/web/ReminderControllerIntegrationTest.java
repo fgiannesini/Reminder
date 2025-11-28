@@ -5,16 +5,13 @@ import com.fgiannesini.RemainingStats;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.test.web.servlet.client.RestTestClient;
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTestClient;
+import org.springframework.test.web.servlet.client.RestTestClient;
+
 
 @AutoConfigureRestTestClient
 @Transactional
-public class ReminderControllerIntegrationTest extends TestContainerIntegrationTest {
-
-    @LocalServerPort
-    private int port;
+public class ReminderControllerIntegrationTest implements TestContainerIntegrationTest {
 
     @Autowired
     private RestTestClient restTestClient;
@@ -22,7 +19,7 @@ public class ReminderControllerIntegrationTest extends TestContainerIntegrationT
     @Test
     public void Should_get_next_word_to_translate() {
         restTestClient
-                .get().uri("http://localhost:%d/reminder/word/next".formatted(port))
+                .get().uri("/reminder/word/next")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(WordDto.class).isEqualTo(new WordDto("ao inves, em vez de"));
@@ -31,7 +28,7 @@ public class ReminderControllerIntegrationTest extends TestContainerIntegrationT
     @Test
     public void Should_post_a_valid_translation() {
         restTestClient
-                .post().uri("http://localhost:%d/reminder/word/check".formatted(port))
+                .post().uri("/reminder/word/check")
                 .body(new TranslationDto("ou seja", "c'est à dire"))
                 .exchange()
                 .expectStatus().isOk()
@@ -41,7 +38,7 @@ public class ReminderControllerIntegrationTest extends TestContainerIntegrationT
     @Test
     public void Should_get_remaining_stats() {
         restTestClient
-                .get().uri("http://localhost:%d/reminder/word/remaining".formatted(port))
+                .get().uri("/reminder/word/remaining")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(RemainingStats.class).isEqualTo(new RemainingStats(4, 4));
