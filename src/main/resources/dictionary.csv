@@ -200,7 +200,7 @@ disponível;disponible
 bocadinho;petit morceau, petit bout, tantinet
 supor;supposer
 planear;planifier
-legado;héritage
+legado;héritage, (symbolique)
 prestes a;prêt à
 sequer;même pas, ne serait-ce que, au moins
 necessidade;nécessité, besoin
@@ -248,7 +248,7 @@ pena;peine, plume
 atrapalhar;gêner
 medalha;médaille
 palpite;intuition, avis
-prever;prévoir
+prever;prévoir, (anticiper)
 camada;couche, (de peinture, d'air, etc.)
 controvérsia;controverse
 comum;commun
@@ -1571,7 +1571,7 @@ montar, subir;monter
 treinar;entraîner, s'entraîner
 lançar;lancer
 existir;exister
-beijar;embrasser
+beijar;embrasser, (donner un bisou)
 encher;remplir, (un espace ou un contenant)
 melhorar;améliorer
 gritar;crier
@@ -1946,7 +1946,7 @@ pensar;penser, réfléchir
 deixar;quitter, laisser
 esperar;espérer, attendre
 passar;passer
-precisar;avoir besoin de
+precisar de;avoir besoin de
 falar;parler
 ficar;rester
 conhecer;connaître
@@ -2328,7 +2328,7 @@ raspaço;engueulade, réprimande
 suplente;suppléant, remplaçant
 sobresselente;pièce de rechange, pièce de secours
 vicioso;vicieux
-esfriar;refroidir
+esfriar, arrefecer;refroidir
 tónico;tonique, stimulant
 voar;voler
 elo;maillon
@@ -2452,7 +2452,7 @@ certidão;certificat, extrait, (officiel)
 légua;lieue, (marine)
 escorar-se;s'appuyer
 cego;aveugle
-sumir-se;disparaître, s'effacer
+sumir-se;s'effacer
 somar;additionner
 teimosia;entêtement, obstination
 descontente;mécontent
@@ -2495,7 +2495,7 @@ oposto;opposé
 fixe;super
 óbvio;évident
 engano;erreur, méprise
-arca;coffre, arche
+arca;arche
 sacar;retirer, extraire
 percurso;parcours
 mandarim;mandarin
@@ -2648,7 +2648,7 @@ garrafa;bouteille
 bolo;gâteau
 manteiga;beurre
 queijo;fromage
-almoço;déjeuner
+almoço;déjeuner, (repas)
 cenoura;carotte
 molho;sauce
 banana;banane
@@ -2835,7 +2835,7 @@ canalizador;plombier
 fazer um brinde;porter un toast
 vassoura;balai
 descurar;négliger
-atirar;tirer, lancer
+atirar;tirer, (avec une arme), lancer
 tolo, parvo;idiot, nigaud
 irrequieto;agité
 traquina;turbulent
@@ -3026,3 +3026,133 @@ cárcere;cachot
 audição;audition
 paladar;goût
 tato;toucher
+tramar;piéger
+quão;à quel point
+enfim;enfin
+cauda;queue
+despovoado;dépeuplé
+cabeceira;chevet
+vinculação;lien, (entre personnes)
+abaixar;baisser, (se)
+abraçar;embrasser, (enlacer avec les bras)
+abranger;inclure
+absorver;absorber
+abster-se;s'abstenir
+abstrair;abstraire
+abundar;abonder
+gengiva;gencive
+acalmar;calmer
+acariciar;caresser
+acolher;accueillir, (un ami)
+acometer;attaquer, (brutalement)
+acomodar;accommoder
+acompanhar;accompagner
+aconchegar;consoler, blottir
+acorrer;accourir
+acostar;approcher
+acostumar-se;s'accoutumer
+acudir;porter secours
+acumular;cumuler
+admitir;admettre
+adoecer;tomber malade
+aduzir;alléguer
+advertir;avertir
+afligir;affliger
+afogar;se noyer
+agredir;agresser
+ajoelhar-se;s'agenouiller
+ajuntar;assembler
+alegrar-se;s'égayer
+alimentar;alimenter
+almoçar;déjeuner, (action)
+alterar;altérer
+amaldiçoar;maudire
+amolecer;ramollir
+amparar;soutenir
+ampliar;accroître
+animar;animer
+aniquilar;annihiler
+anoitecer;à la tombée de la nuit
+antedizer;prédire
+antepagar;prépayer
+antepassar;préceder
+antever;prévoir, (pressentir)
+apodrecer;pourrir
+apontar;pointer
+apor;apposer
+aposentar;mettre à la retraite
+apostar;parier
+apreciar;apprécier
+apreender;appréhender
+apressar-se;se presser
+aprovar;approuver
+aproximar-se;s'approcher
+arrebentar;faire éclater
+arremeter;charger, assaillir
+enredo;intrigue
+carris;rails
+endividar;s'endetter
+furação;ouragan
+empatar;égaliser
+pistache;pistache
+mamar;téter
+brinco;boucle d'oreille
+enferrujado;rouillé
+ferrugem;rouille
+eletricista;électricien
+arrotar;roter
+arruinar;ruiner
+aspirar;aspirer
+assaltar;assaillir
+assassinar;assassiner
+assentar;asseoir
+assistir;assister
+assoar-se;se moucher
+associar;associer
+assomar;exacerber, exaspérer
+assombrar;hanter
+assustar;effrayer
+atacar;attaquer
+atender;accueillir, (un client)
+aterrorizar;terroriser
+atrair;attirer
+atribuir;attribuer
+atropelar;renverser, (avec un véhicule)
+avir-se;ajuster
+avisar;aviser
+balançar;balancer
+banhar;baigner
+barbear;raser, (barbe)
+bastar;suffire
+beliscar;pincer, (peau)
+bocejar;bâiller
+botar;mettre
+brigar;se bagarrer
+caber em;rentrer dans
+calcular;calculer
+cancelar;annuler
+cansar;fatiguer
+cantar;chanter
+capturar;capturer
+casar;marier
+causar;causer
+cavar;creuser, (terre)
+cegar;aveugler
+celebrar;célébrer
+censurar;censurer
+centrar;centrer
+chatear;embêter
+fralda;couche, (bébé)
+cunhado;beau-frère
+alcatrão;goudron
+algodão;coton
+ultrapassar;dépasser
+herança;héritage, (matériel)
+largar;lâcher
+gerigonça;machin
+batoteiro;tricheur
+pico;pic
+eficaz;efficace
+vertente;volet, aspect
+requisito;exigence
+descarregar;télécharger
