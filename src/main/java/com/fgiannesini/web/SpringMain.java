@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 import java.security.SecureRandom;
-import java.time.LocalDateTime;
 
 @SpringBootApplication
 public class SpringMain {
@@ -36,7 +35,7 @@ public class SpringMain {
         @Bean
         public Dictionary dictionary(StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
             var dictionary = new Dictionary(
-                    new SecureRandom(LocalDateTime.now().toString().getBytes()),
+                    new SecureRandom(),
                     storageHandler
             );
             var originalWords = originalDictionary.load();
