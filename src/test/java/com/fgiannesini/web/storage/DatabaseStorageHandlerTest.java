@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -58,7 +57,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1));
 
-        var actual = storageHandler.getNextWords(4, LocalDate.of(2024, 7, 11));
+        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 11, 0, 0));
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 3, null, 0),
@@ -75,7 +74,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 2));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 2));
 
-        var actual = storageHandler.getNextWords(4, LocalDate.now());
+        var actual = storageHandler.getNextWords(4, LocalDateTime.now());
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 3, null, 0),
@@ -90,7 +89,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1));
 
-        var actual = storageHandler.getNextWords(4, LocalDate.of(2024, 7, 9));
+        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 9, 0, 0));
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 3, null, 0),

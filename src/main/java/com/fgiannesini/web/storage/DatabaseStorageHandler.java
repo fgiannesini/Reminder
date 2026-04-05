@@ -3,8 +3,9 @@ package com.fgiannesini.web.storage;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class DatabaseStorageHandler implements StorageHandler {
 
@@ -29,7 +30,9 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public Word find(String wordToLearn) {
-        return wordRepository.getReferenceById(wordToLearn).toWord();
+        return wordRepository.findById(wordToLearn)
+                .map(WordDao::toWord)
+                .orElseThrow(() -> new NoSuchElementException("Word not found: " + wordToLearn));
     }
 
     @Override
@@ -38,8 +41,8 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> getNextWords(int limit, LocalDate now) {
-        return wordRepository.getTopOrderByLearntMoment(limit, now.minusWeeks(1))
+    public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
+        return wordRepository.getTopOrderByLearntMoment(limit, localDateTime.toLocalDate().minusWeeks(1))
                 .stream()
                 .map(WordDao::toWord)
                 .toList();

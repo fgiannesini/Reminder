@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 class DictionaryTest {
 
@@ -58,6 +59,12 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
         Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(1));
         Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next(1));
+    }
+
+    @Test
+    void should_throw_exception_when_no_eligible_words() {
+        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
+        Assertions.assertThrows(NoSuchElementException.class, () -> dictionary.next(20));
     }
 
     @Test

@@ -2,8 +2,9 @@ package com.fgiannesini;
 
 import com.fgiannesini.storage.StorageHandler;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
 
@@ -47,7 +48,10 @@ public final class Dictionary {
     }
 
     public Word next(int limit) {
-        var eligibleWords = storageHandler.getNextWords(limit, LocalDate.now());
+        var eligibleWords = storageHandler.getNextWords(limit, LocalDateTime.now());
+        if (eligibleWords.isEmpty()) {
+            throw new NoSuchElementException("No eligible words available");
+        }
         return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
     }
 
