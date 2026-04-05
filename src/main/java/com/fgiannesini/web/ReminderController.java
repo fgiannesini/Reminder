@@ -25,7 +25,7 @@ public class ReminderController {
     }
 
     @PostMapping("/check")
-    TranslationResponseDto check(@RequestBody TranslationDto translation) {
+    public TranslationResponseDto check(@RequestBody TranslationDto translation) {
         Word wordToLearn = dictionary.find(translation.wordToLearn());
         Matching matching = wordToLearn.getMatching(translation.proposedTranslation());
 
