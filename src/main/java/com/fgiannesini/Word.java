@@ -8,6 +8,7 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
                    int learntCount) {
 
     private static final int repetitionLimitToLearn = 3;
+    private static final int repetitionLimitToConfirm = 2;
 
     public Word(String word, String translation) {
         this(word, translation, repetitionLimitToLearn, null, 0);
@@ -61,7 +62,7 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
     public Word checked(LocalDateTime learnedMoment) {
         var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null, learntCount);
         if (newWord.shouldBeMarkedAsLearnt()) {
-            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, Math.min(newWord.learntCount + 1, 2));
+            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, Math.min(newWord.learntCount + 1, repetitionLimitToConfirm));
         }
         return newWord;
     }
