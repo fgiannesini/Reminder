@@ -47,15 +47,11 @@ public final class WordDao {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         WordDao wordDao = (WordDao) o;
-        return checkedCount == wordDao.checkedCount
-                && learntCount == wordDao.learntCount
-                && Objects.equals(word, wordDao.word)
-                && Objects.equals(translation, wordDao.translation)
-                && Objects.equals(learntMoment, wordDao.learntMoment);
+        return Objects.equals(word, wordDao.word);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(word, translation, checkedCount, learntMoment, learntCount);
+        return Objects.hash(word);
     }
 }
