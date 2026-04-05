@@ -8,11 +8,11 @@ public enum Matching {
     NOT_MATCHED;
 
     static Matching from(List<Matching> list) {
-        if (list.stream().anyMatch(match -> match == CLOSED)) {
-            return CLOSED;
-        }
         if (list.stream().anyMatch(match -> match == MATCHED)) {
             return MATCHED;
+        }
+        if (list.stream().anyMatch(match -> match == CLOSED)) {
+            return CLOSED;
         }
         return NOT_MATCHED;
     }

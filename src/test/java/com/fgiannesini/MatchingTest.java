@@ -18,7 +18,7 @@ class MatchingTest {
     }
 
     @Test
-    void should_get_Closed_over_Matched() {
-        Assertions.assertEquals(Matching.CLOSED, Matching.from(List.of(Matching.CLOSED, Matching.MATCHED)));
+    void should_get_Matched_over_Closed() {
+        Assertions.assertEquals(Matching.MATCHED, Matching.from(List.of(Matching.CLOSED, Matching.MATCHED)));
     }
 }
