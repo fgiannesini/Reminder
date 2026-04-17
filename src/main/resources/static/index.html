@@ -4,22 +4,268 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Reminder</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 1.5rem;
+            min-height: 100dvh;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem;
+            color: #111;
+        }
+
+        /* Container */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats-block {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-block div {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 999px;
+            padding: 0.3rem 0.85rem;
+            font-size: 0.82rem;
+            color: #555;
+        }
+
+        .stats-block div:empty {
+            display: none;
+        }
+
+        /* Word display */
+        .word-block {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+
+        .word-block label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+        }
+
+        #word-to-learn-span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Input block */
+        .input-block {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #translation-input {
+            flex: 1 1 0;
+            min-width: 0;
+            height: 2.5rem;
+            padding: 0 0.75rem;
+            font-size: 1rem;
+            border: 1.5px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        #translation-input:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+        }
+
+        /* Buttons */
+        button {
+            padding: 0.55rem 1.1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.15s, transform 0.1s;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .input-block button {
+            height: 2.5rem;
+            background: #4a90e2;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .input-block button:hover {
+            opacity: 0.88;
+        }
+
+        #next-button {
+            background: #e8e8e8;
+            color: #1a1a1a;
+        }
+
+        #next-button:hover {
+            background: #d8d8d8;
+        }
+
+        #next-button:focus-visible {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+        }
+
+        /* Spinner in button */
+        @keyframes btn-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* noinspection CssUnusedSymbol */
+        button.loading::after {
+            content: '';
+            display: inline-block;
+            width: 0.85em;
+            height: 0.85em;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: btn-spin 0.65s linear infinite;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        #next-button.loading::after {
+            border-color: rgba(0, 0, 0, 0.15);
+            border-top-color: #444;
+        }
+
+        /* Result block */
+        .result-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        #result-feedback {
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            min-height: 3.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        #result-feedback label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            flex-shrink: 0;
+        }
+
+        #real-translation-span {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        #result-feedback.matched {
+            background: #e6f4ea;
+            border-color: #4caf50;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        #result-feedback.not-matched {
+            background: #fdecea;
+            border-color: #e53935;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        #result-feedback.closed {
+            background: #fff8e1;
+            border-color: #f59e0b;
+        }
+
+        /* Error */
+        #error-span {
+            display: block;
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: #fdecea;
+            border: 1px solid #e53935;
+            border-radius: 6px;
+            color: #b71c1c;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-<h1>Reminder</h1>
-<div id="remaining-words-count-to-learn-span"></div>
-<div id="remaining-words-count-to-confirm-span"></div>
-<br/>
-<label for="word-to-learn-span">Word: </label> <span id="word-to-learn-span"></span><br/><br/>
-<label for="translation-input">Translation: </label> <input id="translation-input"/>
-<button onclick="submitTranslation()">Submit</button>
-<progress hidden id="progress-submit"></progress>
-<br/><br/>
-<label for="real-translation-span">Real Translation: </label><span id="real-translation-span"></span><br/><br/>
-<button id="next-button" onclick="getNextWord()">Next</button>
-<progress hidden id="progress-next"></progress>
-<br/><br/>
-<span id="error-span" style="display: none"></span>
+<div class="container">
+    <h1>Reminder</h1>
+    <div class="stats-block">
+        <div id="remaining-words-count-to-learn-span"></div>
+        <div id="remaining-words-count-to-confirm-span"></div>
+    </div>
+    <div class="word-block">
+        <label for="word-to-learn-span">Word</label>
+        <span id="word-to-learn-span"></span>
+    </div>
+    <div class="input-block">
+        <input id="translation-input" aria-label="Translation" placeholder="Enter translation…" autocomplete="off"/>
+        <button onclick="submitTranslation()">Submit</button>
+    </div>
+    <div class="result-block">
+        <div id="result-feedback">
+            <label>Real Translation</label>
+            <span id="real-translation-span"></span>
+        </div>
+        <div>
+            <button id="next-button" onclick="getNextWord()">Next</button>
+        </div>
+    </div>
+    <span id="error-span" style="display: none"></span>
+</div>
 </body>
 <script>
     const setRemainingWordsCount = async () => {
@@ -35,25 +281,36 @@
         document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} words to confirm.`;
     }
     const getNextWord = async () => {
-        document.getElementById('progress-next').hidden = false;
+        const nextBtn = document.getElementById('next-button');
+        nextBtn.disabled = true;
+        nextBtn.classList.add('loading');
+        document.getElementById('word-to-learn-span').textContent = '';
         const response = await fetch('/reminder/word/next');
         if (!response.ok) {
             let elementById = document.getElementById('error-span');
             elementById.style.display = 'block';
             elementById.textContent = await response.text();
+            nextBtn.classList.remove('loading');
+            nextBtn.disabled = false;
             return;
         }
         document.getElementById('word-to-learn-span').textContent = JSON.parse(await response.text()).value;
         document.getElementById('real-translation-span').textContent = "";
+        document.getElementById('result-feedback').classList.remove('matched', 'not-matched', 'closed');
         let translation = document.getElementById('translation-input');
         translation.value = "";
-        document.getElementById('progress-next').hidden = true;
+        nextBtn.classList.remove('loading');
+        nextBtn.disabled = false;
         translation.focus();
     };
 
     const submitTranslation = async () => {
-        document.getElementById('progress-submit').hidden = false;
-        const proposedTranslation = document.getElementById('translation-input').value;
+        const submitBtn = document.querySelector('.input-block button');
+        const inputEl = document.getElementById('translation-input');
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+        inputEl.disabled = true;
+        const proposedTranslation = inputEl.value;
         const wordToLearn = document.getElementById('word-to-learn-span').textContent;
         const response = await fetch('/reminder/word/check', {
             method: 'POST',
@@ -67,27 +324,37 @@
             let elementById = document.getElementById('error-span');
             elementById.style.display = 'block';
             elementById.textContent = await response.text();
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            inputEl.disabled = false;
             return;
         }
         const check = JSON.parse(await response.text());
         let matchingSmiley;
         switch (check.matching) {
             case "MATCHED" :
-                matchingSmiley = String.fromCodePoint(0x1F600)
+                matchingSmiley = String.fromCodePoint(0x2705)
                 break;
             case "NOT_MATCHED" :
-                matchingSmiley = String.fromCodePoint(0x1F616);
+                matchingSmiley = String.fromCodePoint(0x274C);
                 break;
             case "CLOSED" :
-                matchingSmiley = String.fromCodePoint(0x1F610)
+                matchingSmiley = String.fromCodePoint(0x1F44C)
                 break;
         }
+        const feedback = document.getElementById('result-feedback');
+        feedback.classList.remove('matched', 'not-matched', 'closed');
+        const classMap = {MATCHED: 'matched', NOT_MATCHED: 'not-matched', CLOSED: 'closed'};
+        if (classMap[check.matching]) feedback.classList.add(classMap[check.matching]);
+
         let learned = ""
         if (check.learned) {
             learned = "learned !";
         }
         document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
-        document.getElementById('progress-submit').hidden = true;
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        inputEl.disabled = false;
         document.getElementById('next-button').focus();
     };
 
@@ -98,11 +365,9 @@
                 await submitTranslation();
             }
         });
-    document.addEventListener("DOMContentLoaded", async () => {
-            await setRemainingWordsCount();
-        }
-    );
 
-    document.getElementById('next-button').focus();
+    document.addEventListener("DOMContentLoaded", async () => {
+        await Promise.all([setRemainingWordsCount(), getNextWord()]);
+    });
 </script>
 </html>
