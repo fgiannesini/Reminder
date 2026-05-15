@@ -114,7 +114,7 @@ Décisions de design à NE PAS remettre en cause :
 
 19. [x] **Nettoyer le handler Enter global** — l.394-404 : supprimer la condition `if (active === document.getElementById("next-button")) return` ; conserver uniquement le retour si focus dans input ; déclencher Next dès que feedback visible et bouton non disabled.
 
-20. [ ] **Déplacer `#error-span` en haut du container** — déplacer le `<span id="error-span">` juste après `<h1>Reminder</h1>` (l.264) plutôt qu'à la fin (l.286).
+20. [x] **Déplacer `#error-span` en haut du container** — déplacer le `<span id="error-span">` juste après `<h1>Reminder</h1>` (l.264) plutôt qu'à la fin (l.286).
 
 21. [ ] **Clarifier "to confirm"** — remplacer le texte par "words being mastered" dans `setRemainingWordsCount` (l.300).
 
