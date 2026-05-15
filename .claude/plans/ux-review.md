@@ -108,7 +108,7 @@ Décisions de design à NE PAS remettre en cause :
 
 16. [x] **Simplifier les `JSON.parse(await response.text())`** — remplacer par `await response.json()` aux lignes 298, 318, 355.
 
-17. [ ] **Factoriser le handling d'erreur** — extraire fonction `showError(text)` qui fait `el.style.display='block'; el.textContent=text` ; appeler à la place des trois blocs dupliqués (l.293-296, 309-316, 346-353).
+17. [x] **Factoriser le handling d'erreur** — extraire fonction `showError(text)` qui fait `el.style.display='block'; el.textContent=text` ; appeler à la place des trois blocs dupliqués (l.293-296, 309-316, 346-353).
 
 18. [ ] **Remplacer onclick inline par addEventListener** — retirer `onclick="submitTranslation()"` (l.275) et `onclick="getNextWord()"` (l.283) ; câbler via `getElementById('submit-button').addEventListener('click', submitTranslation)` et idem pour Next dans le bloc script.
 
