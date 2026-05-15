@@ -267,20 +267,20 @@
         <div id="remaining-words-count-to-confirm-span"></div>
     </div>
     <div class="word-block">
-        <span class="field-label">Word</span>
+        <span class="field-label">Mot</span>
         <span id="word-to-learn-span"></span>
     </div>
     <div class="input-block">
-        <input id="translation-input" aria-label="Translation" placeholder="Enter translation…" autocomplete="off"/>
-        <button onclick="submitTranslation()">Submit</button>
+        <input id="translation-input" aria-label="Traduction" placeholder="Entrez la traduction…" autocomplete="off"/>
+        <button onclick="submitTranslation()">Valider</button>
     </div>
     <div class="result-block">
         <div id="result-feedback" style="display: none">
-            <span class="field-label">Real Translation</span>
+            <span class="field-label">Traduction</span>
             <span id="real-translation-span"></span>
         </div>
         <div>
-            <button id="next-button" onclick="getNextWord()">Next</button>
+            <button id="next-button" onclick="getNextWord()">Suivant</button>
         </div>
     </div>
     <span id="error-span" style="display: none"></span>
@@ -296,8 +296,8 @@
             return;
         }
         const stats = JSON.parse(await response.text())
-        document.getElementById('remaining-words-count-to-learn-span').textContent = `${stats.countToLearn} words to learn.`;
-        document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} words to confirm.`;
+        document.getElementById('remaining-words-count-to-learn-span').textContent = `${stats.countToLearn} mot${stats.countToLearn > 1 ? 's' : ''} à apprendre.`;
+        document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} mot${stats.countToConfirm > 1 ? 's' : ''} à confirmer.`;
     }
     const getNextWord = async () => {
         const nextBtn = document.getElementById('next-button');
@@ -373,7 +373,7 @@
 
         let learned = ""
         if (check.learned) {
-            learned = "learned !";
+            learned = "appris !";
         }
         document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
         feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
