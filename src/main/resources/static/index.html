@@ -77,6 +77,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: #1a1a1a;
+            transition: opacity 0.2s;
         }
 
         /* Input block */
@@ -282,9 +283,10 @@
     }
     const getNextWord = async () => {
         const nextBtn = document.getElementById('next-button');
+        const wordSpan = document.getElementById('word-to-learn-span');
         nextBtn.disabled = true;
         nextBtn.classList.add('loading');
-        document.getElementById('word-to-learn-span').textContent = '';
+        wordSpan.style.opacity = '0';
         const response = await fetch('/reminder/word/next');
         if (!response.ok) {
             let elementById = document.getElementById('error-span');
@@ -292,9 +294,10 @@
             elementById.textContent = await response.text();
             nextBtn.classList.remove('loading');
             nextBtn.disabled = false;
+            wordSpan.style.opacity = '';
             return;
         }
-        document.getElementById('word-to-learn-span').textContent = JSON.parse(await response.text()).value;
+        wordSpan.textContent = JSON.parse(await response.text()).value;
         const feedback = document.getElementById('result-feedback');
         feedback.style.display = 'none';
         feedback.classList.remove('matched', 'not-matched', 'closed');
@@ -302,6 +305,7 @@
         translation.value = "";
         nextBtn.classList.remove('loading');
         nextBtn.disabled = false;
+        requestAnimationFrame(() => wordSpan.style.opacity = '');
         translation.focus();
     };
 
