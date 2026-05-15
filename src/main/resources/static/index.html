@@ -318,7 +318,7 @@
             elementById.textContent = await response.text();
             return;
         }
-        const stats = JSON.parse(await response.text())
+        const stats = await response.json()
         document.getElementById('remaining-words-count-to-learn-span').textContent = `${stats.countToLearn} mot${stats.countToLearn > 1 ? 's' : ''} à apprendre.`;
         document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} mot${stats.countToConfirm > 1 ? 's' : ''} à confirmer.`;
     }
@@ -339,7 +339,7 @@
             return;
         }
         wordSpan.style.opacity = '0';
-        wordSpan.textContent = JSON.parse(await response.text()).value;
+        wordSpan.textContent = (await response.json()).value;
         const feedback = document.getElementById('result-feedback');
         feedback.style.visibility = 'hidden';
         feedback.classList.remove('matched', 'not-matched', 'closed');
@@ -375,7 +375,7 @@
             inputEl.disabled = false;
             return;
         }
-        const check = JSON.parse(await response.text());
+        const check = await response.json();
         const feedback = document.getElementById('result-feedback');
         feedback.style.visibility = 'visible';
         feedback.classList.remove('matched', 'not-matched', 'closed');

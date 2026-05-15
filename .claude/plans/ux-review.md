@@ -106,7 +106,7 @@ Décisions de design à NE PAS remettre en cause :
 
 15. [x] **Fix spinner Submit invisible** — retirer `submitBtn.disabled = true` (l.334) ; ajouter `pointer-events: none` à `button.loading` dans le CSS (l.160) pour bloquer les clics sans déclencher `:disabled`. Garder `inputEl.disabled = true` pour bloquer la saisie.
 
-16. [ ] **Simplifier les `JSON.parse(await response.text())`** — remplacer par `await response.json()` aux lignes 298, 318, 355.
+16. [x] **Simplifier les `JSON.parse(await response.text())`** — remplacer par `await response.json()` aux lignes 298, 318, 355.
 
 17. [ ] **Factoriser le handling d'erreur** — extraire fonction `showError(text)` qui fait `el.style.display='block'; el.textContent=text` ; appeler à la place des trois blocs dupliqués (l.293-296, 309-316, 346-353).
 
