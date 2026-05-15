@@ -96,7 +96,7 @@ Décisions de design à NE PAS remettre en cause :
 
 10. [x] **Corriger contraste `#888`** — remplacer `color: #888` (l.73) par `color: #595959` ; vérifier également `color: #666` (l.204) — OK à 5.7:1, ne pas changer.
 
-11. [ ] **Augmenter hauteur tactile** — `#translation-input` height `2.75rem` (l.94) ; ajouter `min-height: 2.75rem` sur la règle `button` (l.109).
+11. [x] **Augmenter hauteur tactile** — `#translation-input` height `2.75rem` (l.94) ; ajouter `min-height: 2.75rem` sur la règle `button` (l.109).
 
 12. [ ] **Améliorer contraste bouton Next** — ajouter `border: 1px solid #c0c0c0` à `#next-button` (l.139).
 
