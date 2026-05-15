@@ -98,9 +98,9 @@ Décisions de design à NE PAS remettre en cause :
 
 11. [x] **Augmenter hauteur tactile** — `#translation-input` height `2.75rem` (l.94) ; ajouter `min-height: 2.75rem` sur la règle `button` (l.109).
 
-12. [ ] **Améliorer contraste bouton Next** — ajouter `border: 1px solid #c0c0c0` à `#next-button` (l.139).
+12. [x] **Améliorer contraste bouton Next** — ajouter `border: 1px solid #c0c0c0` à `#next-button` (l.139).
 
-13. [ ] **Améliorer hiérarchie typo du feedback** — `#real-translation-span` (l.208-211) : `font-size: 1.25rem; font-weight: 600`.
+13. [x] **Améliorer hiérarchie typo du feedback** — `#real-translation-span` (l.208-211) : `font-size: 1.25rem; font-weight: 600`.
 
 14. [ ] **Échapper les apostrophes dans la traduction affichée** — remplacer `'${check.realTranslation}'` (l.378) par `«${check.realTranslation}»`.
 
