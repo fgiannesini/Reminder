@@ -210,6 +210,15 @@
             font-weight: 500;
         }
 
+        #learned-badge {
+            background: #2e7d32;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
         /* noinspection CssUnusedSymbol */
         #result-feedback.matched {
             background: #e6f4ea;
@@ -278,6 +287,7 @@
         <div id="result-feedback" style="display: none">
             <span class="field-label">Traduction</span>
             <span id="real-translation-span"></span>
+            <span id="learned-badge" style="display:none">appris !</span>
         </div>
         <div>
             <button id="next-button" onclick="getNextWord()">Suivant</button>
@@ -367,11 +377,8 @@
         const classMap = {MATCHED: 'matched', NOT_MATCHED: 'not-matched', CLOSED: 'closed'};
         if (classMap[check.matching]) feedback.classList.add(classMap[check.matching]);
 
-        let learned = ""
-        if (check.learned) {
-            learned = "appris !";
-        }
-        document.getElementById('real-translation-span').textContent = `'${check.realTranslation}' ${learned}`;
+        document.getElementById('real-translation-span').textContent = `'${check.realTranslation}'`;
+        document.getElementById('learned-badge').style.display = check.learned ? '' : 'none';
         feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
