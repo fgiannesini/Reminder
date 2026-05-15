@@ -237,6 +237,15 @@
         /* noinspection CssUnusedSymbol */
         #result-feedback.closed .field-label::before { content: '– '; }
 
+        /* Landscape mobile: reduce vertical spacing so feedback stays visible above keyboard */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body { padding: 0.75rem; }
+            .stats-block { margin-bottom: 0.75rem; }
+            .word-block { padding: 0.5rem 1rem; margin-bottom: 0.5rem; }
+            .input-block { margin-bottom: 0.5rem; }
+            .result-block { gap: 0.4rem; }
+        }
+
         /* Error */
         #error-span {
             display: block;
@@ -367,6 +376,7 @@
             learned = "learned !";
         }
         document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
         inputEl.disabled = false;
