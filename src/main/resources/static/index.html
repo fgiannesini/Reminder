@@ -217,16 +217,25 @@
         }
 
         /* noinspection CssUnusedSymbol */
+        #result-feedback.matched .field-label::before { content: '✓ '; }
+
+        /* noinspection CssUnusedSymbol */
         #result-feedback.not-matched {
             background: #fdecea;
             border-color: #e53935;
         }
 
         /* noinspection CssUnusedSymbol */
+        #result-feedback.not-matched .field-label::before { content: '✗ '; }
+
+        /* noinspection CssUnusedSymbol */
         #result-feedback.closed {
             background: #fff8e1;
             border-color: #f59e0b;
         }
+
+        /* noinspection CssUnusedSymbol */
+        #result-feedback.closed .field-label::before { content: '– '; }
 
         /* Error */
         #error-span {
