@@ -122,7 +122,7 @@ Décisions de design à NE PAS remettre en cause :
 
 23. [x] **Placeholders stats au chargement** — initialiser `textContent = '…'` sur les deux divs stats au début de `setRemainingWordsCount` (avant le fetch).
 
-24. [ ] **Respecter prefers-reduced-motion** — ajouter dans le CSS (après les autres règles globales `*`) : `@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }`.
+24. [x] **Respecter prefers-reduced-motion** — ajouter dans le CSS (après les autres règles globales `*`) : `@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }`.
 
 25. [ ] **Ajouter un favicon** — créer `src/main/resources/static/favicon.svg` (icône simple, ex. un livre ou la lettre "R" sur fond coloré) ; ajouter `<link rel="icon" type="image/svg+xml" href="/favicon.svg">` dans le `<head>` (après la balise `<title>`, l.6). Vérifier que Spring sert bien le fichier statique et qu'aucun 404 n'apparaît dans la console.
 
