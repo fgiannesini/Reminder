@@ -120,7 +120,7 @@ Décisions de design à NE PAS remettre en cause :
 
 22. [x] **Auto-focus desktop only** — entourer `translation.focus()` (l.327) par `if (matchMedia('(hover: hover)').matches) { ... }`.
 
-23. [ ] **Placeholders stats au chargement** — initialiser `textContent = '…'` sur les deux divs stats au début de `setRemainingWordsCount` (avant le fetch).
+23. [x] **Placeholders stats au chargement** — initialiser `textContent = '…'` sur les deux divs stats au début de `setRemainingWordsCount` (avant le fetch).
 
 24. [ ] **Respecter prefers-reduced-motion** — ajouter dans le CSS (après les autres règles globales `*`) : `@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }`.
 

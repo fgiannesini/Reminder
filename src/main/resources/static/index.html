@@ -317,6 +317,8 @@
     };
 
     const setRemainingWordsCount = async () => {
+        document.getElementById('remaining-words-count-to-learn-span').textContent = '…';
+        document.getElementById('remaining-words-count-to-confirm-span').textContent = '…';
         const response = await fetch('/reminder/word/remaining');
         if (!response.ok) {
             showError(await response.text());
