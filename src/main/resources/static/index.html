@@ -402,9 +402,7 @@
 
     document.addEventListener("keydown", async event => {
         if (event.key !== "Enter") return;
-        const active = document.activeElement;
-        if (active === document.getElementById("translation-input")) return;
-        if (active === document.getElementById("next-button")) return;
+        if (document.activeElement === document.getElementById("translation-input")) return;
         const nextBtn = document.getElementById('next-button');
         if (!nextBtn.disabled && document.getElementById('result-feedback').style.visibility !== 'hidden') {
             event.preventDefault();
