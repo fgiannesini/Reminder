@@ -284,7 +284,7 @@
         <button id="submit-button" onclick="submitTranslation()">Valider</button>
     </div>
     <div class="result-block">
-        <div id="result-feedback" style="display: none">
+        <div id="result-feedback" style="visibility: hidden">
             <span class="field-label">Traduction</span>
             <span id="real-translation-span"></span>
             <span id="learned-badge" style="display:none">appris !</span>
@@ -334,7 +334,7 @@
         wordSpan.style.opacity = '0';
         wordSpan.textContent = JSON.parse(await response.text()).value;
         const feedback = document.getElementById('result-feedback');
-        feedback.style.display = 'none';
+        feedback.style.visibility = 'hidden';
         feedback.classList.remove('matched', 'not-matched', 'closed');
         let translation = document.getElementById('translation-input');
         translation.value = "";
@@ -372,7 +372,7 @@
         }
         const check = JSON.parse(await response.text());
         const feedback = document.getElementById('result-feedback');
-        feedback.style.display = '';
+        feedback.style.visibility = 'visible';
         feedback.classList.remove('matched', 'not-matched', 'closed');
         const classMap = {MATCHED: 'matched', NOT_MATCHED: 'not-matched', CLOSED: 'closed'};
         if (classMap[check.matching]) feedback.classList.add(classMap[check.matching]);
@@ -402,7 +402,7 @@
         if (active === document.getElementById("translation-input")) return;
         if (active === document.getElementById("next-button")) return;
         const nextBtn = document.getElementById('next-button');
-        if (!nextBtn.disabled && document.getElementById('result-feedback').style.display !== 'none') {
+        if (!nextBtn.disabled && document.getElementById('result-feedback').style.visibility !== 'hidden') {
             event.preventDefault();
             await getNextWord();
         }
