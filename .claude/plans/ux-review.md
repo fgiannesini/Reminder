@@ -94,7 +94,7 @@ Décisions de design à NE PAS remettre en cause :
 
 9. [x] **Réserver l'espace du feedback** — remplacer `style="display: none"` (l.278) par `style="visibility: hidden"` ; adapter `feedback.style.display = ''` en `feedback.style.visibility = 'visible'` (l.369) et `display='none'` en `visibility='hidden'` (l.320).
 
-10. [ ] **Corriger contraste `#888`** — remplacer `color: #888` (l.73) par `color: #595959` ; vérifier également `color: #666` (l.204) — OK à 5.7:1, ne pas changer.
+10. [x] **Corriger contraste `#888`** — remplacer `color: #888` (l.73) par `color: #595959` ; vérifier également `color: #666` (l.204) — OK à 5.7:1, ne pas changer.
 
 11. [ ] **Augmenter hauteur tactile** — `#translation-input` height `2.75rem` (l.94) ; ajouter `min-height: 2.75rem` sur la règle `button` (l.109).
 
