@@ -65,7 +65,7 @@
             gap: 0.25rem;
         }
 
-        .word-block label {
+        .word-block .field-label {
             font-size: 0.75rem;
             font-weight: 400;
             text-transform: uppercase;
@@ -196,7 +196,7 @@
             transition: background 0.2s, border-color 0.2s;
         }
 
-        #result-feedback label {
+        #result-feedback .field-label {
             font-size: 0.75rem;
             font-weight: 400;
             text-transform: uppercase;
@@ -249,7 +249,7 @@
         <div id="remaining-words-count-to-confirm-span"></div>
     </div>
     <div class="word-block">
-        <label for="word-to-learn-span">Word</label>
+        <span class="field-label">Word</span>
         <span id="word-to-learn-span"></span>
     </div>
     <div class="input-block">
@@ -258,7 +258,7 @@
     </div>
     <div class="result-block">
         <div id="result-feedback" style="display: none">
-            <label>Real Translation</label>
+            <span class="field-label">Real Translation</span>
             <span id="real-translation-span"></span>
         </div>
         <div>
@@ -371,6 +371,18 @@
                 await submitTranslation();
             }
         });
+
+    document.addEventListener("keydown", async event => {
+        if (event.key !== "Enter") return;
+        const active = document.activeElement;
+        if (active === document.getElementById("translation-input")) return;
+        if (active === document.getElementById("next-button")) return;
+        const nextBtn = document.getElementById('next-button');
+        if (!nextBtn.disabled && document.getElementById('result-feedback').style.display !== 'none') {
+            event.preventDefault();
+            await getNextWord();
+        }
+    });
 
     document.addEventListener("DOMContentLoaded", async () => {
         await Promise.all([setRemainingWordsCount(), getNextWord()]);
