@@ -84,7 +84,7 @@ Décisions de design à NE PAS remettre en cause :
 
 4. [x] **Mettre en valeur l'état "learned"** — ajouter `<span id="learned-badge"></span>` dans `#result-feedback` (après `#real-translation-span`) ; styler en badge vert foncé (background `#2e7d32`, color blanc, padding `0.2rem 0.6rem`, border-radius `999px`, font-size `0.8rem`, font-weight 600) ; masquer par défaut (`display:none`) ; afficher dans `submitTranslation` quand `check.learned` est true, masquer sinon ; retirer la concaténation `learned` du textContent l.378.
 
-5. [ ] **Donner un id au bouton Submit** — `id="submit-button"` sur l.275 ; remplacer le sélecteur `.input-block button` par `getElementById('submit-button')` (l.331).
+5. [x] **Donner un id au bouton Submit** — `id="submit-button"` sur l.275 ; remplacer le sélecteur `.input-block button` par `getElementById('submit-button')` (l.331).
 
 6. [ ] **Pluralisation des stats** — dans `setRemainingWordsCount` (l.299-300), gérer `count === 1 ? 'word' : 'words'` ; appliquer aux deux compteurs.
 
