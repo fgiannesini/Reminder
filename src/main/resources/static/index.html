@@ -256,7 +256,7 @@
         <button onclick="submitTranslation()">Submit</button>
     </div>
     <div class="result-block">
-        <div id="result-feedback">
+        <div id="result-feedback" style="display: none">
             <label>Real Translation</label>
             <span id="real-translation-span"></span>
         </div>
@@ -295,8 +295,9 @@
             return;
         }
         document.getElementById('word-to-learn-span').textContent = JSON.parse(await response.text()).value;
-        document.getElementById('real-translation-span').textContent = "";
-        document.getElementById('result-feedback').classList.remove('matched', 'not-matched', 'closed');
+        const feedback = document.getElementById('result-feedback');
+        feedback.style.display = 'none';
+        feedback.classList.remove('matched', 'not-matched', 'closed');
         let translation = document.getElementById('translation-input');
         translation.value = "";
         nextBtn.classList.remove('loading');
@@ -343,6 +344,7 @@
                 break;
         }
         const feedback = document.getElementById('result-feedback');
+        feedback.style.display = '';
         feedback.classList.remove('matched', 'not-matched', 'closed');
         const classMap = {MATCHED: 'matched', NOT_MATCHED: 'not-matched', CLOSED: 'closed'};
         if (classMap[check.matching]) feedback.classList.add(classMap[check.matching]);
