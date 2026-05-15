@@ -287,6 +287,12 @@
 </div>
 </body>
 <script>
+    const clearError = () => {
+        const el = document.getElementById('error-span');
+        el.style.display = 'none';
+        el.textContent = '';
+    };
+
     const setRemainingWordsCount = async () => {
         const response = await fetch('/reminder/word/remaining');
         if (!response.ok) {
@@ -300,6 +306,7 @@
         document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} mot${stats.countToConfirm > 1 ? 's' : ''} à confirmer.`;
     }
     const getNextWord = async () => {
+        clearError();
         const nextBtn = document.getElementById('next-button');
         const wordSpan = document.getElementById('word-to-learn-span');
         nextBtn.disabled = true;
@@ -328,6 +335,7 @@
     };
 
     const submitTranslation = async () => {
+        clearError();
         const submitBtn = document.querySelector('.input-block button');
         const inputEl = document.getElementById('translation-input');
         submitBtn.classList.add('loading');
