@@ -321,7 +321,6 @@
         const wordSpan = document.getElementById('word-to-learn-span');
         nextBtn.disabled = true;
         nextBtn.classList.add('loading');
-        wordSpan.style.opacity = '0';
         const response = await fetch('/reminder/word/next');
         if (!response.ok) {
             let elementById = document.getElementById('error-span');
@@ -332,6 +331,7 @@
             wordSpan.style.opacity = '';
             return;
         }
+        wordSpan.style.opacity = '0';
         wordSpan.textContent = JSON.parse(await response.text()).value;
         const feedback = document.getElementById('result-feedback');
         feedback.style.display = 'none';

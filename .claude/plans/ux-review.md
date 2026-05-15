@@ -90,7 +90,7 @@ Décisions de design à NE PAS remettre en cause :
 
 7. [x] **Conditionner scrollIntoView** — vérifier `getBoundingClientRect().bottom <= window.innerHeight` avant d'appeler `scrollIntoView` (l.379) ; ne scroller que si le bloc dépasse.
 
-8. [ ] **Réduire le flash du mot pendant le chargement** — déplacer `wordSpan.style.opacity = '0'` (l.307) APRÈS le fetch, juste avant d'écrire `wordSpan.textContent` (l.318).
+8. [x] **Réduire le flash du mot pendant le chargement** — déplacer `wordSpan.style.opacity = '0'` (l.307) APRÈS le fetch, juste avant d'écrire `wordSpan.textContent` (l.318).
 
 9. [ ] **Réserver l'espace du feedback** — remplacer `style="display: none"` (l.278) par `style="visibility: hidden"` ; adapter `feedback.style.display = ''` en `feedback.style.visibility = 'visible'` (l.369) et `display='none'` en `visibility='hidden'` (l.320).
 
