@@ -159,6 +159,11 @@
         }
 
         /* noinspection CssUnusedSymbol */
+        button.loading {
+            pointer-events: none;
+        }
+
+        /* noinspection CssUnusedSymbol */
         button.loading::after {
             content: '';
             display: inline-block;
@@ -351,7 +356,6 @@
         const submitBtn = document.getElementById('submit-button');
         const inputEl = document.getElementById('translation-input');
         submitBtn.classList.add('loading');
-        submitBtn.disabled = true;
         inputEl.disabled = true;
         const proposedTranslation = inputEl.value;
         const wordToLearn = document.getElementById('word-to-learn-span').textContent;
@@ -368,7 +372,6 @@
             elementById.style.display = 'block';
             elementById.textContent = await response.text();
             submitBtn.classList.remove('loading');
-            submitBtn.disabled = false;
             inputEl.disabled = false;
             return;
         }
@@ -385,7 +388,6 @@
             feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
         inputEl.disabled = false;
         document.getElementById('next-button').focus();
     };

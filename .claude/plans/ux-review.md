@@ -104,7 +104,7 @@ Décisions de design à NE PAS remettre en cause :
 
 14. [x] **Échapper les apostrophes dans la traduction affichée** — remplacer `'${check.realTranslation}'` (l.378) par `«${check.realTranslation}»`.
 
-15. [ ] **Fix spinner Submit invisible** — retirer `submitBtn.disabled = true` (l.334) ; ajouter `pointer-events: none` à `button.loading` dans le CSS (l.160) pour bloquer les clics sans déclencher `:disabled`. Garder `inputEl.disabled = true` pour bloquer la saisie.
+15. [x] **Fix spinner Submit invisible** — retirer `submitBtn.disabled = true` (l.334) ; ajouter `pointer-events: none` à `button.loading` dans le CSS (l.160) pour bloquer les clics sans déclencher `:disabled`. Garder `inputEl.disabled = true` pour bloquer la saisie.
 
 16. [ ] **Simplifier les `JSON.parse(await response.text())`** — remplacer par `await response.json()` aux lignes 298, 318, 355.
 
