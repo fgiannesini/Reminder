@@ -324,7 +324,7 @@
         }
         const stats = await response.json()
         document.getElementById('remaining-words-count-to-learn-span').textContent = `${stats.countToLearn} mot${stats.countToLearn > 1 ? 's' : ''} à apprendre.`;
-        document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} mot${stats.countToConfirm > 1 ? 's' : ''} à confirmer.`;
+        document.getElementById('remaining-words-count-to-confirm-span').textContent = `${stats.countToConfirm} mot${stats.countToConfirm > 1 ? 's' : ''} en cours de maîtrise.`;
     }
     const getNextWord = async () => {
         clearError();
@@ -350,7 +350,7 @@
         nextBtn.classList.remove('loading');
         nextBtn.disabled = false;
         requestAnimationFrame(() => wordSpan.style.opacity = '');
-        translation.focus();
+        if (matchMedia('(hover: hover)').matches) translation.focus();
     };
 
     const submitTranslation = async () => {

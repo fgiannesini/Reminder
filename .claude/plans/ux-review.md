@@ -116,9 +116,9 @@ Décisions de design à NE PAS remettre en cause :
 
 20. [x] **Déplacer `#error-span` en haut du container** — déplacer le `<span id="error-span">` juste après `<h1>Reminder</h1>` (l.264) plutôt qu'à la fin (l.286).
 
-21. [ ] **Clarifier "to confirm"** — remplacer le texte par "words being mastered" dans `setRemainingWordsCount` (l.300).
+21. [x] **Clarifier "to confirm"** — remplacer le texte par "words being mastered" dans `setRemainingWordsCount` (l.300).
 
-22. [ ] **Auto-focus desktop only** — entourer `translation.focus()` (l.327) par `if (matchMedia('(hover: hover)').matches) { ... }`.
+22. [x] **Auto-focus desktop only** — entourer `translation.focus()` (l.327) par `if (matchMedia('(hover: hover)').matches) { ... }`.
 
 23. [ ] **Placeholders stats au chargement** — initialiser `textContent = '…'` sur les deux divs stats au début de `setRemainingWordsCount` (avant le fetch).
 
