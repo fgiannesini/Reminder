@@ -102,7 +102,7 @@ Décisions de design à NE PAS remettre en cause :
 
 13. [x] **Améliorer hiérarchie typo du feedback** — `#real-translation-span` (l.208-211) : `font-size: 1.25rem; font-weight: 600`.
 
-14. [ ] **Échapper les apostrophes dans la traduction affichée** — remplacer `'${check.realTranslation}'` (l.378) par `«${check.realTranslation}»`.
+14. [x] **Échapper les apostrophes dans la traduction affichée** — remplacer `'${check.realTranslation}'` (l.378) par `«${check.realTranslation}»`.
 
 15. [ ] **Fix spinner Submit invisible** — retirer `submitBtn.disabled = true` (l.334) ; ajouter `pointer-events: none` à `button.loading` dans le CSS (l.160) pour bloquer les clics sans déclencher `:disabled`. Garder `inputEl.disabled = true` pour bloquer la saisie.
 

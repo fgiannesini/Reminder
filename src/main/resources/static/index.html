@@ -379,7 +379,7 @@
         const classMap = {MATCHED: 'matched', NOT_MATCHED: 'not-matched', CLOSED: 'closed'};
         if (classMap[check.matching]) feedback.classList.add(classMap[check.matching]);
 
-        document.getElementById('real-translation-span').textContent = `'${check.realTranslation}'`;
+        document.getElementById('real-translation-span').textContent = `«${check.realTranslation}»`;
         document.getElementById('learned-badge').style.display = check.learned ? '' : 'none';
         if (feedback.getBoundingClientRect().bottom > window.innerHeight) {
             feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
