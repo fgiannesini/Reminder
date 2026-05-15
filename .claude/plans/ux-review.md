@@ -76,11 +76,11 @@ Décisions de design à NE PAS remettre en cause :
 
 ## Tâches atomiques (ordre = priorité décroissante)
 
-1. [ ] **Effacer l'erreur avant chaque requête** — créer fonction `clearError()` qui cache `#error-span` (display=none) et vide textContent ; l'appeler en début de `setRemainingWordsCount`, `getNextWord`, `submitTranslation`.
+1. [x] **Effacer l'erreur avant chaque requête** — créer fonction `clearError()` qui cache `#error-span` (display=none) et vide textContent ; l'appeler en début de `setRemainingWordsCount`, `getNextWord`, `submitTranslation`.
 
-2. [ ] **Désactiver l'autocorrection sur l'input** — ajouter `type="text" autocapitalize="off" autocorrect="off" spellcheck="false"` sur `#translation-input` (l.274).
+2. [x] **Désactiver l'autocorrection sur l'input** — ajouter `type="text" autocapitalize="off" autocorrect="off" spellcheck="false"` sur `#translation-input` (l.274).
 
-3. [ ] **Supprimer la redondance emoji + symbole CSS** — retirer la variable `matchingSmiley` et son switch (l.356-367) ; retirer `${matchingSmiley}` de la concaténation l.378.
+3. [x] **Supprimer la redondance emoji + symbole CSS** — retirer la variable `matchingSmiley` et son switch (l.356-367) ; retirer `${matchingSmiley}` de la concaténation l.378.
 
 4. [ ] **Mettre en valeur l'état "learned"** — ajouter `<span id="learned-badge"></span>` dans `#result-feedback` (après `#real-translation-span`) ; styler en badge vert foncé (background `#2e7d32`, color blanc, padding `0.2rem 0.6rem`, border-radius `999px`, font-size `0.8rem`, font-weight 600) ; masquer par défaut (`display:none`) ; afficher dans `submitTranslation` quand `check.learned` est true, masquer sinon ; retirer la concaténation `learned` du textContent l.378.
 

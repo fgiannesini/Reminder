@@ -361,18 +361,6 @@
             return;
         }
         const check = JSON.parse(await response.text());
-        let matchingSmiley;
-        switch (check.matching) {
-            case "MATCHED" :
-                matchingSmiley = String.fromCodePoint(0x2705)
-                break;
-            case "NOT_MATCHED" :
-                matchingSmiley = String.fromCodePoint(0x274C);
-                break;
-            case "CLOSED" :
-                matchingSmiley = String.fromCodePoint(0x1F44C)
-                break;
-        }
         const feedback = document.getElementById('result-feedback');
         feedback.style.display = '';
         feedback.classList.remove('matched', 'not-matched', 'closed');
@@ -383,7 +371,7 @@
         if (check.learned) {
             learned = "appris !";
         }
-        document.getElementById('real-translation-span').textContent = `${matchingSmiley} '${check.realTranslation}' ${learned}`;
+        document.getElementById('real-translation-span').textContent = `'${check.realTranslation}' ${learned}`;
         feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
