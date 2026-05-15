@@ -379,7 +379,9 @@
 
         document.getElementById('real-translation-span').textContent = `'${check.realTranslation}'`;
         document.getElementById('learned-badge').style.display = check.learned ? '' : 'none';
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (feedback.getBoundingClientRect().bottom > window.innerHeight) {
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
         inputEl.disabled = false;

@@ -86,9 +86,9 @@ Décisions de design à NE PAS remettre en cause :
 
 5. [x] **Donner un id au bouton Submit** — `id="submit-button"` sur l.275 ; remplacer le sélecteur `.input-block button` par `getElementById('submit-button')` (l.331).
 
-6. [ ] **Pluralisation des stats** — dans `setRemainingWordsCount` (l.299-300), gérer `count === 1 ? 'word' : 'words'` ; appliquer aux deux compteurs.
+6. [x] **Pluralisation des stats** — dans `setRemainingWordsCount` (l.299-300), gérer `count === 1 ? 'word' : 'words'` ; appliquer aux deux compteurs.
 
-7. [ ] **Conditionner scrollIntoView** — vérifier `getBoundingClientRect().bottom <= window.innerHeight` avant d'appeler `scrollIntoView` (l.379) ; ne scroller que si le bloc dépasse.
+7. [x] **Conditionner scrollIntoView** — vérifier `getBoundingClientRect().bottom <= window.innerHeight` avant d'appeler `scrollIntoView` (l.379) ; ne scroller que si le bloc dépasse.
 
 8. [ ] **Réduire le flash du mot pendant le chargement** — déplacer `wordSpan.style.opacity = '0'` (l.307) APRÈS le fetch, juste avant d'écrire `wordSpan.textContent` (l.318).
 
