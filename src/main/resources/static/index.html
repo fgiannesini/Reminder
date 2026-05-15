@@ -288,7 +288,7 @@
     </div>
     <div class="input-block">
         <input id="translation-input" type="text" aria-label="Traduction" placeholder="Entrez la traduction…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"/>
-        <button id="submit-button" onclick="submitTranslation()">Valider</button>
+        <button id="submit-button">Valider</button>
     </div>
     <div class="result-block">
         <div id="result-feedback" style="visibility: hidden">
@@ -297,7 +297,7 @@
             <span id="learned-badge" style="display:none">appris !</span>
         </div>
         <div>
-            <button id="next-button" onclick="getNextWord()">Suivant</button>
+            <button id="next-button">Suivant</button>
         </div>
     </div>
     <span id="error-span" style="display: none"></span>
@@ -413,6 +413,8 @@
     });
 
     document.addEventListener("DOMContentLoaded", async () => {
+        document.getElementById('submit-button').addEventListener('click', submitTranslation);
+        document.getElementById('next-button').addEventListener('click', getNextWord);
         await Promise.all([setRemainingWordsCount(), getNextWord()]);
     });
 </script>

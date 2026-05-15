@@ -110,7 +110,7 @@ Décisions de design à NE PAS remettre en cause :
 
 17. [x] **Factoriser le handling d'erreur** — extraire fonction `showError(text)` qui fait `el.style.display='block'; el.textContent=text` ; appeler à la place des trois blocs dupliqués (l.293-296, 309-316, 346-353).
 
-18. [ ] **Remplacer onclick inline par addEventListener** — retirer `onclick="submitTranslation()"` (l.275) et `onclick="getNextWord()"` (l.283) ; câbler via `getElementById('submit-button').addEventListener('click', submitTranslation)` et idem pour Next dans le bloc script.
+18. [x] **Remplacer onclick inline par addEventListener** — retirer `onclick="submitTranslation()"` (l.275) et `onclick="getNextWord()"` (l.283) ; câbler via `getElementById('submit-button').addEventListener('click', submitTranslation)` et idem pour Next dans le bloc script.
 
 19. [ ] **Nettoyer le handler Enter global** — l.394-404 : supprimer la condition `if (active === document.getElementById("next-button")) return` ; conserver uniquement le retour si focus dans input ; déclencher Next dès que feedback visible et bouton non disabled.
 
