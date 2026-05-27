@@ -11,7 +11,7 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
     private static final int repetitionLimitToConfirm = 2;
 
     public Word(String word, String translation) {
-        this(word, translation, repetitionLimitToLearn, null, 0);
+        this(word, translation, 0, null, 0);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {

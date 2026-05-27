@@ -28,7 +28,7 @@ class DictionaryTest {
 
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
 
-        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, null, 0), new Word("au lieu de", "ao inves, em vez de", 2, null, 0), new Word("ou seja", "c'est à dire", 3, null, 0), new Word("c'est à dire", "ou seja", 3, null, 0));
+        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, null, 0), new Word("au lieu de", "ao inves, em vez de", 2, null, 0), new Word("ou seja", "c'est à dire", 0, null, 0), new Word("c'est à dire", "ou seja", 0, null, 0));
         Assertions.assertEquals(expected, storageHandler.load());
     }
 
