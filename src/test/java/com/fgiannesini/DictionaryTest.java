@@ -22,13 +22,13 @@ class DictionaryTest {
 
     @Test
     void should_synchronize_words() {
-        var storageHandler = new MemoryStorageHandler(new Word("ao inves, em vez de", "au lieu de", 1, null, 0, 2.5f, 1), new Word("au lieu de", "ao inves, em vez de", 2, null, 0, 2.5f, 1), new Word("acender", "allumer", 0, null, 1, 2.5f, 1), new Word("allumer", "acender", 0, null, 1, 2.5f, 1));
+        var storageHandler = new MemoryStorageHandler(new Word("ao inves, em vez de", "au lieu de", 1, new SmRepetition(null, 0, 2.5f, 1)), new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)), new Word("acender", "allumer", 0, new SmRepetition(null, 1, 2.5f, 1)), new Word("allumer", "acender", 0, new SmRepetition(null, 1, 2.5f, 1)));
 
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
 
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
 
-        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, null, 0, 2.5f, 1), new Word("au lieu de", "ao inves, em vez de", 2, null, 0, 2.5f, 1), new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1), new Word("c'est à dire", "ou seja", 0, null, 0, 2.5f, 1));
+        var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, new SmRepetition(null, 0, 2.5f, 1)), new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)), new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1)), new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1)));
         Assertions.assertEquals(expected, storageHandler.load());
     }
 
@@ -49,9 +49,9 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), storageHandler);
 
         var learnedMoment = LocalDateTime.now();
-        dictionary.update(new Word("desligar", "éteindre", 3, learnedMoment, 1, 2.5f, 1));
+        dictionary.update(new Word("desligar", "éteindre", 3, new SmRepetition(learnedMoment, 1, 2.5f, 1)));
 
-        Assertions.assertEquals(new Word("desligar", "éteindre", 3, learnedMoment, 1, 2.5f, 1), storageHandler.getUpdatedWord());
+        Assertions.assertEquals(new Word("desligar", "éteindre", 3, new SmRepetition(learnedMoment, 1, 2.5f, 1)), storageHandler.getUpdatedWord());
     }
 
     @Test
@@ -70,8 +70,8 @@ class DictionaryTest {
     @Test
     void should_get_remaining_stats() {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(
-                new Word("desligar", "éteindre", 3, LocalDateTime.now(), 1, 2.5f, 1),
-                new Word("acender", "allumer", 2, LocalDateTime.now(), 0, 2.5f, 1)
+                new Word("desligar", "éteindre", 3, new SmRepetition(LocalDateTime.now(), 1, 2.5f, 1)),
+                new Word("acender", "allumer", 2, new SmRepetition(LocalDateTime.now(), 0, 2.5f, 1))
         ));
         Assertions.assertEquals(new RemainingStats(1, 1), dictionary.remainingStats());
     }

@@ -1,5 +1,6 @@
 package com.fgiannesini.web.storage;
 
+import com.fgiannesini.SmRepetition;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
 
@@ -42,7 +43,7 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
-        return wordRepository.getTopOrderByNextReview(limit, localDateTime.minusWeeks(1), Word.MASTERY_REPETITIONS)
+        return wordRepository.getTopOrderByNextReview(limit, localDateTime.minusWeeks(1), SmRepetition.MASTERY_REPETITIONS)
                 .stream()
                 .map(WordDao::toWord)
                 .toList();
@@ -60,6 +61,6 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public long getRemainingWordsCountToConfirm() {
-        return wordRepository.countBySmRepetitionsGreaterThanEqualAndSmRepetitionsLessThan(1, Word.MASTERY_REPETITIONS);
+        return wordRepository.countBySmRepetitionsGreaterThanEqualAndSmRepetitionsLessThan(1, SmRepetition.MASTERY_REPETITIONS);
     }
 }

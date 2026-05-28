@@ -1,5 +1,6 @@
 package com.fgiannesini.web.storage;
 
+import com.fgiannesini.SmRepetition;
 import com.fgiannesini.Word;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -42,13 +43,16 @@ public final class WordDao {
     }
 
     public static WordDao fromWord(Word word) {
-        return new WordDao(word.wordToLearn(), word.translation(), word.checkedCount(), word.nextReview(), word.smRepetitions(), word.easeFactor(), word.intervalDays());
+        var sm = word.smRepetition();
+        return new WordDao(word.wordToLearn(), word.translation(), word.checkedCount(),
+                sm.nextReview(), sm.repetitions(), sm.easeFactor(), sm.intervalDays());
     }
 
     public Word toWord() {
-        float ef = easeFactor == 0f ? Word.DEFAULT_EASE_FACTOR : easeFactor;
+        float ef = easeFactor == 0f ? SmRepetition.DEFAULT_EASE_FACTOR : easeFactor;
         int interval = intervalDays == 0 ? 1 : intervalDays;
-        return new Word(word, translation, checkedCount, nextReview, smRepetitions, ef, interval);
+        return new Word(word, translation, checkedCount,
+                new SmRepetition(nextReview, smRepetitions, ef, interval));
     }
 
     @Override

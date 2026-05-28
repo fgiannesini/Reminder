@@ -59,96 +59,90 @@ class WordTest {
     void should_require_three_checks_to_be_learned() {
         Word word = new Word("ou seja", "c'est à dire");
         word = word.checked();
-        Assertions.assertFalse(word.shouldBeMarkedAsLearnt());
+        Assertions.assertTrue(word.isLearningPhase());
         word = word.checked();
-        Assertions.assertFalse(word.shouldBeMarkedAsLearnt());
+        Assertions.assertTrue(word.isLearningPhase());
         var learnedMoment = LocalDateTime.now();
         word = word.checked(learnedMoment);
-        Assertions.assertTrue(word.shouldBeMarkedAsLearnt());
-        Assertions.assertNotNull(word.nextReview());
-    }
-
-    @Test
-    void should_not_be_learned_when_not_checked() {
-        Word word = new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1);
-        Assertions.assertFalse(word.shouldBeMarkedAsLearnt());
+        Assertions.assertFalse(word.isLearningPhase());
+        Assertions.assertNotNull(word.smRepetition().nextReview());
     }
 
     @Test
     void should_be_in_learning_phase_when_not_checked() {
-        Word word = new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1));
         Assertions.assertTrue(word.isLearningPhase());
     }
 
     @Test
     void should_not_be_in_learning_phase_when_checked_enough() {
-        Word word = new Word("ou seja", "c'est à dire", 3, null, 0, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 3, new SmRepetition(null, 0, 2.5f, 1));
         Assertions.assertFalse(word.isLearningPhase());
     }
 
     @Test
     void should_not_be_mastered_when_sm_repetitions_low() {
-        Word word = new Word("ou seja", "c'est à dire", 3, null, 7, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 3, new SmRepetition(null, 7, 2.5f, 1));
         Assertions.assertFalse(word.isMastered());
     }
 
     @Test
     void should_be_mastered_when_sm_repetitions_reach_threshold() {
-        Word word = new Word("ou seja", "c'est à dire", 3, null, 8, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 3, new SmRepetition(null, 8, 2.5f, 1));
         Assertions.assertTrue(word.isMastered());
     }
 
     @Test
     void should_be_similar() {
-        Word word1 = new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1);
-        Word word2 = new Word("ou seja", "c'est à dire", 1, null, 0, 2.5f, 1);
+        Word word1 = new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1));
+        Word word2 = new Word("ou seja", "c'est à dire", 1, new SmRepetition(null, 0, 2.5f, 1));
         Assertions.assertTrue(word1.isSimilarTo(word2));
     }
 
     @Test
     void should_not_be_similar() {
-        Word word1 = new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1);
-        Word word2 = new Word("conferir", "confirmer, vérifier", 0, null, 0, 2.5f, 1);
+        Word word1 = new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1));
+        Word word2 = new Word("conferir", "confirmer, vérifier", 0, new SmRepetition(null, 0, 2.5f, 1));
         Assertions.assertFalse(word1.isSimilarTo(word2));
     }
 
     @Test
     void should_reset() {
-        Word word = new Word("ou seja", "c'est à dire", 5, LocalDateTime.now(), 1, 2.5f, 3);
+        Word word = new Word("ou seja", "c'est à dire", 5, new SmRepetition(LocalDateTime.now(), 1, 2.5f, 3));
         Word actual = word.reset();
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 0, null, 0, 2.5f, 1), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1)), actual);
     }
 
     @Test
     void should_check_a_not_learned_word() {
-        Word word = new Word("ou seja", "c'est à dire", 1, null, 0, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 1, new SmRepetition(null, 0, 2.5f, 1));
         Word actual = word.checked();
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 2, null, 0, 2.5f, 1), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 2, new SmRepetition(null, 0, 2.5f, 1)), actual);
     }
 
     @Test
     void should_check_a_word_to_learn() {
-        Word word = new Word("ou seja", "c'est à dire", 2, null, 0, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 2, new SmRepetition(null, 0, 2.5f, 1));
         var learnedMoment = LocalDateTime.now();
         Word actual = word.checked(learnedMoment);
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, learnedMoment, 1, 2.5f, 1), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, new SmRepetition(learnedMoment, 1, 2.5f, 1)), actual);
     }
 
     @Test
     void should_increment_sm_repetitions_on_correct_review() {
-        Word word = new Word("ou seja", "c'est à dire", 3, LocalDateTime.MIN, 2, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.MIN, 2, 2.5f, 1));
         var learnedMoment = LocalDateTime.now();
         Word actual = word.checked(learnedMoment);
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, learnedMoment, 3, 2.5f, 1), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, new SmRepetition(learnedMoment, 3, 2.5f, 1)), actual);
     }
 
     @Test
     void should_update_next_review_on_sm_repetition() {
         var oldNextReview = LocalDateTime.now();
-        Word word = new Word("ou seja", "c'est à dire", 3, oldNextReview, 1, 2.5f, 1);
+        Word word = new Word("ou seja", "c'est à dire", 3, new SmRepetition(oldNextReview, 1, 2.5f, 1));
         var newNextReview = LocalDateTime.now();
         Word actual = word.checked(newNextReview);
-        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, newNextReview, 2, 2.5f, 1), actual);
+        Assertions.assertEquals(new Word("ou seja", "c'est à dire", 3, new SmRepetition(newNextReview, 2, 2.5f, 1)), actual);
     }
 
 }

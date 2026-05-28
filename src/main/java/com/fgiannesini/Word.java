@@ -4,15 +4,12 @@ import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime nextReview,
-                   int smRepetitions, float easeFactor, int intervalDays) {
+public record Word(String wordToLearn, String translation, int checkedCount, SmRepetition smRepetition) {
 
     private static final int repetitionLimitToLearn = 3;
-    public static final float DEFAULT_EASE_FACTOR = 2.5f;
-    public static final int MASTERY_REPETITIONS = 8;
 
     public Word(String word, String translation) {
-        this(word, translation, 0, null, 0, DEFAULT_EASE_FACTOR, 1);
+        this(word, translation, 0, SmRepetition.DEFAULT);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {
@@ -48,24 +45,20 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
         return Matching.NOT_MATCHED;
     }
 
-    public boolean shouldBeMarkedAsLearnt() {
-        return checkedCount == repetitionLimitToLearn;
-    }
-
     public boolean isLearningPhase() {
         return checkedCount < repetitionLimitToLearn;
     }
 
     public boolean isMastered() {
-        return smRepetitions >= MASTERY_REPETITIONS;
+        return smRepetition.isMastered();
     }
 
     public boolean isInConfirmationPhase() {
-        return smRepetitions >= 1 && !isMastered();
+        return smRepetition.isInConfirmationPhase();
     }
 
     public Word reset() {
-        return new Word(wordToLearn, translation, 0, null, 0, easeFactor, 1);
+        return new Word(wordToLearn, translation, 0, smRepetition.reset());
     }
 
     public Word checked() {
@@ -73,11 +66,11 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
     }
 
     public Word checked(LocalDateTime learnedMoment) {
-        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null, smRepetitions, easeFactor, intervalDays);
-        if (newWord.shouldBeMarkedAsLearnt()) {
-            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, newWord.smRepetitions() + 1, newWord.easeFactor(), newWord.intervalDays());
-        }
-        return newWord;
+        var newCount = Math.min(checkedCount + 1, repetitionLimitToLearn);
+        var newSm = (newCount == repetitionLimitToLearn)
+                ? smRepetition.increment(learnedMoment)
+                : smRepetition;
+        return new Word(wordToLearn, translation, newCount, newSm);
     }
 
     public boolean isSimilarTo(Word word) {
