@@ -4,14 +4,15 @@ import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime learnedMoment,
-                   int learntCount) {
+public record Word(String wordToLearn, String translation, int checkedCount, LocalDateTime nextReview,
+                   int smRepetitions, float easeFactor, int intervalDays) {
 
     private static final int repetitionLimitToLearn = 3;
-    private static final int repetitionLimitToConfirm = 2;
+    public static final float DEFAULT_EASE_FACTOR = 2.5f;
+    public static final int MASTERY_REPETITIONS = 8;
 
     public Word(String word, String translation) {
-        this(word, translation, 0, null, 0);
+        this(word, translation, 0, null, 0, DEFAULT_EASE_FACTOR, 1);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {
@@ -51,8 +52,20 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
         return checkedCount == repetitionLimitToLearn;
     }
 
+    public boolean isLearningPhase() {
+        return checkedCount < repetitionLimitToLearn;
+    }
+
+    public boolean isMastered() {
+        return smRepetitions >= MASTERY_REPETITIONS;
+    }
+
+    public boolean isInConfirmationPhase() {
+        return smRepetitions >= 1 && !isMastered();
+    }
+
     public Word reset() {
-        return new Word(wordToLearn, translation, 0, null, 0);
+        return new Word(wordToLearn, translation, 0, null, 0, easeFactor, 1);
     }
 
     public Word checked() {
@@ -60,9 +73,9 @@ public record Word(String wordToLearn, String translation, int checkedCount, Loc
     }
 
     public Word checked(LocalDateTime learnedMoment) {
-        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null, learntCount);
+        var newWord = new Word(wordToLearn, translation, Math.min(checkedCount + 1, repetitionLimitToLearn), null, smRepetitions, easeFactor, intervalDays);
         if (newWord.shouldBeMarkedAsLearnt()) {
-            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, Math.min(newWord.learntCount + 1, repetitionLimitToConfirm));
+            newWord = new Word(newWord.wordToLearn(), newWord.translation(), newWord.checkedCount(), learnedMoment, newWord.smRepetitions() + 1, newWord.easeFactor(), newWord.intervalDays());
         }
         return newWord;
     }

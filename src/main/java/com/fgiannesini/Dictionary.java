@@ -27,7 +27,7 @@ public final class Dictionary {
     }
 
     private static Word buildDuplicate(Word word) {
-        return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null, 0);
+        return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), null, 0, Word.DEFAULT_EASE_FACTOR, 1);
     }
 
     public void load(List<Word> originalWords) {

@@ -42,7 +42,7 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
-        return wordRepository.getTopOrderByLearntMoment(limit, localDateTime.minusWeeks(1))
+        return wordRepository.getTopOrderByNextReview(limit, localDateTime.minusWeeks(1), Word.MASTERY_REPETITIONS)
                 .stream()
                 .map(WordDao::toWord)
                 .toList();
@@ -55,11 +55,11 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public long getRemainingWordsCountToLearn() {
-        return wordRepository.countByLearntMomentIsNull();
+        return wordRepository.countByNextReviewIsNull();
     }
 
     @Override
     public long getRemainingWordsCountToConfirm() {
-        return wordRepository.countByLearntCountLessThan(2);
+        return wordRepository.countBySmRepetitionsGreaterThanEqualAndSmRepetitionsLessThan(1, Word.MASTERY_REPETITIONS);
     }
 }

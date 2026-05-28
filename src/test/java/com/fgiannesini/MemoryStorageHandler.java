@@ -48,12 +48,12 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public long getRemainingWordsCountToLearn() {
-        return this.words.stream().filter(word -> word.checkedCount() < 3).count();
+        return this.words.stream().filter(Word::isLearningPhase).count();
     }
 
     @Override
     public long getRemainingWordsCountToConfirm() {
-        return this.words.stream().filter(word -> word.learntCount() < 2).count();
+        return this.words.stream().filter(Word::isInConfirmationPhase).count();
     }
 
     public Word getUpdatedWord() {

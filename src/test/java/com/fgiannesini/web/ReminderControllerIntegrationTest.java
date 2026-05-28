@@ -32,7 +32,7 @@ public class ReminderControllerIntegrationTest implements TestContainerIntegrati
                 .body(new TranslationDto("ou seja", "c'est à dire"))
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(TranslationResponseDto.class).isEqualTo(new TranslationResponseDto(Matching.MATCHED, "c'est à dire", true));
+                .expectBody(TranslationResponseDto.class).isEqualTo(new TranslationResponseDto(Matching.MATCHED, "c'est à dire", false));
     }
 
     @Test
@@ -41,7 +41,6 @@ public class ReminderControllerIntegrationTest implements TestContainerIntegrati
                 .get().uri("/reminder/word/remaining")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(RemainingStats.class).isEqualTo(new RemainingStats(4, 4));
+                .expectBody(RemainingStats.class).isEqualTo(new RemainingStats(4, 0));
     }
 }
-

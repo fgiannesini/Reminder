@@ -15,32 +15,40 @@ public final class WordDao {
     private String word;
     private String translation;
     private int checkedCount;
-    private LocalDateTime learntMoment;
-    private int learntCount;
+    private LocalDateTime nextReview;
+    private int smRepetitions;
+    private float easeFactor;
+    private int intervalDays;
 
     public WordDao(
             String word,
             String translation,
             int checkedCount,
-            LocalDateTime learntMoment,
-            int learntCount
+            LocalDateTime nextReview,
+            int smRepetitions,
+            float easeFactor,
+            int intervalDays
     ) {
         this.word = word;
         this.translation = translation;
         this.checkedCount = checkedCount;
-        this.learntMoment = learntMoment;
-        this.learntCount = learntCount;
+        this.nextReview = nextReview;
+        this.smRepetitions = smRepetitions;
+        this.easeFactor = easeFactor;
+        this.intervalDays = intervalDays;
     }
 
     public WordDao() {
     }
 
     public static WordDao fromWord(Word word) {
-        return new WordDao(word.wordToLearn(), word.translation(), word.checkedCount(), word.learnedMoment(), word.learntCount());
+        return new WordDao(word.wordToLearn(), word.translation(), word.checkedCount(), word.nextReview(), word.smRepetitions(), word.easeFactor(), word.intervalDays());
     }
 
     public Word toWord() {
-        return new Word(word, translation, checkedCount, learntMoment, learntCount);
+        float ef = easeFactor == 0f ? Word.DEFAULT_EASE_FACTOR : easeFactor;
+        int interval = intervalDays == 0 ? 1 : intervalDays;
+        return new Word(word, translation, checkedCount, nextReview, smRepetitions, ef, interval);
     }
 
     @Override

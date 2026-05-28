@@ -34,7 +34,7 @@ public class ReminderController {
             case NOT_MATCHED -> wordToLearn.reset();
         };
         dictionary.update(newWord);
-        return new TranslationResponseDto(matching, newWord.translation(), newWord.shouldBeMarkedAsLearnt());
+        return new TranslationResponseDto(matching, newWord.translation(), !newWord.isLearningPhase());
     }
 
     @GetMapping("/remaining")
