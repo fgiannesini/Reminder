@@ -2,13 +2,11 @@ package com.fgiannesini.web;
 
 import com.fgiannesini.Dictionary;
 import com.fgiannesini.NextGenerator;
+import com.fgiannesini.RecentWordsWindow;
 import com.fgiannesini.original.OriginalDictionary;
 import com.fgiannesini.storage.StorageHandler;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import java.io.IOException;
 
@@ -23,7 +21,7 @@ public class ReminderConfigurationForTest {
 
     @Bean
     public Dictionary dictionary(StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
-        var dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
         var originalWords = originalDictionary.load();
         dictionary.load(originalWords);
         return dictionary;

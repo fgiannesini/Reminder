@@ -13,10 +13,12 @@ public final class Dictionary {
 
     private final RandomGenerator randomProvider;
     private final StorageHandler storageHandler;
+    private final RecentWordsWindow recentWordsWindow;
 
-    public Dictionary(RandomGenerator randomProvider, StorageHandler storageHandler) {
+    public Dictionary(RandomGenerator randomProvider, StorageHandler storageHandler, RecentWordsWindow recentWordsWindow) {
         this.randomProvider = randomProvider;
         this.storageHandler = storageHandler;
+        this.recentWordsWindow = recentWordsWindow;
     }
 
     private static List<Word> addDuplicates(List<Word> words) {
@@ -50,11 +52,17 @@ public final class Dictionary {
     }
 
     public Word next() {
-        var eligibleWords = storageHandler.getNextWords(SELECTION_WINDOW, LocalDateTime.now());
-        if (eligibleWords.isEmpty()) {
+        var candidates = storageHandler.getNextWords(SELECTION_WINDOW, LocalDateTime.now());
+        if (candidates.isEmpty()) {
             throw new NoSuchElementException("No eligible words available");
         }
-        return eligibleWords.get(randomProvider.nextInt(eligibleWords.size()));
+        var filtered = candidates.stream()
+                .filter(w -> !recentWordsWindow.containsTranslation(w.translation()))
+                .toList();
+        if (!filtered.isEmpty()) candidates = filtered;
+        var word = candidates.get(randomProvider.nextInt(candidates.size()));
+        recentWordsWindow.add(word.wordToLearn());
+        return word;
     }
 
     public void update(Word newWord) {

@@ -12,7 +12,7 @@ class DictionaryTest {
     @Test
     void should_create_and_store_all_words_if_not_existing() {
         var storageHandler = new MemoryStorageHandler();
-        var dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
 
         var expected = List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("au lieu de", "ao inves, em vez de"), new Word("ou seja", "c'est à dire"), new Word("c'est à dire", "ou seja"));
@@ -24,7 +24,7 @@ class DictionaryTest {
     void should_synchronize_words() {
         var storageHandler = new MemoryStorageHandler(new Word("ao inves, em vez de", "au lieu de", 1, new SmRepetition(null, 0, 2.5f, 1)), new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)), new Word("acender", "allumer", 0, new SmRepetition(null, 1, 2.5f, 1)), new Word("allumer", "acender", 0, new SmRepetition(null, 1, 2.5f, 1)));
 
-        var dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
 
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
 
@@ -34,19 +34,30 @@ class DictionaryTest {
 
     @Test
     void should_get_next_word() {
-        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
+        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(), new RecentWordsWindow());
         dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
 
         Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
-        Assertions.assertEquals(new Word("éteindre", "desligar"), dictionary.next());
         Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next());
-        Assertions.assertEquals(new Word("allumer", "acender"), dictionary.next());
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
+        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next());
+    }
+
+    @Test
+    void should_fallback_to_inverse_when_no_other_word_available() {
+        var recentWordsWindow = new RecentWordsWindow();
+        recentWordsWindow.add("éteindre");
+        var dictionary = new Dictionary(new NextGenerator(),
+                new MemoryStorageHandler(new Word("desligar", "éteindre")),
+                recentWordsWindow);
+
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
     }
 
     @Test
     void should_update() {
         var storageHandler = new MemoryStorageHandler(new Word("desligar", "éteindre"));
-        var dictionary = new Dictionary(new NextGenerator(), storageHandler);
+        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
 
         var learnedMoment = LocalDateTime.now();
         dictionary.update(new Word("desligar", "éteindre", 3, new SmRepetition(learnedMoment, 1, 2.5f, 1)));
@@ -56,14 +67,14 @@ class DictionaryTest {
 
     @Test
     void should_get_first_words() {
-        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
+        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer")), new RecentWordsWindow());
         Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
         Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next());
     }
 
     @Test
     void should_throw_exception_when_no_eligible_words() {
-        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
+        var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(), new RecentWordsWindow());
         Assertions.assertThrows(NoSuchElementException.class, dictionary::next);
     }
 
@@ -72,7 +83,7 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(
                 new Word("desligar", "éteindre", 3, new SmRepetition(LocalDateTime.now(), 1, 2.5f, 1)),
                 new Word("acender", "allumer", 2, new SmRepetition(LocalDateTime.now(), 0, 2.5f, 1))
-        ));
+        ), new RecentWordsWindow());
         Assertions.assertEquals(new RemainingStats(1, 1), dictionary.remainingStats());
     }
 

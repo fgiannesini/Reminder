@@ -1,6 +1,7 @@
 package com.fgiannesini.web;
 
 import com.fgiannesini.Dictionary;
+import com.fgiannesini.RecentWordsWindow;
 import com.fgiannesini.original.OriginalDictionary;
 import com.fgiannesini.storage.StorageHandler;
 import com.fgiannesini.web.storage.DatabaseStorageHandler;
@@ -36,7 +37,8 @@ public class SpringMain {
         public Dictionary dictionary(StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
             var dictionary = new Dictionary(
                     new SecureRandom(),
-                    storageHandler
+                    storageHandler,
+                    new RecentWordsWindow()
             );
             var originalWords = originalDictionary.load();
             dictionary.load(originalWords);
