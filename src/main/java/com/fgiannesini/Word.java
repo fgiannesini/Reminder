@@ -58,19 +58,27 @@ public record Word(String wordToLearn, String translation, int checkedCount, SmR
     }
 
     public Word reset() {
-        return new Word(wordToLearn, translation, 0, smRepetition.reset());
+        if (isLearningPhase()) {
+            return new Word(wordToLearn, translation, 0, smRepetition.reset());
+        }
+        return this;
     }
 
-    public Word checked() {
-        return checked(LocalDateTime.now());
+    public Word checked(int quality, LocalDateTime now) {
+        if (isLearningPhase()) {
+            int newCount = checkedCount + 1;
+            if (newCount == repetitionLimitToLearn) {
+                return new Word(wordToLearn, translation, newCount,
+                        smRepetition.apply(quality, now));
+            }
+            return new Word(wordToLearn, translation, newCount, smRepetition);
+        }
+        return new Word(wordToLearn, translation, checkedCount, smRepetition.apply(quality, now));
     }
 
-    public Word checked(LocalDateTime learnedMoment) {
-        var newCount = Math.min(checkedCount + 1, repetitionLimitToLearn);
-        var newSm = (newCount == repetitionLimitToLearn)
-                ? smRepetition.increment(learnedMoment)
-                : smRepetition;
-        return new Word(wordToLearn, translation, newCount, newSm);
+    public Word respond(Matching matching, LocalDateTime now) {
+        if (matching == Matching.NOT_MATCHED && isLearningPhase()) return reset();
+        return checked(matching.quality(), now);
     }
 
     public boolean isSimilarTo(Word word) {

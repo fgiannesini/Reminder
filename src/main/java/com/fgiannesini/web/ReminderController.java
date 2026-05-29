@@ -7,6 +7,8 @@ import com.fgiannesini.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/reminder/word")
 public class ReminderController {
@@ -29,10 +31,7 @@ public class ReminderController {
         Word wordToLearn = dictionary.find(translation.wordToLearn());
         Matching matching = wordToLearn.getMatching(translation.proposedTranslation());
 
-        Word newWord = switch (matching) {
-            case MATCHED, CLOSED -> wordToLearn.checked();
-            case NOT_MATCHED -> wordToLearn.reset();
-        };
+        Word newWord = wordToLearn.respond(matching, LocalDateTime.now());
         dictionary.update(newWord);
         return new TranslationResponseDto(matching, newWord.translation(), !newWord.isLearningPhase());
     }
