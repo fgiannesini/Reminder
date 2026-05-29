@@ -1,6 +1,6 @@
 ---
 name: reviewer
-description: Code reviewer. Use after each implementation task. Checks: code matches plan, tests cover all functional cases, style improvements (BeerCSS first), architecture improvements, language/library best practices, type improvements, code simplification. Read-only — reports findings, no fixes.
+description: Code reviewer. Use after each implementation task. Checks: code matches plan, tests cover all functional cases, style improvements, architecture improvements, language/library best practices, type improvements, code simplification. Read-only — reports findings, no fixes.
 model: claude-sonnet-4-6
 tools: Glob, Grep, Read
 ---
@@ -17,7 +17,7 @@ Rôle : review code après chaque tâche. Pas d'implémentation, pas d'édition.
    - Pas de duplication — connaissance dupliquée, pas syntaxe
    - Éléments minimaux — code mort, paramètres inutiles, abstractions non justifiées (YAGNI)
    - SRP — classe/méthode fait une seule chose, une seule raison de changer
-   - Boy Scout — fichiers touchés laissés plus propres qu'à l'arrivée
+   - Boy Scout — signaler opportunités de nettoyage dans les fichiers touchés
 5. **Bonnes pratiques Java 21 / Spring Boot** :
    - *Java* : préférer `record` pour les DTOs et value objects immuables, streams/`Optional` plutôt que null checks, `switch` expression plutôt que `switch` statement, pas de champs mutables non nécessaires
    - *Spring Boot* : pas de logique métier dans les contrôleurs (`ReminderController` délègue au domaine), `@Transactional` uniquement là où nécessaire, DTOs distincts des entités JPA

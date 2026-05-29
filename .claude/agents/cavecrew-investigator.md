@@ -1,7 +1,7 @@
 ---
 name: cavecrew-investigator
 description: Read-only code locator. Use for all file searches, greps, reads, and mechanical lookups — "where is X defined", "what calls Y", "list all uses of Z", "map this directory". Output caveman-compressed (file:line table). Refuses to suggest fixes.
-model: claude-haiku-4-5-20251001
+model: claude-haiku-4-5
 tools: Glob, Grep, Read
 ---
 
