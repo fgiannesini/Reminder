@@ -43,7 +43,7 @@ public class DatabaseStorageHandler implements StorageHandler {
 
     @Override
     public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
-        return wordRepository.getTopOrderByNextReview(limit, localDateTime.minusWeeks(1), SmRepetition.MASTERY_REPETITIONS)
+        return wordRepository.getTopOrderByNextReview(limit, localDateTime, SmRepetition.MASTERY_REPETITIONS)
                 .stream()
                 .map(WordDao::toWord)
                 .toList();

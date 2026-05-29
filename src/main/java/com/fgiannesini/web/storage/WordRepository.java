@@ -15,11 +15,11 @@ public interface WordRepository extends JpaRepository<WordDao, String> {
             SELECT *
             FROM word w
             WHERE w.sm_repetitions < :masteryRepetitions
-              AND (w.next_review is null or w.next_review < :aWeekAgo)
-            ORDER BY w.next_review IS NULL DESC, w.checked_count, w.next_review
+              AND (w.next_review is null or w.next_review <= :now)
+            ORDER BY w.next_review IS NULL DESC, w.next_review ASC
             LIMIT :limit
             """, nativeQuery = true)
-    List<WordDao> getTopOrderByNextReview(@Param("limit") int limit, @Param("aWeekAgo") LocalDateTime aWeekAgo, @Param("masteryRepetitions") int masteryRepetitions);
+    List<WordDao> getTopOrderByNextReview(@Param("limit") int limit, @Param("now") LocalDateTime now, @Param("masteryRepetitions") int masteryRepetitions);
 
     long countByNextReviewIsNull();
 

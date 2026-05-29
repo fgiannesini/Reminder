@@ -38,7 +38,10 @@ public class MemoryStorageHandler implements StorageHandler {
 
     @Override
     public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
-        return this.words;
+        return this.words.stream()
+                .filter(w -> !w.isMastered())
+                .filter(w -> w.smRepetition().nextReview() == null || !w.smRepetition().nextReview().isAfter(localDateTime))
+                .toList();
     }
 
     @Override

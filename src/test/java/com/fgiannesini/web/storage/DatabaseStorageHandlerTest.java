@@ -85,9 +85,9 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_exclude_words_reviewed_within_one_week() {
-        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1)));
-        storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)));
+    void should_exclude_words_with_future_next_review() {
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 10, 13, 18, 0), 1, 2.5f, 1)));
+        storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 15, 13, 18, 0), 1, 2.5f, 1)));
 
         var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 9, 0, 0));
 
