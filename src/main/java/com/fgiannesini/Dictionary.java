@@ -9,6 +9,8 @@ import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
 
 public final class Dictionary {
+    private static final int SELECTION_WINDOW = 5;
+
     private final RandomGenerator randomProvider;
     private final StorageHandler storageHandler;
 
@@ -47,8 +49,8 @@ public final class Dictionary {
         return word1.isSimilarTo(word2) || word1.isSimilarTo(buildDuplicate(word2));
     }
 
-    public Word next(int limit) {
-        var eligibleWords = storageHandler.getNextWords(limit, LocalDateTime.now());
+    public Word next() {
+        var eligibleWords = storageHandler.getNextWords(SELECTION_WINDOW, LocalDateTime.now());
         if (eligibleWords.isEmpty()) {
             throw new NoSuchElementException("No eligible words available");
         }

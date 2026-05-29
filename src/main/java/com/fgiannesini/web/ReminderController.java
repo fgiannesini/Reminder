@@ -22,7 +22,7 @@ public class ReminderController {
 
     @GetMapping("/next")
     public WordDto next() {
-        var word = dictionary.next(20);
+        var word = dictionary.next();
         return new WordDto(word.wordToLearn());
     }
 

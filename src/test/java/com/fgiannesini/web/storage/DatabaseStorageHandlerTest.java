@@ -62,8 +62,8 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
                 new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1)),
-                new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1)),
-                new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1))
+                new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)),
+                new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1))
         );
         Assertions.assertEquals(expected, actual);
     }

@@ -37,10 +37,10 @@ class DictionaryTest {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
         dictionary.load(List.of(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
 
-        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(20));
-        Assertions.assertEquals(new Word("éteindre", "desligar"), dictionary.next(20));
-        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next(20));
-        Assertions.assertEquals(new Word("allumer", "acender"), dictionary.next(20));
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
+        Assertions.assertEquals(new Word("éteindre", "desligar"), dictionary.next());
+        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next());
+        Assertions.assertEquals(new Word("allumer", "acender"), dictionary.next());
     }
 
     @Test
@@ -57,14 +57,14 @@ class DictionaryTest {
     @Test
     void should_get_first_words() {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(new Word("desligar", "éteindre"), new Word("acender", "allumer")));
-        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next(1));
-        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next(1));
+        Assertions.assertEquals(new Word("desligar", "éteindre"), dictionary.next());
+        Assertions.assertEquals(new Word("acender", "allumer"), dictionary.next());
     }
 
     @Test
     void should_throw_exception_when_no_eligible_words() {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler());
-        Assertions.assertThrows(NoSuchElementException.class, () -> dictionary.next(20));
+        Assertions.assertThrows(NoSuchElementException.class, dictionary::next);
     }
 
     @Test
