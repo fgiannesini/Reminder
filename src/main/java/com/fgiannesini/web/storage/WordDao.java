@@ -4,13 +4,14 @@ import com.fgiannesini.SmRepetition;
 import com.fgiannesini.Word;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "word")
+@Table(name = "word", indexes = @Index(name = "idx_word_sm_review", columnList = "smRepetitions, nextReview"))
 public final class WordDao {
     @Id
     private String word;
