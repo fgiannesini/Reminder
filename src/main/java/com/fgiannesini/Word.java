@@ -3,17 +3,20 @@ package com.fgiannesini;
 import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public record Word(String wordToLearn, String translation, int checkedCount, SmRepetition smRepetition) {
 
     private static final int repetitionLimitToLearn = 3;
+    private static final Pattern NON_LETTER = Pattern.compile("[^\\p{L}]");
+    private static final Pattern ACCENT_MARK = Pattern.compile("\\p{M}");
 
     public Word(String word, String translation) {
         this(word, translation, 0, SmRepetition.DEFAULT);
     }
 
     private static String cleanPunctuationAndSpaces(String string) {
-        return string.toLowerCase().replaceAll("[^\\p{L}]", "");
+        return NON_LETTER.matcher(string.toLowerCase()).replaceAll("");
     }
 
     private static boolean isClosed(String cleanedWord, String cleanedTranslation) {
@@ -23,7 +26,7 @@ public record Word(String wordToLearn, String translation, int checkedCount, SmR
     }
 
     private static String cleanAccents(String toClean) {
-        return Normalizer.normalize(toClean, Normalizer.Form.NFKD).replaceAll("\\p{M}", "");
+        return ACCENT_MARK.matcher(Normalizer.normalize(toClean, Normalizer.Form.NFKD)).replaceAll("");
     }
 
     public Matching getMatching(String input) {
