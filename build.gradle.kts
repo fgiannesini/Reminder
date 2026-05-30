@@ -1,7 +1,9 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
     java
-    id("org.springframework.boot") version "4.0.6"
-    id("io.spring.dependency-management") version "1.1.7"
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
 }
 
 group = "com.fgiannesini"
@@ -17,29 +19,38 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-restclient")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("com.opencsv:opencsv:5.12.0")
+val mockitoAgent: Configuration by configurations.creating {
+    isCanBeResolved = true
+    isCanBeConsumed = false
+}
 
-    testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
-    testImplementation("org.springframework.boot:spring-boot-starter-restclient-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
-    testImplementation("org.testcontainers:testcontainers-junit-jupiter")
-    testImplementation("org.testcontainers:testcontainers-postgresql")
-    runtimeOnly("org.postgresql:postgresql")
+dependencies {
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.restclient)
+    implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.opencsv)
+
+    testImplementation(libs.spring.boot.test.data.jpa)
+    testImplementation(libs.spring.boot.test.restclient)
+    testImplementation(libs.spring.boot.test.containers)
+    testImplementation(libs.spring.boot.test.webmvc)
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.postgresql)
+    runtimeOnly(libs.postgresql)
+
+    mockitoAgent("org.mockito:mockito-core") { isTransitive = false }
 }
 
 tasks {
     test {
         useJUnitPlatform()
+        jvmArgs("-javaagent:${mockitoAgent.asPath}")
+        testLogging {
+            events("passed", "skipped", "failed")
+            exceptionFormat = TestExceptionFormat.FULL
+        }
     }
-    compileJava {
-        options.encoding = "UTF-8"
-    }
-    compileTestJava {
+    withType<JavaCompile>().configureEach {
         options.encoding = "UTF-8"
     }
 }
