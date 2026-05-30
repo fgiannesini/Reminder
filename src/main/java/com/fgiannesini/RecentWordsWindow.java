@@ -12,7 +12,7 @@ public class RecentWordsWindow {
         if (recentWords.size() > WINDOW_SIZE) recentWords.removeFirst();
     }
 
-    public boolean containsTranslation(String translation) {
-        return recentWords.stream().anyMatch(translation::equals);
+    public boolean contains(String word) {
+        return recentWords.stream().anyMatch(word::equals);
     }
 }

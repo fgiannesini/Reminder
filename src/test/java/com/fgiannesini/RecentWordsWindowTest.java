@@ -2,7 +2,8 @@ package com.fgiannesini;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RecentWordsWindowTest {
 
@@ -10,14 +11,14 @@ class RecentWordsWindowTest {
     void should_contain_added_word() {
         var window = new RecentWordsWindow();
         window.add("desligar");
-        assertTrue(window.containsTranslation("desligar"));
+        assertTrue(window.contains("desligar"));
     }
 
     @Test
     void should_not_contain_word_not_added() {
         var window = new RecentWordsWindow();
         window.add("desligar");
-        assertFalse(window.containsTranslation("acender"));
+        assertFalse(window.contains("acender"));
     }
 
     @Test
@@ -25,7 +26,7 @@ class RecentWordsWindowTest {
         var window = new RecentWordsWindow();
         window.add("evicted");
         for (int i = 0; i < 10; i++) window.add("word" + i);
-        assertFalse(window.containsTranslation("evicted"));
+        assertFalse(window.contains("evicted"));
     }
 
     @Test
@@ -33,6 +34,6 @@ class RecentWordsWindowTest {
         var window = new RecentWordsWindow();
         window.add("kept");
         for (int i = 0; i < 9; i++) window.add("word" + i);
-        assertTrue(window.containsTranslation("kept"));
+        assertTrue(window.contains("kept"));
     }
 }

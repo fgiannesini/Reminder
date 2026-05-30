@@ -66,7 +66,7 @@ public final class Dictionary {
             throw new NoSuchElementException("No eligible words available");
         }
         var filtered = candidates.stream()
-                .filter(w -> !recentWordsWindow.containsTranslation(w.translation()))
+                .filter(w -> !recentWordsWindow.contains(w.translation()))
                 .toList();
         if (!filtered.isEmpty()) candidates = filtered;
         var word = candidates.get(randomProvider.nextInt(candidates.size()));
