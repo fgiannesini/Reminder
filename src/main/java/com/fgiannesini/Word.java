@@ -81,7 +81,4 @@ public record Word(String wordToLearn, String translation, int checkedCount, SmR
         return checked(matching.quality(), now);
     }
 
-    public boolean isSimilarTo(Word word) {
-        return word.translation.equals(this.translation) && word.wordToLearn.equals(this.wordToLearn);
-    }
 }

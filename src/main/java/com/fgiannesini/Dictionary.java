@@ -5,7 +5,9 @@ import com.fgiannesini.storage.StorageHandler;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.random.RandomGenerator;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public final class Dictionary {
@@ -34,21 +36,28 @@ public final class Dictionary {
         return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), SmRepetition.DEFAULT);
     }
 
-    public void load(List<Word> originalWords) {
-        var existingWords = storageHandler.load();
-        var wordsToAdd = originalWords.stream()
-                .filter(word -> existingWords.stream().noneMatch(existingWord -> isWordOrDuplicate(word, existingWord)))
-                .toList();
-        var wordsToAddWithDuplicates = addDuplicates(wordsToAdd);
-        storageHandler.save(wordsToAddWithDuplicates);
-        var wordsToRemove = existingWords.stream()
-                .filter(existingWord -> originalWords.stream().noneMatch(word -> isWordOrDuplicate(word, existingWord)))
-                .toList();
-        storageHandler.delete(wordsToRemove);
+    private static String key(Word w) {
+        return w.wordToLearn() + "|" + w.translation();
     }
 
-    private boolean isWordOrDuplicate(Word word1, Word word2) {
-        return word1.isSimilarTo(word2) || word1.isSimilarTo(buildDuplicate(word2));
+    public void load(List<Word> originalWords) {
+        var existingWords = storageHandler.load();
+
+        Set<String> existingKeys = existingWords.stream()
+                .map(Dictionary::key)
+                .collect(Collectors.toSet());
+        var wordsToAdd = originalWords.stream()
+                .filter(w -> !existingKeys.contains(key(w)) && !existingKeys.contains(key(buildDuplicate(w))))
+                .toList();
+        storageHandler.save(addDuplicates(wordsToAdd));
+
+        Set<String> originalKeys = originalWords.stream()
+                .flatMap(w -> Stream.of(key(w), key(buildDuplicate(w))))
+                .collect(Collectors.toSet());
+        var wordsToRemove = existingWords.stream()
+                .filter(w -> !originalKeys.contains(key(w)))
+                .toList();
+        storageHandler.delete(wordsToRemove);
     }
 
     public Word next() {

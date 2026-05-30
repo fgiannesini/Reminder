@@ -90,20 +90,6 @@ class WordTest {
     }
 
     @Test
-    void should_be_similar() {
-        Word word1 = new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1));
-        Word word2 = new Word("ou seja", "c'est à dire", 1, new SmRepetition(null, 0, 2.5f, 1));
-        Assertions.assertTrue(word1.isSimilarTo(word2));
-    }
-
-    @Test
-    void should_not_be_similar() {
-        Word word1 = new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1));
-        Word word2 = new Word("conferir", "confirmer, vérifier", 0, new SmRepetition(null, 0, 2.5f, 1));
-        Assertions.assertFalse(word1.isSimilarTo(word2));
-    }
-
-    @Test
     void should_reset_in_learning_phase() {
         Word word = new Word("ou seja", "c'est à dire", 1, new SmRepetition(null, 0, 2.5f, 1));
         Word actual = word.reset();
