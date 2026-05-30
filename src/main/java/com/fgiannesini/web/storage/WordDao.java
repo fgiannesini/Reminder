@@ -49,10 +49,8 @@ public final class WordDao {
     }
 
     public Word toWord() {
-        float ef = easeFactor == 0f ? SmRepetition.DEFAULT_EASE_FACTOR : easeFactor;
-        int interval = intervalDays == 0 ? 1 : intervalDays;
         return new Word(word, translation, checkedCount,
-                new SmRepetition(nextReview, smRepetitions, ef, interval));
+                new SmRepetition(nextReview, smRepetitions, easeFactor, intervalDays));
     }
 
     @Override

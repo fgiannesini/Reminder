@@ -4,9 +4,8 @@ import java.time.LocalDateTime;
 
 public record SmRepetition(LocalDateTime nextReview, int repetitions, float easeFactor, int intervalDays) {
 
-    public static final float DEFAULT_EASE_FACTOR = 2.5f;
     public static final int MASTERY_REPETITIONS = 8;
-    public static final SmRepetition DEFAULT = new SmRepetition(null, 0, DEFAULT_EASE_FACTOR, 1);
+    public static final SmRepetition DEFAULT = new SmRepetition(null, 0, 2.5f, 1);
 
     private static final int FIRST_INTERVAL_DAYS = 1;
     private static final int SECOND_INTERVAL_DAYS = 6;
