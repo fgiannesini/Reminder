@@ -3,6 +3,7 @@ package com.fgiannesini.web.storage;
 import com.fgiannesini.SmRepetition;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
+import com.fgiannesini.storage.WordKey;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,6 +20,13 @@ public class DatabaseStorageHandler implements StorageHandler {
     @Override
     public List<Word> load() {
         return wordRepository.findAll().stream().map(WordDao::toWord).toList();
+    }
+
+    @Override
+    public List<WordKey> loadKeys() {
+        return wordRepository.findAllProjectedBy().stream()
+                .map(p -> new WordKey(p.getWord(), p.getTranslation()))
+                .toList();
     }
 
     @Override
@@ -50,8 +58,8 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public void delete(List<Word> wordsToDelete) {
-        wordRepository.deleteAll(wordsToDelete.stream().map(WordDao::fromWord).toList());
+    public void delete(List<WordKey> wordsToDelete) {
+        wordRepository.deleteAllById(wordsToDelete.stream().map(WordKey::wordToLearn).toList());
     }
 
     @Override

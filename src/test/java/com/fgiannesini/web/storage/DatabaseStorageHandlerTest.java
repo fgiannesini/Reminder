@@ -3,6 +3,7 @@ package com.fgiannesini.web.storage;
 import com.fgiannesini.SmRepetition;
 import com.fgiannesini.Word;
 import com.fgiannesini.storage.StorageHandler;
+import com.fgiannesini.storage.WordKey;
 import com.fgiannesini.web.TestContainerIntegrationTest;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
@@ -102,8 +103,8 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
     @Transactional
     void should_delete() {
         storageHandler.delete(List.of(
-                new Word("ao inves, em vez de", "au lieu de", 0, new SmRepetition(null, 0, 2.5f, 1)),
-                new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1))
+                new WordKey("ao inves, em vez de", "au lieu de"),
+                new WordKey("ou seja", "c'est à dire")
         ));
 
         var actual = storageHandler.load();

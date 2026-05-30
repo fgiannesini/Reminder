@@ -21,6 +21,8 @@ public interface WordRepository extends JpaRepository<WordDao, String> {
             """, nativeQuery = true)
     List<WordDao> getTopOrderByNextReview(@Param("limit") int limit, @Param("now") LocalDateTime now, @Param("masteryRepetitions") int masteryRepetitions);
 
+    List<WordKeyProjection> findAllProjectedBy();
+
     long countByNextReviewIsNull();
 
     long countBySmRepetitionsGreaterThanEqualAndSmRepetitionsLessThan(int minSmRepetitions, int maxSmRepetitions);

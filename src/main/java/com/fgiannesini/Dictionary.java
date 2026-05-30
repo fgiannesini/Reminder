@@ -36,26 +36,27 @@ public final class Dictionary {
         return new Word(word.translation(), word.wordToLearn(), word.checkedCount(), SmRepetition.DEFAULT);
     }
 
-    private static String key(Word w) {
-        return w.wordToLearn() + "|" + w.translation();
+    private static String key(String wordToLearn, String translation) {
+        return wordToLearn + "|" + translation;
     }
 
     public void load(List<Word> originalWords) {
-        var existingWords = storageHandler.load();
+        var existingKeys = storageHandler.loadKeys();
 
-        Set<String> existingKeys = existingWords.stream()
-                .map(Dictionary::key)
+        Set<String> existingKeySet = existingKeys.stream()
+                .map(wk -> key(wk.wordToLearn(), wk.translation()))
                 .collect(Collectors.toSet());
         var wordsToAdd = originalWords.stream()
-                .filter(w -> !existingKeys.contains(key(w)) && !existingKeys.contains(key(buildDuplicate(w))))
+                .filter(w -> !existingKeySet.contains(key(w.wordToLearn(), w.translation()))
+                        && !existingKeySet.contains(key(w.translation(), w.wordToLearn())))
                 .toList();
         storageHandler.save(addDuplicates(wordsToAdd));
 
-        Set<String> originalKeys = originalWords.stream()
-                .flatMap(w -> Stream.of(key(w), key(buildDuplicate(w))))
+        Set<String> originalKeySet = originalWords.stream()
+                .flatMap(w -> Stream.of(key(w.wordToLearn(), w.translation()), key(w.translation(), w.wordToLearn())))
                 .collect(Collectors.toSet());
-        var wordsToRemove = existingWords.stream()
-                .filter(w -> !originalKeys.contains(key(w)))
+        var wordsToRemove = existingKeys.stream()
+                .filter(wk -> !originalKeySet.contains(key(wk.wordToLearn(), wk.translation())))
                 .toList();
         storageHandler.delete(wordsToRemove);
     }

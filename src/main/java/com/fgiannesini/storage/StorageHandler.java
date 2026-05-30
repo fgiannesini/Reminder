@@ -8,6 +8,8 @@ import java.util.List;
 public interface StorageHandler {
     List<Word> load();
 
+    List<WordKey> loadKeys();
+
     void save(List<Word> words);
 
     Word find(String wordToLearn);
@@ -16,7 +18,7 @@ public interface StorageHandler {
 
     List<Word> getNextWords(int limit, LocalDateTime localDateTime);
 
-    void delete(List<Word> word);
+    void delete(List<WordKey> words);
 
     long getRemainingWordsCountToLearn();
 

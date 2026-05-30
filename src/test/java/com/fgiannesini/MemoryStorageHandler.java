@@ -1,10 +1,12 @@
 package com.fgiannesini;
 
 import com.fgiannesini.storage.StorageHandler;
+import com.fgiannesini.storage.WordKey;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MemoryStorageHandler implements StorageHandler {
@@ -19,6 +21,13 @@ public class MemoryStorageHandler implements StorageHandler {
     @Override
     public List<Word> load() {
         return this.words;
+    }
+
+    @Override
+    public List<WordKey> loadKeys() {
+        return this.words.stream()
+                .map(w -> new WordKey(w.wordToLearn(), w.translation()))
+                .toList();
     }
 
     @Override
@@ -45,8 +54,9 @@ public class MemoryStorageHandler implements StorageHandler {
     }
 
     @Override
-    public void delete(List<Word> word) {
-        this.words.removeAll(word);
+    public void delete(List<WordKey> keys) {
+        Set<String> toRemove = keys.stream().map(WordKey::wordToLearn).collect(Collectors.toSet());
+        this.words.removeIf(w -> toRemove.contains(w.wordToLearn()));
     }
 
     @Override
