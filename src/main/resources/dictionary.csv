@@ -75,7 +75,7 @@ regra;règle
 miúdo;petit, gamin, (familier)
 bloquear;bloquer
 descalço;déchaussé, nu-pieds
-domínio;domaine
+domínio;domaine, (maîtrise)
 muitas vezes;souvent
 carregar;charger, appuyer
 dar com a língua nos dentes;raconter un secret
@@ -204,7 +204,7 @@ legado;héritage, (symbolique)
 prestes a;prêt à
 sequer;même pas, ne serait-ce que, au moins
 necessidade;nécessité, besoin
-padrinho;parrain
+padrinho;parrain, (famille)
 agradável;agréable
 fato;costume, (vêtement), fait
 recuar;reculer
@@ -524,7 +524,6 @@ comércio;commerce
 cascata;cascade, chute d'eau, cascades
 nevar;neiger
 mar;mer
-temporal;tempête
 litoral;littoral
 rocha;roche
 neve;neige
@@ -568,7 +567,7 @@ publicidade;publicité
 torre;tour, (édifice)
 entendimento;compréhension
 síntese;synthèse
-barulho;bruit
+barulho;bruit, (vacarme)
 agência;agence
 interpretação;interprétation
 imprimir;imprimer
@@ -688,7 +687,7 @@ dignidade;dignité
 transporte;transport
 opinião;avis, opinion
 atitude;attitude
-vantagem;avantage
+vantagem;avantage, (point positif)
 história;histoire
 crítico;critique
 virtude;vertu
@@ -1535,7 +1534,7 @@ quase;presque, quasiment
 menos;moins
 dentro;à l'intérieur, dedans, dans
 igualmente;également, pareillement
-mais;plus, davantage
+mais, (conjonction, pt);plus, davantage
 exatamente;exactement
 finalmente;enfin, finalement
 facilmente;facilement
@@ -1881,7 +1880,7 @@ sem;sans
 sobre;sur, au sujet de
 durante;durant, pendant
 apesar;malgré
-mas;mais
+mas;mais, (conjonction, fr)
 ou;ou
 daí;donc, d'où
 lilás;lilas
@@ -2440,7 +2439,7 @@ sítio;site
 riscar;rayer
 saquinho;petit sac
 escachar;fendre
-amolar;aiguiser
+amolar;aiguiser, (une lame)
 acaso;hasard
 mármore;marbre
 marfim;ivoire
@@ -3063,9 +3062,9 @@ cartaz;affiche
 bêbado;ivre
 reino;royaume
 aquando;à l’occasion de
-atropelar;renverser
+atropelar;renverser, (quelqu'un)
 champanhe;champagne
-patrocinador;parrain
+patrocinador;parrain, (sponsor)
 cumprir;accomplir
 silva;ronce
 cunha;cale
@@ -3080,7 +3079,7 @@ estalar;craquer
 rajada;rafale
 raposa;renard
 esquilo;écureuil
-regalia;avantage
+regalia;avantage, (privilège)
 milagre;miracle
 antemão;à l'avance
 apurar;déterminer
@@ -3109,25 +3108,24 @@ mediaçao;mediation
 sereia;sirène
 serradura;sciure
 expor;exposer
-aguçar;aiguiser
+aguçar;aiguiser, (les sens)
 engenho;engin
 soro;serum
 mexilhão;moule
 calhau;cailloux
 coruja;hibou
 rabeca;violon
-ruído;bruit
-superar;surmonter
+ruído;bruit, (technique, mecanique)
 gabinete;bureau, (cabinet)
 aninhar-se;nicher
 acompanhar;accompagner
 espargo;asperge
-âmbito;domaine
+âmbito;domaine, (cadre, champ)
 esparguete;spaghetti
 dividir;diviser
 cansativo;fatigant
 tampouco;non plus
-tempestade;tempête
+tempestade, temporal;tempête
 dizimar;décimer
 texugo;blaireau
 veado;cerf
