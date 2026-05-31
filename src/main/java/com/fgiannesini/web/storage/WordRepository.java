@@ -16,7 +16,7 @@ public interface WordRepository extends JpaRepository<WordDao, String> {
             FROM word w
             WHERE w.sm_repetitions < :masteryRepetitions
               AND (w.next_review is null or w.next_review <= :now)
-            ORDER BY w.next_review IS NULL DESC, w.next_review ASC
+            ORDER BY w.next_review IS NULL ASC, w.next_review ASC, w.checked_count DESC
             LIMIT :limit
             """, nativeQuery = true)
     List<WordDao> getTopOrderByNextReview(@Param("limit") int limit, @Param("now") LocalDateTime now, @Param("masteryRepetitions") int masteryRepetitions);

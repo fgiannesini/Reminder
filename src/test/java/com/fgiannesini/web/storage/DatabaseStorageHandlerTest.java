@@ -57,17 +57,18 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
 
     @Test
     @Transactional
-    void should_get_next_words_ordered_by_next_review_null_first() {
-        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1)));
+    void should_get_confirmation_words_before_learning_words_ordered_by_checked_count() {
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1)));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)));
+        storageHandler.update(new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)));
 
         var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 11, 0, 0));
 
         var expected = List.of(
-                new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
-                new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1)),
                 new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)),
-                new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1))
+                new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 1, 2.5f, 1)),
+                new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)),
+                new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1))
         );
         Assertions.assertEquals(expected, actual);
     }
@@ -75,7 +76,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
     @Test
     @Transactional
     void should_exclude_mastered_words() {
-        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 8, 2.5f, 1)));
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 8, 2.5f, 1)));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 8, 2.5f, 1)));
 
         var actual = storageHandler.getNextWords(4, LocalDateTime.now());
@@ -90,7 +91,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
     @Test
     @Transactional
     void should_exclude_words_with_future_next_review() {
-        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 2, new SmRepetition(LocalDateTime.of(2024, 7, 10, 13, 18, 0), 1, 2.5f, 1)));
+        storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 10, 13, 18, 0), 1, 2.5f, 1)));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 15, 13, 18, 0), 1, 2.5f, 1)));
 
         var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 9, 0, 0));
