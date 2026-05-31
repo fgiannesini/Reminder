@@ -18,11 +18,6 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> load() {
-        return wordRepository.findAll().stream().map(WordDao::toWord).toList();
-    }
-
-    @Override
     public List<WordKey> loadKeys() {
         return wordRepository.findAllProjectedBy().stream()
                 .map(p -> new WordKey(p.getWord(), p.getTranslation()))

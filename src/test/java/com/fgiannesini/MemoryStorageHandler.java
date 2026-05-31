@@ -18,8 +18,7 @@ public class MemoryStorageHandler implements StorageHandler {
         this.words = Arrays.stream(words).collect(Collectors.toList());
     }
 
-    @Override
-    public List<Word> load() {
+    public List<Word> getWords() {
         return this.words;
     }
 

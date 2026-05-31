@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface StorageHandler {
-    List<Word> load();
-
     List<WordKey> loadKeys();
 
     void save(List<Word> words);

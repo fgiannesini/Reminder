@@ -18,6 +18,9 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
     @Autowired
     private StorageHandler storageHandler;
 
+    @Autowired
+    private WordRepository wordRepository;
+
     @Test
     @Transactional
     void Should_save_and_load_words() {
@@ -27,7 +30,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         );
         this.storageHandler.save(words);
 
-        var actual = this.storageHandler.load();
+        var actual = wordRepository.findAll().stream().map(WordDao::toWord).toList();
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
                 new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1)),
@@ -107,7 +110,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
                 new WordKey("ou seja", "c'est à dire")
         ));
 
-        var actual = storageHandler.load();
+        var actual = wordRepository.findAll().stream().map(WordDao::toWord).toList();
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
                 new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1))

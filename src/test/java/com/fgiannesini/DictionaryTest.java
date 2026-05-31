@@ -17,7 +17,7 @@ class DictionaryTest {
 
         var expected = List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("au lieu de", "ao inves, em vez de"), new Word("ou seja", "c'est à dire"), new Word("c'est à dire", "ou seja"));
 
-        Assertions.assertEquals(expected, storageHandler.load());
+        Assertions.assertEquals(expected, storageHandler.getWords());
     }
 
     @Test
@@ -29,7 +29,7 @@ class DictionaryTest {
         dictionary.load(List.of(new Word("ao inves, em vez de", "au lieu de"), new Word("ou seja", "c'est à dire")));
 
         var expected = List.of(new Word("ao inves, em vez de", "au lieu de", 1, new SmRepetition(null, 0, 2.5f, 1)), new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)), new Word("ou seja", "c'est à dire", 0, new SmRepetition(null, 0, 2.5f, 1)), new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1)));
-        Assertions.assertEquals(expected, storageHandler.load());
+        Assertions.assertEquals(expected, storageHandler.getWords());
     }
 
     @Test
