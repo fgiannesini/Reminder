@@ -24,10 +24,9 @@ public final class Dictionary {
 
     private static List<Word> addDuplicates(List<Word> words) {
         return words.stream()
-                .flatMap(word -> Stream.of(
-                        word,
-                        buildDuplicate(word)
-                ))
+                .flatMap(word -> word.wordToLearn().equals(word.translation())
+                        ? Stream.of(word)
+                        : Stream.of(word, buildDuplicate(word)))
                 .toList();
     }
 

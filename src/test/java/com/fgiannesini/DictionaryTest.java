@@ -73,6 +73,15 @@ class DictionaryTest {
     }
 
     @Test
+    void should_create_single_entry_when_word_equals_translation() {
+        var storageHandler = new MemoryStorageHandler();
+        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
+        dictionary.load(List.of(new Word("volume", "volume")));
+
+        Assertions.assertEquals(List.of(new Word("volume", "volume")), storageHandler.getWords());
+    }
+
+    @Test
     void should_throw_exception_when_no_eligible_words() {
         var dictionary = new Dictionary(new NextGenerator(), new MemoryStorageHandler(), new RecentWordsWindow());
         Assertions.assertThrows(NoSuchElementException.class, dictionary::next);
