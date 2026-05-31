@@ -5,7 +5,6 @@ import com.fgiannesini.storage.StorageHandler;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Set;
 import java.util.random.RandomGenerator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -43,7 +42,7 @@ public final class Dictionary {
     public void load(List<Word> originalWords) {
         var existingKeys = storageHandler.loadKeys();
 
-        Set<String> existingKeySet = existingKeys.stream()
+        var existingKeySet = existingKeys.stream()
                 .map(wk -> key(wk.wordToLearn(), wk.translation()))
                 .collect(Collectors.toSet());
         var wordsToAdd = originalWords.stream()
@@ -52,7 +51,7 @@ public final class Dictionary {
                 .toList();
         storageHandler.save(addDuplicates(wordsToAdd));
 
-        Set<String> originalKeySet = originalWords.stream()
+        var originalKeySet = originalWords.stream()
                 .flatMap(w -> Stream.of(key(w.wordToLearn(), w.translation()), key(w.translation(), w.wordToLearn())))
                 .collect(Collectors.toSet());
         var wordsToRemove = existingKeys.stream()
