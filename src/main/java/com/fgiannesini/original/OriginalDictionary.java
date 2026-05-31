@@ -9,7 +9,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class OriginalDictionary {
 
@@ -25,6 +29,17 @@ public class OriginalDictionary {
                 .peek(CsvOriginalWord::check)
                 .map(CsvOriginalWord::toWord)
                 .toList();
+    }
+
+    public Map<String, List<Word>> findDuplicates(List<Word> words) {
+        Map<String, List<Word>> groups = new LinkedHashMap<>();
+        for (Word word : words) {
+            groups.computeIfAbsent(word.wordToLearn(), k -> new ArrayList<>()).add(word);
+            groups.computeIfAbsent(word.translation(), k -> new ArrayList<>()).add(word);
+        }
+        return groups.entrySet().stream()
+                .filter(e -> e.getValue().size() > 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
     }
 
     private List<CsvOriginalWord> readCsvFile(InputStream inputStream) throws IOException {
