@@ -9,6 +9,10 @@ plugins {
 group = "com.fgiannesini"
 version = "1.0"
 
+springBoot {
+    mainClass.set("com.fgiannesini.web.SpringMain")
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
