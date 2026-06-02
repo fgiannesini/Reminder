@@ -24,7 +24,10 @@ public class ReminderControllerIntegrationTest implements TestContainerIntegrati
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(WordDto.class)
-                .value(dto -> Assertions.assertFalse(dto.value().isBlank()));
+                .value(dto -> {
+                    Assertions.assertNotNull(dto);
+                    Assertions.assertFalse(dto.value().isBlank());
+                });
     }
 
     @Test
