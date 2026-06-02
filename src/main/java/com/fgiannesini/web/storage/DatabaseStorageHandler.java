@@ -6,6 +6,7 @@ import com.fgiannesini.storage.StorageHandler;
 import com.fgiannesini.storage.WordKey;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -45,8 +46,9 @@ public class DatabaseStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
-        return wordRepository.getTopOrderByNextReview(limit, localDateTime, SmRepetition.MASTERY_REPETITIONS)
+    public List<Word> getNextWords(int limit, LocalDateTime localDateTime, Collection<String> excludedTranslations) {
+        var exclusion = excludedTranslations.isEmpty() ? List.of("") : excludedTranslations;
+        return wordRepository.getTopOrderByNextReview(limit, localDateTime, SmRepetition.MASTERY_REPETITIONS, exclusion)
                 .stream()
                 .map(WordDao::toWord)
                 .toList();

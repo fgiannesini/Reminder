@@ -5,6 +5,7 @@ import com.fgiannesini.storage.WordKey;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -45,10 +46,11 @@ public class MemoryStorageHandler implements StorageHandler {
     }
 
     @Override
-    public List<Word> getNextWords(int limit, LocalDateTime localDateTime) {
+    public List<Word> getNextWords(int limit, LocalDateTime localDateTime, Collection<String> excludedTranslations) {
         return this.words.stream()
                 .filter(w -> !w.isMastered())
                 .filter(w -> w.smRepetition().nextReview() == null || !w.smRepetition().nextReview().isAfter(localDateTime))
+                .filter(w -> !excludedTranslations.contains(w.translation()))
                 .toList();
     }
 

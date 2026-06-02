@@ -62,7 +62,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)));
         storageHandler.update(new Word("au lieu de", "ao inves, em vez de", 2, new SmRepetition(null, 0, 2.5f, 1)));
 
-        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 11, 0, 0));
+        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 11, 0, 0), List.of());
 
         var expected = List.of(
                 new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 1, 2.5f, 1)),
@@ -79,7 +79,7 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 3, 13, 18, 0), 8, 2.5f, 1)));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 2, 13, 18, 0), 8, 2.5f, 1)));
 
-        var actual = storageHandler.getNextWords(4, LocalDateTime.now());
+        var actual = storageHandler.getNextWords(4, LocalDateTime.now(), List.of());
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
@@ -94,13 +94,33 @@ class DatabaseStorageHandlerTest implements TestContainerIntegrationTest {
         storageHandler.update(new Word("ao inves, em vez de", "au lieu de", 3, new SmRepetition(LocalDateTime.of(2024, 7, 10, 13, 18, 0), 1, 2.5f, 1)));
         storageHandler.update(new Word("ou seja", "c'est à dire", 3, new SmRepetition(LocalDateTime.of(2024, 7, 15, 13, 18, 0), 1, 2.5f, 1)));
 
-        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 9, 0, 0));
+        var actual = storageHandler.getNextWords(4, LocalDateTime.of(2024, 7, 9, 0, 0), List.of());
 
         var expected = List.of(
                 new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
                 new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1))
         );
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Transactional
+    void should_exclude_words_by_translation() {
+        var actual = storageHandler.getNextWords(4, LocalDateTime.now(), List.of("c'est à dire"));
+
+        var expected = List.of(
+                new Word("ao inves, em vez de", "au lieu de", 0, new SmRepetition(null, 0, 2.5f, 1)),
+                new Word("au lieu de", "ao inves, em vez de", 0, new SmRepetition(null, 0, 2.5f, 1)),
+                new Word("c'est à dire", "ou seja", 0, new SmRepetition(null, 0, 2.5f, 1))
+        );
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Transactional
+    void should_return_empty_when_all_translations_excluded() {
+        var actual = storageHandler.getNextWords(4, LocalDateTime.now(), List.of("au lieu de", "ao inves, em vez de", "c'est à dire", "ou seja"));
+        Assertions.assertTrue(actual.isEmpty());
     }
 
     @Test

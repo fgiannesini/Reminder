@@ -44,6 +44,21 @@ class DictionaryTest {
     }
 
     @Test
+    void should_not_return_inverse_of_recently_seen_word_when_other_words_available() {
+        var dictionary = new Dictionary(new NextGenerator(),
+                new MemoryStorageHandler(
+                        new Word("desligar", "éteindre"),
+                        new Word("éteindre", "desligar"),
+                        new Word("acender", "allumer")),
+                new RecentWordsWindow());
+
+        dictionary.next();
+        var second = dictionary.next();
+
+        Assertions.assertNotEquals(new Word("éteindre", "desligar"), second);
+    }
+
+    @Test
     void should_fallback_to_inverse_when_no_other_word_available() {
         var recentWordsWindow = new RecentWordsWindow();
         recentWordsWindow.add("éteindre");

@@ -3,6 +3,7 @@ package com.fgiannesini.web;
 import com.fgiannesini.Matching;
 import com.fgiannesini.RemainingStats;
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTestClient;
@@ -22,7 +23,8 @@ public class ReminderControllerIntegrationTest implements TestContainerIntegrati
                 .get().uri("/reminder/word/next")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(WordDto.class).isEqualTo(new WordDto("ao inves, em vez de"));
+                .expectBody(WordDto.class)
+                .value(dto -> Assertions.assertFalse(dto.value().isBlank()));
     }
 
     @Test

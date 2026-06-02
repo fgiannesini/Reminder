@@ -60,14 +60,14 @@ public final class Dictionary {
     }
 
     public Word next() {
-        var candidates = storageHandler.getNextWords(SELECTION_WINDOW, LocalDateTime.now());
+        var now = LocalDateTime.now();
+        var candidates = storageHandler.getNextWords(SELECTION_WINDOW, now, recentWordsWindow.getWordsForExclusion());
+        if (candidates.isEmpty()) {
+            candidates = storageHandler.getNextWords(SELECTION_WINDOW, now, List.of());
+        }
         if (candidates.isEmpty()) {
             throw new NoSuchElementException("No eligible words available");
         }
-        var filtered = candidates.stream()
-                .filter(w -> !recentWordsWindow.contains(w.translation()))
-                .toList();
-        if (!filtered.isEmpty()) candidates = filtered;
         var word = candidates.get(randomProvider.nextInt(candidates.size()));
         recentWordsWindow.add(word.wordToLearn());
         return word;

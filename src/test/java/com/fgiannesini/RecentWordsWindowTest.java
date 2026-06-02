@@ -2,8 +2,9 @@ package com.fgiannesini;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class RecentWordsWindowTest {
 
@@ -25,7 +26,7 @@ class RecentWordsWindowTest {
     void should_evict_oldest_word_after_window_size() {
         var window = new RecentWordsWindow();
         window.add("evicted");
-        for (int i = 0; i < 10; i++) window.add("word" + i);
+        for (int i = 0; i < RecentWordsWindow.WINDOW_SIZE; i++) window.add("word" + i);
         assertFalse(window.contains("evicted"));
     }
 
@@ -33,7 +34,21 @@ class RecentWordsWindowTest {
     void should_keep_word_within_window_size() {
         var window = new RecentWordsWindow();
         window.add("kept");
-        for (int i = 0; i < 9; i++) window.add("word" + i);
+        for (int i = 0; i < RecentWordsWindow.WINDOW_SIZE - 1; i++) window.add("word" + i);
         assertTrue(window.contains("kept"));
+    }
+
+    @Test
+    void should_return_empty_list_when_no_words_added() {
+        var window = new RecentWordsWindow();
+        assertEquals(List.of(), window.getWordsForExclusion());
+    }
+
+    @Test
+    void should_return_recent_words_for_exclusion() {
+        var window = new RecentWordsWindow();
+        window.add("desligar");
+        window.add("acender");
+        assertEquals(List.of("desligar", "acender"), window.getWordsForExclusion());
     }
 }
