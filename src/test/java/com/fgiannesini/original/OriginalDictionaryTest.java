@@ -78,5 +78,11 @@ class OriginalDictionaryTest {
             var wordB = new Word("éclairer", "allumer");
             Assertions.assertTrue(originalDictionary.findDuplicates(List.of(wordA, wordB)).isEmpty());
         }
+
+        @Test
+        void should_not_detect_as_duplicate_when_word_equals_translation() {
+            var word = new Word("internet", "internet");
+            Assertions.assertTrue(originalDictionary.findDuplicates(List.of(word)).isEmpty());
+        }
     }
 }

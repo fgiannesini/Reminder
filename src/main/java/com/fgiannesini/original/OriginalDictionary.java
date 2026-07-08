@@ -34,12 +34,14 @@ public class OriginalDictionary {
     public Map<String, List<Word>> findDuplicates(List<Word> words) {
         Map<String, List<Word>> groups = new LinkedHashMap<>();
         for (Word word : words) {
-            groups.computeIfAbsent(word.wordToLearn(), k -> new ArrayList<>()).add(word);
-            groups.computeIfAbsent(word.translation(), k -> new ArrayList<>()).add(word);
+            groups.computeIfAbsent(word.wordToLearn(), _ -> new ArrayList<>()).add(word);
+            if (!word.translation().equals(word.wordToLearn())) {
+                groups.computeIfAbsent(word.translation(), _ -> new ArrayList<>()).add(word);
+            }
         }
         return groups.entrySet().stream()
                 .filter(e -> e.getValue().size() > 1)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, _) -> a, LinkedHashMap::new));
     }
 
     private List<CsvOriginalWord> readCsvFile(InputStream inputStream) throws IOException {
