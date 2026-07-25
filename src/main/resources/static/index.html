@@ -360,7 +360,7 @@
         nextBtn.classList.remove('loading');
         nextBtn.disabled = false;
         requestAnimationFrame(() => wordSpan.style.opacity = '');
-        if (matchMedia('(hover: hover)').matches) translation.focus();
+        translation.focus();
     };
 
     const submitTranslation = async () => {
