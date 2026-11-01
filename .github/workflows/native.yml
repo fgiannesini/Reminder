@@ -22,6 +22,22 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Check vendored BeerCSS is in sync with package.json
+        run: |
+          npm run vendor
+          git diff --exit-code -- src/main/resources/static/vendor
+
+      - name: Frontend tests
+        run: npm test
+
       - name: Test
         run: ./gradlew test
 
