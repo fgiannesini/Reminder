@@ -16,7 +16,7 @@ public class NativeHints {
         @Override
         public void registerHints(RuntimeHints hints, @Nullable ClassLoader classLoader) {
             hints.resources().registerPattern("dictionary.csv");
-            hints.resources().registerPattern("static/*");
+            hints.resources().registerPattern("static/**");
             hints.resources().registerResourceBundle("opencsv");
             hints.reflection().registerType(CsvOriginalWord.class, MemberCategory.values());
         }
