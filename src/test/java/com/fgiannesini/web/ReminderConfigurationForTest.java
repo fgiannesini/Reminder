@@ -8,8 +8,6 @@ import com.fgiannesini.storage.StorageHandler;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
-import java.io.IOException;
-
 @TestConfiguration
 public class ReminderConfigurationForTest {
 
@@ -20,10 +18,7 @@ public class ReminderConfigurationForTest {
     }
 
     @Bean
-    public Dictionary dictionary(StorageHandler storageHandler, OriginalDictionary originalDictionary) throws IOException {
-        var dictionary = new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
-        var originalWords = originalDictionary.load();
-        dictionary.load(originalWords);
-        return dictionary;
+    public Dictionary dictionary(StorageHandler storageHandler) {
+        return new Dictionary(new NextGenerator(), storageHandler, new RecentWordsWindow());
     }
 }
