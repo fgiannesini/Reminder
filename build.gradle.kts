@@ -24,7 +24,7 @@ repositories {
     mavenCentral()
 }
 
-val mockitoAgent: Configuration by configurations.creating {
+val mockitoAgent: Configuration = configurations.create("mockitoAgent") {
     isCanBeResolved = true
     isCanBeConsumed = false
 }
