@@ -1,1 +1,0 @@
-web: java -jar build/libs/Reminder-1.0.jar
