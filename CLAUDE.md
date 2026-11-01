@@ -14,8 +14,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Run a single test class
 ./gradlew test --tests "com.fgiannesini.DictionaryTest"
 
-# Run the application (after build)
+# Run the application on the JVM (after build)
 java -jar build/libs/Reminder-1.0.jar
+
+# Build the GraalVM native image (needs Docker, ~13 min, 8 GB RAM advised)
+docker build -t reminder-native:local .
 ```
 
 The application requires a PostgreSQL database. Set these environment variables before running:
@@ -70,5 +73,10 @@ directions are practiced.
 
 **Tech stack:** Java 25, Spring Boot 4.x, Spring Data JPA / Hibernate, PostgreSQL, OpenCSV, JUnit 5, TestContainers.
 
-**Build:** Gradle 9.5.1 with Kotlin DSL. Versions centralized in `gradle/libs.versions.toml`. Build cache, parallel
+**Build:** Gradle 9.8.2 with Kotlin DSL. Versions centralized in `gradle/libs.versions.toml`. Build cache, parallel
 execution, and configuration cache enabled via `gradle.properties`.
+
+**Deployment:** GitHub Actions (`.github/workflows/native.yml`) runs the tests on each push to `master`, then builds the
+GraalVM native image (`Dockerfile`) and pushes it to `ghcr.io/<owner>/reminder:latest`. Koyeb runs this Docker image
+(port 8000, `POSTGRES_*` variables set in Koyeb). Native hints live in `web/NativeHints.java`: any new reflection,
+resource or serialized DTO may need a hint. Startup is ~0.5 s native versus ~16 s on the JVM.
