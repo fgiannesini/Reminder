@@ -3,9 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vendor": "node scripts/vendor-beercss.mjs"
+    "vendor": "node scripts/vendor-beercss.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
-    "beercss": "5.0.3"
+    "beercss": "5.0.3",
+    "happy-dom": "^21.0.4",
+    "vitest": "^5.0.5"
   }
 }
