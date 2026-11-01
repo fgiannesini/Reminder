@@ -30,7 +30,6 @@ val mockitoAgent: Configuration by configurations.creating {
 
 dependencies {
     implementation(libs.spring.boot.starter.web)
-    implementation(libs.spring.boot.starter.restclient)
     implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.opencsv)
 
