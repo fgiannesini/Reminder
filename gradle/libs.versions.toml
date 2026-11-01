@@ -2,6 +2,7 @@
 spring-boot = "4.1.2"
 spring-dependency-management = "1.1.7"
 opencsv = "5.12.0"
+graalvm-native = "1.1.14"
 
 [libraries]
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
@@ -18,3 +19,4 @@ postgresql = { module = "org.postgresql:postgresql" }
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+graalvm-native = { id = "org.graalvm.buildtools.native", version.ref = "graalvm-native" }
