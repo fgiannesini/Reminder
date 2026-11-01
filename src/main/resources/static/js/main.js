@@ -1,5 +1,8 @@
 import {createApi} from './api.js';
+import {applySystemTheme} from './theme.js';
 import {createView} from './view.js';
+
+applySystemTheme();
 
 const api = createApi();
 const view = createView();

@@ -1,0 +1,11 @@
+{
+  "name": "reminder-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor-beercss.mjs"
+  },
+  "devDependencies": {
+    "beercss": "5.0.3"
+  }
+}

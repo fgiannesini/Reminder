@@ -1,0 +1,115 @@
+/* Overrides on top of BeerCSS (vendor/beer.min.css). Keep this file small. */
+
+.app {
+    max-inline-size: 30rem;
+    padding-block: 1.5rem;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+}
+
+.stats .chip:empty {
+    display: none;
+}
+
+.field-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--on-surface-variant);
+}
+
+#word-to-learn-span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+#real-translation-span {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#result-feedback {
+    min-block-size: 4.5rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Feedback states: semantic colours that stay readable in light and dark themes */
+#result-feedback.matched {
+    --state: #2e7d32;
+}
+
+#result-feedback.closed {
+    --state: #f59e0b;
+}
+
+#result-feedback.not-matched {
+    --state: #e53935;
+}
+
+#result-feedback.matched,
+#result-feedback.closed,
+#result-feedback.not-matched {
+    border-color: var(--state);
+    background-color: color-mix(in srgb, var(--state) 16%, var(--surface));
+}
+
+#result-feedback.matched .field-label::before {
+    content: '✓ ';
+}
+
+#result-feedback.closed .field-label::before {
+    content: '– ';
+}
+
+#result-feedback.not-matched .field-label::before {
+    content: '✗ ';
+}
+
+/* Spinner shown inside a button while a request is in flight */
+@keyframes btn-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+button.loading {
+    pointer-events: none;
+}
+
+button.loading::after {
+    content: '';
+    display: inline-block;
+    inline-size: 0.85em;
+    block-size: 0.85em;
+    margin-inline-start: 0.5rem;
+    border: 2px solid color-mix(in srgb, currentColor 35%, transparent);
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: btn-spin 0.65s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Landscape mobile: keep the feedback visible above the keyboard */
+@media (max-height: 500px) and (orientation: landscape) {
+    .app {
+        padding-block: 0.75rem;
+    }
+
+    .stats {
+        margin-block-end: 0.5rem;
+    }
+}
