@@ -5,3 +5,6 @@ spring.datasource:
   url: ${POSTGRES_url}
   username: ${POSTGRES_username}
   password: ${POSTGRES_password}
+  hikari:
+    maximum-pool-size: 3
+    minimum-idle: 1
