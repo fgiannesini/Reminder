@@ -21,7 +21,14 @@ export const createView = (doc = document) => {
         learnedBadge: byId('learned-badge'),
     };
 
+    // A single action button is shown at a time: "Valider" while answering, "Suivant" once checked
+    const setStep = (checked) => {
+        el.submit.hidden = checked;
+        el.next.hidden = !checked;
+    };
+
     const hideFeedback = () => {
+        setStep(false);
         el.feedback.style.visibility = 'hidden';
         el.feedback.classList.remove(...ALL_FEEDBACK_CLASSES);
     };
@@ -72,6 +79,7 @@ export const createView = (doc = document) => {
 
         isFeedbackVisible: () => el.feedback.style.visibility !== 'hidden',
         showFeedback: ({matching, realTranslation, learned}) => {
+            setStep(true);
             el.feedback.style.visibility = 'visible';
             el.feedback.classList.remove(...ALL_FEEDBACK_CLASSES);
             const cssClass = feedbackClass(matching);

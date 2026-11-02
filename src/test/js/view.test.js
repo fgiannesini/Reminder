@@ -34,8 +34,8 @@ describe('view', () => {
 
         it('formats the counts', () => {
             view.setStats({countToLearn: 1, countToConfirm: 2});
-            expect(byId('remaining-words-count-to-learn-span').textContent).toBe('1 mot à apprendre.');
-            expect(byId('remaining-words-count-to-confirm-span').textContent).toBe('2 mots en cours de maîtrise.');
+            expect(byId('remaining-words-count-to-learn-span').textContent).toBe('1 à apprendre');
+            expect(byId('remaining-words-count-to-confirm-span').textContent).toBe('2 en maîtrise');
         });
     });
 

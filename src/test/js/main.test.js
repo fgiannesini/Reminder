@@ -42,8 +42,8 @@ describe('main (whole page)', () => {
         await startApp();
 
         expect(byId('word-to-learn-span').textContent).toBe('dog');
-        expect(byId('remaining-words-count-to-learn-span').textContent).toBe('2 mots à apprendre.');
-        expect(byId('remaining-words-count-to-confirm-span').textContent).toBe('1 mot en cours de maîtrise.');
+        expect(byId('remaining-words-count-to-learn-span').textContent).toBe('2 à apprendre');
+        expect(byId('remaining-words-count-to-confirm-span').textContent).toBe('1 en maîtrise');
         expect(document.activeElement).toBe(byId('translation-input'));
     });
 

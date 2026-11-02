@@ -1,43 +1,21 @@
-/* Overrides on top of BeerCSS (vendor/beer.min.css). Keep this file small. */
+/* Overrides on top of BeerCSS (vendor/beer.min.css). Keep this file small: prefer Beer's own classes. */
 
-.app {
-    max-inline-size: 30rem;
-    padding-block: 1.5rem;
+/* Beer buttons set `display`, which beats the UA rule for the `hidden` attribute */
+/* Beer sets footer.fixed to content-box, so 100% width + side padding overflows narrow screens */
+body > footer.fixed {
+    box-sizing: border-box;
 }
 
-.stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-block-end: 1rem;
-}
-
-.stats .chip:empty {
-    display: none;
-}
-
-.field-label {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--on-surface-variant);
+button[hidden] {
+    display: none !important;
 }
 
 #word-to-learn-span {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
     transition: opacity 0.2s;
 }
 
-#real-translation-span {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
 #result-feedback {
-    min-block-size: 4.5rem;
+    min-block-size: 6rem;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -61,16 +39,21 @@
     background-color: color-mix(in srgb, var(--state) 16%, var(--surface));
 }
 
-#result-feedback.matched .field-label::before {
-    content: '✓ ';
+.feedback-icon {
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
-#result-feedback.closed .field-label::before {
-    content: '– ';
+#result-feedback.matched .feedback-icon::before {
+    content: '✓';
 }
 
-#result-feedback.not-matched .field-label::before {
-    content: '✗ ';
+#result-feedback.closed .feedback-icon::before {
+    content: '–';
+}
+
+#result-feedback.not-matched .feedback-icon::before {
+    content: '✗';
 }
 
 /* Spinner shown inside a button while a request is in flight */
@@ -100,16 +83,5 @@ button.loading::after {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
-    }
-}
-
-/* Landscape mobile: keep the feedback visible above the keyboard */
-@media (max-height: 500px) and (orientation: landscape) {
-    .app {
-        padding-block: 0.75rem;
-    }
-
-    .stats {
-        margin-block-end: 0.5rem;
     }
 }

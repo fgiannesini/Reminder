@@ -4,42 +4,49 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Reminder</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/vendor/beer.min.css">
-    <link rel="stylesheet" href="/css/app.css">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="/vendor/beer.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
-<main class="responsive app">
-    <h1 class="small">Reminder</h1>
-
-    <article id="error-span" class="error-container" role="alert" style="display: none"></article>
-
-    <div class="stats">
-        <div id="remaining-words-count-to-learn-span" class="chip"></div>
-        <div id="remaining-words-count-to-confirm-span" class="chip"></div>
-    </div>
-
-    <article class="border word-block">
-        <small class="field-label">Mot</small>
-        <span id="word-to-learn-span"></span>
-    </article>
-
-    <div class="row middle-align">
-        <div class="field border max">
-            <input id="translation-input" type="text" aria-label="Traduction" placeholder="Entrez la traduction…"
-                   autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"/>
+<main class="responsive large-width top-padding">
+    <nav class="wrap">
+        <h1 class="h6">Reminder</h1>
+        <div class="max"></div>
+        <div class="chip small no-border">
+            <span id="remaining-words-count-to-learn-span"></span>
+            ·
+            <span id="remaining-words-count-to-confirm-span"></span>
         </div>
-        <button id="submit-button">Valider</button>
-    </div>
+    </nav>
 
-    <article id="result-feedback" class="border" style="visibility: hidden">
-        <small class="field-label">Traduction</small>
-        <span id="real-translation-span"></span>
-        <span id="learned-badge" class="chip small primary" style="display: none">appris !</span>
+    <article aria-atomic="true" aria-live="assertive" class="error-container" id="error-span"
+             style="display: none"></article>
+
+    <article class="border">
+        <h5 id="word-to-learn-span"></h5>
     </article>
 
-    <button id="next-button" class="border">Suivant</button>
+    <div class="field large border">
+        <input aria-label="Traduction" autocapitalize="off" autocomplete="off"
+               enterkeyhint="done" id="translation-input" placeholder="Entrez la traduction…" spellcheck="false"
+               type="text"/>
+    </div>
+
+    <article class="border" id="result-feedback" style="visibility: hidden">
+        <nav>
+            <span aria-label="Résultat" class="feedback-icon max" role="img"></span>
+            <span class="chip small primary no-border" id="learned-badge" style="display: none">appris !</span>
+        </nav>
+        <h5 id="real-translation-span"></h5>
+    </article>
 </main>
-<script type="module" src="/js/main.js"></script>
+
+<!-- Beer's page grid pins this footer to the bottom; .fixed makes it sticky, in thumb reach on a phone -->
+<footer class="fixed responsive large-width">
+    <button class="responsive large" id="submit-button">Valider</button>
+    <button class="responsive large" hidden id="next-button">Suivant</button>
+</footer>
+<script src="/js/main.js" type="module"></script>
 </body>
 </html>
