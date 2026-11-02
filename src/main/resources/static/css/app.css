@@ -1,11 +1,11 @@
 /* Overrides on top of BeerCSS (vendor/beer.min.css). Keep this file small: prefer Beer's own classes. */
 
-/* Beer buttons set `display`, which beats the UA rule for the `hidden` attribute */
 /* Beer sets footer.fixed to content-box, so 100% width + side padding overflows narrow screens */
 body > footer.fixed {
     box-sizing: border-box;
 }
 
+/* Beer buttons set `display`, which beats the UA rule for the `hidden` attribute */
 button[hidden] {
     display: none !important;
 }
@@ -15,7 +15,6 @@ button[hidden] {
 }
 
 #result-feedback {
-    min-block-size: 6rem;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
