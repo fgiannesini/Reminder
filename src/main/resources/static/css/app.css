@@ -10,10 +10,6 @@ button[hidden] {
     display: none !important;
 }
 
-#word-to-learn-span {
-    transition: opacity 0.2s;
-}
-
 #result-feedback {
     transition: background-color 0.2s, border-color 0.2s;
 }

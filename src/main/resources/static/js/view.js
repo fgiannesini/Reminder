@@ -54,13 +54,9 @@ export const createView = (doc = document) => {
 
         getWord: () => el.word.textContent,
         showWord: (word) => {
-            el.word.style.opacity = '0';
             el.word.textContent = word;
             hideFeedback();
             el.input.value = '';
-            requestAnimationFrame(() => {
-                el.word.style.opacity = '';
-            });
             el.input.focus();
         },
 
