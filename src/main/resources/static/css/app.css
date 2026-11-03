@@ -48,7 +48,7 @@ button[hidden] {
 }
 
 #result-feedback.closed .feedback-icon::before {
-    content: '–';
+    content: '≈';
 }
 
 #result-feedback.not-matched .feedback-icon::before {
