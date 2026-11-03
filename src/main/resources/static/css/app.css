@@ -55,27 +55,13 @@ button[hidden] {
     content: '✗';
 }
 
-/* Spinner shown inside a button while a request is in flight */
-@keyframes btn-spin {
-    to {
-        transform: rotate(360deg);
-    }
+/* Beer's own spinner (progress.circle) sits in each button; only show it while a request is in flight */
+button:not(.loading) > progress.circle {
+    display: none;
 }
 
 button.loading {
     pointer-events: none;
-}
-
-button.loading::after {
-    content: '';
-    display: inline-block;
-    inline-size: 0.85em;
-    block-size: 0.85em;
-    margin-inline-start: 0.5rem;
-    border: 2px solid color-mix(in srgb, currentColor 35%, transparent);
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: btn-spin 0.65s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
