@@ -1,10 +1,4 @@
-import {
-    ALL_FEEDBACK_CLASSES,
-    feedbackClass,
-    formatCountToConfirm,
-    formatCountToLearn,
-    formatRealTranslation,
-} from './state.js';
+import {ALL_FEEDBACK_CLASSES, feedbackClass, formatCountToConfirm, formatCountToLearn,} from './state.js';
 
 export const createView = (doc = document) => {
     const byId = (id) => doc.getElementById(id);
@@ -80,7 +74,7 @@ export const createView = (doc = document) => {
             el.feedback.classList.remove(...ALL_FEEDBACK_CLASSES);
             const cssClass = feedbackClass(matching);
             if (cssClass) el.feedback.classList.add(cssClass);
-            el.realTranslation.textContent = formatRealTranslation(realTranslation);
+            el.realTranslation.textContent = realTranslation;
             el.learnedBadge.style.display = learned ? '' : 'none';
             if (el.feedback.getBoundingClientRect().bottom > window.innerHeight) {
                 el.feedback.scrollIntoView({behavior: 'smooth', block: 'nearest'});

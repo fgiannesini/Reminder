@@ -77,7 +77,7 @@ describe('view', () => {
         it('displays the translation and focuses the next button', () => {
             view.showFeedback({matching: 'MATCHED', realTranslation: 'chien', learned: false});
 
-            expect(byId('real-translation-span').textContent).toBe('«chien»');
+            expect(byId('real-translation-span').textContent).toBe('chien');
             expect(document.activeElement).toBe(byId('next-button'));
         });
 

@@ -34,6 +34,16 @@ button[hidden] {
     background-color: color-mix(in srgb, var(--state) 16%, var(--surface));
 }
 
+/* Long translations must wrap inside the card instead of pushing the badge out of it */
+#real-translation-span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#learned-badge {
+    flex-shrink: 0;
+}
+
 .feedback-icon {
     font-size: 1.5rem;
     line-height: 1;

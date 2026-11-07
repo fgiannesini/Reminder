@@ -4,7 +4,6 @@ import {
     feedbackClass,
     formatCountToConfirm,
     formatCountToLearn,
-    formatRealTranslation,
 } from '../../main/resources/static/js/state.js';
 
 describe('feedbackClass', () => {
@@ -39,9 +38,5 @@ describe('formatting', () => {
         [5, '5 en maîtrise'],
     ])('formats %i words to confirm', (count, expected) => {
         expect(formatCountToConfirm(count)).toBe(expected);
-    });
-
-    it('wraps the real translation in guillemets', () => {
-        expect(formatRealTranslation('chat')).toBe('«chat»');
     });
 });

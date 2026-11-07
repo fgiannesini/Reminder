@@ -59,7 +59,7 @@ describe('main (whole page)', () => {
             body: JSON.stringify({proposedTranslation: 'chien', wordToLearn: 'dog'}),
         }));
         expect(byId('result-feedback').classList.contains('matched')).toBe(true);
-        expect(byId('real-translation-span').textContent).toBe('«chien»');
+        expect(byId('real-translation-span').textContent).toBe('chien');
         expect(byId('learned-badge').style.display).toBe('');
         expect(byId('translation-input').disabled).toBe(false);
         expect(byId('submit-button').classList.contains('loading')).toBe(false);
